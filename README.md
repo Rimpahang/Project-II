@@ -5,6 +5,10 @@ Project members:
 - Avishek Karki
 - Dhruba Rai
 - Naresh Roka
+__________________
+Front-end:
+1. Home page almost completed
+2. Started working on nav links (Category)
 
 
 For reference:
