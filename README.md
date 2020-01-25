@@ -7,9 +7,11 @@ Project members:
 - Naresh Roka
 __________________
 Front-end:
-1. Home page almost completed
+1. Home page almost completed (Assembling frameworks and codes)
 2. Started working on nav links (Category)
-
+__________________
+Back-end:
+Not started yet!
 
 For reference:
 - [Bootstrap](https://getbootstrap.com/)
