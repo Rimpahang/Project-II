@@ -2,96 +2,89 @@
 <html lang="en">
 <?php include('includes/head.php'); ?>
 <body data-spy="scroll" data-target="#navbarResponsive">
-
+    <!--  Project Title  -->
 	<div class="jumbotron text-center" style="margin-bottom:0;font-family: cursive; color: blue;">
 		<h1>Khwopa Project Archive</h1>
-		<p>aka KPA</p> 
 	</div>
-	<!-- Navigation -->
-	<nav class="navbar navbar-expand-md bg-light navbar-light sticky-top">
-		<button  type="button" data-toggle="collapse" data-target="#navbarResponsive">
-			<span class="navbar-toggler-icon"></span> 
-		</button>
-		<div class="container-fluid">
-			<a class="navbar-brand" href="#"><!-- <img src="images/khwopa.png"> --> KPA Navbar</a>
-
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
-				<span class="navbar-toggler-icon"></span> 
-			</button>
-			<div class="collapse navbar-collapse" id="navbarResponsive">
-				<form class="form-inline" action="/action_page.php">
-					<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"style="margin-top: 4px;">
-					<button class="btn btn-outline-success" type="submit" style="margin-top: 4px;">Search</button>
-				</form>  
-				<ul class="navbar-nav ml-auto">
-					<li class="nav-item active">
-						<a class="nav-link " href="#">Home</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link text-success" href="#">About</a>
-					</li>
-					<li class="nav-item dropdown">
-						<a class="nav-link text-success dropdown-toggle" href="#" id="navbarDropdown"role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</a>
-						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="categories.html">Management System</a>
-          <a class="dropdown-item" href="categories.html">Commerce</a>
-          <a class="dropdown-item" href="categories.html">Robotics</a>
-          <a class="dropdown-item" href="categories.html">Games</a>
-          <a class="dropdown-item" href="categories.html">ML and AI</a>
-          <a class="dropdown-item" href="categories.html">Others</a>
+	<!-- Navigation bar-->
+	<nav class="navbar navbar-expand-lg bg-light navbar-light sticky-top">
+        <!-- Navbar toggler-->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="#">KPA Navbar</a>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+                <!--  Search bar  -->
+            <form class="form-inline" action="/search_result.php">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" style="margin-top: 4px;">
+                <button class="btn btn-outline-success" type="submit" style="margin-top: 4px;">Search</button>
+            </form>
+            <!--  Navbar links  -->
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link " href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-success" href="#">Project Titles</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link text-success dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="categories.html">Management System</a>
+                        <a class="dropdown-item" href="categories.html">Commerce</a>
+                        <a class="dropdown-item" href="categories.html">Robotics</a>
+                        <a class="dropdown-item" href="categories.html">Games</a>
+                        <a class="dropdown-item" href="categories.html">ML and AI</a>
+                        <a class="dropdown-item" href="categories.html">Others</a>
+                     </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-success" href="#">Top Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-success" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-success" href="#">Contact</a>
+                </li>
+            </ul>
         </div>
-						
-					</li>
-					<li class="nav-item">
-						<a class="nav-link text-success" href="#">Top Projects</a>
-					</li>   
-					<li class="nav-item">
-						<a class="nav-link text-success" href="#">Project Titles</a>
-					</li> 
-					<li class="nav-item">
-						<a class="nav-link text-success" href="#">Contact</a>
-					</li>
-				</ul>
-			</div> 
-		</div> 
 	</nav>
-	<!-- Image Slider -->
-	<div id="slides"class="carousel slide" data-ride="carousel" data-interval="7000">
+
+	<!-- Carousel -->
+	<div id="slides" class="carousel slide" data-ride="carousel" data-interval="7000">
 		<ul class="carousel-indicators">
-			<li data-target="#slides"data-slide-to="0" class="active"></li>
+			<li data-target="#slides" data-slide-to="0" class="active"></li>
 			<li data-target="#slides" data-slide-to="1"></li>
 			<li data-target="#slides" data-slide-to="2"></li>
 			<li data-target="#slides" data-slide-to="3"></li>
 		</ul>
 		<div class="carousel-inner">
 			<div class="carousel-item active">
-				<img src="images/khwopa.png"style="height: 400px; width: 100%;margin-top: 20px;">
-
+				<img src="images/image1.jpg" style="height: 400px; width: 100%;margin-top: 20px;">
 			</div>  
 			<div class="carousel-item">
-				<img src="images/image1.jpg"style="height: 400px; width: 100%;margin-top: 20px;">
+				<img src="images/image2.png" style="height: 400px; width: 100%;margin-top: 20px;">
 			</div> 
 			<div class="carousel-item">
-				<img src="images/image3.jpg"style="height: 400px; width: 100%;margin-top: 20px;">
+				<img src="images/image3.jpg" style="height: 400px; width: 100%;margin-top: 20px;">
 				<div class="carousel-caption">
 					<h1 class="display-9">Third Sem. Project</h1>
 					<button type="button" class="btn btn-outline-secondary btn-lg">More</button>
 					<button type="button" class="btn btn-primary btn-lg">Hello!!!</button>
-
 				</div>
 			</div> 
 			<div class="carousel-item">
-				<img src="images/image2.png"style="height: 400px;width: 100%;margin-top: 20px;">
+				<img src="images/image4.png" style="height: 400px;width: 100%;margin-top: 20px;">
 			</div> 
 		</div>
-
-		<!-- Prev and Next Buttons -->
+        <!-- Prev and Next Buttons for carousel-->
 		<a class="carousel-control-prev" href="#slides" role="button" data-slide="prev">
-			<span class="carousel-control-prev-icon" aria-hidden="true"></span></a>
-			<a class="carousel-control-next" href="#slides" role="button" data-slide="next">
-				<span class="carousel-control-next-icon" aria-hidden="true"></span></a>
-			</div> 
-			<!-- Jumbotron -->
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span></a>
+        <a class="carousel-control-next" href="#slides" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span></a>
+    </div>
+			<!-- Registration Request -->
 			<div class="container-fluid">
 				<div class="row jumbotron">
 					<div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xl-10">
@@ -146,7 +139,7 @@
 
 							</div>
 							<div class="col-lg-4">
-								<img src="images/image4.png" class="img-fluid img-thumbnail"style="height: 300px; width: 80%;margin-right: 80%;">
+								<img src="images/image4.png" class="img-fluid img-thumbnail" style="height: 300px; width: 80%;margin-right: 80%;">
 							</div>
 							<!---Quick Links-->
 							<div class="col-md-4 notice-bar" style="background-color: orange;">
@@ -172,13 +165,13 @@
 							</div>
 							<div class="col-sm-3">
 							    <div class="zoom">
-								<img src="images/analyze.jpg" class="rounded-circle"id="icon" style="height: 160px;">
+								<img src="images/analyze.jpg" class="rounded-circle" id="icon" style="height: 160px;">
 								<h4>Analyze</h4>
 								</div>
 							</div>
 								<div class="col-sm-3">
 									<div class="zoom">
-									<img src="images/evaluate.png" class="rounded-circle"id="icon" style="height: 160px;">
+									<img src="images/evaluate.png" class="rounded-circle" id="icon" style="height: 160px;">
 									<h4>Evaluate</h4>
 								</div>
 								</div>
@@ -201,12 +194,12 @@
 								<hr class="hr1">
 								<!---Accordion-->
 								<div class="container">
- <center><h2 >Be KPA's Member For:</h2></center> 
+ <h2 style="text-align: center;">Be KPA's Member For:</h2>
   <p>As you <strong>register in KPA</strong> and <strong>become member</strong> you come across with various facilities which would enrich your surfing experience on KPA.</p>
   <div id="accordion">
     <div class="card">
       <div class="card-header">
-        <a class="card-link" data-toggle="collapse" href="#collapseOne" >
+        <a class="collapsed card-link" data-toggle="collapse" href="#collapseOne" >
           <p class="text-success">Project Discussion</p>
         </a>
       </div>
@@ -242,12 +235,30 @@
     </div>
   </div>
 </div><br><br>
+
+<!-- Comment using Ckeditor5 -->
+    <form action="/receive_feedback.php">
+        <div class="form-group">
+            <div class="justify-content-center d-flex col-sm-12">
+                <label for="editor">Feedback:</label>
+                <div class="col-md-8" style="min-height: 200px;">
+                    <textarea id="editor" placeholder="Please leave your feedback here!">
+                    </textarea>
+                    <div class="text-right mt-2">
+                        <button type="submit" class="btn btn-primary sub">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </form>
+
 <!--- Footer-->
 <footer class="container-fluid text-center">
 	<div class="row">
 		<div class="col-sm-3">
 			<h3>Meet the Team</h3>
-			<h5>Our address and contact info here</h45>
+			<h5>Our address and contact info here</h5>
 		</div>
 		<div class="col-sm-3">
 			<h3>Contact Us</h3>
@@ -266,12 +277,18 @@
 			<img src="images/kpa.jpg" class="icon" alt="KPA">
 		</div>
 	</div>
-
 </footer>
 	<div class="col-xs-12" style="background: brown;">
 		<h5 style="text-align: center; color: white; font-size: 15px;"><i class="fa fa-copyright" style="font-size:16px">  2020 KPA</i></h5>
 	</div>
-	
-
 </body>
 </html>
+
+<!--Query for ckeditor-->
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#editor' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+</script>
