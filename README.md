@@ -11,7 +11,7 @@ Front-end:
 2. Started working on nav links (Category)
 __________________
 Back-end:
-Not started yet!
+1. Started working on login and signup
 
 For reference:
 - [Bootstrap](https://getbootstrap.com/)
