@@ -7,18 +7,19 @@
 		<h1>Khwopa Project Archive</h1>
 	</div>
 	<!-- Navigation bar-->
-	<nav class="navbar navbar-expand-lg bg-light navbar-light sticky-top">
+	<nav class="navbar navbar-expand-lg bg-light navbar-light sticky-top mt-1">
         <!-- Navbar toggler-->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand" href="#">KPA Navbar</a>
         <div class="collapse navbar-collapse" id="navbarResponsive">
                 <!--  Search bar  -->
-            <form class="form-inline" action="/search_result.php">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" style="margin-top: 4px;">
-                <button class="btn btn-outline-success" type="submit" style="margin-top: 4px;">Search</button>
-            </form>
+            <ul class="list-group-horizontal navbar-nav">
+                <li class="form-inline" role="search" id="navBarSearch" action="/search_result.php">
+                    <li><input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" style="margin-top: 4px;"></li>
+                    <li class="ml-2"><button class="btn btn-outline-success " type="submit" style="margin-top: 4px;">Search</button></li>
+             </form>
+            </ul>
             <!--  Navbar links  -->
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
@@ -52,7 +53,7 @@
 	</nav>
 
 	<!-- Carousel -->
-	<div id="slides" class="carousel slide" data-ride="carousel" data-interval="7000">
+	<div id="slides" class="carousel slide " data-ride="carousel" data-interval="4000">
 		<ul class="carousel-indicators">
 			<li data-target="#slides" data-slide-to="0" class="active"></li>
 			<li data-target="#slides" data-slide-to="1"></li>
@@ -85,16 +86,19 @@
             <span class="carousel-control-next-icon" aria-hidden="true"></span></a>
     </div>
 			<!-- Registration Request -->
-			<div class="container-fluid">
-				<div class="row jumbotron">
+			<div class="container-fluid fixed-bottom reg">
+				<div class="container-fluid fixed-bottom reg jumbotron d-md-flex justify-content-center align-items-center position-relative bg-info">
 					<div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xl-10">
-						<p class="para">This is the online collection of old projects done in our college. Want to become member??? Click the button and be our friend rather than guest.</ p>
-						</div>
-						<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-2">
-							<a href="#"><button type="button" class="btn btn-outline-secondary btn-light">Register</button></a>
-						</div>
-					</div>
-				</div>
+						<p class="para">This is the online collection of old projects done in our college. Want to become member? Click the button and be our friend rather than guest.</ p>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 col-xl-2 d-inline-block">
+                        <a href="#"><button type="button" class="btn btn-outline-success btn-light">Register</button></a>
+                    </div>
+                    <div class="fa fa-times position-absolute" id="reg-cross" style="color: black; right: 2px; top: 1px;"></div>
+
+                </div>
+            </div>
+
 				<!---Welcome Section--->
 				<div  class="container-fluid padding">
 					<div class="row welcome text-center">
@@ -179,7 +183,7 @@
 						</div>
 					</div>
 						<hr class="hr1">
-												<!--Language-->
+                        <!--Language-->
 
 						<div class="container">
 							<div class="row">
@@ -291,4 +295,11 @@
         .catch( error => {
             console.error( error );
         } );
+
+    //jquery for registration request fadeout
+    $(document).ready(function () {
+        $("#reg-cross").click(function () {
+        $(".reg").fadeOut();
+        });
+    });
 </script>
