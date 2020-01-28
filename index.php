@@ -242,9 +242,11 @@
 
 <!-- Comment using Ckeditor5 -->
     <form action="/receive_feedback.php">
+	    <center><label for="editor">
+		    <h4 class="font-weight-bolder" style="text-align: center;">Leave Feedback</h4>
+		    </label></center><br>
         <div class="form-group">
             <div class="justify-content-center d-flex col-sm-12">
-                <label for="editor">Feedback:</label>
                 <div class="col-md-8" style="min-height: 200px;">
                     <textarea id="editor" placeholder="Please leave your feedback here!">
                     </textarea>
@@ -262,7 +264,7 @@
 	<div class="row">
 		<div class="col-sm-3">
 			<h3>Meet the Team</h3>
-			<h5>Our address and contact info here</h5>
+			<h5>Our address and contact info here</h45>
 		</div>
 		<div class="col-sm-3">
 			<h3>Contact Us</h3>
@@ -272,19 +274,21 @@
 		</div>
 		<div class="col-sm-3">
 			<h3>Connect</h3>
-			<a href="#" class="fa fa-facebook" title="facebook"></a>
-			<a href="#" class="fa fa-twitter" title="twitter"></a>
-			<a href="#" class="fa fa-google" title="google"></a>
-			<a href="#" class="fa fa-youtube" title="youtube"></a>
+			<a href="#" class="fab fa-facebook-square" title="facebook" style="font-size: 30px"></a>
+			<a href="#" class="fab fa-twitter-square" title="twitter" style="font-size: 30px"></a>
+			<a href="#" class="fab fa-google" title="google" style="font-size: 30px"></a>
+			<a href="#" class="fab fa-youtube-square" title="youtube" style="font-size: 30px; background: grey; "></a>
 		</div>
 		<div class="col-sm-3">
 			<img src="images/kpa.jpg" class="icon" alt="KPA">
 		</div>
 	</div>
+
 </footer>
-	<div class="col-xs-12" style="background: brown;">
-		<h5 style="text-align: center; color: white; font-size: 15px;"><i class="fa fa-copyright" style="font-size:16px">  2020 KPA</i></h5>
+	<div class="col-xs-12" style="background: brown; height: 22px;">
+		<h5 style="text-align: center; color: white; font-size: 15px;"><i class="fa fa-copyright" style="font-size:16px;margin-top: 3px;">  2020 KPA</i></h5>
 	</div>
+
 </body>
 </html>
 
