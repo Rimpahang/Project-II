@@ -89,12 +89,12 @@
 			<div class="container-fluid fixed-bottom reg">
 				<div class="container-fluid fixed-bottom reg jumbotron d-md-flex justify-content-center align-items-center position-relative bg-info">
 					<div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xl-10">
-						<p class="para">This is the online collection of old projects done in our college. Want to become member? Click the button and be our friend rather than guest.</ p>
+						<p class="para">Want to become member? Click the button and be our friend rather than guest.</p>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 col-xl-2 d-inline-block">
                         <a href="#"><button type="button" class="btn btn-outline-success btn-light">Register</button></a>
                     </div>
-                    <div class="fa fa-times position-absolute" id="reg-cross" style="color: black; right: 2px; top: 1px;"></div>
+                    <div class="fa fa-times position-absolute" id="reg-cross" style="color: black; right: 20px; top: 3px;"></div>
 
                 </div>
             </div>
