@@ -71,6 +71,13 @@
   			padding: 10px;
   		}
   	}
+			.fas{
+  		color: #fff;
+  	}
+  	.fas:hover{
+  		color: yellow;
+  		text-decoration: none;
+  	}
   	
         #reg-cross:hover{
             cursor: pointer;
