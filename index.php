@@ -7,7 +7,7 @@
 		<h1>Khwopa Project Archive</h1>
 	</div>
 	<!-- Navigation bar-->
-	<nav class="navbar navbar-expand-lg bg-light navbar-light sticky-top mt-1">
+	<nav class="navbar navbar-expand-md bg-light navbar-light sticky-top mt-1">
         <!-- Navbar toggler-->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
             <span class="navbar-toggler-icon"></span>
@@ -279,8 +279,13 @@
 			<a href="#" class="fab fa-google" title="google" style="font-size: 30px"></a>
 			<a href="#" class="fab fa-youtube-square" title="youtube" style="font-size: 30px; background: grey; "></a>
 		</div>
+		<!---KPA info at footer--->
 		<div class="col-sm-3">
-			<img src="images/kpa.jpg" class="icon" alt="KPA">
+			<img src="images/kpa.jpg" class="icon" alt="KPA"><br><br>
+			<a href="#" class="fas fa-home" title="Home" style="font-size: 17px;margin-right: 10px;"></a>||
+			<a href="#" class="fas fa-id-card-alt" title="Contact" style="font-size: 17px;margin-left: 10px;margin-right: 10px;"></a>||
+			<a href="#" class="fas fa-comment-dots" title="Feedback" style="font-size: 17px;margin-left: 10px;margin-right: 10px;"></a>||
+				<a href="#" class="fas fa-question" title="FAQs" style="font-size: 17px;margin-left: 10px;"></a>
 		</div>
 	</div>
 
