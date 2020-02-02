@@ -107,7 +107,7 @@
 						</div>
 						<hr>
 						<div class="col-12">
-							<p class="lead">Welcome to the KPA website.wegegetgergscnwebfwehiuhvnfewj hwfhuygscjwq</p>
+							<p class="lead">Khwopa Project Archive Khwopa Project Archive Khwopa Project Archive</p>
 						</div>
 					</div>
 				</div><br>
@@ -116,16 +116,16 @@
 					<div class="row text-center padding">
 						<div class="col-xs-12 col-sm-6 col-md-4">
 							<a href="#"><h3 class="text-info">Student</h3></a>
-							<p>wefwceweewwe</p>
+							<p>Khwopa Project Archive</p>
 						</div>
 						<div class="col-xs-12 col-sm-6 col-md-4">
 							<a href="#"><h3 class="text-info">Teacher</h3></a>
-							<p>wefwceweewwe</p>
+							<p>Khwopa Project Archive</p>
 						</div>
 						<div class="col-sm-12 col-md-4">
 							<i class="fab fa-code"></i>
 							<a href="#"><h3 class="text-info">Supervisior</h3></a>
-							<p>wefwceweewwe</p>
+							<p>Khwopa Project Archive</p>
 						</div>
 					</div>
 					<hr class="my-4">
@@ -135,10 +135,10 @@
 					<div class="row padding">
 						<div class="col-lg-4">
 							<h2>More About KPA...</h2>
-							<p>vhbyujnmjnuhuedrvghghukj</p>
-							<p>hgyf65eerctvybnuy6rdvbhy6tygdrtyghbnjtfyftfhb</p>
+							<p>Khwopa Project Archive Khwopa Project Archive</p>
+							<p>Khwopa Project Archive Khwopa Project Archive Khwopa Project Archive</p>
 							<div id="more" class="collapse">
-								fgdcvhbjhyuhbn,mnyfujbmkjguygyuftrss<br>jhuggbjguytyjhjjhftyff.</div><br>
+								Khwopa Project Archive Khwopa Project Archive<br>Khwopa Project Archive Khwopa Project Archive</div><br>
 								<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#more">Read More</button><br><br>
 
 							</div>
@@ -190,8 +190,8 @@
 								<h4 class="font-weight-bolder"><a href="#hidden" data-toggle="collapse">Khwopa Project Archive</a></h4>
 								<div id="hidden" class="collapse">
 								<h4>KPA for students and college...</h4>
-								<p>jjewf fns fniuesfhiwuufkjncjkkfuregherugw fbuish sdvbefnwjuieghuhfkndfkwjqhiuehuivhiusvsfnewjkfniuehvushvskcnjnweiuhuieshuvhsih</p>
-								<p>efuewhfewhfwrjnfudshchfWUHJKQNRUFHUFHK EFHIWEHF WIUFHIWFHEIF EWUEFH FEWF F EWWEFHEIWFH FHWF9PFKWFENGIOFEWJ </p>	
+								<p>Khwopa Project Archive Khwopa Project Archive Khwopa Project Archive Khwopa Project Archive Khwopa Project Archive Khwopa Project Archive Khwopa Project Archive</p>
+								<p>Khwopa Project Archive Khwopa Project Archive Khwopa Project Archive Khwopa Project Archive Khwopa Project Archive</p>	
 								</div>
 								</div>
 								</div> 
