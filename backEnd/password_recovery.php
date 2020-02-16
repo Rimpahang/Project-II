@@ -7,12 +7,15 @@ use PHPMailer\PHPMailer\Exception;
 if (isset($_POST['sub'])) {
     $email = $_POST['email'];
 
+require_once('includes/DBconnect.php');
+$validate_email_sql = "SELECT * FROM `user` WHERE `email` = '$email' AND `status` = '1'";
+$result = mysqli_query($conn, $validate_email_sql);
+if (mysqli_num_rows($result) > 0) {
 //generate recovery key
     $rekey = rand(100000, 999999);
     date_default_timezone_set('Asia/Kathmandu');
     $sent_date = strtotime(date('Y-m-d H:i:s'));
 
-    require_once('includes/DBconnect.php');
     $pwd_recovery_key_sql = "INSERT INTO `pwd_reset` (`email`, `reset_key`,`sent_time`) VALUES ('$email', '$rekey', '$sent_date')";
 
     if (mysqli_query($conn, $pwd_recovery_key_sql)) {
@@ -53,12 +56,19 @@ if (isset($_POST['sub'])) {
 
             $mail->send();
             echo 'Message has been sent';
-            header("location: verify_pwd_reset_key.php?email=$email");
+
+            //getting id from db to sent to another page
+            $get_id_sql = "SELECT * FROM `pwd_reset` WHERE `email` = '$email' AND `status` = 1";
+            $pwd_reset_data = mysqli_query($conn, $get_id_sql);
+            $data = mysqli_fetch_assoc($pwd_reset_data);
+            header("location: verify_pwd_reset_key.php?id=$data[id]");
         } catch (Exception $e) {
             echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
         }
-    }else
-        die("Error").mysqli_error();
+    } else
+        die("Error") . mysqli_error();
+}else
+    echo("No such email is registered to us!");
 }
 ?>
 <!DOCTYPE html>
