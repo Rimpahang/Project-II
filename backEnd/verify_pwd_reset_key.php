@@ -1,22 +1,34 @@
 <?php
-$email = @$_GET['email'];
+$id = @$_GET['id'];
 if (isset($_POST['sub'])) {
     $key = $_POST['key'];
+
+    require_once('includes/DBconnect.php');
+
+    $get_email_sql = "SELECT * FROM `pwd_reset` WHERE `id` = '$id'";
+    $pwd_reset_data = mysqli_query($conn, $get_email_sql);
+    $data = mysqli_fetch_assoc($pwd_reset_data);
+
     date_default_timezone_set('Asia/Kathmandu');
     $date_now = strtotime(date('Y-m-d H:i:s'));
 
-    require_once('includes/DBconnect.php');
-    $pwd_reset_key_verify_sql = "SELECT * FROM `pwd_reset` WHERE `email` = '$email' AND `reset_key`= '$key'";
+    $expire_key_sql = "UPDATE `pwd_reset` SET `status` = 0 WHERE `email` = '$data[email]' AND `reset_key` = '$key'";
+    $pwd_reset_key_verify_sql = "SELECT * FROM `pwd_reset` WHERE `email` = '$data[email]' AND `reset_key`= '$key'";
+
     $result = mysqli_query($conn, $pwd_reset_key_verify_sql);
     if(mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_assoc($result);
         $date_then = $row['sent_time'];
-        if($date_now - $date_then <= 600000){      //for testing time is set to 60s
-            header("location: set_new_pwd.php?email=$email");
+        if($date_now - $date_then <= 5000){      //reset key expire time in second
+            mysqli_query($conn, $expire_key_sql);
+
+            header("location: set_new_pwd.php?id=$id");
         }
         else {
-            echo('Key Expired');
-            $expire_sql = "UPDATE `pwd_reset` SET `status` = 0 WHERE `email` = $email";
+//          echo('Key Expired');
+            if(mysqli_query($conn, $expire_key_sql)){
+                echo 'status updated';
+            }
         }
     }
     else
