@@ -8,7 +8,8 @@ Project members:
 __________________
 Front-end:
 1. Home page almost completed (Assembling frameworks and codes)
-2. Started working on nav links (Category)
+2. Nav link - Category completed
+3. Started Working on nav link - Notices
 __________________
 Back-end:
 1. Login and signup completed
