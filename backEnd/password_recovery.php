@@ -50,7 +50,7 @@ if (mysqli_num_rows($result) > 0) {
 
             // Content
             $mail->isHTML(true);                                  // Set email format to HTML
-            $mail->Subject = 'Password Recovery';
+            $mail->Subject = 'Password Reset';
             $mail->Body = 'Dear, User your password reset key is:<br><b>' . $rekey . '</b><br>Please do not share this key with anyone.';
             $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
@@ -74,7 +74,7 @@ if (mysqli_num_rows($result) > 0) {
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Password Recovery - Khwopa Project Archive</title>
+    <title>Password Reset - Khwopa Project Archive</title>
     <?php include('includes/head.php'); ?>
 </head>
 <body>

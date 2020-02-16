@@ -41,12 +41,12 @@ if (isset($_POST['sub'])) {
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Sign Up - Khwopa Project Archive</title>
+    <title>Password Reset - Khwopa Project Archive</title>
     <?php include('includes/head.php'); ?>
 </head>
 <body>
 <div class="container-fluid col-md-5 col-sm-12 bg-success">
-    <h2 style="text-align: center;">Khwopa Project Archive - User SignUp</h2>
+    <h2 style="text-align: center;">Enter Password Reset Key</h2>
     <form method="POST" name="user-signup">
         <div class="form-group" name="pwd_reset_key">
             <label for="key">Name:</label>
