@@ -4,7 +4,7 @@ if (isset($_POST['sub'])) {
 	$user = $_POST['uname'];
 	$pass = md5($_POST['pwd']);
 
-$sql = "SELECT * FROM `user` WHERE `username` = '$user' AND `password` = '$pass'";
+$sql = "SELECT * FROM `kpa_user` WHERE `username` = '$user' AND `password` = '$pass'";
 require_once("backEnd/includes/DBconnect.php");
 $result = mysqli_query($conn, $sql);
 

@@ -7,7 +7,7 @@ if (isset($_POST['sub'])) {
 	$repass = md5($_POST['re-pwd']);
 
 require_once('backEnd/includes/DBconnect.php');
-$signup_sql = "INSERT INTO `user` (`name`, `username`, `email`, `password`) VALUES ('$name','$uname', '$email', md5('$fpass'))";
+$signup_sql = "INSERT INTO `kpa_user` (`name`, `username`, `email`, `password`) VALUES ('$name','$uname', '$email', md5('$fpass'))";
 
 if(mysqli_query($conn, $signup_sql)) {
 	echo "Account created succesfully!";
