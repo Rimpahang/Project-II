@@ -14,7 +14,8 @@ __________________
 Back-end:
 1. Login and signup completed
 2. Password reset completed
-3. Started Working on email notice
+3. Email notification completed
+4. Started working on chat system
 __________________
 
 For reference:
