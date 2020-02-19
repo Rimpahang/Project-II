@@ -5,15 +5,15 @@ if (isset($_POST['sub'])) {
 
     require_once('includes/DBconnect.php');
 
-    $get_email_sql = "SELECT * FROM `pwd_reset` WHERE `id` = '$id'";
+    $get_email_sql = "SELECT * FROM `kpa_pwd_reset` WHERE `id` = '$id'";
     $pwd_reset_data = mysqli_query($conn, $get_email_sql);
     $data = mysqli_fetch_assoc($pwd_reset_data);
 
     date_default_timezone_set('Asia/Kathmandu');
     $date_now = strtotime(date('Y-m-d H:i:s'));
 
-    $expire_key_sql = "UPDATE `pwd_reset` SET `status` = 0 WHERE `email` = '$data[email]' AND `reset_key` = '$key'";
-    $pwd_reset_key_verify_sql = "SELECT * FROM `pwd_reset` WHERE `email` = '$data[email]' AND `reset_key`= '$key'";
+    $expire_key_sql = "UPDATE `kpa_pwd_reset` SET `status` = 0 WHERE `email` = '$data[email]' AND `reset_key` = '$key'";
+    $pwd_reset_key_verify_sql = "SELECT * FROM `kpa_pwd_reset` WHERE `email` = '$data[email]' AND `reset_key`= '$key'";
 
     $result = mysqli_query($conn, $pwd_reset_key_verify_sql);
     if(mysqli_num_rows($result) > 0) {

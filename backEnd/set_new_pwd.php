@@ -6,11 +6,11 @@ if (isset($_POST['sub'])) {
 
     require_once('includes/DBconnect.php');
 
-    $get_email_sql = "SELECT * FROM `pwd_reset` WHERE `id` = '$id'";
+    $get_email_sql = "SELECT * FROM `kpa_pwd_reset` WHERE `id` = '$id'";
     $pwd_reset_data = mysqli_query($conn, $get_email_sql);
     $data = mysqli_fetch_assoc($pwd_reset_data);
 
-    $pwd_reset_sql = "UPDATE `user` SET `password` = md5('$pass') WHERE `email` = '$data[email]'";
+    $pwd_reset_sql = "UPDATE `kpa_user` SET `password` = md5('$pass') WHERE `email` = '$data[email]'";
 
     if(mysqli_query($conn, $pwd_reset_sql)) {
         echo "New Password changed succesfully!";
