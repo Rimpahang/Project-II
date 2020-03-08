@@ -1,3 +1,20 @@
+<?php
+require_once("backEnd/includes/DBconnect.php");
+$get_data_sql = "SELECT * FROM `kpa_project_list`";
+$result_data = mysqli_query($conn, $get_data_sql);
+if (mysqli_num_rows($result_data) > 0) {
+    $json_array = array();
+    while ($row = mysqli_fetch_assoc($result_data)) {
+        $json_array[] = $row;
+
+    }
+}
+ $jencode = json_encode($json_array);
+
+file_put_contents('search_json'.'.json',$jencode);
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <?php include('includes/head.php'); ?>
@@ -15,11 +32,13 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
                 <!--  Search bar  -->
             <ul class="list-group-horizontal navbar-nav">
-                <li class="form-inline" role="search" id="navBarSearch" action="/search_result.php">
-                    <li><input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" style="margin-top: 4px;"></li>
+                <form class="form-inline" role="search" action="/search_result.php">
+                    <li><input class="form-control mr-sm-2" type="search" placeholder="Search" id="navBarSearch" aria-label="Search" style="margin-top: 4px;"></li>
                     <li class="ml-2"><button class="btn btn-outline-success " type="submit" style="margin-top: 4px;">Search</button></li>
-             </form>
+                </form>
             </ul>
+            <ul class="list-group" id="sResult"></ul>
+
             <!--  Navbar links  -->
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
@@ -302,4 +321,24 @@
         $(".reg").fadeOut();
         });
     });
+
+// live search using JSON and JQuery AJAX
+$(document).ready(function(){
+    $.ajaxSetup({ cache: false })
+    $('#navBarSearch').keyup(function(){
+        $('#sResult').html('');
+        var sText = $('#navBarSearch').val();
+        if (sText != ''){
+            var expression = new RegExp(sText, "i");
+            $.getJSON('search_json.json', function(data) {
+                $.each(data, function(key, value){
+                    if (value.project_title.search(expression) != -1 || value.semester.search(expression) != -1) {
+                        $('#sResult').append('<li class="list-group-item link-class" height="50" width="50">' + value.project_title + ' | <span class="text-muted">' + value.semester + '</span></li>');
+                    }
+                });
+            });
+        }
+    });
+});
+
 </script>
