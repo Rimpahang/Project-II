@@ -56,21 +56,29 @@
   		padding: 1%;
   		color: #fff;
   	}
-  	.fa{
-  		padding: 15px;
+  	.fab{
+  		padding: 5px;
   		font-size: 25px;
   		color: #fff;
   	}
-  	.fa:hover{
-  		color: orange;
+  	.fab:hover{
+  		color: rgb(60, 60, 200);
   		text-decoration: none;
   	}
   	@media(max-width: 900px){
-  		.fa{
+  		.fab{
   			font-size: 20px;
   			padding: 10px;
   		}
   	}
+			.fas{
+  		color: #fff;
+  	}
+  	.fas:hover{
+  		color: yellow;
+  		text-decoration: none;
+  	}
+  	
         #reg-cross:hover{
             cursor: pointer;
         }
