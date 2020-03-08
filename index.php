@@ -24,7 +24,7 @@ file_put_contents('search_json'.'.json',$jencode);
 		<h1>Khwopa Project Archive</h1>
 	</div>
 	<!-- Navigation bar-->
-	<nav class="navbar navbar-expand-lg bg-light navbar-light sticky-top mt-1">
+	<nav class="navbar navbar-expand-md bg-light navbar-light sticky-top mt-1">
         <!-- Navbar toggler-->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
             <span class="navbar-toggler-icon"></span>
@@ -108,12 +108,12 @@ file_put_contents('search_json'.'.json',$jencode);
 			<div class="container-fluid fixed-bottom reg">
 				<div class="container-fluid fixed-bottom reg jumbotron d-md-flex justify-content-center align-items-center position-relative bg-info">
 					<div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xl-10">
-						<p class="para">This is the online collection of old projects done in our college. Want to become member? Click the button and be our friend rather than guest.</ p>
+						<p class="para">Want to become member? Click the button and be our friend rather than guest.</p>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 col-xl-2 d-inline-block">
                         <a href="#"><button type="button" class="btn btn-outline-success btn-light">Register</button></a>
                     </div>
-                    <div class="fa fa-times position-absolute" id="reg-cross" style="color: black; right: 2px; top: 1px;"></div>
+                    <div class="fa fa-times position-absolute" id="reg-cross" style="color: black; right: 20px; top: 3px;"></div>
 
                 </div>
             </div>
@@ -261,9 +261,11 @@ file_put_contents('search_json'.'.json',$jencode);
 
 <!-- Comment using Ckeditor5 -->
     <form action="/receive_feedback.php">
+	    <center><label for="editor">
+		    <h4 class="font-weight-bolder" style="text-align: center;">Leave Feedback</h4>
+		    </label></center><br>
         <div class="form-group">
             <div class="justify-content-center d-flex col-sm-12">
-                <label for="editor">Feedback:</label>
                 <div class="col-md-8" style="min-height: 200px;">
                     <textarea id="editor" placeholder="Please leave your feedback here!">
                     </textarea>
@@ -281,7 +283,7 @@ file_put_contents('search_json'.'.json',$jencode);
 	<div class="row">
 		<div class="col-sm-3">
 			<h3>Meet the Team</h3>
-			<h5>Our address and contact info here</h5>
+			<h5>Our address and contact info here</h45>
 		</div>
 		<div class="col-sm-3">
 			<h3>Contact Us</h3>
@@ -291,19 +293,26 @@ file_put_contents('search_json'.'.json',$jencode);
 		</div>
 		<div class="col-sm-3">
 			<h3>Connect</h3>
-			<a href="#" class="fa fa-facebook" title="facebook"></a>
-			<a href="#" class="fa fa-twitter" title="twitter"></a>
-			<a href="#" class="fa fa-google" title="google"></a>
-			<a href="#" class="fa fa-youtube" title="youtube"></a>
+			<a href="#" class="fab fa-facebook-square" title="facebook" style="font-size: 30px"></a>
+			<a href="#" class="fab fa-twitter-square" title="twitter" style="font-size: 30px"></a>
+			<a href="#" class="fab fa-google" title="google" style="font-size: 30px"></a>
+			<a href="#" class="fab fa-youtube-square" title="youtube" style="font-size: 30px; background: grey; "></a>
 		</div>
+		<!---KPA info at footer--->
 		<div class="col-sm-3">
-			<img src="images/kpa.jpg" class="icon" alt="KPA">
+			<img src="images/kpa.jpg" class="icon" alt="KPA"><br><br>
+			<a href="#" class="fas fa-home" title="Home" style="font-size: 17px;margin-right: 10px;"></a>||
+			<a href="#" class="fas fa-id-card-alt" title="Contact" style="font-size: 17px;margin-left: 10px;margin-right: 10px;"></a>||
+			<a href="#" class="fas fa-comment-dots" title="Feedback" style="font-size: 17px;margin-left: 10px;margin-right: 10px;"></a>||
+				<a href="#" class="fas fa-question" title="FAQs" style="font-size: 17px;margin-left: 10px;"></a>
 		</div>
 	</div>
+
 </footer>
-	<div class="col-xs-12" style="background: brown;">
-		<h5 style="text-align: center; color: white; font-size: 15px;"><i class="fa fa-copyright" style="font-size:16px">  2020 KPA</i></h5>
+	<div class="col-xs-12" style="background: brown; height: 22px;">
+		<h5 style="text-align: center; color: white; font-size: 15px;"><i class="fa fa-copyright" style="font-size:16px;margin-top: 3px;">  2020 KPA</i></h5>
 	</div>
+
 </body>
 </html>
 
@@ -340,5 +349,5 @@ $(document).ready(function(){
         }
     });
 });
-
+  
 </script>
