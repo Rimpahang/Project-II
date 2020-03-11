@@ -7,6 +7,7 @@
 	<script src="../bootstrap/js/jquery.min.js"></script>
 	<script src="../bootstrap/js/bootstrap.min.js"></script>
   <script src="../ckeditor5-build-classic/ckeditor.js"></script>
+  <script src="chart.min.js"></script>
 
 	<style>
 	.fakeimg {
