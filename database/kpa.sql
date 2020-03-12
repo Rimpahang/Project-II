@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.2
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 08, 2020 at 04:51 PM
--- Server version: 10.4.10-MariaDB
--- PHP Version: 7.1.33
+-- Generation Time: Mar 12, 2020 at 10:58 AM
+-- Server version: 10.1.39-MariaDB
+-- PHP Version: 7.3.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,18 +25,6 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kpa_language`
---
-
-CREATE TABLE `kpa_language` (
-  `id` int(6) NOT NULL,
-  `language_name` varchar(100) NOT NULL,
-  `project_id` int(6) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `kpa_notice`
 --
 
@@ -46,8 +34,8 @@ CREATE TABLE `kpa_notice` (
   `notice_text` text NOT NULL,
   `notifier_user_id` int(6) NOT NULL,
   `notifier_email` varchar(100) NOT NULL,
-  `published_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `status` tinyint(4) NOT NULL DEFAULT 1
+  `published_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `status` tinyint(4) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -62,6 +50,36 @@ INSERT INTO `kpa_notice` (`id`, `notice_topic`, `notice_text`, `notifier_user_id
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `kpa_programming_language`
+--
+
+CREATE TABLE `kpa_programming_language` (
+  `id` int(6) NOT NULL,
+  `language_name` varchar(100) NOT NULL,
+  `project_code` int(6) NOT NULL,
+  `project_year` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `kpa_programming_language`
+--
+
+INSERT INTO `kpa_programming_language` (`id`, `language_name`, `project_code`, `project_year`) VALUES
+(1, 'HTML', 111111, '2074'),
+(2, 'PHP', 222222, '2074'),
+(3, 'HTML', 111111, '2075'),
+(4, 'PHP', 222222, '2075'),
+(5, 'JavaScript', 444444, '2076'),
+(6, 'JavaScript', 444444, '2076'),
+(7, 'HTML', 555555, '2076'),
+(8, 'PHP', 0, '2076'),
+(9, 'PHP', 223454, '2076'),
+(10, 'PHP', 767676, '2076'),
+(11, 'PHP', 656565, '2076');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `kpa_project_list`
 --
 
@@ -71,9 +89,9 @@ CREATE TABLE `kpa_project_list` (
   `year` varchar(4) NOT NULL,
   `semester` enum('First','Second','Third','Fourth','Fifth','Sixth','Seventh','Eighth') NOT NULL,
   `project_code` int(6) NOT NULL,
-  `is_verified` tinyint(1) NOT NULL DEFAULT 1,
+  `is_verified` tinyint(1) NOT NULL DEFAULT '1',
   `verified_by_id` int(6) NOT NULL,
-  `status` tinyint(1) NOT NULL DEFAULT 1,
+  `status` tinyint(1) NOT NULL DEFAULT '1',
   `supervisor_id` int(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -96,9 +114,9 @@ CREATE TABLE `kpa_pwd_reset` (
   `id` int(6) NOT NULL,
   `email` varchar(100) NOT NULL,
   `reset_key` int(6) NOT NULL,
-  `sent_date` timestamp NOT NULL DEFAULT current_timestamp(),
+  `sent_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `sent_time` varchar(50) NOT NULL,
-  `status` tinyint(1) NOT NULL DEFAULT 1
+  `status` tinyint(1) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -124,13 +142,13 @@ CREATE TABLE `kpa_user` (
   `password` varchar(32) COLLATE utf8mb4_unicode_ci NOT NULL,
   `user_type` enum('normal_user','admin','super_admin','guest') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'normal_user',
   `secret_key` varchar(32) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `remarks` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `postby_id` int(6) DEFAULT 1,
-  `created_at` timestamp NULL DEFAULT current_timestamp(),
-  `is_verified` tinyint(1) DEFAULT 0,
-  `verifiedby_id` int(6) DEFAULT 1,
-  `updated_at` datetime DEFAULT NULL ON UPDATE current_timestamp(),
-  `status` tinyint(1) DEFAULT 1
+  `remarks` text COLLATE utf8mb4_unicode_ci,
+  `postby_id` int(6) DEFAULT '1',
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `is_verified` tinyint(1) DEFAULT '0',
+  `verifiedby_id` int(6) DEFAULT '1',
+  `updated_at` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `status` tinyint(1) DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -148,15 +166,15 @@ INSERT INTO `kpa_user` (`id`, `name`, `username`, `email`, `password`, `user_typ
 --
 
 --
--- Indexes for table `kpa_language`
---
-ALTER TABLE `kpa_language`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `kpa_notice`
 --
 ALTER TABLE `kpa_notice`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `kpa_programming_language`
+--
+ALTER TABLE `kpa_programming_language`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -186,16 +204,16 @@ ALTER TABLE `kpa_user`
 --
 
 --
--- AUTO_INCREMENT for table `kpa_language`
---
-ALTER TABLE `kpa_language`
-  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `kpa_notice`
 --
 ALTER TABLE `kpa_notice`
   MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `kpa_programming_language`
+--
+ALTER TABLE `kpa_programming_language`
+  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `kpa_project_list`
