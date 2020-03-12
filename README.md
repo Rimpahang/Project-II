@@ -8,7 +8,9 @@ Project members:
 __________________
 Front-end:
 1. Home page almost completed
-2. Started working on nav links (Category)
+2. Started working on nav links
+   2.1 "Categories" completed almost
+   2.2 Working on "Add Project"
 
 
 For reference:
