@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 12, 2020 at 10:58 AM
--- Server version: 10.1.39-MariaDB
--- PHP Version: 7.3.5
+-- Generation Time: Mar 12, 2020 at 08:30 AM
+-- Server version: 10.4.10-MariaDB
+-- PHP Version: 7.1.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -34,8 +34,8 @@ CREATE TABLE `kpa_notice` (
   `notice_text` text NOT NULL,
   `notifier_user_id` int(6) NOT NULL,
   `notifier_email` varchar(100) NOT NULL,
-  `published_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `status` tinyint(4) NOT NULL DEFAULT '1'
+  `published_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `status` tinyint(4) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -75,7 +75,14 @@ INSERT INTO `kpa_programming_language` (`id`, `language_name`, `project_code`, `
 (8, 'PHP', 0, '2076'),
 (9, 'PHP', 223454, '2076'),
 (10, 'PHP', 767676, '2076'),
-(11, 'PHP', 656565, '2076');
+(11, 'PHP', 656565, '2076'),
+(12, 'HTML', 878787, '2073'),
+(13, 'JavaScript', 546565, '2072'),
+(14, 'PHP', 56565, '2071'),
+(15, 'Javascript', 767676, '2074'),
+(16, 'JavaScript', 89898, '2074'),
+(17, 'Javascript', 767676, '2074'),
+(18, 'JavaScript', 89898, '2074');
 
 -- --------------------------------------------------------
 
@@ -89,9 +96,9 @@ CREATE TABLE `kpa_project_list` (
   `year` varchar(4) NOT NULL,
   `semester` enum('First','Second','Third','Fourth','Fifth','Sixth','Seventh','Eighth') NOT NULL,
   `project_code` int(6) NOT NULL,
-  `is_verified` tinyint(1) NOT NULL DEFAULT '1',
+  `is_verified` tinyint(1) NOT NULL DEFAULT 1,
   `verified_by_id` int(6) NOT NULL,
-  `status` tinyint(1) NOT NULL DEFAULT '1',
+  `status` tinyint(1) NOT NULL DEFAULT 1,
   `supervisor_id` int(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -114,9 +121,9 @@ CREATE TABLE `kpa_pwd_reset` (
   `id` int(6) NOT NULL,
   `email` varchar(100) NOT NULL,
   `reset_key` int(6) NOT NULL,
-  `sent_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `sent_date` timestamp NOT NULL DEFAULT current_timestamp(),
   `sent_time` varchar(50) NOT NULL,
-  `status` tinyint(1) NOT NULL DEFAULT '1'
+  `status` tinyint(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -142,13 +149,13 @@ CREATE TABLE `kpa_user` (
   `password` varchar(32) COLLATE utf8mb4_unicode_ci NOT NULL,
   `user_type` enum('normal_user','admin','super_admin','guest') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'normal_user',
   `secret_key` varchar(32) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `remarks` text COLLATE utf8mb4_unicode_ci,
-  `postby_id` int(6) DEFAULT '1',
-  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `is_verified` tinyint(1) DEFAULT '0',
-  `verifiedby_id` int(6) DEFAULT '1',
-  `updated_at` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
-  `status` tinyint(1) DEFAULT '1'
+  `remarks` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `postby_id` int(6) DEFAULT 1,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `is_verified` tinyint(1) DEFAULT 0,
+  `verifiedby_id` int(6) DEFAULT 1,
+  `updated_at` datetime DEFAULT NULL ON UPDATE current_timestamp(),
+  `status` tinyint(1) DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -213,7 +220,7 @@ ALTER TABLE `kpa_notice`
 -- AUTO_INCREMENT for table `kpa_programming_language`
 --
 ALTER TABLE `kpa_programming_language`
-  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `kpa_project_list`
