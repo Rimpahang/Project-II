@@ -17,7 +17,8 @@ Back-end:
 2. Password reset completed
 3. Email notification completed
 4. Dashboard design completed
-5. Started working on chat system
+5. Graph for programming language used completed
+6. Started working on chat system
 __________________
 
 For reference:
@@ -27,3 +28,4 @@ For reference:
 - [CKEditor 5](https://ckeditor.com/ckeditor-5/)
 - [Font Awesome](https://fontawesome.com/)
 - [PHPMailer](https://github.com/PHPMailer/PHPMailer)
+- [Chart.js](https://www.chartjs.org/)
