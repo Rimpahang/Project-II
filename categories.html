@@ -10,10 +10,11 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>  -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="file:///C:/Users/avika.AVI-LAPTOP/OneDrive/Desktop/KPA%20V/fontawesome-free-5.12.0-web/css/all.css">
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
   <script src="bootstrap/js/jquery.1.js"></script>
   <script src="bootstrap/js/bootstrap.min.js"></script>
-  <style>
+  <style type="text/css">
   	.fakeimg {
   		height: 200px;
   		background: #aaa;
@@ -35,7 +36,130 @@
   		display: block;
   		background: #e3e3e3;
   	}
-  	
+  	#icon
+  	{
+  		max-width: 200px;
+  		margin: 5% auto;
+  	}
+
+  	*{ margin:0; padding: 0; box-sizing:border-box; }
+
+  	.header{
+  		width: 100%;
+  		height: 60vh;
+  		background-image: linear-gradient(rgba(0,168,255,0.3),rgba(0,168,255,0.3)), url('images/sm2.jpg');
+  		background-repeat: no-repeat;
+  		background-size: 100% 100%;
+  		position: relative;
+  		clip-path: polygon(100% 0%, 100% 75%, 50% 100%, 0 75%, 0 0);
+  		color: white;
+  	}
+  	.header:before{
+  		content:  "";
+  		position: absolute;
+  		top: 0%;
+  		bottom: 0%;
+  		left: 0;
+  		right: 0;
+  		opacity: .4;
+  		z-index: -2;
+  		background: linear-gradient(to right, #1e5799 0%, #3ccdbb 0%, #16c9f6 100%);
+
+  	}
+  	.center-div{
+  		width: 100%;
+  		height: auto;
+  		position: absolute;
+  		top: 40%;
+  		left: 60%;
+  		transform: translate(-50%, -50%);
+  		-ms-transform: translate(-50%, -50%);
+  		-webkit-transform: translate(-50%, -50%);
+  		font-family: 'Ubuntu', sans-serif;
+  	}
+  	.center-div p{
+  		font-size: 1.0rem;
+  		margin-right: 35%;
+  		color: white;
+  		/*padding: 5px 0 10px 0;*/
+  	}
+  	p{
+  		font-size: 0.9rem;
+  		line-height: 1.6;
+  		font-weight: 400;
+  	}
+  	.header-buttons a{
+  		border: 1px solid #fff;
+  		border-radius: 100px;
+  		margin: 0 5px;
+  		padding: 12px 35px;
+  		outline: none;
+  		color: #fff;
+  		font-size:1rem;
+  		font-weight: 400;
+  		line-height: 1.4;
+  		text-align: center;
+
+  	}
+  	.header-buttons a:hover{
+  		color: #50d1c0;
+  		background: #fff;
+  		text-decoration: none;
+  		box-shadow: 0 0 20px 0 rgba(0,0,0,0.3;)
+  	}
+  	hr.hr1{
+  		border: 1px light green;
+  	}
+
+  	.line:hover {
+  		color: #50d1c0;
+  	}
+  	.ms{
+  		margin-top: 5%;
+  	}
+  	.card:hover{
+  		transform: translateY(-19px);
+  	}
+  	.inner{
+  		overflow: hidden;
+  	}
+  	.inner img{
+  		transition: all 1.5s ease;
+  	}
+  	.inner:hover img{
+  		transform: scale(1.5);
+  	}
+  	 	footer{
+  		width: 100%;
+  		background-color: rgba(120,120,120);
+  		padding: 1%;
+  		color: #fff;
+  	}
+  	.fab{
+  		padding: 5px;
+  		font-size: 25px;
+  		color: #fff;
+  	}
+  	.fab:hover{
+  		color: rgb(60, 60, 200);
+  		text-decoration: none;
+  	}
+  	@media(max-width: 900px){
+  		.fab{
+  			font-size: 20px;
+  			padding: 10px;
+  		}
+  	}
+  		.fac{
+  		color: #fff;
+  	}
+  	.fac:hover{
+  		color: yellow;
+  		text-decoration: none;
+  	}
+        #reg-cross:hover{
+            cursor: pointer;
+        }
   /*  .fab
     {text-align: center;
       padding: 10px;
@@ -59,33 +183,45 @@
 
 	<div class="jumbotron text-center" style="margin-bottom:0;font-family: cursive; color: blue;">
 		<h1>Khwopa Project Archive</h1>
-		<p>aka KPA</p> 
+		<p>KPA</p> 
 	</div>
 	<!-- Navigation -->
-	<nav class="navbar navbar-expand-md bg-light navbar-light sticky-top">
-		<button  type="button" data-toggle="collapse" data-target="#navbarResponsive">
+	<nav class="navbar navbar-expand-md bg-light navbar-light sticky-top mt-1">
+		<!-- <button  type="button" data-toggle="collapse" data-target="#navbarResponsive">
 			<span class="navbar-toggler-icon"></span> 
-		</button>
+		</button> -->
 		<div class="container-fluid">
 			<a class="navbar-brand" href="#"><!-- <img src="images/khwopa.png"> --> KPA Navbar</a>
-
+			<!-- Navbar toggler-->
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
 				<span class="navbar-toggler-icon"></span> 
 			</button>
-			<div class="collapse navbar-collapse" id="navbarResponsive">
+			<div class="collapse navbar-collapse" id="navbarResponsive"> <!--  Search bar  -->
+				 <ul class="list-group-horizontal navbar-nav">
 				<form class="form-inline" action="/action_page.php">
-					<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"style="margin-top: 4px;">
-					<button class="btn btn-outline-success" type="submit" style="margin-top: 4px;">Search</button>
-				</form>  
+					<li><input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"style="margin-top: 4px;"></li>
+					<li class="ml-2"><button class="btn btn-outline-success" type="submit" style="margin-top: 4px;">Search</button></li>
+				</form>
+				</ul> 
+				 <!--  Navbar links  --> 
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item">
 						<a class="nav-link text-success" href="index.html">Home</a>
 					</li>
-					<li class="nav-item">
-						<a class="nav-link text-success" href="#">About</a>
+					<li class="nav-item dropdown active">
+						<a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown"role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item active" href="categories.html">System Management </a>
+          <a class="dropdown-item" href="categories.html">Commerce</a>
+          <a class="dropdown-item" href="categories.html">Robotics</a>
+          <a class="dropdown-item" href="categories.html">Games</a>
+          <a class="dropdown-item" href="categories.html">ML and AI</a>
+          <a class="dropdown-item" href="categories.html">Others</a>
+        </div>
+						
 					</li>
-					<li class="nav-item active">
-						<a class="nav-link " href="#">Categories</a>
+					<li class="nav-item">
+						<a class="nav-link text-success" href="addp.html">Add Project</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link text-success" href="#">Top Projects</a>
@@ -100,6 +236,228 @@
 			</div> 
 		</div> 
 	</nav>
-	
+	<br>
+	<!-----banner section------>
+<!-- 	<section id="banner">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<p class="promo-title">System Management</p>
+				<p>fewrgvfsdvvvvvvvvvvvvvvvvvasfeawgfw</p>
+				</div>
+				<div class="col-md-6 text-center">
+			<src="images/sm.jpg" class="img-fluid" style="height: 220px; margin-top: -35px; margin-right: -65px; width: 420px;">
+				</div>
+			</div>
+		</div>	
+		 <img src="images/wavy.jpg" class="bottom-img"> -->
+	<!-- </section> -->
+	<div class="container">
+		<section class="header">
+			<div class="center-div">
+					<h1 class="font-weight-bold" style="color: #4e3331 ;">Systems Management</h1>
+					<p>Software that manages computer systems in an enterprise, which may include any and all of the following functions: software distribution and upgrading, user profile management, version control, backup and recovery, printer spooling, job scheduling, virus protection and performance and capacity planning. Depending on organizational philosophy, systems management may include network management or come under it. See network management and configuration management.</p><br>
+					<div class="header-buttons">
+						<a href="https://www.pcmag.com/encyclopedia/term/systems-management">Search on Web</a>
+					</div>
+				</div>
+		</section>
+</div>	
+<div class="container"> 
+<hr class="hr1">
+</div>
+<br>
+<div class="line">
+<h2 class="text-center">Khec Projects on Management Systems</h2>
+</div>
+<!----project collections----->
+<div class="ms">
+<div class="container">
+	<div class="row justify-content-center">
+		<div class="col-md-3">
+		<div class="card shadow" style="width: 15rem;">
+			<div class="inner">
+  <img src="images/lms.png" class="card-img-top" alt="project logo" style="height: 100px; width: 100%;">
+</div>
+  <div class="card-body text-center">
+    <h5 class="card-title">Library Management System</h5>
+    <p class="card-text">This project manages the system of library.</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">III sem., B.E. Comp.</li>
+  </ul>
+  <div class="card-body">
+    <a href="#" class="card-link">See More...</a>
+  </div>
+</div>
+</div>
+
+<div class="col-md-3">
+		<div class="card shadow" style="width: 15rem;">
+			<div class="inner">
+  <img src="images/hms.png" class="card-img-top" alt="project logo" style="height: 100px; width: 100%;">
+</div>
+  <div class="card-body text-center">
+    <h5 class="card-title">Hospital Management System</h5>
+    <p class="card-text">This project manages the system of library.</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">III sem., B.E. Comp.</li>
+  </ul>
+  <div class="card-body">
+    <a href="#" class="card-link">See More...</a>
+  </div>
+</div>
+</div>
+
+<div class="col-md-3">
+		<div class="card shadow" style="width: 15rem;">
+			<div class="inner">
+  <img src="images/dms.jpg" class="card-img-top" alt="project logo" style="height: 100px; width: 100%;">
+</div>
+  <div class="card-body text-center">
+    <h5 class="card-title">Department Store Management System</h5>
+    <p class="card-text">This project manages the system of library.</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">III sem., B.E. Comp.</li>
+  </ul>
+  <div class="card-body">
+    <a href="#" class="card-link">See More...</a>
+  </div>
+</div>
+</div>
+
+<div class="col-md-3">
+		<div class="card shadow" style="width: 15rem;">
+			<div class="inner">
+  <img src="images/lmg.png" class="card-img-top" alt="project logo" style="height: 100px; width: 100%;">
+</div>
+  <div class="card-body text-center">
+    <h5 class="card-title">Library Management System</h5>
+    <p class="card-text">This project manages the system of library.</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">III sem., B.E. Comp.</li>
+  </ul>
+  <div class="card-body">
+    <a href="#" class="card-link">See More...</a>
+  </div>
+</div>
+</div>
+
+
+
+</div>
+</div>
+<br><br>
+<div class="container">
+	<div class="row justify-content-center">
+		<div class="col-md-6">
+		<div class="card shadow" style="width: 15rem;">
+			<div class="inner">
+  <img src="images/lms.png" class="card-img-top" alt="project logo" style="height: 100px; width: 100%;">
+</div>
+  <div class="card-body text-center">
+    <h5 class="card-title">Library Management System</h5>
+    <p class="card-text">This project manages the system of library.</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">III sem., B.E. Comp.</li>
+  </ul>
+  <div class="card-body">
+    <a href="#" class="card-link">See More...</a>
+  </div>
+</div>
+</div>
+
+<div class="col-md-6">
+		<div class="card shadow" style="width: 15rem;">
+			<div class="inner">
+  <img src="images/hms.png" class="card-img-top" alt="project logo" style="height: 100px; width: 100%;">
+</div>
+  <div class="card-body text-center">
+    <h5 class="card-title">Hospital Management System</h5>
+    <p class="card-text">This project manages the system of library.</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">III sem., B.E. Comp.</li>
+  </ul>
+  <div class="card-body">
+    <a href="#" class="card-link">See More...</a>
+  </div>
+</div>
+</div>
+
+
+
+
+</div>
+</div>
+</div>
+<br>
+<div class="container"> 
+<hr class="hr1">
+</div><br>
+<!---project recommendations--->
+<div class="container">
+	<div class="container-fluid padding bg-light">
+	<div class="row padding">
+		<div class="col-lg-6" style="margin-top: 10px;">
+<div class="line">
+<h2 class="text-left text-info">Some Recommended Projects:</h2>
+</div><br>
+<h6 class="text-left">1. Employee Management System</h6>
+<h6 class="text-left">2. Payroll Management System</h6>
+<h6 class="text-left">3. Online Job Portal System</h6>
+<h6 class="text-left">4. Bank and ATM Management System</h6>
+<h6 class="text-left">5. Airport Management System</h6>
+</div>
+<div class="col-lg-6" style="margin-top: 10px;">
+	<div class="line">
+<h2 class="text-center text-success">Quick Links:</h2></div><br>
+ <h6 class="text-left"><i class="
+ 	fas fa-caret-right"></i><a href="https://www.lovelycoding.org/2013/11/top-18-database-projects-ideas-for.engineering-bca-mca-btech-bsc.html"  style="margin-left: 6px;">List of Management System Projects</a></h6>
+<h6 class="text-left"><i class="fas fa-caret-right"></i><a href="https://www.techopedia.com/definition/9615/systems-management"  style="margin-left: 6px;">Definitions and Understanding</a></h6>
+<h6 class="text-left"><i class="fas fa-caret-right"></i><a href="https://www.softwaresuggest.com/blog/best-free-open-source-hospital-management-software/"  style="margin-left: 6px;">Free and Open Source Softwares</a></h6>
+
+</div>
+</div>
+</div>
+</div>
+<br><br>
+<!--- Footer-->
+<footer class="container-fluid text-center">
+	<div class="row">
+		<div class="col-sm-3">
+			<h3>Meet the Team</h3>
+			<h5>Our address and contact info here</h45>
+		</div>
+		<div class="col-sm-3">
+			<h3>Contact Us</h3>
+			
+			<br>
+			<h4>Our address and contact info here</h4>
+		</div>
+		<div class="col-sm-3">
+			<h3>Connect</h3>
+			<a href="#" class="fab fa-facebook-square" title="facebook" style="font-size: 30px"></a>
+			<a href="#" class="fab fa-twitter-square" title="twitter" style="font-size: 30px"></a>
+			<a href="#" class="fab fa-google" title="google" style="font-size: 30px"></a>
+			<a href="#" class="fab fa-youtube-square" title="youtube" style="font-size: 30px; background: grey; "></a>
+		</div>
+		<div class="col-sm-3">
+			<img src="images/kpa.jpg" class="icon" alt="KPA"><br><br>
+			<div class="fac"><a href="#" class="fac fas fa-home" title="Home" style="font-size: 17px;margin-right: 10px;"></a>||
+			<a href="#" class="fac fas fa-id-card-alt" title="Contact" style="font-size: 17px;margin-left: 10px;margin-right: 10px;"></a>||
+			<a href="#" class="fac fas fa-comment-dots" title="Feedback" style="font-size: 17px;margin-left: 10px;margin-right: 10px;"></a>||
+				<a href="#" class="fac fas fa-question" title="FAQs" style="font-size: 17px;margin-left: 10px;"></a>
+		</div>
+	</div>
+
+</footer>
+	<div class="col-xs-12" style="background: brown; height: 22px;">
+		<h5 style="text-align: center; color: white; font-size: 15px;"><i class="fa fa-copyright" style="font-size:16px;margin-top: 3px;">  2020 KPA</i></h5>
+	</div>
 </body>
 </html>
