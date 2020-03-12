@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 08, 2020 at 04:51 PM
+-- Generation Time: Mar 12, 2020 at 08:30 AM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.1.33
 
@@ -21,18 +21,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `kpa`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `kpa_language`
---
-
-CREATE TABLE `kpa_language` (
-  `id` int(6) NOT NULL,
-  `language_name` varchar(100) NOT NULL,
-  `project_id` int(6) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -58,6 +46,43 @@ INSERT INTO `kpa_notice` (`id`, `notice_topic`, `notice_text`, `notifier_user_id
 (1, 'defense', 'defense will to tomorrow', 0, '', '2020-02-18 09:25:00', 1),
 (2, 'defense', 'defense will to tomorrow', 0, '', '2020-02-18 09:25:01', 1),
 (3, 'email notification', 'this is the testing phase of email notification', 0, '', '2020-02-18 08:33:59', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `kpa_programming_language`
+--
+
+CREATE TABLE `kpa_programming_language` (
+  `id` int(6) NOT NULL,
+  `language_name` varchar(100) NOT NULL,
+  `project_code` int(6) NOT NULL,
+  `project_year` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `kpa_programming_language`
+--
+
+INSERT INTO `kpa_programming_language` (`id`, `language_name`, `project_code`, `project_year`) VALUES
+(1, 'HTML', 111111, '2074'),
+(2, 'PHP', 222222, '2074'),
+(3, 'HTML', 111111, '2075'),
+(4, 'PHP', 222222, '2075'),
+(5, 'JavaScript', 444444, '2076'),
+(6, 'JavaScript', 444444, '2076'),
+(7, 'HTML', 555555, '2076'),
+(8, 'PHP', 0, '2076'),
+(9, 'PHP', 223454, '2076'),
+(10, 'PHP', 767676, '2076'),
+(11, 'PHP', 656565, '2076'),
+(12, 'HTML', 878787, '2073'),
+(13, 'JavaScript', 546565, '2072'),
+(14, 'PHP', 56565, '2071'),
+(15, 'Javascript', 767676, '2074'),
+(16, 'JavaScript', 89898, '2074'),
+(17, 'Javascript', 767676, '2074'),
+(18, 'JavaScript', 89898, '2074');
 
 -- --------------------------------------------------------
 
@@ -148,15 +173,15 @@ INSERT INTO `kpa_user` (`id`, `name`, `username`, `email`, `password`, `user_typ
 --
 
 --
--- Indexes for table `kpa_language`
---
-ALTER TABLE `kpa_language`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `kpa_notice`
 --
 ALTER TABLE `kpa_notice`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `kpa_programming_language`
+--
+ALTER TABLE `kpa_programming_language`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -186,16 +211,16 @@ ALTER TABLE `kpa_user`
 --
 
 --
--- AUTO_INCREMENT for table `kpa_language`
---
-ALTER TABLE `kpa_language`
-  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `kpa_notice`
 --
 ALTER TABLE `kpa_notice`
   MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `kpa_programming_language`
+--
+ALTER TABLE `kpa_programming_language`
+  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `kpa_project_list`
