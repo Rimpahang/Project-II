@@ -179,6 +179,11 @@ window.onclick = function(event) {
 <script>
 $(document).ready(function(){
 
+    $('#loginModal').click(function(){
+     $('#signup-modal-content').fadeOut('fast', function(){
+        $('#login-modal-content').fadeIn('fast');
+     });
+    });
 
     $('#signupModal').click(function(){
      $('#login-modal-content').fadeOut('fast', function(){
@@ -186,11 +191,6 @@ $(document).ready(function(){
      });
     });
 
-    $('#loginModal').click(function(){
-     $('#signup-modal-content').fadeOut('fast', function(){
-        $('#login-modal-content').fadeIn('fast');
-     });
-    });
 
     $('#FPModal').click(function(){
      $('#login-modal-content').fadeOut('fast', function(){
@@ -204,10 +204,6 @@ $(document).ready(function(){
      });
     });
 
-
-    $('#Login-Form').parsley();
-    $('#Signin-Form').parsley();
-    $('#Forgot-Password-Form').parsley();
 });
 
 </script>
