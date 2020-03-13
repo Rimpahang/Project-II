@@ -1,20 +1,3 @@
-<!--
-=========================================================
- Paper Dashboard 2 - v2.0.0
-=========================================================
-
- Product Page: https://www.creative-tim.com/product/paper-dashboard-2
- Copyright 2019 Creative Tim (https://www.creative-tim.com)
- Licensed under MIT (https://github.com/creativetimofficial/paper-dashboard/blob/master/LICENSE)
-
- Coded by Creative Tim
-
-=========================================================
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,7 +7,7 @@ The above copyright notice and this permission notice shall be included in all c
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    Paper Dashboard 2 by Creative Tim
+    KPA Dashboard
   </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
@@ -33,24 +16,22 @@ The above copyright notice and this permission notice shall be included in all c
   <!-- CSS Files -->
   <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
   <link href="../assets/css/paper-dashboard.css?v=2.0.0" rel="stylesheet" />
-  <!-- CSS Just for demo purpose, don't include it in your project -->
-  <link href="../assets/demo/demo.css" rel="stylesheet" />
-</head>
+ </head>
 
 <body class="">
   <div class="wrapper ">
-    <div class="sidebar" data-color="white" data-active-color="danger">
+    <div class="sidebar" data-color="yellow" data-active-color="success">
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
     -->
       <div class="logo">
-        <a href="http://www.creative-tim.com" class="simple-text logo-mini">
+        <a href="#" class="simple-text logo-mini">
           <div class="logo-image-small">
             <img src="../assets/img/logo-small.png">
           </div>
         </a>
-        <a href="http://www.creative-tim.com" class="simple-text logo-normal">
-          Creative Tim
+       <a href="#" class="simple-text logo-normal">
+          Naresh 
           <!-- <div class="logo-image-big">
             <img src="../assets/img/logo-big.png">
           </div> -->
@@ -58,22 +39,22 @@ The above copyright notice and this permission notice shall be included in all c
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-          <li>
+          <li >
             <a href="./dashboard.html">
               <i class="nc-icon nc-bank"></i>
               <p>Dashboard</p>
             </a>
           </li>
           <li>
-            <a href="./icons.html">
-              <i class="nc-icon nc-diamond"></i>
-              <p>Icons</p>
+            <a href="./users.html">
+                    <i class="fa fa-users"></i>                  
+              <p>Users</p>
             </a>
           </li>
-          <li>
-            <a href="./map.html">
-              <i class="nc-icon nc-pin-3"></i>
-              <p>Maps</p>
+         <li class="active">
+            <a href="./content.html">
+              <i class="nc-icon nc-single-copy-04"></i>
+              <p>Projects</p>
             </a>
           </li>
           <li>
@@ -82,7 +63,7 @@ The above copyright notice and this permission notice shall be included in all c
               <p>Notifications</p>
             </a>
           </li>
-          <li class="active ">
+          <li class="active">
             <a href="./user.html">
               <i class="nc-icon nc-single-02"></i>
               <p>User Profile</p>
@@ -94,16 +75,10 @@ The above copyright notice and this permission notice shall be included in all c
               <p>Table List</p>
             </a>
           </li>
-          <li>
-            <a href="./typography.html">
+          <li class="">
+            <a href="upload.html">
               <i class="nc-icon nc-caps-small"></i>
-              <p>Typography</p>
-            </a>
-          </li>
-          <li class="active-pro">
-            <a href="./upgrade.html">
-              <i class="nc-icon nc-spaceship"></i>
-              <p>Upgrade to PRO</p>
+              <p>Upload Files</p>
             </a>
           </li>
         </ul>
@@ -121,7 +96,7 @@ The above copyright notice and this permission notice shall be included in all c
                 <span class="navbar-toggler-bar bar3"></span>
               </button>
             </div>
-            <a class="navbar-brand" href="#pablo">Paper Dashboard 2</a>
+            <a class="navbar-brand" href="#pablo">Dashboard</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -129,7 +104,7 @@ The above copyright notice and this permission notice shall be included in all c
             <span class="navbar-toggler-bar navbar-kebab"></span>
           </button>
           <div class="collapse navbar-collapse justify-content-end" id="navigation">
-            <form>
+           <!--  <form>
               <div class="input-group no-border">
                 <input type="text" value="" class="form-control" placeholder="Search...">
                 <div class="input-group-append">
@@ -139,7 +114,7 @@ The above copyright notice and this permission notice shall be included in all c
                 </div>
               </div>
             </form>
-            <ul class="navbar-nav">
+            --> <ul class="navbar-nav">
               <li class="nav-item">
                 <a class="nav-link btn-magnify" href="#pablo">
                   <i class="nc-icon nc-layout-11"></i>
@@ -163,7 +138,7 @@ The above copyright notice and this permission notice shall be included in all c
               </li>
               <li class="nav-item">
                 <a class="nav-link btn-rotate" href="#pablo">
-                  <i class="nc-icon nc-settings-gear-65"></i>
+                  <i class="fa fa-sign-out" alt='logout'></i>
                   <p>
                     <span class="d-lg-none d-md-block">Account</span>
                   </p>
@@ -174,7 +149,9 @@ The above copyright notice and this permission notice shall be included in all c
         </div>
       </nav>
       <!-- End Navbar -->
-      <!-- <div class="panel-header panel-header-sm">
+      <!-- <div class="panel-header panel-header-lg">
+
+  <canvas id="bigDashboardChart"></canvas>
 
 
 </div> -->
@@ -183,47 +160,37 @@ The above copyright notice and this permission notice shall be included in all c
           <div class="col-md-4">
             <div class="card card-user">
               <div class="image">
-                <img src="../assets/img/damir-bosnjak.jpg" alt="...">
+                <img src="img/cover.jpg" alt="...">
               </div>
               <div class="card-body">
                 <div class="author">
                   <a href="#">
-                    <img class="avatar border-gray" src="../assets/img/mike.jpg" alt="...">
-                    <h5 class="title">Chet Faker</h5>
+                    <img class="avatar border-gray" src="img/kpapro.png" alt="...">
+                    <h5 class="title">KPA</h5>
                   </a>
                   <p class="description">
-                    @chetfaker
+                    @rimpahang
                   </p>
                 </div>
                 <p class="description text-center">
-                  "I like the way you work it
-                  <br> No diggity
-                  <br> I wanna bag it up"
+                  "likes kitty cat"
                 </p>
               </div>
               <div class="card-footer">
                 <hr>
                 <div class="button-container">
                   <div class="row">
-                    <div class="col-lg-3 col-md-6 col-6 ml-auto">
-                      <h5>12
-                        <br>
-                        <small>Files</small>
+                    <div class="col-lg-4 col-md-6 col-6 ml-auto">
+                      <small>Uploaded:</small>
                       </h5>
                     </div>
-                    <div class="col-lg-4 col-md-6 col-6 ml-auto mr-auto">
-                      <h5>2GB
+                    <div class="col-lg-4 col-md-6 col-6 ml-auto">
+                      <h5>5
                         <br>
-                        <small>Used</small>
+                        <small>Projects</small>
                       </h5>
                     </div>
-                    <div class="col-lg-3 mr-auto">
-                      <h5>24,6$
-                        <br>
-                        <small>Spent</small>
-                      </h5>
-                    </div>
-                  </div>
+                                      </div>
                 </div>
               </div>
             </div>
@@ -237,11 +204,11 @@ The above copyright notice and this permission notice shall be included in all c
                     <div class="row">
                       <div class="col-md-2 col-2">
                         <div class="avatar">
-                          <img src="../assets/img/faces/ayo-ogunseinde-2.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
+                          <img src="img/userico.png" alt="Circle Image" class="img-circle img-no-padding img-responsive">
                         </div>
                       </div>
                       <div class="col-md-7 col-7">
-                        DJ Khaled
+                        Naresh
                         <br />
                         <span class="text-muted">
                           <small>Offline</small>
@@ -256,11 +223,11 @@ The above copyright notice and this permission notice shall be included in all c
                     <div class="row">
                       <div class="col-md-2 col-2">
                         <div class="avatar">
-                          <img src="../assets/img/faces/joe-gardner-2.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
+                          <img src="img/userico.png" alt="Circle Image" class="img-circle img-no-padding img-responsive">
                         </div>
                       </div>
                       <div class="col-md-7 col-7">
-                        Creative Tim
+                        Avishek
                         <br />
                         <span class="text-success">
                           <small>Available</small>
@@ -275,14 +242,14 @@ The above copyright notice and this permission notice shall be included in all c
                     <div class="row">
                       <div class="col-md-2 col-2">
                         <div class="avatar">
-                          <img src="../assets/img/faces/clem-onojeghuo-2.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
+                          <img src="img/userico.png" alt="Circle Image" class="img-circle img-no-padding img-responsive">
                         </div>
                       </div>
                       <div class="col-ms-7 col-7">
-                        Flume
+                        Aarju
                         <br />
                         <span class="text-danger">
-                          <small>Busy</small>
+                          <small>Gone home</small>
                         </span>
                       </div>
                       <div class="col-md-3 col-3 text-right">
@@ -302,22 +269,16 @@ The above copyright notice and this permission notice shall be included in all c
               <div class="card-body">
                 <form>
                   <div class="row">
-                    <div class="col-md-5 pr-1">
-                      <div class="form-group">
-                        <label>Company (disabled)</label>
-                        <input type="text" class="form-control" disabled="" placeholder="Company" value="Creative Code Inc.">
-                      </div>
-                    </div>
-                    <div class="col-md-3 px-1">
+                    <div class="col-md-6 pr-1">
                       <div class="form-group">
                         <label>Username</label>
-                        <input type="text" class="form-control" placeholder="Username" value="michael23">
+                        <input type="text" class="form-control" placeholder="Username" value="rimpahang">
                       </div>
                     </div>
                     <div class="col-md-4 pl-1">
                       <div class="form-group">
                         <label for="exampleInputEmail1">Email address</label>
-                        <input type="email" class="form-control" placeholder="Email">
+                        <input type="email" class="form-control" placeholder="rimp@g.com">
                       </div>
                     </div>
                   </div>
@@ -325,13 +286,13 @@ The above copyright notice and this permission notice shall be included in all c
                     <div class="col-md-6 pr-1">
                       <div class="form-group">
                         <label>First Name</label>
-                        <input type="text" class="form-control" placeholder="Company" value="Chet">
+                        <input type="text" class="form-control" placeholder="Company" value="Dhruba">
                       </div>
                     </div>
                     <div class="col-md-6 pl-1">
                       <div class="form-group">
                         <label>Last Name</label>
-                        <input type="text" class="form-control" placeholder="Last Name" value="Faker">
+                        <input type="text" class="form-control" placeholder="Last Name" value="Rai">
                       </div>
                     </div>
                   </div>
@@ -339,27 +300,19 @@ The above copyright notice and this permission notice shall be included in all c
                     <div class="col-md-12">
                       <div class="form-group">
                         <label>Address</label>
-                        <input type="text" class="form-control" placeholder="Home Address" value="Melbourne, Australia">
+                        <input type="text" class="form-control" placeholder="Home Address" value="Libali, Bhaktapur">
                       </div>
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-md-4 pr-1">
                       <div class="form-group">
-                        <label>City</label>
-                        <input type="text" class="form-control" placeholder="City" value="Melbourne">
+                        <label>Semester</label>
+                        <input type="text" class="form-control" placeholder="City" value="5th">
                       </div>
-                    </div>
-                    <div class="col-md-4 px-1">
                       <div class="form-group">
-                        <label>Country</label>
-                        <input type="text" class="form-control" placeholder="Country" value="Australia">
-                      </div>
-                    </div>
-                    <div class="col-md-4 pl-1">
-                      <div class="form-group">
-                        <label>Postal Code</label>
-                        <input type="number" class="form-control" placeholder="ZIP Code">
+                        <label>Department</label>
+                        <input type="text" class="form-control" placeholder="Country" value="Computer">
                       </div>
                     </div>
                   </div>
@@ -367,7 +320,7 @@ The above copyright notice and this permission notice shall be included in all c
                     <div class="col-md-12">
                       <div class="form-group">
                         <label>About Me</label>
-                        <textarea class="form-control textarea">Oh so, your weak rhyme You doubt I'll bother, reading into it</textarea>
+                        <textarea class="form-control textarea">Cats my world!</textarea>
                       </div>
                     </div>
                   </div>
@@ -388,14 +341,12 @@ The above copyright notice and this permission notice shall be included in all c
             <nav class="footer-nav">
               <ul>
                 <li>
-                  <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a>
+                  <a href="#" target="_blank">Naresh</a>
                 </li>
                 <li>
-                  <a href="http://blog.creative-tim.com/" target="_blank">Blog</a>
+                  <a href="#" target="_blank">Contact</a>
                 </li>
-                <li>
-                  <a href="https://www.creative-tim.com/license" target="_blank">Licenses</a>
-                </li>
+                
               </ul>
             </nav>
             <div class="credits ml-auto">
@@ -403,7 +354,7 @@ The above copyright notice and this permission notice shall be included in all c
                 ©
                 <script>
                   document.write(new Date().getFullYear())
-                </script>, made with <i class="fa fa-heart heart"></i> by Creative Tim
+                </script>, made by KPA Group
               </span>
             </div>
           </div>
@@ -426,6 +377,12 @@ The above copyright notice and this permission notice shall be included in all c
   <script src="../assets/js/paper-dashboard.min.js?v=2.0.0" type="text/javascript"></script>
   <!-- Paper Dashboard DEMO methods, don't include it in your project! -->
   <script src="../assets/demo/demo.js"></script>
+  <script>
+    $(document).ready(function() {
+      // Javascript method's body can be found in assets/assets-for-demo/js/demo.js
+      demo.initChartsPages();
+    });
+  </script>
 </body>
 
 </html>

@@ -39,13 +39,13 @@
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-          <li class="active">
+          <li class="">
             <a href="./dashboard.html">
               <i class="nc-icon nc-bank"></i>
               <p>Dashboard</p>
             </a>
           </li>
-          <li>
+          <li class="active">
             <a href="./users.html">
                     <i class="fa fa-users"></i>                  
               <p>Users</p>
@@ -157,165 +157,86 @@
 </div> -->
       <div class="content">
         <div class="row">
-          <div class="col-lg-3 col-md-6 col-sm-6">
-            <div class="card card-stats">
-              <div class="card-body ">
-                <div class="row">
-                  <div class="col-5 col-md-4">
-                    <div class="icon-big text-center icon-warning">
-                      <img src="img/userico.png">
-                    </div>
-                  </div>
-                  <div class="col-7 col-md-8">
-                    <div class="numbers">
-                      <p class="card-category">Total Users</p>
-                      <p class="card-title">5
-                        <p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="card-footer ">
-                <hr>
-                <div class="stats">
-                  <i class="fa fa-plus"></i> Add Users
-                </div>
-              </div>
-            </div>
+          <div class="col">
+          	<div class="card card-stats">
+          		<div class="card body">
+<h1>Add User</h1>
+<form action="" method="POST" name="user">
+<table class="table table-striped">
+	<tr>
+		<td>Username:</td>
+		<td><input type="text" name="username" placeholder="Enter Username" required="required"></td>
+	</tr>
+	<tr>
+		<td>Email:</td>
+		<td><input type="email" name="email" placeholder="Enter Email" required="required"></td>
+	</tr>
+	<tr>
+		<td>Password:</td>
+		<td><input type="password" name="password" required="required"></td>
+	</tr>
+	<tr>
+		<td>Confirm Password:</td>
+		<td><input type="password" name="password-re" required="required"></td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><button class="btn btn-light">Go</button>
+	</tr>
+</table>
+</form>
+          		</div>
+          	</div>
           </div>
-          <div class="col-lg-3 col-md-6 col-sm-6">
-            <div class="card card-stats">
-              <div class="card-body ">
-                <div class="row">
-                  <div class="col-5 col-md-4">
-                    <div class="icon-big text-center icon-warning">
-                      <img src="img/proj.png">
-                    </div>
-                  </div>
-                  <div class="col-7 col-md-8">
-                    <div class="numbers">
-                      <p class="card-category">Total Projects</p>
-                      <p class="card-title">7
-                        <p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="card-footer ">
-                <hr>
-                <div class="stats">
-                  <i class="fa fa-calendar-o"></i> Last day
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 col-sm-6">
-            <div class="card card-stats">
-              <div class="card-body ">
-                <div class="row">
-                  <div class="col-5 col-md-4">
-                    <div class="icon-big text-center icon-warning">
-                      <img src="img/count.png">
-                    </div>
-                  </div>
-                  <div class="col-7 col-md-8">
-                    <div class="numbers">
-                      <p class="card-category">Visit Counter</p>
-                      <p class="card-title">23
-                        <p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="card-footer ">
-                <hr>
-                <div class="stats">
-                  <i class="fa fa-clock-o"></i> In the last hour
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 col-sm-6">
-            <div class="card card-stats">
-              <div class="card-body ">
-                <div class="row">
-                  <div class="col-5 col-md-4">
-                    <div class="icon-big text-center icon-warning">
-                      <img src="img/req.png">
-                    </div>
-                  </div>
-                  <div class="col-7 col-md-8">
-                    <div class="numbers">
-                      <p class="card-category">Requests</p>
-                      <p class="card-title">52
-                        <p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="card-footer ">
-                <hr>
-                <div class="stats">
-                  <i class="fa fa-eye"></i> View all req.
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 col-sm-6">
-            <div class="card card-stats">
-              <div class="card-body ">
-                <div class="row">
-                  <div class="col-5 col-md-4">
-                    <div class="icon-big text-center icon-warning">
-                      <img src="img/notice.png">
-                    </div>
-                  </div>
-                  <div class="col-7 col-md-8">
-                    <div class="numbers">
-                      <p class="card-category">Notices</p>
-                      <p class="card-title">3
-                        <p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="card-footer ">
-                <hr>
-                <div class="stats">
-                  <i class="fa fa-bell"></i> Publish Notice
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 col-sm-6">
-            <div class="card card-stats">
-              <div class="card-body ">
-                <div class="row">
-                  <div class="col-5 col-md-4">
-                    <div class="icon-big text-center icon-warning">
-                      <img src="img/pstat.png">
-                    </div>
-                  </div>
-                  <div class="col-7 col-md-8">
-                    <div class="numbers">
-                      <p class="card-category"><span style="font-size: 10px">Prog. Language Stats.</span></p>
-                      <p class="card-title">5
-                        <p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="card-footer ">
-                <hr>
-                <div class="stats">
-                  <i class="fa fa-eye"></i> View graph
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
           
-        
+        </div>   
+        <div class="row">
+        	<div class="col"><p>The users registered are listed below:</p>
+        		<div class="card card-stats">
+        			<div class="card body">
+        				<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Email</th>
+      <th scope="col">Sem.</th>
+      <th scope="col">Dept.</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Dhruba</td>
+      <td>Rai</td>
+      <td>dc@g.com</td>
+      <td>5</td>
+      <td>Comp.</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      
+      <td>Dhruba</td>
+      <td>Rai</td>
+      <td>dc@g.com</td>
+      <td>5</td>
+      <td>Comp.</td></tr>
+    <tr>
+      <th scope="row">3</th>
+      
+      <td>Dhruba</td>
+      <td>Rai</td>
+      <td>dc@g.com</td>
+      <td>5</td>
+      <td>Comp.</td></tr>
+  </tbody>
+</table>
+        			</div>
+        		</div>
+        	</div>
+
+        </div>     
       </div>
       <footer class="footer footer-black  footer-white ">
         <div class="container-fluid">
