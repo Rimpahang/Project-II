@@ -138,7 +138,7 @@ mysqli_close($conn);
           <div class="col">
             <div class="card card-stats">
               <div class="card body">
-<h1>Add User</h1>
+<h5>Edit User Info.</h5>
 <form action="" method="POST" name="user">
 <table class="table table-striped">
  <tr>
