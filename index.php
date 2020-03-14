@@ -293,18 +293,18 @@ file_put_contents('search_json'.'.json',$jencode);
 		</div>
 		<div class="col-sm-3">
 			<h3>Connect</h3>
-			<a href="#" class="fab fa-facebook-square" title="facebook" style="font-size: 30px"></a>
-			<a href="#" class="fab fa-twitter-square" title="twitter" style="font-size: 30px"></a>
-			<a href="#" class="fab fa-google" title="google" style="font-size: 30px"></a>
-			<a href="#" class="fab fa-youtube-square" title="youtube" style="font-size: 30px; background: grey; "></a>
+			<a href="#" class="fa fa-facebook-square" title="facebook" style="font-size: 30px"></a>
+			<a href="#" class="fa fa-twitter-square" title="twitter" style="font-size: 30px"></a>
+			<a href="#" class="fa fa-google" title="google" style="font-size: 30px"></a>
+			<a href="#" class="fa fa-youtube-square" title="youtube" style="font-size: 30px; background: grey; "></a>
 		</div>
 		<!---KPA info at footer--->
 		<div class="col-sm-3">
 			<img src="images/kpa.jpg" class="icon" alt="KPA"><br><br>
-			<a href="#" class="fas fa-home" title="Home" style="font-size: 17px;margin-right: 10px;"></a>||
-			<a href="#" class="fas fa-id-card-alt" title="Contact" style="font-size: 17px;margin-left: 10px;margin-right: 10px;"></a>||
-			<a href="#" class="fas fa-comment-dots" title="Feedback" style="font-size: 17px;margin-left: 10px;margin-right: 10px;"></a>||
-				<a href="#" class="fas fa-question" title="FAQs" style="font-size: 17px;margin-left: 10px;"></a>
+			<a href="#" class="fa fa-home" title="Home" style="font-size: 17px;margin-right: 10px;"></a>
+			<a href="#" class="fa fa-id-card" title="Contact" style="font-size: 17px;margin-left: 10px;margin-right: 10px;"></a>
+			<a href="#" class="fa fa-comment" title="Feedback" style="font-size: 17px;margin-left: 10px;margin-right: 10px;"></a>
+				<a href="#" class="fa fa-question" title="FAQs" style="font-size: 17px;margin-left: 10px;"></a>
 		</div>
 	</div>
 

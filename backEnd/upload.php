@@ -1,133 +1,53 @@
-<?php
-error_reporting(0);
-   if(isset($_FILES['image'])){
-      // echo "<pre>";print_r($_FILES['image']);exit;
-      $errors= array();
-      $file_name = $_FILES['image']['name'];
-      $file_size =$_FILES['image']['size'];
-      $file_tmp =$_FILES['image']['tmp_name'];
-      $file_type=$_FILES['image']['type'];
-      $file_ext=strtolower(end(explode('.',$_FILES['image']['name'])));
-      
-      $extensions= array("pdf","jpeg","jpg","png");
-      
-      if(in_array($file_ext,$extensions)=== false){
-         $errors[]="extension not allowed, please choose a JPEG or PNG file.";
-      }
-      
-      if($file_size > 2097152){
-         $errors[]='File size must be less than or equal to 2 MB';
-      }
-      
-      if(empty($errors)==true){
-         move_uploaded_file($file_tmp,"files/".$file_name);
-
-         $sql = "INSERT INTO `files` (`title`) VALUES ('$file_name');";
-         require_once("DBConnect.php");
-
-        if (mysqli_query($conn, $sql)) {
-            echo "<script>alert('File uploaded successfully!');</script>";
-            echo "<script>window.location='upload_file.php';</script>";
-        } else {
-            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-        }
-        mysqli_close($conn);
-         
-      }else{
-         print_r($errors);
-      }
-   }
-?>
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="utf-8" />
-  <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
-  <link rel="icon" type="image/png" href="../assets/img/favicon.png">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <title>
-    Upload Files
-  </title>
-  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
-  <!--     Fonts and icons     -->
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
-  <!-- CSS Files -->
-  <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="../assets/css/paper-dashboard.css?v=2.0.0" rel="stylesheet" />
-  <!-- CSS Just for demo purpose, don't include it in your project -->
-  <link href="../assets/demo/demo.css" rel="stylesheet" />
-</head>
-
+<?php include_once('includes/header.php');?>
 <body class="">
   <div class="wrapper ">
-    <div class="sidebar" data-color="white" data-active-color="danger">
-      <!--
-        Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
-    -->
+    <div class="sidebar" data-color="yellow" data-active-color="success">
       <div class="logo">
-        <a href="http://www.creative-tim.com" class="simple-text logo-mini">
+        <a href="#" class="simple-text logo-mini">
           <div class="logo-image-small">
-            <img src="../assets/img/logo-small.png">
+            <img src="img/default-avatar.png">
           </div>
         </a>
-        <a href="http://www.creative-tim.com" class="simple-text logo-normal">
-          Naresh Sama
-          <!-- <div class="logo-image-big">
-            <img src="../assets/img/logo-big.png">
-          </div> -->
+       <a href="#" class="simple-text logo-normal">
+          Naresh 
         </a>
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-          <li>
-            <a href="./dashboard.html">
+          <li class="">
+            <a href="dashboard.php">
               <i class="nc-icon nc-bank"></i>
               <p>Dashboard</p>
             </a>
           </li>
           <li>
-            <a href="./icons.html">
-              <i class="nc-icon nc-diamond"></i>
+            <a href="users.php">
+                    <i class="fa fa-users"></i>                  
               <p>Users</p>
             </a>
           </li>
-          <li>
-            <a href="./map.html">
-              <i class="nc-icon nc-pin-3"></i>
-              <p>Contents</p>
+          <li class="">
+            <a href="content.php">
+              <i class="nc-icon nc-single-copy-04"></i>
+              <p>Projects</p>
             </a>
           </li>
           <li>
-            <a href="./notifications.html">
+            <a href="notifications.php">
               <i class="nc-icon nc-bell-55"></i>
               <p>Notifications</p>
             </a>
           </li>
           <li>
-            <a href="./user.html">
+            <a href="user.php">
               <i class="nc-icon nc-single-02"></i>
               <p>User Profile</p>
             </a>
           </li>
-          <li>
-            <a href="./tables.html">
-              <i class="nc-icon nc-tile-56"></i>
-              <p>Table List</p>
-            </a>
-          </li>
-          <li class="active ">
-            <a href="upload.html">
+          <li class="active">
+            <a href="upload.php">
               <i class="nc-icon nc-caps-small"></i>
               <p>Upload Files</p>
-            </a>
-          </li>
-          <li class="active-pro">
-            <a href="./upgrade.html">
-              <i class="nc-icon nc-spaceship"></i>
-              <p>Upgrade to PRO</p>
             </a>
           </li>
         </ul>
@@ -145,7 +65,7 @@ error_reporting(0);
                 <span class="navbar-toggler-bar bar3"></span>
               </button>
             </div>
-            <a class="navbar-brand" href="#pablo">Upload Files</a>
+            <a class="navbar-brand" href="#pablo">Dashboard</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -153,18 +73,8 @@ error_reporting(0);
             <span class="navbar-toggler-bar navbar-kebab"></span>
           </button>
           <div class="collapse navbar-collapse justify-content-end" id="navigation">
-            <form>
-              <div class="input-group no-border">
-                <input type="text" value="" class="form-control" placeholder="Search...">
-                <div class="input-group-append">
-                  <div class="input-group-text">
-                    <i class="nc-icon nc-zoom-split"></i>
-                  </div>
-                </div>
-              </div>
-            </form>
-            <ul class="navbar-nav">
-              <li class="nav-item">
+           <ul class="navbar-nav">
+              <!-- <li class="nav-item">
                 <a class="nav-link btn-magnify" href="#pablo">
                   <i class="nc-icon nc-layout-11"></i>
                   <p>
@@ -184,12 +94,12 @@ error_reporting(0);
                   <a class="dropdown-item" href="#">Another action</a>
                   <a class="dropdown-item" href="#">Something else here</a>
                 </div>
-              </li>
+            </li> -->
               <li class="nav-item">
                 <a class="nav-link btn-rotate" href="#pablo">
-                  <i class="nc-icon nc-settings-gear-65"></i>
+                  <i class="fa fa-sign-out" alt='logout'></i>
                   <p>
-                    <span class="d-lg-none d-md-block">Account</span>
+                    <span class="d-lg-none d-md-block">Logout</span>
                   </p>
                 </a>
               </li>
@@ -198,136 +108,92 @@ error_reporting(0);
         </div>
       </nav>
       <!-- End Navbar -->
-      <!-- <div class="panel-header panel-header-sm">
+<?php
+error_reporting(0);
+   if(isset($_FILES['image'])){
+       // echo "<pre>";print_r($_FILES['image']);exit;
+      $errors= array();
+      $file_name = $_FILES['image']['name'];
+      $file_size =$_FILES['image']['size'];
+      $file_tmp =$_FILES['image']['tmp_name'];
+      $file_type=$_FILES['image']['type'];
+      $file_ext=strtolower(end(explode('.',$_FILES['image']['name'])));
+      
+      $extensions= array("docx","doc","ppt","pptx","pdf","jpeg","jpg","png");
+      
+      if(in_array($file_ext,$extensions)=== false){
+         $errors[]="This file type is not allowed!";
+      }
+      
+      if($file_size > 2097152){
+         $errors[]='File size must be less than or equal to 2 MB';
+      }
+      
+      if(empty($errors)==true){
+         move_uploaded_file($file_tmp,"uploads/".$file_name);
 
+         $sql = "INSERT INTO `uploads` (`title`) VALUES ('$file_name');";
+         require_once("DBConnect.php");
 
-</div> -->
-      <div class="content">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="card">
-              <div class="card-header">
-                <h5 class="title">Upload files here:</h5>
-                <p class="category">Choose the files you want to upload:</p>
-              </div>
-              <div class="card-body">
-                <form action="" method="POST" enctype="multipart/form-data" >
-                  <input type="file" name="file" />
-                  <input type="submit" name="submit" value="UPLOAD" />
-                </form>
-                  <div class="col-md-12">
-            <div class="card card-plain">
-              <div class="card-header">
-                <h4 class="title"> FILES:</h4>
-                <p class="category"> Here is list of all uploaded files:</p>
-              </div>
-              <div class="card-body">
-                <div class="table-responsive">
-                  <?php
-// echo "Nepal";exit();
+        if (mysqli_query($conn, $sql)) {
+            echo "<script>alert('File uploaded successfully!');</script>";
+            echo "<script>window.location='upload.php';</script>";
+        } else {
+            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        }
+        mysqli_close($conn);
+         
+      }else{
+         print_r($errors);
+      }
+   }
+?>
+
+<?php
 require_once("DBConnect.php");
+$sql = "SELECT * FROM `uploads` WHERE 1 Limit 0, 10";
+$result = mysqli_query($conn, $sql);?>
 
-$sql = "SELECT * FROM `files` WHERE 1 Limit 0, 10";
-$result = mysqli_query($conn, $sql);
-// $data = mysqli_num_rows($result);
-// echo "<pre>"; print_r($result); exit();
-?>
-
-                  <table class="table">
-                    <thead class=" text-primary">
-                      <th>
-                        SN
-                      </th>
-                      <th>
-                        Thumbnail
-                      </th>
-                      <th>
-                        Filename
-                      </th>
-                      <th>
-                        Created At
-                      </th>
-                      <th class="text-right">
-                        Action
-                      </th>
-                    </thead>
-                    <?php
+        <div class="content">
+<form action="" method="POST" enctype="multipart/form-data">
+ <input type="file" name="image" required="required" />
+ <input type="submit" value="UPLOAD" />
+</form><br><br>
+<h5>Files</h5>
+<table class="table table-striped" border="1" cellspacing="0" cellpadding="20" width="100%">
+    <tr>
+        <th>S.N.</th>
+        <th>Thumbnail</th>
+        <th>File Name</th>
+        <th>Created At</th>
+        <th>Action</th>
+    </tr>
+<?php
 if (mysqli_num_rows($result) > 0) {
-    
-    $i=0;
-    while($row = mysqli_fetch_assoc($result)) {
+     $i=0;
+    while($row = mysqli_fetch_assoc($result)) {?>
+    <tr>
+        <td style="text-align: center;"><?= ++$i;?></td>
+        <td style="text-align: center;"><img style="width: 80px; border: 1px solid #eee;" src="uploads/<?= $row["title"];?>" alt="Thumbnail"></td>
+        <td><?= $row["title"];?></td>
+        <td><?= $row["created_at"];?></td>
+        <td style="text-align: center;"><a style="color: #F00; text-decoration: none;" onclick="return confirm('Are you sure you want to delete this file?')" href="delete_file.php?id=<?= $row['id'];?>">&#10008;</a></td>
+    </tr>
+<?php
+    }   
+} else {
     ?>
-                    <tbody>
-                      <tr>
-                        <td>
-                         <?= ++$i;?>
-                        </td>
-                        <td>
-                          <?= $row["title"];?>
-                        </td>
-                        <td style="text-align: center;"><img style="width: 80px; border: 1px solid #eee;" src="files/<?= $row["title"];?>" alt="Thumb"></td>
-                        <td>
-                          <?= $row["created_at"];?>
-                        </td>
-                        <td></td>
-                        <td class="text-right" style="text-align: center;"><a style="color: #F00; text-decoration: none;" onclick="return confirm('Are you sure you want to delete this file?')" href="delete_file.php?id=<?= $row['id'];?>">&#10008;</a></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-          </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <footer class="footer footer-black  footer-white ">
-        <div class="container-fluid">
-          <div class="row">
-            <nav class="footer-nav">
-              <ul>
-                <li>
-                  <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a>
-                </li>
-                <li>
-                  <a href="http://blog.creative-tim.com/" target="_blank">Blog</a>
-                </li>
-                <li>
-                  <a href="https://www.creative-tim.com/license" target="_blank">Licenses</a>
-                </li>
-              </ul>
-            </nav>
-            <div class="credits ml-auto">
-              <span class="copyright">
-                ©
-                <script>
-                  document.write(new Date().getFullYear())
-                </script>, made with <i class="fa fa-heart heart"></i> by Creative Tim
-              </span>
-            </div>
-          </div>
-        </div>
-      </footer>
-    </div>
-  </div>
-  <!--   Core JS Files   -->
-  <script src="../assets/js/core/jquery.min.js"></script>
-  <script src="../assets/js/core/popper.min.js"></script>
-  <script src="../assets/js/core/bootstrap.min.js"></script>
-  <script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
-  <!--  Google Maps Plugin    -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
-  <!-- Chart JS -->
-  <script src="../assets/js/plugins/chartjs.min.js"></script>
-  <!--  Notifications Plugin    -->
-  <script src="../assets/js/plugins/bootstrap-notify.js"></script>
-  <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
-  <script src="../assets/js/paper-dashboard.min.js?v=2.0.0" type="text/javascript"></script>
-  <!-- Paper Dashboard DEMO methods, don't include it in your project! -->
-  <script src="../assets/demo/demo.js"></script>
-</body>
-
-</html>
+    <tr>
+        <td colspan="3">No Record(s) found.</td>
+    </tr>
+    <?php
+}
 ?>
+<?php 
+mysqli_close($conn);
+?>
+</table>
+            
+        </div>
+</div></div>
+      <?php include_once('includes/footer.php');?>
