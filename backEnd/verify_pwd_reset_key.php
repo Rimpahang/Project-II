@@ -19,7 +19,7 @@ if (isset($_POST['sub'])) {
     if(mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_assoc($result);
         $date_then = $row['sent_time'];
-        if($date_now - $date_then <= 5000){      //reset key expire time in second
+        if($date_now - $date_then <= 60){      //reset key expire time in second
             mysqli_query($conn, $expire_key_sql);
 
             header("location: set_new_pwd.php?id=$id");
