@@ -65,13 +65,15 @@ for ($i = 0; $i <= $cald-1; $i++){
 	<?php include('includes/head.php'); ?>
 </head>
 <body>
-	<div style="justify-content: center;">
-		<canvas id="myChart" style="border: 1px solid red; height: 600px; width: 80%;"></canvas>
+	<div>
+        <h2>Programming Language Used in Projects</h2>
+		<canvas id="myChart" style="border: 1px solid red; height: 500px; width: 80%;"></canvas>
+        <p><b>Figure</b> : Graph based on programming language used by students of KHEC in projects </p>
 	</div>
 </body>
 </html>
 
-//Chart.js code for graph
+<!--Chart.js code for graph-->
 <script type="text/javascript">
 		var ctx = document.getElementById('myChart').getContext('2d');
 		var myChart = new Chart(ctx, {
