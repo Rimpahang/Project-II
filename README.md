@@ -9,7 +9,8 @@ __________________
 Front-end:
 1. Home page almost completed
 2. Started working on nav links
-   2.1 "Categories" completed almost
+   2.1 "Categories" completed
+   2.1.1 working on categories project details "LMS"
    2.2 Working on "Add Project"
 
 
