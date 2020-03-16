@@ -88,10 +88,14 @@ $('#Forgot-Password-Form').parsley();
         #reg-cross:hover{
             cursor: pointer;
         }
+        *{ margin:0; padding: 0; box-sizing:border-box; }
        /*---Signup---*/
     .modal-header, .modal-body, .modal-footer{
   padding: 25px;
 }
+.modal-backdrop{
+          z-index:-1;
+        }
 .modal-footer{
   text-align: center;
 }
@@ -114,5 +118,6 @@ input.parsley-error:focus{
   color: #a94442;
   display: none;
 } 
+
 </style>
 </head>
