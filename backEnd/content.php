@@ -117,11 +117,10 @@
               <div class="card body">
 <h1>Add Project</h1>
 <?php
-error_reporting(0);if (isset($_POST['addprj'])) { 
+error_reporting(0);
    if(isset($_FILES['file'])){
        // echo "<pre>";print_r($_FILES['image']);exit;
-      $name=$_POST['title'];
-      $descr=$_POST['description'];
+      
       $errors= array();
       $file_name = $_FILES['file']['name'];
       $file_size =$_FILES['file']['size'];
@@ -140,7 +139,10 @@ error_reporting(0);if (isset($_POST['addprj'])) {
       }
       
       if(empty($errors)==true){
-         move_uploaded_file($file_tmp,"projs/".$file_name);
+         move_uploaded_file($file_tmp,"projs/".$file_name);}}
+if (isset($_POST['addproj'])) {
+    $name=$_POST['title'];
+      $descr=$_POST['description'];
 
          $sql = "INSERT INTO `kpa_prjdetails` (`prj_title`,`prj_abs`,`prj_desc`) VALUES ('$name','$file_name','$descr');";
          require_once("DBConnect.php");
@@ -151,13 +153,9 @@ error_reporting(0);if (isset($_POST['addprj'])) {
         } else {
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
         }
-        mysqli_close($conn);
-         
-      }else{
-         print_r($errors);
-      }
-   } 
-}
+      }  mysqli_close($conn);
+        
+
 ?>
 <form action="" method="POST" name="user">
 <table class="table table-borderless">
@@ -178,7 +176,7 @@ error_reporting(0);if (isset($_POST['addprj'])) {
   </tr>
 <tr>
     <td>&nbsp;</td>
-    <td><button name='addprj' class="btn btn-primary">Submit</button>
+    <td><input name='addprj' type="submit" class="btn btn-primary" value="Submit">
   </tr>
   </table>
 </form>
