@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 14, 2020 at 05:15 PM
+-- Generation Time: Mar 16, 2020 at 08:19 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.3
 
@@ -58,6 +58,23 @@ INSERT INTO `kpa_notice` (`id`, `notice_topic`, `notice_text`, `notifier_user_id
 (1, 'defense', 'defense will to tomorrow', 0, '', '2020-02-18 09:25:00', 1),
 (2, 'defense', 'defense will to tomorrow', 0, '', '2020-02-18 09:25:01', 1),
 (3, 'email notification', 'this is the testing phase of email notification', 0, '', '2020-02-18 08:33:59', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `kpa_prjdetails`
+--
+
+CREATE TABLE `kpa_prjdetails` (
+  `id` int(2) NOT NULL,
+  `prj_title` varchar(10) NOT NULL,
+  `prj_abs` varchar(10) NOT NULL,
+  `prj_desc` text NOT NULL,
+  `uploaded_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `verified_at` int(5) NOT NULL,
+  `verified_by` int(5) NOT NULL,
+  `status` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -143,7 +160,9 @@ INSERT INTO `kpa_user` (`id`, `name`, `username`, `email`, `password`, `user_typ
 (9, 'Naresh Roka', 'ace', 'nrshroka@gmail.com', '3a2cf27458c9aa3e358f8fc0f002bff6', 'super_admin', NULL, NULL, 1, '2019-08-06 17:47:25', 0, 1, '2020-03-09 11:55:52', 1),
 (12, 'Avishek Karki', 'kanxo', 'karkiavi12345@gmail.com', 'cfb70d4d263b5ae0d229ea5d4aaa7445', 'normal_user', NULL, NULL, 1, '2019-08-07 04:33:51', 0, 1, '2020-02-18 14:18:31', 1),
 (14, 'user user', 'users', 'user@use.com', 'ee11cbb19052e40b07aac0ca060c23ee', 'normal_user', NULL, NULL, 1, '2020-03-14 14:51:33', 0, 1, '2020-03-14 20:53:16', 1),
-(15, 'Light', 'L', 'light@l.com', '2ac43aa43bf473f9a9c09b4b608619d3', 'normal_user', NULL, NULL, 1, '2020-03-14 15:09:17', 0, 1, NULL, 1);
+(15, 'Light', 'L', 'light@l.com', '2ac43aa43bf473f9a9c09b4b608619d3', 'normal_user', NULL, NULL, 1, '2020-03-14 15:09:17', 0, 1, NULL, 1),
+(16, 'new', 'new', 'n@a', '22af645d1859cb5ca6da0c484f1f37ea', 'normal_user', NULL, NULL, 1, '2020-03-16 04:52:15', 0, 1, NULL, 1),
+(19, 'test1', 'test1', 'test@t', '5a105e8b9d40e1329780d62ea2265d8a', 'normal_user', NULL, NULL, 1, '2020-03-16 04:54:08', 0, 1, NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -162,8 +181,9 @@ CREATE TABLE `uploads` (
 --
 
 INSERT INTO `uploads` (`id`, `title`, `created_at`) VALUES
-(2, 'c.PNG', '2020-03-14 08:56:48'),
-(4, 'Chapter4_2.pdf', '2020-03-14 15:14:38');
+(4, 'Chapter4_2.pdf', '2020-03-14 15:14:38'),
+(5, 'ds.PNG', '2020-03-14 16:38:27'),
+(6, 'Capture.PNG', '2020-03-16 05:35:51');
 
 --
 -- Indexes for dumped tables
@@ -179,6 +199,12 @@ ALTER TABLE `kpa_language`
 -- Indexes for table `kpa_notice`
 --
 ALTER TABLE `kpa_notice`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `kpa_prjdetails`
+--
+ALTER TABLE `kpa_prjdetails`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -226,6 +252,12 @@ ALTER TABLE `kpa_notice`
   MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT for table `kpa_prjdetails`
+--
+ALTER TABLE `kpa_prjdetails`
+  MODIFY `id` int(2) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `kpa_project_list`
 --
 ALTER TABLE `kpa_project_list`
@@ -241,13 +273,13 @@ ALTER TABLE `kpa_pwd_reset`
 -- AUTO_INCREMENT for table `kpa_user`
 --
 ALTER TABLE `kpa_user`
-  MODIFY `id` int(6) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(6) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `uploads`
 --
 ALTER TABLE `uploads`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
