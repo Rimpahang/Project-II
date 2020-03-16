@@ -1,107 +1,247 @@
+<?php
+require_once("backEnd/includes/DBconnect.php");
+$get_data_sql = "SELECT * FROM `kpa_project_list`";
+$result_data = mysqli_query($conn, $get_data_sql);
+if (mysqli_num_rows($result_data) > 0) {
+    $json_array = array();
+    while ($row = mysqli_fetch_assoc($result_data)) {
+        $json_array[] = $row;
+
+    }
+}
+ $jencode = json_encode($json_array);
+
+file_put_contents('search_json'.'.json',$jencode);
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <?php include('includes/head.php'); ?>
 <body data-spy="scroll" data-target="#navbarResponsive">
-
+    <!--  Project Title  -->
 	<div class="jumbotron text-center" style="margin-bottom:0;font-family: cursive; color: blue;">
 		<h1>Khwopa Project Archive</h1>
-		<p>aka KPA</p> 
 	</div>
-	<!-- Navigation -->
-	<nav class="navbar navbar-expand-md bg-light navbar-light sticky-top">
-		<button  type="button" data-toggle="collapse" data-target="#navbarResponsive">
+	<!-- Navigation bar-->
+	<nav class="navbar navbar-expand-md bg-light navbar-light sticky-top mt-1">
+<!-- <button  type="button" data-toggle="collapse" data-target="#navbarResponsive">
 			<span class="navbar-toggler-icon"></span> 
-		</button>
+		</button> -->
 		<div class="container-fluid">
-			<a class="navbar-brand" href="#"><!-- <img src="images/khwopa.png"> --> KPA Navbar</a>
-
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
-				<span class="navbar-toggler-icon"></span> 
-			</button>
-			<div class="collapse navbar-collapse" id="navbarResponsive">
-				<form class="form-inline" action="/action_page.php">
-					<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"style="margin-top: 4px;">
-					<button class="btn btn-outline-success" type="submit" style="margin-top: 4px;">Search</button>
-				</form>  
-				<ul class="navbar-nav ml-auto">
-					<li class="nav-item active">
-						<a class="nav-link " href="#">Home</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link text-success" href="#">About</a>
-					</li>
-					<li class="nav-item dropdown">
-						<a class="nav-link text-success dropdown-toggle" href="#" id="navbarDropdown"role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</a>
-						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="categories.html">Management System</a>
-          <a class="dropdown-item" href="categories.html">Commerce</a>
-          <a class="dropdown-item" href="categories.html">Robotics</a>
-          <a class="dropdown-item" href="categories.html">Games</a>
-          <a class="dropdown-item" href="categories.html">ML and AI</a>
-          <a class="dropdown-item" href="categories.html">Others</a>
+			<!-- <a class="navbar-brand" href="#" data-target="#model" data-toggle="modal">Login</a> --><!-- <img src="images/khwopa.png"> --> 
+			<div id="login-signup-modal" class="modal fade" tabindex="-1" role="dialog">
+   <div class="modal-dialog" role="document">
+    
+     <!-- login modal content -->
+        <div class="modal-content" id="login-modal-content">
+        
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title"><span class="glyphicon glyphicon-lock"></span> Login Now!</h4>
+          </div>
+        
+          <div class="modal-body">
+          <form method="post" id="Login-Form" role="form">
+            <div class="form-group">
+                <div class="input-group">
+                <div class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></div>
+                <input name="email" id="email1" type="email" class="form-control input-lg" placeholder="Enter Email" required data-parsley-type="email" >
+                </div>                      
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                <div class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></div>
+                <input name="password" id="login-password" type="password" class="form-control input-lg" placeholder="Enter Password" required data-parsley-length="[6, 10]" data-parsley-trigger="keyup">
+                 </div>                      
+            </div>
+            <div class="checkbox">
+              <label><input type="checkbox" value="" checked>Remember me</label>
+            </div>
+              <button type="submit" class="btn btn-success btn-block btn-lg">LOGIN</button>
+          </form>
         </div>
-						
-					</li>
-					<li class="nav-item">
-						<a class="nav-link text-success" href="#">Top Projects</a>
-					</li>   
-					<li class="nav-item">
-						<a class="nav-link text-success" href="#">Project Titles</a>
-					</li> 
-					<li class="nav-item">
-						<a class="nav-link text-success" href="#">Contact</a>
-					</li>
-				</ul>
-			</div> 
-		</div> 
+        
+        <div class="modal-footer">
+          <p>
+          <a id="FPModal" href="javascript:void(0)" data-target="#forgot-password-modal-content">Forgot Password?</a> | 
+          <a id="signupModal" href="javascript:void(0)" data-toggle="modal" data-target="#signup-modal-content">Register Here!</a>
+          </p>
+        </div>
+        
+       </div>
+        <!-- login modal content -->
+        
+        <!-- signup modal content -->
+        <div class="modal-content" id="signup-modal-content">
+        
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title"><span class="glyphicon glyphicon-lock"></span> Signup Now!</h4>
+        </div>
+                
+        <div class="modal-body">
+          <form method="post" id="Signin-Form" role="form">
+            <div class="form-group">
+                <div class="input-group">
+                <div class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></div>
+                <input name="email" id="email2" type="email" class="form-control input-lg" placeholder="Enter Email" required data-parsley-type="email">
+                </div>                     
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                <div class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></div>
+                <input name="password" id="passwd" type="password" class="form-control input-lg" placeholder="Enter Password" required data-parsley-length="[6, 10]" data-parsley-trigger="keyup">
+                </div>                      
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                <div class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></div>
+                <input name="password" id="confirm-passwd" type="password" class="form-control input-lg" placeholder="Retype Password" required data-parsley-equalto="#passwd" data-parsley-trigger="keyup">
+                </div>                      
+            </div>
+            <button type="submit" class="btn btn-success btn-block btn-lg">CREATE ACCOUNT!</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <p>Already a Member ? <a id="loginModal" href="javascript:void(0)">Login Here!</a></p>
+        </div>
+       </div>
+       <!-- signup modal content -->
+        
+       <!-- forgot password content -->
+       <div class="modal-content" id="forgot-password-modal-content">
+        
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title"><span class="glyphicon glyphicon-lock"></span> Recover Password!</h4>
+        </div>
+        
+        <div class="modal-body">
+          <form method="post" id="Forgot-Password-Form" role="form">
+            <div class="form-group">
+                <div class="input-group">
+                <div class="input-group-addon"><icon class="glyphicon glyphicon-envelope"></icon></div>
+                <input name="email" id="email3" type="email" class="form-control input-lg" placeholder="Enter Email" required data-parsley-type="email">
+                </div>                     
+            </div>         
+            <button type="submit" class="btn btn-success btn-block btn-lg">
+              <span class="glyphicon glyphicon-send"></span> SUBMIT
+            </button>
+          </form>
+        </div>
+        
+        <div class="modal-footer">
+          <p>Remember Password ? <a id="loginModal1" href="javascript:void(0)">Login Here!</a></p>
+        </div>
+        
+       </div>        
+       <!-- forgot password content -->
+  
+  </div>
+</div>
+  
+  <a href="" data-toggle="modal" data-target="#login-signup-modal" style="padding-right: 15px; padding-top: 15px;"><p class="text-info">Signup</p></a>
+
+
+        <!-- Navbar toggler-->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+                <!--  Search bar  -->
+            <ul class="list-group-horizontal navbar-nav">
+                <form class="form-inline" role="search" action="/search_result.php">
+                    <li><input class="form-control mr-sm-2" type="search" placeholder="Search" id="navBarSearch" aria-label="Search" style="margin-top: 4px;"></li>
+                    <li class="ml-2"><button class="btn btn-outline-success " type="submit" style="margin-top: 4px;">Search</button></li>
+                </form>
+            </ul>
+            
+
+            <!--  Navbar links  -->
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link " href="#">Home</a>
+                </li>
+                
+                <li class="nav-item dropdown">
+                    <a class="nav-link text-success dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="categories.html">Management System</a>
+                        <a class="dropdown-item" href="categories.html">Commerce</a>
+                        <a class="dropdown-item" href="categories.html">Robotics</a>
+                        <a class="dropdown-item" href="categories.html">Games</a>
+                        <a class="dropdown-item" href="categories.html">ML and AI</a>
+                        <a class="dropdown-item" href="categories.html">Others</a>
+                     </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-success" href="addp.html">Add Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-success" href="#">Top Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-success" href="#">Project Titles</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-success" href="notice.html">Notice</a>
+                </li>
+            </ul>
+        </div>
 	</nav>
-	<!-- Image Slider -->
-	<div id="slides"class="carousel slide" data-ride="carousel" data-interval="7000">
+
+	<!-- Carousel -->
+	<div id="slides" class="carousel slide " data-ride="carousel" data-interval="4000">                	
+
 		<ul class="carousel-indicators">
-			<li data-target="#slides"data-slide-to="0" class="active"></li>
+			<li data-target="#slides" data-slide-to="0" class="active"></li>
 			<li data-target="#slides" data-slide-to="1"></li>
 			<li data-target="#slides" data-slide-to="2"></li>
 			<li data-target="#slides" data-slide-to="3"></li>
 		</ul>
 		<div class="carousel-inner">
 			<div class="carousel-item active">
-				<img src="images/khwopa.png"style="height: 400px; width: 100%;margin-top: 20px;">
-
+				<img src="images/image1.jpg" style="height: 400px; width: 100%;margin-top: 20px;">
 			</div>  
 			<div class="carousel-item">
-				<img src="images/image1.jpg"style="height: 400px; width: 100%;margin-top: 20px;">
+				<img src="images/image2.png" style="height: 400px; width: 100%;margin-top: 20px;">
 			</div> 
 			<div class="carousel-item">
-				<img src="images/image3.jpg"style="height: 400px; width: 100%;margin-top: 20px;">
+				<img src="images/image3.jpg" style="height: 400px; width: 100%;margin-top: 20px;">
 				<div class="carousel-caption">
 					<h1 class="display-9">Third Sem. Project</h1>
 					<button type="button" class="btn btn-outline-secondary btn-lg">More</button>
 					<button type="button" class="btn btn-primary btn-lg">Hello!!!</button>
-
 				</div>
 			</div> 
 			<div class="carousel-item">
-				<img src="images/image2.png"style="height: 400px;width: 100%;margin-top: 20px;">
+				<img src="images/image4.png" style="height: 400px;width: 100%;margin-top: 20px;">
 			</div> 
-		</div>
+					<ul class="list-group col-sm-3" id="sResult"></ul>
 
-		<!-- Prev and Next Buttons -->
+		</div>
+        <!-- Prev and Next Buttons for carousel-->
 		<a class="carousel-control-prev" href="#slides" role="button" data-slide="prev">
-			<span class="carousel-control-prev-icon" aria-hidden="true"></span></a>
-			<a class="carousel-control-next" href="#slides" role="button" data-slide="next">
-				<span class="carousel-control-next-icon" aria-hidden="true"></span></a>
-			</div> 
-			<!-- Jumbotron -->
-			<div class="container-fluid">
-				<div class="row jumbotron">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span></a>
+        <a class="carousel-control-next" href="#slides" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span></a>
+    </div>
+			<!-- Registration Request -->
+			<div class="container-fluid fixed-bottom reg">
+				<div class="container-fluid fixed-bottom reg jumbotron d-md-flex justify-content-center align-items-center position-relative bg-info">
 					<div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xl-10">
-						<p class="para">This is the online collection of old projects done in our college. Want to become member??? Click the button and be our friend rather than guest.</ p>
-						</div>
-						<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-2">
-							<a href="#"><button type="button" class="btn btn-outline-secondary btn-light">Register</button></a>
-						</div>
-					</div>
-				</div>
+						<p class="para">Want to become member? Click the button and be our friend rather than guest.</p>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 col-xl-2 d-inline-block">
+                        <a href="#"><button type="button" class="btn btn-outline-success btn-light">Register</button></a>
+                    </div>
+                    <div class="fa fa-times position-absolute" id="reg-cross" style="color: black; right: 20px; top: 3px;"></div>
+
+                </div>
+
+            </div>
+
 				<!---Welcome Section--->
 				<div  class="container-fluid padding">
 					<div class="row welcome text-center">
@@ -110,7 +250,7 @@
 						</div>
 						<hr>
 						<div class="col-12">
-							<p class="lead">Welcome to the KPA website.wegegetgergscnwebfwehiuhvnfewj hwfhuygscjwq</p>
+							<p class="lead">Khwopa Project Archive Khwopa Project Archive Khwopa Project Archive</p>
 						</div>
 					</div>
 				</div><br>
@@ -119,16 +259,16 @@
 					<div class="row text-center padding">
 						<div class="col-xs-12 col-sm-6 col-md-4">
 							<a href="#"><h3 class="text-info">Student</h3></a>
-							<p>wefwceweewwe</p>
+							<p>Khwopa Project Archive</p>
 						</div>
 						<div class="col-xs-12 col-sm-6 col-md-4">
 							<a href="#"><h3 class="text-info">Teacher</h3></a>
-							<p>wefwceweewwe</p>
+							<p>Khwopa Project Archive</p>
 						</div>
 						<div class="col-sm-12 col-md-4">
 							<i class="fab fa-code"></i>
 							<a href="#"><h3 class="text-info">Supervisior</h3></a>
-							<p>wefwceweewwe</p>
+							<p>Khwopa Project Archive</p>
 						</div>
 					</div>
 					<hr class="my-4">
@@ -138,15 +278,15 @@
 					<div class="row padding">
 						<div class="col-lg-4">
 							<h2>More About KPA...</h2>
-							<p>vhbyujnmjnuhuedrvghghukj</p>
-							<p>hgyf65eerctvybnuy6rdvbhy6tygdrtyghbnjtfyftfhb</p>
+							<p>Khwopa Project Archive Khwopa Project Archive</p>
+							<p>Khwopa Project Archive Khwopa Project Archive Khwopa Project Archive</p>
 							<div id="more" class="collapse">
-								fgdcvhbjhyuhbn,mnyfujbmkjguygyuftrss<br>jhuggbjguytyjhjjhftyff.</div><br>
+								Khwopa Project Archive Khwopa Project Archive<br>Khwopa Project Archive Khwopa Project Archive</div><br>
 								<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#more">Read More</button><br><br>
 
 							</div>
 							<div class="col-lg-4">
-								<img src="images/image4.png" class="img-fluid img-thumbnail"style="height: 300px; width: 80%;margin-right: 80%;">
+								<img src="images/image4.png" class="img-fluid img-thumbnail" style="height: 300px; width: 80%;margin-right: 80%;">
 							</div>
 							<!---Quick Links-->
 							<div class="col-md-4 notice-bar" style="background-color: orange;">
@@ -172,13 +312,13 @@
 							</div>
 							<div class="col-sm-3">
 							    <div class="zoom">
-								<img src="images/analyze.jpg" class="rounded-circle"id="icon" style="height: 160px;">
+								<img src="images/analyze.jpg" class="rounded-circle" id="icon" style="height: 160px;">
 								<h4>Analyze</h4>
 								</div>
 							</div>
 								<div class="col-sm-3">
 									<div class="zoom">
-									<img src="images/evaluate.png" class="rounded-circle"id="icon" style="height: 160px;">
+									<img src="images/evaluate.png" class="rounded-circle" id="icon" style="height: 160px;">
 									<h4>Evaluate</h4>
 								</div>
 								</div>
@@ -186,27 +326,27 @@
 						</div>
 					</div>
 						<hr class="hr1">
-												<!--Language-->
+                        <!--Language-->
 
 						<div class="container">
 							<div class="row">
 								<h4 class="font-weight-bolder"><a href="#hidden" data-toggle="collapse">Khwopa Project Archive</a></h4>
 								<div id="hidden" class="collapse">
 								<h4>KPA for students and college...</h4>
-								<p>jjewf fns fniuesfhiwuufkjncjkkfuregherugw fbuish sdvbefnwjuieghuhfkndfkwjqhiuehuivhiusvsfnewjkfniuehvushvskcnjnweiuhuieshuvhsih</p>
-								<p>efuewhfewhfwrjnfudshchfWUHJKQNRUFHUFHK EFHIWEHF WIUFHIWFHEIF EWUEFH FEWF F EWWEFHEIWFH FHWF9PFKWFENGIOFEWJ </p>	
+								<p>Khwopa Project Archive Khwopa Project Archive Khwopa Project Archive Khwopa Project Archive Khwopa Project Archive Khwopa Project Archive Khwopa Project Archive</p>
+								<p>Khwopa Project Archive Khwopa Project Archive Khwopa Project Archive Khwopa Project Archive Khwopa Project Archive</p>	
 								</div>
 								</div>
 								</div> 
 								<hr class="hr1">
 								<!---Accordion-->
 								<div class="container">
- <center><h2 >Be KPA's Member For:</h2></center> 
+ <h2 style="text-align: center;">Be KPA's Member For:</h2>
   <p>As you <strong>register in KPA</strong> and <strong>become member</strong> you come across with various facilities which would enrich your surfing experience on KPA.</p>
   <div id="accordion">
     <div class="card">
       <div class="card-header">
-        <a class="card-link" data-toggle="collapse" href="#collapseOne" >
+        <a class="collapsed card-link" data-toggle="collapse" href="#collapseOne" >
           <p class="text-success">Project Discussion</p>
         </a>
       </div>
@@ -242,6 +382,26 @@
     </div>
   </div>
 </div><br><br>
+
+<!-- Comment using Ckeditor5 -->
+    <form action="/receive_feedback.php">
+	    <center><label for="editor">
+		    <h4 class="font-weight-bolder" style="text-align: center;">Leave Feedback</h4>
+		    </label></center><br>
+        <div class="form-group">
+            <div class="justify-content-center d-flex col-sm-12">
+                <div class="col-md-8" style="min-height: 200px;">
+                    <textarea id="editor" placeholder="Please leave your feedback here!">
+                    </textarea>
+                    <div class="text-right mt-2">
+                        <button type="submit" class="btn btn-primary sub">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </form>
+
 <!--- Footer-->
 <footer class="container-fluid text-center">
 	<div class="row">
@@ -257,21 +417,97 @@
 		</div>
 		<div class="col-sm-3">
 			<h3>Connect</h3>
-			<a href="#" class="fa fa-facebook" title="facebook"></a>
-			<a href="#" class="fa fa-twitter" title="twitter"></a>
-			<a href="#" class="fa fa-google" title="google"></a>
-			<a href="#" class="fa fa-youtube" title="youtube"></a>
+			<a href="#" class="fab fa-facebook-square" title="facebook" style="font-size: 30px"></a>
+			<a href="#" class="fab fa-twitter-square" title="twitter" style="font-size: 30px"></a>
+			<a href="#" class="fab fa-google" title="google" style="font-size: 30px"></a>
+			<a href="#" class="fab fa-youtube-square" title="youtube" style="font-size: 30px; background: grey; "></a>
 		</div>
+		<!---KPA info at footer--->
 		<div class="col-sm-3">
-			<img src="images/kpa.jpg" class="icon" alt="KPA">
+			<img src="images/kpa.jpg" class="icon" alt="KPA"><br><br>
+			<a href="#" class="fas fa-home" title="Home" style="font-size: 17px;margin-right: 10px;"></a>||
+			<a href="#" class="fas fa-id-card-alt" title="Contact" style="font-size: 17px;margin-left: 10px;margin-right: 10px;"></a>||
+			<a href="#" class="fas fa-comment-dots" title="Feedback" style="font-size: 17px;margin-left: 10px;margin-right: 10px;"></a>||
+				<a href="#" class="fas fa-question" title="FAQs" style="font-size: 17px;margin-left: 10px;"></a>
 		</div>
 	</div>
 
 </footer>
-	<div class="col-xs-12" style="background: brown;">
-		<h5 style="text-align: center; color: white; font-size: 15px;"><i class="fa fa-copyright" style="font-size:16px">  2020 KPA</i></h5>
+	<div class="col-xs-12" style="background: brown; height: 22px;">
+		<h5 style="text-align: center; color: white; font-size: 15px;"><i class="fa fa-copyright" style="font-size:16px;margin-top: 3px;">  2020 KPA</i></h5>
 	</div>
-	
 
 </body>
 </html>
+
+<!--Query for ckeditor-->
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#editor' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+
+    //jquery for registration request fadeout
+    $(document).ready(function () {
+        $("#reg-cross").click(function () {
+        $(".reg").fadeOut();
+        });
+    });
+    //parsely validation
+    <script>
+$(document).ready(function(){
+
+
+    $('#signupModal').click(function(){
+     $('#login-modal-content').fadeOut('fast', function(){
+        $('#signup-modal-content').fadeIn('fast');
+     });
+    });
+
+    $('#loginModal').click(function(){
+     $('#signup-modal-content').fadeOut('fast', function(){
+        $('#login-modal-content').fadeIn('fast');
+     });
+    });
+
+    $('#FPModal').click(function(){
+     $('#login-modal-content').fadeOut('fast', function(){
+        $('#forgot-password-modal-content').fadeIn('fast');
+        });
+    });
+
+    $('#loginModal1').click(function(){
+     $('#forgot-password-modal-content').fadeOut('fast', function(){
+        $('#login-modal-content').fadeIn('fast');
+     });
+    });
+
+
+    $('#Login-Form').parsley();
+    $('#Signin-Form').parsley();
+    $('#Forgot-Password-Form').parsley();
+});
+
+</script>
+
+// live search using JSON and JQuery AJAX
+$(document).ready(function(){
+    $.ajaxSetup({ cache: false })
+    $('#navBarSearch').keyup(function(){
+        $('#sResult').html('');
+        var sText = $('#navBarSearch').val();
+        if (sText != ''){
+            var expression = new RegExp(sText, "i");
+            $.getJSON('search_json.json', function(data) {
+                $.each(data, function(key, value){
+                    if (value.project_title.search(expression) != -1 || value.semester.search(expression) != -1) {
+                        $('#sResult').append('<li class="list-group-item link-class" height="50" width="50">' + value.project_title + ' | <span class="text-muted">' + value.semester + '</span></li>');
+                    }
+                });
+            });
+        }
+    });
+});
+  
+</script>
