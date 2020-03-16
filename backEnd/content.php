@@ -116,27 +116,57 @@
             <div class="card card-stats">
               <div class="card body">
 <h1>Add Project</h1>
-<form action="" method="POST" name="user">
+
+
+<?php
+error_reporting(0);
+   if(isset($_POST['add_project'])){
+
+        $errors = array();
+        $file_name = $_FILES['file']['name'];
+        $file_size = $_FILES['file']['size'];
+        $file_tmp = $_FILES['file']['tmp_name'];
+        $file_type = $_FILES['file']['type'];
+        $file_ext = strtolower(end(explode('.', $_FILES['file']['name'])));
+
+        $extensions = array("docx","doc","ppt","pptx","pdf","jpeg","jpg","png");
+
+        if (in_array($file_ext, $extensions) === false) {
+            $errors[] = "This file type is not allowed!";
+        }
+
+        if ($file_size > 2097152) {
+            $errors[] = 'File size must be less than or equal to 2 MB';
+        }
+
+        if (empty($errors) == true) {
+            move_uploaded_file($file_tmp, "projects/".$file_name);
+        }
+        $name = $_POST['title'];
+        $descr = $_POST['description'];
+
+        $sql = "INSERT INTO `kpa_project_details` (`project_title`,`project_abstract`,`project_description`) VALUES ('$name','$file_name','$descr')";
+        require_once("DBConnect.php");
+
+        if (mysqli_query($conn, $sql)) {
+            echo "<script>alert('Project added successfully!');</script>";
+            echo "<script>window.location='upload.php';</script>";
+        } else {
+            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        }
+      }
+   mysqli_close($conn);
+?>
+
+<form action="" method="POST" name="user" enctype="multipart/form-data">
 <table class="table table-borderless">
   <tr>
     <td>Project title:</td>
     <td><input type="text" name="title" placeholder="Enter Title" required="required"></td>
   </tr>
   <tr>
-    <td>Proposal:</td>
-    <td><input type="file" required="required" />
-  </tr>
-    <tr>
-    <td>Mid Defense Report:</td>
-    <td><input type="file" required="required" />
-  </tr>
-    <tr>
-    <td>Final Report:</td>
-    <td><input type="file" required="required" />
-  </tr>
-  <tr>
-    <td>Project primary page screenshot:</td>
-    <td><input type="file" required="required" />
+    <td>Project Abstract screenshot:</td>
+    <td><input type="file" name='file' required="required" />
     </tr>
   <tr>
     <td>Project Description:</td>
@@ -147,7 +177,7 @@
   </tr>
 <tr>
     <td>&nbsp;</td>
-    <td><button class="btn btn-primary">Submit</button>
+    <td><input name='add_project' type="submit" class="btn btn-primary" value="Submit">
   </tr>
   </table>
 </form>

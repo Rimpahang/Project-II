@@ -1,3 +1,43 @@
+<?php
+
+require_once('includes/DBconnect.php');
+
+//total users
+$get_user_count_sql = "SELECT COUNT(*) AS counted FROM `kpa_user` WHERE `status` = 1";
+$user_count_data = mysqli_query($conn, $get_user_count_sql);
+if(mysqli_num_rows($user_count_data) > 0) {
+    $user_counting = mysqli_fetch_assoc($user_count_data);
+
+    $user_count = $user_counting['counted'];
+}
+
+
+//total notices
+$get_notice_count_sql = "SELECT COUNT(*) AS counted FROM `kpa_notice`";
+$notice_count_data = mysqli_query($conn, $get_notice_count_sql);
+if(mysqli_num_rows($notice_count_data) > 0) {
+    $notice_counting = mysqli_fetch_assoc($notice_count_data);
+
+    $notice_count = $notice_counting['counted'];
+}
+
+
+//total programming language used
+$get_all_programming_language_name_sql = "SELECT DISTINCT `language_name` FROM `kpa_programming_language`";
+$all_programming_language_name = mysqli_query($conn, $get_all_programming_language_name_sql);
+if (mysqli_num_rows($all_programming_language_name) > 0) {
+    $all_programming_name_array = array();
+    while ($programming_language_name_data = mysqli_fetch_assoc($all_programming_language_name)) {
+        $all_programming_name_array[] = $programming_language_name_data['language_name'];
+    }
+    $language_count = count($all_programming_name_array);
+}
+
+
+
+?>
+
+
 <?php include_once('includes/header.php');?>
 <body class="">
   <div class="wrapper ">
@@ -123,7 +163,7 @@
                   <div class="col-7 col-md-8">
                     <div class="numbers">
                       <p class="card-category">Total Users</p>
-                      <p class="card-title">5
+                      <p class="card-title"><?php echo $user_count; ?>
                         <p>
                     </div>
                   </div>
@@ -227,7 +267,7 @@
                   <div class="col-7 col-md-8">
                     <div class="numbers">
                       <p class="card-category">Notices</p>
-                      <p class="card-title">3
+                      <p class="card-title"><?php echo $notice_count; ?>
                         <p>
                     </div>
                   </div>
@@ -236,7 +276,7 @@
               <div class="card-footer ">
                 <hr>
                 <div class="stats">
-                  <i class="fa fa-bell"></i> Publish Notice
+                 <a href="send_notice.php" style="text-decoration: none;"><i class="fa fa-plus"></i> Publish Notice</a>
                 </div>
               </div>
             </div>
@@ -253,7 +293,7 @@
                   <div class="col-7 col-md-8">
                     <div class="numbers">
                       <p class="card-category"><span style="font-size: 10px">Prog. Language Stats.</span></p>
-                      <p class="card-title">5
+                      <p class="card-title"><?php echo $language_count; ?>
                         <p>
                     </div>
                   </div>
@@ -262,7 +302,7 @@
               <div class="card-footer ">
                 <hr>
                 <div class="stats">
-                  <i class="fa fa-eye"></i> View graph
+                    <a href="programming_language_chart.php" style="text-decoration: none;"><i class="fa fa-plus"></i> View Graph</a>
                 </div>
               </div>
             </div>
