@@ -97,6 +97,8 @@ file_put_contents('search_json'.'.json',$jencode);
 			<div class="carousel-item">
 				<img src="images/image4.png" style="height: 400px;width: 100%;margin-top: 20px;">
 			</div> 
+			          <ul class="list-group col-sm-3" id="sResult"></ul>
+
 		</div>
         <!-- Prev and Next Buttons for carousel-->
 		<a class="carousel-control-prev" href="#slides" role="button" data-slide="prev">
