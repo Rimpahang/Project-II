@@ -176,7 +176,7 @@ if (mysqli_num_rows($result) > 0) {
         <td style="text-align: center;"><?= ++$i;?></td>
         <td style="text-align: center;"><img style="width: 80px; border: 1px solid #eee;" src="projects/<?= $row["project_abstract"];?>" alt="Thumbnail"></td>
         <td><?= $row["project_title"];?></td>
-        <td><?= $row["created_at"];?></td>
+        <td><?= $row["uploaded_at"];?></td>
         <td style="text-align: center;"><a style="color: #F00; text-decoration: none;" onclick="return confirm('Are you sure you want to delete this file?')" href="delete_file.php?id=<?= $row['id'];?>">&#10008;</a></td>
     </tr>
 <?php
@@ -184,7 +184,7 @@ if (mysqli_num_rows($result) > 0) {
 } else {
     ?>
     <tr>
-        <td colspan="3">No Record(s) found.</td>
+        <td colspan="5">No Record(s) found.</td>
     </tr>
     <?php
 }
