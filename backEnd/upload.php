@@ -130,9 +130,9 @@ error_reporting(0);
       }
       
       if(empty($errors)==true){
-         move_uploaded_file($file_tmp,"uploads/".$file_name);
+         move_uploaded_file($file_tmp,"projects/".$file_name);
 
-         $sql = "INSERT INTO `uploads` (`title`) VALUES ('$file_name');";
+         $sql = "INSERT INTO `kpa_project_details` (`project_abstract`) VALUES ('$file_name')";
          require_once("DBConnect.php");
 
         if (mysqli_query($conn, $sql)) {
@@ -151,7 +151,7 @@ error_reporting(0);
 
 <?php
 require_once("DBConnect.php");
-$sql = "SELECT * FROM `uploads` WHERE 1 Limit 0, 10";
+$sql = "SELECT * FROM `kpa_project_details` WHERE 1 Limit 0, 10";
 $result = mysqli_query($conn, $sql);?>
 
         <div class="content">
@@ -164,7 +164,7 @@ $result = mysqli_query($conn, $sql);?>
     <tr>
         <th>S.N.</th>
         <th>Thumbnail</th>
-        <th>File Name</th>
+        <th>Title</th>
         <th>Created At</th>
         <th>Action</th>
     </tr>
@@ -174,8 +174,8 @@ if (mysqli_num_rows($result) > 0) {
     while($row = mysqli_fetch_assoc($result)) {?>
     <tr>
         <td style="text-align: center;"><?= ++$i;?></td>
-        <td style="text-align: center;"><img style="width: 80px; border: 1px solid #eee;" src="uploads/<?= $row["title"];?>" alt="Thumbnail"></td>
-        <td><?= $row["title"];?></td>
+        <td style="text-align: center;"><img style="width: 80px; border: 1px solid #eee;" src="projects/<?= $row["project_abstract"];?>" alt="Thumbnail"></td>
+        <td><?= $row["project_title"];?></td>
         <td><?= $row["created_at"];?></td>
         <td style="text-align: center;"><a style="color: #F00; text-decoration: none;" onclick="return confirm('Are you sure you want to delete this file?')" href="delete_file.php?id=<?= $row['id'];?>">&#10008;</a></td>
     </tr>

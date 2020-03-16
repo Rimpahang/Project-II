@@ -116,36 +116,37 @@
             <div class="card card-stats">
               <div class="card body">
 <h1>Add Project</h1>
+
+
 <?php
 error_reporting(0);
-   if(isset($_FILES['file'])){
-       // echo "<pre>";print_r($_FILES['image']);exit;
-      
-      $errors= array();
-      $file_name = $_FILES['file']['name'];
-      $file_size =$_FILES['file']['size'];
-      $file_tmp =$_FILES['file']['tmp_name'];
-      $file_type=$_FILES['file']['type'];
-      $file_ext=strtolower(end(explode('.',$_FILES['file']['name'])));
-      
-      $extensions= array("docx","doc","ppt","pptx","pdf","jpeg","jpg","png");
-      
-      if(in_array($file_ext,$extensions)=== false){
-         $errors[]="This file type is not allowed!";
-      }
-      
-      if($file_size > 2097152){
-         $errors[]='File size must be less than or equal to 2 MB';
-      }
-      
-      if(empty($errors)==true){
-         move_uploaded_file($file_tmp,"projs/".$file_name);}}
-if (isset($_POST['addproj'])) {
-    $name=$_POST['title'];
-      $descr=$_POST['description'];
+   if(isset($_POST['add_project'])){
 
-         $sql = "INSERT INTO `kpa_prjdetails` (`prj_title`,`prj_abs`,`prj_desc`) VALUES ('$name','$file_name','$descr');";
-         require_once("DBConnect.php");
+        $errors = array();
+        $file_name = $_FILES['file']['name'];
+        $file_size = $_FILES['file']['size'];
+        $file_tmp = $_FILES['file']['tmp_name'];
+        $file_type = $_FILES['file']['type'];
+        $file_ext = strtolower(end(explode('.', $_FILES['file']['name'])));
+
+        $extensions = array("docx","doc","ppt","pptx","pdf","jpeg","jpg","png");
+
+        if (in_array($file_ext, $extensions) === false) {
+            $errors[] = "This file type is not allowed!";
+        }
+
+        if ($file_size > 2097152) {
+            $errors[] = 'File size must be less than or equal to 2 MB';
+        }
+
+        if (empty($errors) == true) {
+            move_uploaded_file($file_tmp, "projects/".$file_name);
+        }
+        $name = $_POST['title'];
+        $descr = $_POST['description'];
+
+        $sql = "INSERT INTO `kpa_project_details` (`project_title`,`project_abstract`,`project_description`) VALUES ('$name','$file_name','$descr')";
+        require_once("DBConnect.php");
 
         if (mysqli_query($conn, $sql)) {
             echo "<script>alert('Project added successfully!');</script>";
@@ -153,11 +154,11 @@ if (isset($_POST['addproj'])) {
         } else {
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
         }
-      }  mysqli_close($conn);
-        
-
+      }
+   mysqli_close($conn);
 ?>
-<form action="" method="POST" name="user">
+
+<form action="" method="POST" name="user" enctype="multipart/form-data">
 <table class="table table-borderless">
   <tr>
     <td>Project title:</td>
@@ -176,7 +177,7 @@ if (isset($_POST['addproj'])) {
   </tr>
 <tr>
     <td>&nbsp;</td>
-    <td><input name='addprj' type="submit" class="btn btn-primary" value="Submit">
+    <td><input name='add_project' type="submit" class="btn btn-primary" value="Submit">
   </tr>
   </table>
 </form>
