@@ -315,7 +315,7 @@ button{
 	<!---Notice Section-->
 	<!-- <div style="height: 7px; background-color: dimgray; width: 70%; margin: 0 auto; margin-top: 5px; margin-bottom: 5px"></div> -->
 	<div style="width: 70%;padding-left: 10px; margin-left: 10px;padding-top: 20px; margin: 0 auto; ">
-		<div class="row">
+		<div class="row" id="accordion">
 			<div class="col-md-9" style="border: 1px solid gray; border-right: 1px solid gray;">
 				<div style="background-color: #a1bae5;" class="row">
 					<div class="col-md-5" align="right" style="margin-bottom: 10px; 
@@ -334,9 +334,15 @@ button{
 						<p style="height: 5px;">Mar</p>
 						<h2>28</h2>
 					</div>
-					<div class="col-md-11 left-side-news">
-						<p style="color: gray; height: 15px;">March 02, 2020</p>
-						<h4 style="color: darkblue;">Welcome to Khwopa Project Archive</h4>
+					<div class="col-md-11 left-side-news" >
+						
+						<p style="color: gray; height: 15px;">March 02, 2020</p><a class="collapsed card-link" data-toggle="collapse" href="#collapseOne">
+						<h4 style="color: darkblue;">Welcome to Khwopa Project Archive</h4></a>
+						   <div id="collapseOne" class="collapse show" data-parent="#accordion">
+        <div class="card-body">
+          Notice here!!!
+        </div>
+    </div>
 					</div>
 				</div>
 
@@ -347,8 +353,14 @@ button{
 						<h2>25</h2>
 					</div>
 					<div class="col-md-11 left-side-news">
-						<p style="color: gray; height: 15px;">Feb 25, 2020</p>
-						<h4 style="color: darkblue;">Mid Defense Notice</h4>
+						<p style="color: gray; height: 15px;">Feb 25, 2020</p><a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo">
+						<h4 style="color: darkblue;">Mid Defense Notice</h4></a>
+						<div id="collapseTwo" class="collapse show" data-parent="#accordion">
+        <div class="card-body">
+        	Notice with Picture<br>
+          <img src="images/image3.jpg">
+        </div>
+    </div>
 					</div>
 				</div>
 
