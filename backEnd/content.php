@@ -116,6 +116,49 @@
             <div class="card card-stats">
               <div class="card body">
 <h1>Add Project</h1>
+<?php
+error_reporting(0);if (isset($_POST['addprj'])) { 
+   if(isset($_FILES['file'])){
+       // echo "<pre>";print_r($_FILES['image']);exit;
+      $name=$_POST['title'];
+      $descr=$_POST['description'];
+      $errors= array();
+      $file_name = $_FILES['file']['name'];
+      $file_size =$_FILES['file']['size'];
+      $file_tmp =$_FILES['file']['tmp_name'];
+      $file_type=$_FILES['file']['type'];
+      $file_ext=strtolower(end(explode('.',$_FILES['file']['name'])));
+      
+      $extensions= array("docx","doc","ppt","pptx","pdf","jpeg","jpg","png");
+      
+      if(in_array($file_ext,$extensions)=== false){
+         $errors[]="This file type is not allowed!";
+      }
+      
+      if($file_size > 2097152){
+         $errors[]='File size must be less than or equal to 2 MB';
+      }
+      
+      if(empty($errors)==true){
+         move_uploaded_file($file_tmp,"projs/".$file_name);
+
+         $sql = "INSERT INTO `kpa_prjdetails` (`prj_title`,`prj_abs`,`prj_desc`) VALUES ('$name','$file_name','$descr');";
+         require_once("DBConnect.php");
+
+        if (mysqli_query($conn, $sql)) {
+            echo "<script>alert('Project added successfully!');</script>";
+            echo "<script>window.location='upload.php';</script>";
+        } else {
+            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        }
+        mysqli_close($conn);
+         
+      }else{
+         print_r($errors);
+      }
+   } 
+}
+?>
 <form action="" method="POST" name="user">
 <table class="table table-borderless">
   <tr>
@@ -123,20 +166,8 @@
     <td><input type="text" name="title" placeholder="Enter Title" required="required"></td>
   </tr>
   <tr>
-    <td>Proposal:</td>
-    <td><input type="file" required="required" />
-  </tr>
-    <tr>
-    <td>Mid Defense Report:</td>
-    <td><input type="file" required="required" />
-  </tr>
-    <tr>
-    <td>Final Report:</td>
-    <td><input type="file" required="required" />
-  </tr>
-  <tr>
-    <td>Project primary page screenshot:</td>
-    <td><input type="file" required="required" />
+    <td>Project Abstract screenshot:</td>
+    <td><input type="file" name='file' required="required" />
     </tr>
   <tr>
     <td>Project Description:</td>
@@ -147,7 +178,7 @@
   </tr>
 <tr>
     <td>&nbsp;</td>
-    <td><button class="btn btn-primary">Submit</button>
+    <td><button name='addprj' class="btn btn-primary">Submit</button>
   </tr>
   </table>
 </form>

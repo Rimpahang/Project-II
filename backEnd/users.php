@@ -23,6 +23,7 @@ if (mysqli_query($conn, $sql)) {
 mysqli_close($conn);
 }
 ?>
+
 <body class="">
   <div class="wrapper ">
     <div class="sidebar" data-color="yellow" data-active-color="success">
@@ -139,19 +140,54 @@ mysqli_close($conn);
             <div class="card card-stats">
               <div class="card body">
 <h1>Add User</h1>
-<form action="" method="POST" name="user">
+<script type="text/javascript">
+  function formValidate(){
+    if( document.forma.name.value == "" ) {
+              alert( "Please provide user's name!" );
+              document.forma.name.focus() ;
+              return false;
+           }
+           if( document.forma.username.value == "" ) {
+              alert( "Please provide user's username!" );
+              document.forma.username.focus() ;
+              return false;
+           }
+           if( document.forma.email.value == "" ) {
+              alert( "Please provide your Email!" );
+              document.forma.email.focus() ;
+              return false;
+           }
+           if( document.forma.email.value == "" ) {
+              alert( "Please provide your Email!" );
+              document.forma.email.focus() ;
+              return false;
+           var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+          if(document.forma.email.value.match(mailformat))
+          {
+         document.forma.email.focus();
+        return true;      
+        }
+        else{
+          alert("You have entered an invalid email address!");
+           document.forma.email.focus();
+       return false;
+     }
+           
+  }
+</script>
+<form action="" method="POST" name="forma" onsubmit="return(formValidate());" >
 <table class="table table-striped">
   <tr>
     <td>Name:</td>
-    <td><input type="text" name="name" placeholder="Enter Full Name" required="required"></td>
+    <td><input type="text" name="name" placeholder="Enter Full Name" ></td>
   </tr>
   <tr>
     <td>Username:</td>
-    <td><input type="text" name="username" placeholder="Enter Username" required="required"></td>
+    <td><input type="text" name="username" placeholder="Enter Username" ></td>
   </tr>
   <tr>
     <td>Email:</td>
-    <td><input type="email" name="email" placeholder="Enter Email" required="required"></td>
+    <td><input type="email" name="email" placeholder="Enter Email" ></td>
   </tr>
   <tr>
     <td>Password:</td>
@@ -163,7 +199,7 @@ mysqli_close($conn);
   </tr>
   <tr>
     <td>&nbsp;</td>
-    <td><button name='add_user' onclick="demo.showNotification('top','center')" class="btn btn-light">Go</button>
+    <td><input type="submit" name='add_user' class="btn btn-light">
   </tr>
 </table>
 </form>

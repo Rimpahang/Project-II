@@ -110,14 +110,14 @@
       <!-- End Navbar -->
 <?php
 error_reporting(0);
-   if(isset($_FILES['image'])){
+   if(isset($_FILES['file'])){
        // echo "<pre>";print_r($_FILES['image']);exit;
       $errors= array();
-      $file_name = $_FILES['image']['name'];
-      $file_size =$_FILES['image']['size'];
-      $file_tmp =$_FILES['image']['tmp_name'];
-      $file_type=$_FILES['image']['type'];
-      $file_ext=strtolower(end(explode('.',$_FILES['image']['name'])));
+      $file_name = $_FILES['file']['name'];
+      $file_size =$_FILES['file']['size'];
+      $file_tmp =$_FILES['file']['tmp_name'];
+      $file_type=$_FILES['file']['type'];
+      $file_ext=strtolower(end(explode('.',$_FILES['file']['name'])));
       
       $extensions= array("docx","doc","ppt","pptx","pdf","jpeg","jpg","png");
       
@@ -156,7 +156,7 @@ $result = mysqli_query($conn, $sql);?>
 
         <div class="content">
 <form action="" method="POST" enctype="multipart/form-data">
- <input type="file" name="image" required="required" />
+ <input type="file" name="file" required="required" />
  <input type="submit" value="UPLOAD" />
 </form><br><br>
 <h5>Files</h5>
