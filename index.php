@@ -40,13 +40,32 @@ file_put_contents('search_json'.'.json',$jencode);
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             <h4 class="modal-title"><span class="glyphicon glyphicon-lock"></span> Login Now!</h4>
           </div>
-        
+        <?php
+error_reporting(0);
+if (isset($_POST['sub'])) {
+	$user = $_POST['username'];
+	$pass = md5($_POST['password']);
+
+$sql = "SELECT * FROM `kpa_user` WHERE `username` = '$user' AND `password` = '$pass'";
+require_once("backEnd/includes/DBconnect.php");
+$result = mysqli_query($conn, $sql);
+
+if (mysqli_num_rows($result) > 0) {
+	echo "Login succesfully!";
+	header('location: backEnd/dashboard.php');
+}
+else
+	echo "Username or passowrd incorrect!";
+
+}
+mysqli_close($conn);
+?>
           <div class="modal-body">
-          <form method="post" id="Login-Form" role="form">
+          <form method="post" id="Login-Form" role="form" >
             <div class="form-group">
                 <div class="input-group">
                 <div class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></div>
-                <input name="email" id="email1" type="email" class="form-control input-lg" placeholder="Enter Email" required data-parsley-type="email" >
+                <input name="username"  class="form-control input-lg" placeholder="Enter Username" required data-parsley-type="" >
                 </div>                      
             </div>
             <div class="form-group">
@@ -58,7 +77,7 @@ file_put_contents('search_json'.'.json',$jencode);
             <div class="checkbox">
               <label><input type="checkbox" value="" checked>Remember me</label>
             </div>
-              <button type="submit" class="btn btn-success btn-block btn-lg">LOGIN</button>
+              <button type="submit" name="sub" class="btn btn-success btn-block btn-lg">LOGIN</button>
           </form>
         </div>
         
