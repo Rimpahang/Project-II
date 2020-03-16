@@ -1,5 +1,17 @@
-<?php include_once('includes/header.php');?>
-<body class="">
+<?php
+$id = @$_GET['id'];
+require_once('includes/DBconnect.php');
+
+$get_user_data_sql = "SELECT * FROM `kpa_user` WHERE `email` = 'rimpahang@gmail.com' AND `status` = 1";
+$result = mysqli_query($conn, $get_user_data_sql);
+
+if (mysqli_num_rows($result) > 0) {
+    $user_detail = mysqli_fetch_array($result);
+}
+?>
+
+<?php include_once('includes/header.php'); ?>
+    <body class="">
   <div class="wrapper ">
     <div class="sidebar" data-color="yellow" data-active-color="success">
       <div class="logo">
@@ -216,6 +228,8 @@
               </div>
             </div>
           </div>
+
+            <!--      edit profile      -->
           <div class="col-md-8">
             <div class="card card-user">
               <div class="card-header">
@@ -227,13 +241,13 @@
                     <div class="col-md-6 pr-1">
                       <div class="form-group">
                         <label>Username</label>
-                        <input type="text" class="form-control" placeholder="Username" value="rimpahang">
+                        <input type="text" class="form-control" placeholder="Username" value="<?php echo $user_detail['username']; ?>">
                       </div>
                     </div>
                     <div class="col-md-4 pl-1">
                       <div class="form-group">
                         <label for="exampleInputEmail1">Email address</label>
-                        <input type="email" class="form-control" placeholder="rimp@g.com">
+                        <input type="email" class="form-control" placeholder="<?php echo $user_detail['email']; ?>">
                       </div>
                     </div>
                   </div>
@@ -241,7 +255,7 @@
                     <div class="col-md-6 pr-1">
                       <div class="form-group">
                         <label>Name</label>
-                        <input type="text" class="form-control" placeholder="Full name" value="Dhruba">
+                        <input type="text" class="form-control" placeholder="Full name" value="<?php echo $user_detail['name']; ?>">
                       </div>
                     </div>                    
                   </div>
@@ -249,7 +263,7 @@
                     <div class="col-md-12">
                       <div class="form-group">
                         <label>Address</label>
-                        <input type="text" class="form-control" placeholder="Home Address" value="Libali, Bhaktapur">
+                        <input type="text" class="form-control" placeholder="Home Address" value="<?php echo $user_detail['address']; ?>">
                       </div>
                     </div>
                   </div>
