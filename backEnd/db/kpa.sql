@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 16, 2020 at 09:19 PM
+-- Generation Time: Mar 16, 2020 at 09:36 PM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.1.33
 
@@ -173,7 +173,11 @@ CREATE TABLE `kpa_pwd_reset` (
 INSERT INTO `kpa_pwd_reset` (`id`, `email`, `reset_key`, `sent_date`, `sent_time`, `status`) VALUES
 (26, 'rimpahang@gmail.com', 304009, '2020-02-14 17:24:55', '1581701095', 0),
 (30, 'rimpahang@gmail.com', 868306, '2020-02-16 09:41:22', '1581846082', 0),
-(31, 'rimpahang@gmail.com', 705670, '2020-02-16 09:42:04', '1581846124', 0);
+(31, 'rimpahang@gmail.com', 705670, '2020-02-16 09:42:04', '1581846124', 0),
+(32, 'nrshroka@gmail.com', 337614, '2020-03-16 21:00:20', '1584392420', 1),
+(33, 'nrshroka@gmail.com', 967941, '2020-03-16 21:02:06', '1584392526', 1),
+(34, 'nrshroka@gmail.com', 600222, '2020-03-16 21:02:40', '1584392560', 1),
+(35, 'nrshroka@gmail.com', 851227, '2020-03-16 21:03:27', '1584392607', 0);
 
 -- --------------------------------------------------------
 
@@ -226,7 +230,7 @@ CREATE TABLE `kpa_user` (
 INSERT INTO `kpa_user` (`id`, `name`, `username`, `address`, `email`, `password`, `user_type`, `secret_key`, `remarks`, `postby_id`, `created_at`, `is_verified`, `verifiedby_id`, `updated_at`, `status`) VALUES
 (7, 'Dhruba Rai', 'rimpahang', 'Libali, Bhaktapur', 'rimpahang@gmail.com', '4a4be40c96ac6314e91d93f38043a634', 'super_admin', NULL, NULL, 1, '2019-08-02 04:25:41', 1, 1, '2020-03-17 02:38:22', 1),
 (8, 'sabin shrestha', 'sabin', 'Libali, Bhaktapur', 'alchinibas123@gmail.com', '5d41402abc4b2a76b9719d911017c592', 'admin', NULL, NULL, 1, '2019-08-06 17:32:50', 1, 1, '2020-03-16 21:40:32', 1),
-(9, 'Naresh Roka', 'ace', 'Naikap, Kathmandu', 'nrshroka@gmail.com', 'ef9238adc61febd916840f690a8d5884', 'normal_user', NULL, NULL, 1, '2019-08-06 17:47:25', 0, 1, '2020-03-17 02:42:00', 1),
+(9, 'Naresh Roka', 'ace', 'Naikap, Kathmandu', 'nrshroka@gmail.com', '5e91a433e94deefc9843b40d330d52e7', 'normal_user', NULL, NULL, 1, '2019-08-06 17:47:25', 0, 1, '2020-03-17 02:50:03', 1),
 (12, 'Avishek Karki', 'kanxo', 'New Baneshwor, Kathmandu', 'karkiavi12345@gmail.com', 'cfb70d4d263b5ae0d229ea5d4aaa7445', 'normal_user', NULL, NULL, 1, '2019-08-07 04:33:51', 0, 1, '2020-03-16 21:41:06', 1);
 
 --
@@ -323,7 +327,7 @@ ALTER TABLE `kpa_project_list`
 -- AUTO_INCREMENT for table `kpa_pwd_reset`
 --
 ALTER TABLE `kpa_pwd_reset`
-  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `kpa_uploads`
