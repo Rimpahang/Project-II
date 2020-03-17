@@ -325,11 +325,10 @@ input.parsley-error:focus{
     </button> -->
     <div class="container-fluid">
      <!--  <a class="navbar-brand" href="#"><img src="images/khwopa.png"> KPA Navbar</a> -->
-     <div class="container-fluid">
       <!-- <a class="navbar-brand" href="#" data-target="#model" data-toggle="modal">Login</a> --><!-- <img src="images/khwopa.png"> -->
 
 
-      <!-- <!-- <div id="login-signup-modal" class="modal fade" tabindex="-1" role="dialog">
+      <div id="login-signup-modal" class="modal fade" tabindex="-1" role="dialog">
    <div class="modal-dialog" role="document">
     
      <!-- login modal content -->
@@ -440,7 +439,7 @@ input.parsley-error:focus{
   </div>
 </div>
   
-  <a href="" data-toggle="modal" data-target="#login-signup-modal" ><p class="text-info">Signup</p></a>
+    <a href="" data-toggle="modal" data-target="#login-signup-modal" style="padding-right: 15px; padding-top: 15px;"><p class="text-info">Signup</p></a>
  
       <!-- Navbar toggler-->
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
@@ -514,20 +513,17 @@ input.parsley-error:focus{
   <div class="box">
     <h2>01</h2>
     <h3>Service One</h3>
-    <p>hgfcvbn., hfvbjn, hftyhbjkmnbvhgfyj gjhbjb
-    kjbbn kl</p>
+    <p>Add your project here to get uploaded in the website!!!</p>
   </div>
    <div class="box">
     <h2>02</h2>
-    <h3>Service One</h3>
-    <p>hgfcvbn., hfvbjn, hftyhbjkmnbvhgfyj gjhbjb
-    kjbbn kl</p>
+    <h3>Service Two</h3>
+    <p>Chat with the users and share the ideas!!!</p>
   </div>
    <div class="box">
     <h2>03</h2>
-    <h3>Service One</h3>
-    <p>hgfcvbn., hfvbjn, hftyhbjkmnbvhgfyj gjhbjb
-    kjbbn kl</p>
+    <h3>Service Three</h3>
+    <p>Download the documents of different projects!!!</p>
   </div>
 </div>
 </div>
@@ -614,6 +610,22 @@ input.parsley-error:focus{
         <input type="checkbox"><small>Remember me!</small>
       </div>
     </div>  
+       <div class="row">
+      
+      <label class="label col-md-2 control-label"> Mob. No.</label>
+      <div class="col-md-10">
+        <input type="text" class="form-control" name="mobile" id="mobileNumber">
+        <span id="mobileno" class="text-danger font-weight-bold"></span>
+        </div>
+      </div>
+  <!--      <div class="row">
+      <label class="label col-md-2 control-label"> Confirm Password</label>
+      <div class="col-md-10">
+        <input type="password" class="form-control" name="password" placeholder=" Confirm Password" id="conpass">
+         <span id="confmpass" class="text-danger font-weight-bold"></span>
+        
+      </div>
+    </div>  -->
 <div class="row">
   
       <label class="label col-md-2 control-label">Message</label>
@@ -674,7 +686,7 @@ input.parsley-error:focus{
       var members= document.getElementById('member').value;
       var email= document.getElementById('email').value;
       var password= document.getElementById('pass').value;
-
+       var confirmpass= document.getElementById('conpass').value;
       if(user == ""){
         document.getElementById('projectname').innerHTML = "Field Required";
         return false;
@@ -682,7 +694,12 @@ input.parsley-error:focus{
  if((user.length <=4) || (user.length > 30)){
          document.getElementById('projectname').innerHTML = "Inappropriate Length";
            return false;
+   /*   }
+      if(!isNaN(user)){
+        document.getElementById('projectname').innerHTML = "Only characters are allowed";
+        return false;
       }
+*/
   if(members == ""){
         document.getElementById('members').innerHTML = "Field Required";
         return false;
@@ -709,6 +726,27 @@ if((password.length <=4) || (password.length > 12)){
         document.getElementById('passid').innerHTML = "Length between 5-12";
         return false;
       }
+    /*  if(confirmpass == ""){
+        document.getElementById('confmpass').innerHTML = "Field Required";
+        return false;
+      }
+        if(password!==confirmpass ){
+        document.getElementById('passid').innerHTML = "Password din't match";
+        return false;
+      }*/
+     /* if(mobileNumber==""){
+        document.getElementById('mobileno').innerHTML = "Field Required";
+        return false;
+      }
+        if(isNaN(mobileNumber)){
+        document.getElementById('mobileno').innerHTML = "Digits Only";
+        return false;
+      }
+       if(mobileNumber.length!=10){
+        document.getElementById('mobileno').innerHTML = "10 Digits Only";
+        return false;
+      }*/
+
 }
 
   </script>
