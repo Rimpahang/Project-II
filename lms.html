@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>KPA Website</title>
+
+	 <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="file:///C:/Users/avika.AVI-LAPTOP/OneDrive/Desktop/KPA%20V/fontawesome-free-5.12.0-web/css/all.css">
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
+  <script src="bootstrap/js/jquery.1.js"></script>
+  <script src="bootstrap/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.9.2/parsley.min.js"></script>
+
+     <script type="text/javascript">
+$('#Login-Form').parsley();
+$('#Signin-Form').parsley();
+$('#Forgot-Password-Form').parsley();
+</script>
+<style>
+	<style type="text/css">
+  	.fakeimg {
+  		height: 200px;
+  		background: #aaa;
+  	}
+  	.jumbotron{
+  		height: 3%;
+  		padding-top: 20px;
+  		padding-bottom: 5px;
+  	}
+  	.navbar{
+  		/*height: 60px;*/
+  		text-transform: uppercase;
+  		font-weight: 700;
+  		font-size: .9rem;
+  		letter-spacing: .1rem;
+  		/*background: rgba(0, 0, 0, .1)!important;*/
+  	}
+     .dropdown:hover>.dropdown-menu{
+  		display: block;
+  		background: #e3e3e3;
+  	}
+  	/*<!-- Project Description -->*/
+  	.gap10
+  	{
+  		padding: 80px 0px;
+  	}
+ /*	h2{
+ 		font-size: 40px;
+ 		color: #181174;
+ 		text-transform: uppercase;
+ 		margin-bottom: 20px;
+ 	}*/
+ 	/*****service offered ******/
+ 	p{
+ 		font-size: 0.9rem;
+ 		line-height: 1.6;
+ 		font-weight: 400;
+ 		color: #606060;
+ 	}
+ 	.serviceoffers{
+ 		background: #f7f7f9;
+ 		padding: 50px 0;
+ 		margin-bottom: 50px;
+ 	}
+ 	.headings{
+ 		margin-bottom: 50px;
+ 	}
+ 	.headings h1{
+ 		font-size: 1.5rem;
+ 		font-weight: 600;
+ 		text-transform: uppercase;
+ 	}
+ 	.names h1{
+ 		color: #2e2e2e;
+ 		font-size: 0.9rem;
+ 		text-transform: uppercase;
+ 		font-weight: bold;
+ 	}
+ 	.service-icons{
+ 		display: flex;
+ 		justify-content: center;
+ 		align-items: center;
+ 	}
+ 	.servicediv h2{
+ 		font-size: 0.9rem;
+ 		margin: 20px 0 15px 0;
+ 		font-weight: bold;
+ 		line-height: 1.1;
+ 		word-spacing: 4px;
+ 	}
+ 	.progress{
+ 		height: 0.6rem!important;
+ 		margin-bottom: 25px!important;
+ 		background: #606060;
+ 	}
+ 	i{
+ 		color: #2fccd0; 
+ 	}
+  	#icon
+  	{
+  		max-width: 200px;
+  		margin: 5% auto;
+  	}
+  	footer{
+  		width: 100%;
+  		background-color: rgba(120,120,120);
+  		padding: 1%;
+  		color: #fff;
+  	}
+  	.fab{
+  		padding: 5px;
+  		font-size: 25px;
+  		color: #fff;
+  	}
+  	.fab:hover{
+  		color: rgb(60, 60, 200);
+  		text-decoration: none;
+  	}
+  	@media(max-width: 900px){
+  		.fab{
+  			font-size: 20px;
+  			padding: 10px;
+  		}
+  	}
+  		.fac{
+  		color: #fff;
+  	}
+  	.fac:hover{
+  		color: yellow;
+  		text-decoration: none;
+  	}
+        #reg-cross:hover{
+            cursor: pointer;
+        }
+        .modal-backdrop{
+          z-index:-1;
+        }
+    /**{ margin:0; padding: 0; box-sizing:border-box; }*/
+    /*---Signup---*/
+    .modal-header, .modal-body, .modal-footer{
+  padding: 25px;
+}
+.modal-footer{
+  text-align: center;
+}
+#signup-modal-content, #forgot-password-modal-content{
+  display: none;
+}
+ 
+/** validation */
+  
+input.parsley-error{    
+  border-color:#843534;
+  box-shadow: none;
+}
+input.parsley-error:focus{    
+  border-color:#843534;
+  box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 6px #ce8483
+}
+.parsley-errors-list.filled {
+  opacity: 1;
+  color: #a94442;
+  display: none;
+}
+</style>
+</head>
+<body data-spy="scroll" data-target="#navbarResponsive">
+<div class="jumbotron text-center" style="margin-bottom:0;font-family: cursive; color: blue;">
+		<h1>Khwopa Project Archive</h1>
+		<p>KPA</p> 
+	</div>
+	<!-- Navigation -->
+	<nav class="navbar navbar-expand-md bg-light navbar-light sticky-top mt-1">
+		<!-- <button  type="button" data-toggle="collapse" data-target="#navbarResponsive">
+			<span class="navbar-toggler-icon"></span> 
+		</button> -->
+		<div class="container-fluid">
+			<!-- <a class="navbar-brand" href="#"><img src="images/khwopa.png"> KPA Navbar</a> -->
+      <div id="login-signup-modal" class="modal fade" tabindex="-1" role="dialog">
+   <div class="modal-dialog" role="document">
+    
+     <!-- login modal content -->
+        <div class="modal-content" id="login-modal-content">
+        
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title"><span class="glyphicon glyphicon-lock"></span> Login Now!</h4>
+          </div>
+        
+          <div class="modal-body">
+          <form method="post" id="Login-Form" role="form">
+            <div class="form-group">
+                <div class="input-group">
+                <div class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></div>
+                <input name="email" id="email1" type="email" class="form-control input-lg" placeholder="Enter Email" required data-parsley-type="email" >
+                </div>                      
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                <div class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></div>
+                <input name="password" id="login-password" type="password" class="form-control input-lg" placeholder="Enter Password" required data-parsley-length="[6, 10]" data-parsley-trigger="keyup">
+                 </div>                      
+            </div>
+            <div class="checkbox">
+              <label><input type="checkbox" value="" checked>Remember me</label>
+            </div>
+              <button type="submit" class="btn btn-success btn-block btn-lg">LOGIN</button>
+          </form>
+        </div>
+        
+        <div class="modal-footer">
+          <p>
+          <a id="FPModal" href="javascript:void(0)" data-target="#forgot-password-modal-content">Forgot Password?</a> | 
+          <a id="signupModal" href="javascript:void(0)" data-toggle="modal" data-target="#signup-modal-content">Register Here!</a>
+          </p>
+        </div>
+        
+       </div>
+        <!-- login modal content -->
+        
+        <!-- signup modal content -->
+        <div class="modal-content" id="signup-modal-content">
+        
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title"><span class="glyphicon glyphicon-lock"></span> Signup Now!</h4>
+        </div>
+                
+        <div class="modal-body">
+          <form method="post" id="Signin-Form" role="form">
+            <div class="form-group">
+                <div class="input-group">
+                <div class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></div>
+                <input name="email" id="email2" type="email" class="form-control input-lg" placeholder="Enter Email" required data-parsley-type="email">
+                </div>                     
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                <div class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></div>
+                <input name="password" id="passwd" type="password" class="form-control input-lg" placeholder="Enter Password" required data-parsley-length="[6, 10]" data-parsley-trigger="keyup">
+                </div>                      
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                <div class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></div>
+                <input name="password" id="confirm-passwd" type="password" class="form-control input-lg" placeholder="Retype Password" required data-parsley-equalto="#passwd" data-parsley-trigger="keyup">
+                </div>                      
+            </div>
+            <button type="submit" class="btn btn-success btn-block btn-lg">CREATE ACCOUNT!</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <p>Already a Member ? <a id="loginModal" href="javascript:void(0)">Login Here!</a></p>
+        </div>
+       </div>
+       <!-- signup modal content -->
+        
+       <!-- forgot password content -->
+       <div class="modal-content" id="forgot-password-modal-content">
+        
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title"><span class="glyphicon glyphicon-lock"></span> Recover Password!</h4>
+        </div>
+        
+        <div class="modal-body">
+          <form method="post" id="Forgot-Password-Form" role="form">
+            <div class="form-group">
+                <div class="input-group">
+                <div class="input-group-addon"><icon class="glyphicon glyphicon-envelope"></icon></div>
+                <input name="email" id="email3" type="email" class="form-control input-lg" placeholder="Enter Email" required data-parsley-type="email">
+                </div>                     
+            </div>         
+            <button type="submit" class="btn btn-success btn-block btn-lg">
+              <span class="glyphicon glyphicon-send"></span> SUBMIT
+            </button>
+          </form>
+        </div>
+        
+        <div class="modal-footer">
+          <p>Remember Password ? <a id="loginModal1" href="javascript:void(0)">Login Here!</a></p>
+        </div>
+        
+       </div>        
+       <!-- forgot password content -->
+  
+  </div>
+</div>
+  
+  <a href="" data-toggle="modal" data-target="#login-signup-modal" style="padding-right: 15px; padding-top: 15px;"><p class="text-info">Signup</p></a>
+
+			<!-- Navbar toggler-->
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+				<span class="navbar-toggler-icon"></span> 
+			</button>
+			<div class="collapse navbar-collapse" id="navbarResponsive"> <!--  Search bar  -->
+				 <ul class="list-group-horizontal navbar-nav">
+				<form class="form-inline" action="/action_page.php">
+					<li><input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"style="margin-top: 4px;"></li>
+					<li class="ml-2"><button class="btn btn-outline-success" type="submit" style="margin-top: 4px;">Search</button></li>
+				</form>
+				</ul> 
+				 <!--  Navbar links  --> 
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item">
+						<a class="nav-link text-success" href="index.html">Home</a>
+					</li>
+					<li class="nav-item dropdown active">
+						<a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown"role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item active" href="categories.html">System Management </a>
+          <a class="dropdown-item" href="categories.html">Commerce</a>
+          <a class="dropdown-item" href="categories.html">Robotics</a>
+          <a class="dropdown-item" href="categories.html">Games</a>
+          <a class="dropdown-item" href="categories.html">ML and AI</a>
+          <a class="dropdown-item" href="categories.html">Others</a>
+        </div>
+						
+					</li>
+					<li class="nav-item">
+						<a class="nav-link text-success" href="addp.html">Add Project</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link text-success" href="#">Top Projects</a>
+					</li>   
+					<li class="nav-item">
+						<a class="nav-link text-success" href="#">Project Titles</a>
+					</li> 
+					<li class="nav-item">
+						<a class="nav-link text-success" href="notice.html">Notice</a>
+					</li>
+				</ul>
+			</div> 
+		</div> 
+	</nav>
+	<br>
+	<!--Project Description--->
+	<section>
+		<div class="container d-flex justify-content-center gap">
+			<div class="col-md-12 text-center">
+				<h2>Library Management System</h2><br>
+				<p>A college library management is a project that manages and stores books information electronically according to students needs. The system helps both students and library manager to keep a constant track of all the books available in the library. It allows both the admin and the student to search for the desired book. It becomes necessary for colleges to keep a continuous check on the books issued and returned and even calculate fine. This task if carried out manually will be tedious and includes chances of mistakes. These errors are avoided by allowing the system to keep track of information such as issue date, last date to return the book and even fine information and thus there is no need to keep manual track of this information which thereby avoids chances of mistakes.
+Thus this system reduces manual work to a great extent allows smooth flow of library activities by removing chances of errors in the details.A Library Management System is a software built to handle the primary housekeeping functions of a library. Libraries rely on library management systems to manage asset collections as well as relationships with their members. Library management systems help libraries keep track of the books and their checkouts, as well as members’ subscriptions and profiles.
+
+Library management systems also involve maintaining the database for entering new books and recording books that have been borrowed with their respective due dates.</p>
+</div>
+</div>
+	</section>
+	<br>
+	<!--- Offer section-->
+	<div class="container">
+	<section class="serviceoffers" id="servicediv">
+	<div class="container headings text-center">
+	<h1 class="text-center font-weight-bold"> Project Details</h1>
+	<p class="text-center">This is the project details of LMS!!!</p>
+	</div>	
+
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-6 col-10 offset-1 offset-lg-0">
+				<div class="names my-3">
+					<h1>HTML</h1>
+					<div class="progress w-75">
+					<div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 100%">100%</div>
+				</div>
+			</div>
+				<div class="names my-3">
+					<h1>CSS</h1>
+					<div class="progress w-75">
+					<div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 90%">90%</div>
+				</div>
+			</div>
+
+			<div class="names my-3">
+					<h1>JavaScript</h1>
+					<div class="progress w-75">
+					<div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 40%">40%</div>
+				</div>
+			</div>
+		</div>
+   
+			<div class="col-lg-6 col-md-12 col-12  servicediv">
+				<div class="row">
+					<div class="col-lg-2 col-2 service-icons">
+						<i class="fa-3x fa fa-desktop" aria-hidden="true"></i>
+					</div>
+					<div class="col-lg-10 col-10">
+					<h2>Project Members</h2>
+					<p>Avishek karki, Aarju Chaulagain, Dhruba Rai and Naresh Roka</p>
+					</div>	
+				</div>
+					<div class="row">
+					<div class="col-lg-2 col-2 service-icons">
+						<i class="fa-3x fa fa-desktop" aria-hidden="true"></i>
+					</div>
+					<div class="col-lg-10 col-10">
+					<h2>Project Members</h2>
+					<p>Avishek karki, Aarju Chaulagain, Dhruba Rai and Naresh Roka</p>
+					</div>	
+				</div>
+					<div class="row">
+					<div class="col-lg-2 col-2 service-icons">
+						<i class="fa-3x fa fa-desktop" aria-hidden="true"></i>
+					</div>
+					<div class="col-lg-10 col-10">
+					<h2>Project Members</h2>
+					<p>Avishek karki, Aarju Chaulagain, Dhruba Rai and Naresh Roka</p>
+					</div>	
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+	</section>
+	<div class="col-sm-2">
+		<a href="KPA.pdf" download><button type="button"  style="float: right; background-color: rgb(0,180,214); border-radius: 20px; border: solid 1px white;height: 40px; color: white;">Download PDF</button></a>
+	</div><br><br><br>
+<!--- Footer-->
+<footer class="container-fluid text-center">
+	<div class="row">
+		<div class="col-sm-3">
+			<h3>Meet the Team</h3>
+			<h5>Our address and contact info here</h45>
+		</div>
+		<div class="col-sm-3">
+			<h3>Contact Us</h3>
+			
+			<br>
+			<h4>Our address and contact info here</h4>
+		</div>
+		<div class="col-sm-3">
+			<h3>Connect</h3>
+			<a href="#" class="fab fa-facebook-square" title="facebook" style="font-size: 30px"></a>
+			<a href="#" class="fab fa-twitter-square" title="twitter" style="font-size: 30px"></a>
+			<a href="#" class="fab fa-google" title="google" style="font-size: 30px"></a>
+			<a href="#" class="fab fa-youtube-square" title="youtube" style="font-size: 30px; background: grey; "></a>
+		</div>
+		<div class="col-sm-3">
+			<img src="images/kpa.jpg" class="icon" alt="KPA"><br><br>
+			<div class="fac"><a href="#" class="fac fas fa-home" title="Home" style="font-size: 17px;margin-right: 10px;"></a>||
+			<a href="#" class="fac fas fa-id-card-alt" title="Contact" style="font-size: 17px;margin-left: 10px;margin-right: 10px;"></a>||
+			<a href="#" class="fac fas fa-comment-dots" title="Feedback" style="font-size: 17px;margin-left: 10px;margin-right: 10px;"></a>||
+				<a href="#" class="fac fas fa-question" title="FAQs" style="font-size: 17px;margin-left: 10px;"></a>
+		</div>
+	</div>
+
+</footer>
+	<div class="col-xs-12" style="background: brown; height: 22px;">
+		<h5 style="text-align: center; color: white; font-size: 15px;"><i class="fa fa-copyright" style="font-size:16px;margin-top: 3px;">  2020 KPA</i></h5>
+	</div>
+</body>
+</html>
+<script>
+$(document).ready(function(){
+
+
+    $('#signupModal').click(function(){
+     $('#login-modal-content').fadeOut('fast', function(){
+        $('#signup-modal-content').fadeIn('fast');
+     });
+    });
+
+    $('#loginModal').click(function(){
+     $('#signup-modal-content').fadeOut('fast', function(){
+        $('#login-modal-content').fadeIn('fast');
+     });
+    });
+
+    $('#FPModal').click(function(){
+     $('#login-modal-content').fadeOut('fast', function(){
+        $('#forgot-password-modal-content').fadeIn('fast');
+        });
+    });
+
+    $('#loginModal1').click(function(){
+     $('#forgot-password-modal-content').fadeOut('fast', function(){
+        $('#login-modal-content').fadeIn('fast');
+     });
+    });
+
+
+    $('#Login-Form').parsley();
+    $('#Signin-Form').parsley();
+    $('#Forgot-Password-Form').parsley();
+});
+
+</script>
