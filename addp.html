@@ -9,8 +9,11 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>  -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
-<link rel="stylesheet" href="file:///C:/Users/avika.AVI-LAPTOP/OneDrive/Desktop/KPA%20V/fontawesome-free-5.12.0-web/css/all.css">
+  <link rel="stylesheet" type="text/css" href="file:///F:/Project/fontawesome-free-5.15.1-web/css/all.css"> 
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="js/jquery.js"></script>
+  <script src="js/bootstrap.min.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
   <script src="bootstrap/js/jquery.1.js"></script>
   <script src="bootstrap/js/bootstrap.min.js"></script>
@@ -20,6 +23,30 @@
 $('#Login-Form').parsley();
 $('#Signin-Form').parsley();
 $('#Forgot-Password-Form').parsley();
+</script>
+
+
+ <script type="text/javascript">
+  function myfun(){
+var userconfirmation=confirm("Do you want to clear the form?");
+if (userconfirmation==true) {
+  
+  return true;
+}else{
+  
+  return false;
+}}
+</script>
+
+
+<script>
+  $(document).ready(function()
+  {
+    $("#resetform").click(function()
+    {
+      $("#form1")[0].reset();
+    });
+  });
 </script>
 
   <style type="text/css">
@@ -178,11 +205,11 @@ input.parsley-error:focus{
 }
    /* <!---Add Project--->*/
    .container2{
-    background-image: url('images/sm3.jpg');
+    background-image: url('images/robot.jpg');
     background-size: cover;
     background-attachment: fixed;
     font-family: new time roman;
-    height: 800px;
+    height: 990px;
    }
    .h1{
     font-size: 40px;
@@ -231,6 +258,7 @@ input.parsley-error:focus{
     width: 360px;
 
    }
+   
    input[type="checkbox"]{
     margin-top: 15px;
     width: 15px;
@@ -532,6 +560,7 @@ input.parsley-error:focus{
 <div class="container">
   <div class="container2" id="container2">
   <div class="row">
+    
     <div class="col-md-6">
       <div class="h1"><h1 class="text-left">About Project</h1></div>
       <p class="text-left">Add your projects to KPA by filling the form. Enter your project details carefully. After adding your project, other members can get information about your project!!!</p>
@@ -547,10 +576,10 @@ input.parsley-error:focus{
       <span class="glyphicon glyphicon-pencil"></span>
     </div>
     <hr>
-    <form action="#" onsubmit="return validation()">
+    <form action="#" id="form1" onsubmit="return validation()">
       
     <!--column for textbox and label-->
-    <div class="row">
+    <div class="row" id="row1">
       
       <label class="label col-md-2 control-label">Project Name</label>
       <div class="col-md-10">
@@ -603,29 +632,31 @@ input.parsley-error:focus{
       </div>
 
     <div class="row">
-      <label class="label col-md-2 control-label"> Pasword</label>
+      <label class="label col-md-2 control-label"> Password</label>
       <div class="col-md-10">
         <input type="password" class="form-control" name="password" placeholder="Password" id="pass">
          <span id="passid" class="text-danger font-weight-bold"></span>
         <input type="checkbox"><small>Remember me!</small>
       </div>
     </div>  
-       <div class="row">
-      
-      <label class="label col-md-2 control-label"> Mob. No.</label>
-      <div class="col-md-10">
-        <input type="text" class="form-control" name="mobile" id="mobileNumber">
-        <span id="mobileno" class="text-danger font-weight-bold"></span>
-        </div>
-      </div>
-  <!--      <div class="row">
+
+    <div class="row">
       <label class="label col-md-2 control-label"> Confirm Password</label>
       <div class="col-md-10">
         <input type="password" class="form-control" name="password" placeholder=" Confirm Password" id="conpass">
          <span id="confmpass" class="text-danger font-weight-bold"></span>
         
       </div>
-    </div>  -->
+    </div> 
+       <div class="row">
+      
+      <label class="label col-md-2 control-label"> Mob. No.</label>
+      <div class="col-md-10">
+        <input type="number" class="form-control" name="mobile" id="mobileNumber">
+        <span id="mobileno" class="text-danger font-weight-bold"></span>
+        </div>
+      </div>
+    
 <div class="row">
   
       <label class="label col-md-2 control-label">Message</label>
@@ -638,7 +669,7 @@ input.parsley-error:focus{
     
       <input type="submit" name="submit" value="Submit"  class="btn btn-info">
   
-    <!--   <input type="cancel" name="cancel" value="Cancel" class="btn btn-warning"> -->
+    <input type="button" id="resetform" name="cancel" value="Clear" class="btn btn-warning" onclick="myfun()">
     </div>
     </div>
     </form>
@@ -686,7 +717,9 @@ input.parsley-error:focus{
       var members= document.getElementById('member').value;
       var email= document.getElementById('email').value;
       var password= document.getElementById('pass').value;
-       var confirmpass= document.getElementById('conpass').value;
+      var confirmpass= document.getElementById('conpass').value;
+      var mobileNumber= document.getElementById('mobileNumber').value;
+
       if(user == ""){
         document.getElementById('projectname').innerHTML = "Field Required";
         return false;
@@ -694,12 +727,14 @@ input.parsley-error:focus{
  if((user.length <=4) || (user.length > 30)){
          document.getElementById('projectname').innerHTML = "Inappropriate Length";
            return false;
-   /*   }
+
+    }
       if(!isNaN(user)){
         document.getElementById('projectname').innerHTML = "Only characters are allowed";
         return false;
       }
-*/
+
+
   if(members == ""){
         document.getElementById('members').innerHTML = "Field Required";
         return false;
@@ -726,15 +761,15 @@ if((password.length <=4) || (password.length > 12)){
         document.getElementById('passid').innerHTML = "Length between 5-12";
         return false;
       }
-    /*  if(confirmpass == ""){
+     if(confirmpass == ""){
         document.getElementById('confmpass').innerHTML = "Field Required";
         return false;
       }
         if(password!==confirmpass ){
-        document.getElementById('passid').innerHTML = "Password din't match";
+        document.getElementById('passid').innerHTML = "Password didn't match";
         return false;
-      }*/
-     /* if(mobileNumber==""){
+      }
+      if(mobileNumber==""){
         document.getElementById('mobileno').innerHTML = "Field Required";
         return false;
       }
@@ -745,10 +780,16 @@ if((password.length <=4) || (password.length > 12)){
        if(mobileNumber.length!=10){
         document.getElementById('mobileno').innerHTML = "10 Digits Only";
         return false;
-      }*/
+      }
 
 }
 
+// let btnclear = document.querySelector('button');
+// let inputs = document.querySelectorAll('input');
+
+// btnClear.addEventlistener('click', () => {
+//   inputs.forEach(input => input.value = '')
+// });
   </script>
 </body>
 </html>
@@ -787,3 +828,4 @@ $(document).ready(function(){
 });
 
 </script>
+
