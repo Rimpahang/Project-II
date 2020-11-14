@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>KPA-Add Project</title>
+    <link rel="icon" type="image/icon"  href="images/1.png">
+  <!-- <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>  -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="file:///F:/Project/fontawesome-free-5.15.1-web/css/all.css"> 
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="js/jquery.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
+  <script src="bootstrap/js/jquery.1.js"></script>
+  <script src="bootstrap/js/bootstrap.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.9.2/parsley.min.js"></script>
+
+        <script type="text/javascript">
+$('#Login-Form').parsley();
+$('#Signin-Form').parsley();
+$('#Forgot-Password-Form').parsley();
+</script>
+
+
+ <script type="text/javascript">
+  function myfun(){
+var userconfirmation=confirm("Do you want to clear the form?");
+if (userconfirmation==true) {
+  
+  return true;
+}else{
+  
+  return false;
+}}
+</script>
+
+
+<script>
+  $(document).ready(function()
+  {
+    $("#resetform").click(function()
+    {
+      $("#form1")[0].reset();
+    });
+  });
+</script>
+
+  <style type="text/css">
+    .fakeimg {
+      height: 200px;
+      background: #aaa;
+    }
+    .jumbotron{
+      height: 3%;
+      padding-top: 20px;
+      padding-bottom: 5px;
+    }
+  	.navbar{
+  		/*height: 60px;*/
+  		text-transform: uppercase;
+  		font-weight: 700;
+  		font-size: .9rem;
+  		letter-spacing: .1rem;
+  		/*background: rgba(0, 0, 0, .1)!important;*/
+  	}
+     .dropdown:hover>.dropdown-menu{
+  		display: block;
+  		background: #e3e3e3;
+  	}
+    .site-content{
+      background-image: linear-gradient(rgba(0,168,255,0.3),rgba(0,168,255,0.3)), url('images/sm2.jpg');
+      background-attachment: fixed;
+      clip-path: polygon(100% 0%, 100% 75%, 50% 100%, 0 75%, 0 0);
+      background-size: cover;
+    }
+    .site-title, .site-desc{
+      color: white;
+      font-family: 'Righteous' ;
+
+    }
+    .site-title{
+      margin-top: 20%;
+      margin-bottom: 6%;
+      font-size: 50px; 
+      color: #ff4000; 
+    }
+    .site-desc{
+      font-size: 14px;
+      padding-left: 15%;
+    }
+    .site-btn1{
+      margin-left: 28%;
+      background-color: black;
+      color: white;
+      margin-top: 5%;
+      margin-bottom: 10%;
+    }
+  	#icon
+  	{
+  		max-width: 200px;
+  		margin: 5% auto;
+  	}
+    .container1{
+display: flex;
+justify-content: center;
+align-items: center;
+min-height: 100vh
+background: linear-gradient(#0f4675, #0f4675 50%,#fff 50%, #fff 100%);
+    }
+    .service{
+      width: 1100px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .service .box{
+      position: relative;
+      width: 320px;
+      background: #fff;
+      padding: 100px 40px 60px;
+      box-shadow: 0 15px 45px rgba(0,0,0,.1);
+    }
+    .service .box:before{
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #ff226d;
+      transform: scaleY(0);
+      transform-origin: top;
+      transition: transform 0.5s;
+    }
+    .service .box:hover:before{
+      transform: scaleY(1);
+      transform-origin: bottom;
+      transition: transform 0.5s;
+    }
+    .service .box h2{
+      position: absolute;
+      left: 40px;
+      top: 60px;
+      font-size: 4em;
+      font-weight: 800;
+      z-index: 1;
+      opacity: 0.1;
+      transition: 0.5s;
+    }
+    .service .box:hover h2{
+      opacity: 1;
+      color: #fff;
+      transform: translateY(-40px);
+    }
+    .service .box h3{
+      position: relative;
+      font-size: 1.5rem;
+      z-index: 2;
+      color: #333;
+      transition: 0.5s;
+    }
+     .service .box p{
+      position: relative;
+      z-index: 2;
+      color: #555;
+      transition: 0.5s;
+    }
+        .service .box:hover h3,
+        .service .box:hover p{
+      color: #fff;
+    }
+     /* <!---Signup--->*/
+      .modal-backdrop
+      {z-index:-1;
+        }
+    /*---Signup---*/
+    .modal-header, .modal-body, .modal-footer{
+  padding: 25px;
+}
+.modal-footer{
+  text-align: center;
+}
+#signup-modal-content, #forgot-password-modal-content{
+  display: none;
+}
+ 
+/** validation */
+  
+input.parsley-error{    
+  border-color:#843534;
+  box-shadow: none;
+}
+input.parsley-error:focus{    
+  border-color:#843534;
+  box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 6px #ce8483
+}
+.parsley-errors-list.filled {
+  opacity: 1;
+  color: #a94442;
+  display: none;
+}
+   /* <!---Add Project--->*/
+   .container2{
+    background-image: url('images/robot.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: new time roman;
+    height: 990px;
+   }
+   .h1{
+    font-size: 40px;
+    color: white;
+    margin-top: 230px;
+    margin-left: 70px;
+   }
+   .zoom1{
+      transition:transform .5s;
+    }
+    .zoom1:hover{
+      transform: scale(1.4); /* IE 9 */
+      transform: scale(1.4); /* Safari 3-8 */
+      transform: scale(1.4); 
+    }
+   p{
+    font-size: 17px;
+    color: white;
+    margin-left: 30px;
+
+   }
+   h3{
+    font-size: 25px;
+    color: white;
+   }
+   .glyphicon-pencil{
+    font-size: 35px;
+    color:white;
+    float: right;
+    margin-top: 20px;
+   }
+   .col-md-5{
+    margin-top: -310px;
+    margin-left: 630px;
+    box-shadow: -1px 1px 60px 10px black;
+    background: rgba(0,0,0,0.4);
+   }
+   .label{
+    font-weight: normal;
+    margin-top: 25px;
+    color: white;
+    font-size: 19px
+    margin-left: 35px;
+   }
+   .form-control1{
+    background: transparent;
+    border-radius: 0px;
+    border: 0px;
+    border-bottom: 1px solid white;
+    font-size: 18px;
+    margin-top: 15px;
+    height: 60px;
+    color: white;
+    width: 360px;
+
+   }
+   
+   input[type="checkbox"]{
+    margin-top: 15px;
+    width: 15px;
+    height: 15px;
+   }
+   small{
+    font-size: 18px;
+    color: white;
+   }
+   input[type="radio"]{
+    margin-top: 22px;
+   }
+   option{
+    color: grey;
+   }
+   .btn-info{
+    margin-top: 20px;
+    font-size: 18px;
+    width: 90px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+
+   }
+   .btn-warning{
+    margin-top: -83px;
+    font-size: 18px;
+    width: 90px;
+    margin-bottom: 20px;
+    margin-left: 340px;
+   }
+  	*{ margin:0; padding: 0; box-sizing:border-box; }
+  	 	footer{
+  		width: 100%;
+  		background-color: rgba(120,120,120);
+  		padding: 1%;
+  		color: #fff;
+  	}
+  	.fab{
+  		padding: 5px;
+  		font-size: 25px;
+  		color: #fff;
+  	}
+  	.fab:hover{
+  		color: rgb(60, 60, 200);
+  		text-decoration: none;
+  	}
+  	@media(max-width: 900px){
+  		.fab{
+  			font-size: 20px;
+  			padding: 10px;
+  		}
+  	}
+  	 .fas{
+      color: #D9533E;
+    }
+    .fas:hover{
+      color: #3ED9C1;
+      text-decoration: none;
+    }
+    
+        #reg-cross:hover{
+            cursor: pointer;
+        }
+  /*  .fab
+    {text-align: center;
+      padding: 10px;
+
+    }
+    .fab:hover{
+      opacity: 0.7;
+    }
+    .fa-facebook
+    {
+      background: #3B5998;
+      color: white;
+      }*/
+  /*.navbar-nav li{padding-right: .7rem;}
+  .navbar-dark .navbar-nav .nav-link{color:white;padding-top:.8rem;}
+  .navbar-dark .navbar-nav .navbar-link.avtive,
+  .navbar-dark ,navbar-nav .nav-link:hover{color:#1ebba3;}*/
+</style>
+</head>
+<body data-spy="scroll" data-target="#navbarResponsive">
+ <!--  Project Title  -->
+    <div class="jumbotron text-center" style="margin-bottom:0;font-family:Times New Roman ; color: #7A3BA3;">
+    <h1>Khwopa Project Archive</h1>
+  </div>
+	
+	<!-- Navigation -->
+	<nav class="navbar navbar-expand-md bg-light navbar-light sticky-top mt-1">
+    <!-- <button  type="button" data-toggle="collapse" data-target="#navbarResponsive">
+      <span class="navbar-toggler-icon"></span> 
+    </button> -->
+    <div class="container-fluid">
+      <!-- <a class="navbar-brand" href="#" data-target="#model" data-toggle="modal">Login</a> --><!-- <img src="images/khwopa.png"> --> 
+      <div id="login-signup-modal" class="modal fade" tabindex="-1" role="dialog">
+   <div class="modal-dialog" role="document">
+    
+     <!-- login modal content -->
+        <div class="modal-content" id="login-modal-content">
+        
+          <div class="modal-header"><h4 class="modal-title"> Login Now!</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="margin-right: 10px; margin-top: -33px;"><span aria-hidden="true">&times;</span></button>
+            
+          </div>
+        
+          <div class="modal-body">
+          <form method="post" id="Login-Form" role="form" >
+            <div class="form-group">
+                <div class="input-group">
+                <div class="input-group-addon"><i class="fas fa-user-alt fa-3x"></i></div>
+                <input name="username"  class="form-control input-lg" style="margin-left: 5px;margin-top:5px; " placeholder="Enter Username" required data-parsley-type="" >
+                </div>                      
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                <div class="input-group-addon"><i class="fas fa-lock fa-3x"></i></div>
+                <input name="password" id="login-password" type="password" class="form-control input-lg" style="margin-left: 10px;margin-top:5px;" placeholder="Enter Password" required data-parsley-length="[6, 10]" data-parsley-trigger="keyup">
+
+              <div class="input-group-append">
+                <div class="input-group-text" style="margin-top: 5px;"><i class="fa fa-eye" aria-hidden="true" id="eye" onclick="toggle1()"></i></div>
+              </div>
+                </div>                      
+            </div>
+              <script>
+    var state= false;
+    function toggle1(){
+      if(state){
+        document.getElementById("login-password").setAttribute("type","password");
+        document.getElementById("eye").style.color='#7a797e';
+        state = false;
+
+      }
+      else{
+        document.getElementById("login-password").setAttribute("type","text");
+        document.getElementById("eye").style.color='#5887ef';
+        state = true;
+      }
+    }
+  </script>                      
+     
+            <div class="checkbox">
+              <h6 style="font-family: calibri; font-size: 15px; color: indigo;"><input type="checkbox" value="" checked style="margin-right: 10px;">Remember me</h6>
+            </div>
+              <button type="submit" name="sub" class="btn btn-success btn-block btn-lg">LOGIN</button>
+          </form>
+        </div>
+        
+        <div class="modal-footer">
+          <p>
+          <a id="FPModal" href="javascript:void(0)" data-target="#forgot-password-modal-content">Forgot Password?</a> | 
+          <a id="signupModal" href="javascript:void(0)" data-toggle="modal" data-target="#signup-modal-content">Register Here!</a>
+          </p>
+        </div>
+        
+       </div>
+        <!-- login modal content -->
+        
+        <!-- signup modal content -->
+        <div class="modal-content" id="signup-modal-content">
+        
+       <div class="modal-header">
+        <h4 class="modal-title"> Signup Here!</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="margin-right: 10px; margin-top: -33px;"><span aria-hidden="true">&times;</span></button>
+            
+          </div>
+                
+        <div class="modal-body">
+          <form method="post" id="Signin-Form" role="form">
+            <div class="form-group">
+                <div class="input-group">
+                <div class="input-group-addon"><i class="fas fa-user-alt fa-3x"></i></div>
+                <input name="email" id="email2" style="margin-left: 5px;margin-top:5px;" type="email" class="form-control input-lg" placeholder="Enter Email" required data-parsley-type="email">
+                </div>                     
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                <div class="input-group-addon"><i class="fas fa-unlock fa-3x"></i></div>
+                <input name="password" id="passwd" style="margin-left: 10px;margin-top:5px;" type="password" class="form-control input-lg" placeholder="Enter Password" required data-parsley-length="[6, 10]" data-parsley-trigger="keyup">
+
+                 <div class="input-group-append">
+                <div class="input-group-text" style="margin-top: 5px;"><i class="fa fa-eye" aria-hidden="true" id="eye1" onclick="toggle()"></i></div>
+              </div>
+                </div>                      
+            </div>
+              <script>
+    var state= false;
+    function toggle(){
+      if(state){
+        document.getElementById("passwd").setAttribute("type","password");
+        document.getElementById("eye1").style.color='#7a797e';
+        state = false;
+
+      }
+      else{
+        document.getElementById("passwd").setAttribute("type","text");
+        document.getElementById("eye1").style.color='#5887ef';
+        state = true;
+      }
+    }
+  </script>
+        
+            <div class="form-group">
+                <div class="input-group">
+                <div class="input-group-addon"><i class="fas fa-lock fa-3x"></i></div>
+                <input name="password" style="margin-left: 5px;margin-top:5px;" id="confirm-passwd" type="password" class="form-control input-lg" placeholder="Retype Password" required data-parsley-equalto="#passwd" data-parsley-trigger="keyup">
+                </div>                      
+            </div>
+            <button type="submit" class="btn btn-success btn-block btn-lg">CREATE ACCOUNT!</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <p>Already a Member ? <a id="loginModal" href="javascript:void(0)">Login Here!</a></p>
+        </div>
+       </div>
+       <!-- signup modal content -->
+        
+       <!-- forgot password content -->
+       <div class="modal-content" id="forgot-password-modal-content">
+        
+        <div class="modal-header">
+          <h4 class="modal-title"> Recover Password!</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="margin-right: 10px; margin-top: -33px;"><span aria-hidden="true">&times;</span></button>
+            
+          </div>
+
+        <div class="modal-body">
+          <form method="post" id="Forgot-Password-Form" role="form">
+            <div class="form-group">
+                <div class="input-group">
+                <div class="input-group-addon"><i class="fas fa-envelope-open-text fa-3x"></i></div>
+                <input name="email1" style="margin-left: 5px;margin-top:5px; " id="email3" type="email" class="form-control input-lg" placeholder="Enter Email" required data-parsley-type="email">
+                </div>                     
+            </div>         
+            <button type="submit" name="sub1" class="btn btn-success btn-block btn-lg">
+              <span class="glyphicon glyphicon-send"></span> SUBMIT
+            </button>
+          </form>
+        </div>
+        
+        <div class="modal-footer">
+          <p>Remember Password ? <a id="loginModal1" href="javascript:void(0)">Login Here!</a></p>
+        </div>
+        
+       </div>        
+       <!-- forgot password content -->
+  
+  </div>
+</div>
+<div class="zoom1">
+<a href="home.html">
+  <img src="images/logo.png" alt="KPA Logo" title="KPA Logo" 
+  style="height: 55px;width: 55px; margin-left: 76px">
+</a>
+</div>
+  <!--   <a href="" data-toggle="modal" data-target="#login-signup-modal" style="padding-right: 15px; padding-top: 15px;"><p class="text-info">Signup</p></a> -->
+ 
+      <!-- Navbar toggler-->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+        <span class="navbar-toggler-icon"></span> 
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive"> <!--  Search bar  -->
+         <!-- <ul class="list-group-horizontal navbar-nav">
+        <form class="form-inline" action="/action_page.php">
+          <li><input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"style="margin-top: 4px;"></li>
+          <li class="ml-2"><button class="btn btn-outline-success" type="submit" style="margin-top: 4px;">Search</button></li>
+        </form>
+        </ul>  -->
+         <!--  Navbar links  --> 
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item">
+						<a class="nav-link text-success" href="home.html">Home</a>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle text-success" href="#" id="navbarDropdown"role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="categories.html">System Management </a>
+          <a class="dropdown-item" href="categories.html">Commerce</a>
+          <a class="dropdown-item" href="categories.html">Robotics</a>
+          <a class="dropdown-item" href="categories.html">Games</a>
+          <a class="dropdown-item" href="categories.html">ML and AI</a>
+          <a class="dropdown-item" href="categories.html">Others</a>
+        </div>
+						
+					</li>
+					<li class="nav-item active">
+						<a class="nav-link " href="addp.html">Add Project</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link text-success" href="top-projects.html">Top Projects</a>
+					</li>   
+					<li class="nav-item">
+						<a class="nav-link text-success" href="#">Project Titles</a>
+					</li> 
+					<li class="nav-item">
+						<a class="nav-link text-success" href="notice.html">Notice</a>
+					</li>
+            <li class="nav-item">
+                  <button class="btn btn-outline-warning" type="button">
+                <a  class="text-info"data-toggle="modal" data-target="#login-signup-modal"><b>Signup</b></a></button></li>
+				</ul>
+			</div> 
+		</div> 
+	</nav>
+	<br>
+  <main>
+    <div class="container ">
+    <div class="container-fluid">
+      <div class="site-content">
+        <div class="d-flex justify-content-center">
+          <div class="d-flex flex-column">
+            <h1 class="site-title">Add Your Project Here</h1>
+            <p class="site-desc">Add your project here and help it to share and supervised!!!</p>
+            <div class="d-flex flex-row">
+              <a href="#container2"><input type="button" value="Add Project" class="btn site-btn1 px-4 py-3 mr-4 btn-dark" style="margin-left: 160px;" ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </main>
+  <div class="container"> 
+<hr class="hr1">
+</div>
+<!--- Service--->
+<div class="container col-md-12">
+  <div class="container1">
+  <div class="service">
+  <div class="box">
+    <h2>01</h2>
+    <h3>Service One</h3>
+    <p>Add your project here to get uploaded in the website!!!</p>
+  </div>
+   <div class="box">
+    <h2>02</h2>
+    <h3>Service Two</h3>
+    <p>Chat with the users and share the ideas!!!</p>
+  </div>
+   <div class="box">
+    <h2>03</h2>
+    <h3>Service Three</h3>
+    <p>Download the documents of different projects!!!</p>
+  </div>
+</div>
+</div>
+</div><br><br>
+<!----Add Project Form---->
+<div class="container">
+  <div class="container2" id="container2">
+  <div class="row">
+    
+    <div class="col-md-6">
+      <div class="h1"><h1 class="text-left">About Project</h1></div>
+      <p class="text-left">Add your projects to KPA by filling the form. Enter your project details carefully. After adding your project, other members can get information about your project!!!</p>
+    </div>
+    <div class="col-md-5">
+    <!--2 columns of 6-->
+      <div class="row">
+        <div class="col-md-6">
+          <h3 class="text-left">Add Project Info</h3>
+        
+      </div>
+      <div class="col-md-6"> 
+      <span class="glyphicon glyphicon-pencil"></span>
+    </div>
+    <hr>
+    <form action="#" id="form1" onsubmit="return validation()">
+      
+    <!--column for textbox and label-->
+    <div class="row" id="row1">
+      
+      <label class="label col-md-2 control-label">Project Name</label>
+      <div class="col-md-10">
+        <input type="text" class="form-control1" name="user" id="user" placeholder="Project Name" autocomplete="off">
+        <span id="projectname" class="text-danger font-weight-bold"></span>
+        </div>
+    </div>
+     <div class="row">
+      <label class="label col-md-2 control-label">Members</label>
+      <div class="col-md-10">
+          <textarea class="form-control1" placeholder="Members(Roll. no)" id="member"></textarea>
+          <span id="members" class="text-danger font-weight-bold"></span>
+      </div>
+    </div>
+      <div class="row">
+      
+      <label class="label col-md-2 control-label">Semester</label>
+      <div class="col-md-10">
+        <select class= "form-control1">
+          <option>First</option>
+          <option>Third</option>
+          <option>Fifth</option>
+          <option>Seventh</option>
+          <option>Eight</option>
+        </select>
+        </div>  
+    </div>
+      <div class="row">
+      
+      <label class="label col-md-2 control-label">Category</label>
+      <div class="col-md-10">
+        <select class= "form-control1">
+          <option>System Management</option>
+          <option>Robotics</option>
+          <option>Game</option>
+          <option>Commerce</option>
+          <option>Ml & AI</option>
+
+        </select>
+        </div>
+      </div>
+
+    <div class="row">
+      
+      <label class="label col-md-2 control-label"> E-mail</label>
+      <div class="col-md-10">
+        <input type="email" class="form-control1" name="email" id="email" placeholder="E-mail">
+        <span id="emailid" class="text-danger font-weight-bold"></span>
+        </div>
+      </div>
+
+    <div class="row">
+      <label class="label col-md-2 control-label"> Password</label>
+      <div class="col-md-10">
+        <input type="password" class="form-control1" name="password" placeholder="Password" id="pass">
+         <span id="passid" class="text-danger font-weight-bold"></span>
+        <input type="checkbox"><small>Remember me!</small>
+      </div>
+    </div>  
+
+    <div class="row">
+      <label class="label col-md-2 control-label"> Confirm Password</label>
+      <div class="col-md-10">
+        <input type="password" class="form-control1" name="password" placeholder=" Confirm Password" id="conpass">
+         <span id="confmpass" class="text-danger font-weight-bold"></span>
+        
+      </div>
+    </div> 
+       <div class="row">
+      
+      <label class="label col-md-2 control-label"> Mob. No.</label>
+      <div class="col-md-10">
+        <input type="number" class="form-control1" name="mobile" id="mobileNumber">
+        <span id="mobileno" class="text-danger font-weight-bold"></span>
+        </div>
+      </div>
+    
+<div class="row">
+  
+      <label class="label col-md-2 control-label">Message</label>
+      <div class="col-md-10">
+       <textarea class="form-control1"></textarea>
+        </div>
+      </div>
+    
+    
+    
+      <input type="submit" name="submit" value="Submit"  class="btn btn-info">
+  
+    <input type="button" id="resetform" name="cancel" value="Clear" class="btn btn-warning" onclick="myfun()">
+    </div>
+    </div>
+    </form>
+  </div>
+  
+</div>
+</div>
+<br><br>
+<!--- Footer-->
+<footer class="container-fluid text-center" style="background-color:  #CBC7D0">
+  <div class="row text-success">
+    <div class="col-sm-3">
+      <h3 style="color: #08090A;">Meet the Team</h3>
+      <h5>Group Members & info</h45>
+    </div>
+    <div class="col-sm-3">
+      <h3 style="color: #08090A;">Contact Us</h3>
+      <h5>Our address and contact info </h5>
+    </div>
+    <div class="col-sm-3">
+      <h3  style="color: #08090A;">Connect</h3>
+      <a href="#" class="fab fa-facebook-square" title="facebook" style="font-size: 30px;"></a>
+      <a href="#" class="fab fa-twitter-square" title="twitter" style="font-size: 30px;"></a>
+      <a href="#" class="fab fa-google" title="google" style="font-size: 30px"></a>
+      <a href="#" class="fab fa-youtube-square" title="youtube" style="font-size: 30px;"></a>
+    </div>
+    <!---KPA info at footer--->
+    <div class="col-sm-3">
+      <img src="images/kpa.jpg" class="icon" alt="KPA"><br><br>
+      <a href="home.html" class="fas fa-home" title="Home" style="font-size: 17px;margin-right: 10px;"></a>||
+      <a href="#" class="fas fa-id-card-alt" title="Contact" style="font-size: 17px;margin-left: 10px;margin-right: 10px;"></a>||
+      <a href="#" class="fas fa-comment-dots" title="Feedback" style="font-size: 17px;margin-left: 10px;margin-right: 10px;"></a>||
+        <a href="#" class="fas fa-question" title="FAQs" style="font-size: 17px;margin-left: 10px;"></a>
+    </div>
+  </div>
+
+</footer>
+  <div class="col-xs-12" style="background: brown; height: 22px;">
+    <h5 style="text-align: center; color: white; font-size: 15px;"><i class="fa fa-copyright" style="font-size:16px;margin-top: 3px;">  2020 KPA</i></h5>
+  </div>
+
+  <script type="text/javascript">
+    function validation(){
+      var user= document.getElementById('user').value;
+      var members= document.getElementById('member').value;
+      var email= document.getElementById('email').value;
+      var password= document.getElementById('pass').value;
+      var confirmpass= document.getElementById('conpass').value;
+      var mobileNumber= document.getElementById('mobileNumber').value;
+
+      if(user == ""){
+        document.getElementById('projectname').innerHTML = "Field Required";
+        return false;
+      }
+ if((user.length <=4) || (user.length > 30)){
+         document.getElementById('projectname').innerHTML = "Inappropriate Length";
+           return false;
+
+    }
+      if(!isNaN(user)){
+        document.getElementById('projectname').innerHTML = "Only characters are allowed";
+        return false;
+      }
+
+
+  if(members == ""){
+        document.getElementById('members').innerHTML = "Field Required";
+        return false;
+      }
+
+  if(email == ""){
+        document.getElementById('emailid').innerHTML = "Field Required";
+        return false;
+      }
+
+    if(email.indexOf('@')<=0){
+       document.getElementById('emailid').innerHTML = "Invalid @ position";
+        return false;
+    }  
+    if((email.charAt(email.length-4)!='.') && (email.charAt(email.length-3)!='.')){
+       document.getElementById('emailid').innerHTML = "Invalid . position";
+        return false;
+    } 
+      if(password == ""){
+        document.getElementById('passid').innerHTML = "Field Required";
+        return false;
+      }
+if((password.length <=4) || (password.length > 12)){
+        document.getElementById('passid').innerHTML = "Length between 5-12";
+        return false;
+      }
+     if(confirmpass == ""){
+        document.getElementById('confmpass').innerHTML = "Field Required";
+        return false;
+      }
+        if(password!==confirmpass ){
+        document.getElementById('passid').innerHTML = "Password didn't match";
+        return false;
+      }
+      if(mobileNumber==""){
+        document.getElementById('mobileno').innerHTML = "Field Required";
+        return false;
+      }
+        if(isNaN(mobileNumber)){
+        document.getElementById('mobileno').innerHTML = "Digits Only";
+        return false;
+      }
+       if(mobileNumber.length!=10){
+        document.getElementById('mobileno').innerHTML = "10 Digits Only";
+        return false;
+      }
+
+}
+
+// let btnclear = document.querySelector('button');
+// let inputs = document.querySelectorAll('input');
+
+// btnClear.addEventlistener('click', () => {
+//   inputs.forEach(input => input.value = '')
+// });
+  </script>
+</body>
+</html>
+<script>
+$(document).ready(function(){
+
+
+    $('#signupModal').click(function(){
+     $('#login-modal-content').fadeOut('fast', function(){
+        $('#signup-modal-content').fadeIn('fast');
+     });
+    });
+
+    $('#loginModal').click(function(){
+     $('#signup-modal-content').fadeOut('fast', function(){
+        $('#login-modal-content').fadeIn('fast');
+     });
+    });
+
+    $('#FPModal').click(function(){
+     $('#login-modal-content').fadeOut('fast', function(){
+        $('#forgot-password-modal-content').fadeIn('fast');
+        });
+    });
+
+    $('#loginModal1').click(function(){
+     $('#forgot-password-modal-content').fadeOut('fast', function(){
+        $('#login-modal-content').fadeIn('fast');
+     });
+    });
+
+
+    $('#Login-Form').parsley();
+    $('#Signin-Form').parsley();
+    $('#Forgot-Password-Form').parsley();
+});
+
+</script>
+
