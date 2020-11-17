@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
+-- version 5.0.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 16, 2020 at 08:19 AM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.3
+-- Generation Time: Nov 17, 2020 at 03:24 PM
+-- Server version: 10.4.14-MariaDB
+-- PHP Version: 7.4.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -21,18 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `kpa`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `kpa_language`
---
-
-CREATE TABLE `kpa_language` (
-  `id` int(6) NOT NULL,
-  `language_name` varchar(100) NOT NULL,
-  `project_id` int(6) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -57,24 +44,49 @@ CREATE TABLE `kpa_notice` (
 INSERT INTO `kpa_notice` (`id`, `notice_topic`, `notice_text`, `notifier_user_id`, `notifier_email`, `published_date`, `status`) VALUES
 (1, 'defense', 'defense will to tomorrow', 0, '', '2020-02-18 09:25:00', 1),
 (2, 'defense', 'defense will to tomorrow', 0, '', '2020-02-18 09:25:01', 1),
-(3, 'email notification', 'this is the testing phase of email notification', 0, '', '2020-02-18 08:33:59', 1);
+(3, 'email notification', 'this is the testing phase of email notification', 0, '', '2020-02-18 08:33:59', 1),
+(4, 'Hello', 'Is it still working?', 0, '', '2020-11-14 05:06:46', 1),
+(5, 'Hello', 'Is it working?>\r\n', 0, '', '2020-11-14 05:26:36', 1),
+(6, 'Hello', 'Is it working?>\r\n', 0, '', '2020-11-14 05:32:34', 1),
+(7, 'sa', 'helo', 0, '', '2020-11-14 05:32:47', 1),
+(8, 'ammy', 'tammey', 0, '', '2020-11-14 05:50:17', 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kpa_prjdetails`
+-- Table structure for table `kpa_programming_language`
 --
 
-CREATE TABLE `kpa_prjdetails` (
-  `id` int(2) NOT NULL,
-  `prj_title` varchar(10) NOT NULL,
-  `prj_abs` varchar(10) NOT NULL,
-  `prj_desc` text NOT NULL,
-  `uploaded_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `verified_at` int(5) NOT NULL,
-  `verified_by` int(5) NOT NULL,
-  `status` int(1) NOT NULL
+CREATE TABLE `kpa_programming_language` (
+  `id` int(6) NOT NULL,
+  `language_name` varchar(100) NOT NULL,
+  `project_code` int(6) NOT NULL,
+  `project_year` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `kpa_programming_language`
+--
+
+INSERT INTO `kpa_programming_language` (`id`, `language_name`, `project_code`, `project_year`) VALUES
+(1, 'HTML', 111111, '2074'),
+(2, 'PHP', 222222, '2074'),
+(3, 'HTML', 111111, '2075'),
+(4, 'PHP', 222222, '2075'),
+(5, 'JavaScript', 444444, '2076'),
+(6, 'JavaScript', 444444, '2076'),
+(7, 'HTML', 555555, '2076'),
+(8, 'PHP', 0, '2076'),
+(9, 'PHP', 223454, '2076'),
+(10, 'PHP', 767676, '2076'),
+(11, 'PHP', 656565, '2076'),
+(12, 'HTML', 878787, '2073'),
+(13, 'JavaScript', 546565, '2072'),
+(14, 'PHP', 56565, '2071'),
+(15, 'Javascript', 767676, '2074'),
+(16, 'JavaScript', 89898, '2074'),
+(17, 'Javascript', 767676, '2074'),
+(18, 'JavaScript', 89898, '2074');
 
 -- --------------------------------------------------------
 
@@ -157,43 +169,13 @@ CREATE TABLE `kpa_user` (
 INSERT INTO `kpa_user` (`id`, `name`, `username`, `email`, `password`, `user_type`, `secret_key`, `remarks`, `postby_id`, `created_at`, `is_verified`, `verifiedby_id`, `updated_at`, `status`) VALUES
 (7, 'Dhruba Rai', 'rimpahang', 'rimpahang@gmail.com', '8d909b810b4a43cdb83c6c12a129660f', 'super_admin', NULL, NULL, 1, '2019-08-02 04:25:41', 1, 1, '2020-02-16 15:51:47', 1),
 (8, 'sabin shrestha', 'sabin', 'alchinibas123@gmail.com', '5d41402abc4b2a76b9719d911017c592', 'admin', NULL, NULL, 1, '2019-08-06 17:32:50', 1, 1, '2020-02-18 14:19:56', 1),
-(9, 'Naresh Roka', 'ace', 'nrshroka@gmail.com', '3a2cf27458c9aa3e358f8fc0f002bff6', 'super_admin', NULL, NULL, 1, '2019-08-06 17:47:25', 0, 1, '2020-03-09 11:55:52', 1),
-(12, 'Avishek Karki', 'kanxo', 'karkiavi12345@gmail.com', 'cfb70d4d263b5ae0d229ea5d4aaa7445', 'normal_user', NULL, NULL, 1, '2019-08-07 04:33:51', 0, 1, '2020-02-18 14:18:31', 1),
-(14, 'user user', 'users', 'user@use.com', 'ee11cbb19052e40b07aac0ca060c23ee', 'normal_user', NULL, NULL, 1, '2020-03-14 14:51:33', 0, 1, '2020-03-14 20:53:16', 1),
-(15, 'Light', 'L', 'light@l.com', '2ac43aa43bf473f9a9c09b4b608619d3', 'normal_user', NULL, NULL, 1, '2020-03-14 15:09:17', 0, 1, NULL, 1),
-(16, 'new', 'new', 'n@a', '22af645d1859cb5ca6da0c484f1f37ea', 'normal_user', NULL, NULL, 1, '2020-03-16 04:52:15', 0, 1, NULL, 1),
-(19, 'test1', 'test1', 'test@t', '5a105e8b9d40e1329780d62ea2265d8a', 'normal_user', NULL, NULL, 1, '2020-03-16 04:54:08', 0, 1, NULL, 1);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `uploads`
---
-
-CREATE TABLE `uploads` (
-  `id` int(3) NOT NULL,
-  `title` varchar(15) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `uploads`
---
-
-INSERT INTO `uploads` (`id`, `title`, `created_at`) VALUES
-(4, 'Chapter4_2.pdf', '2020-03-14 15:14:38'),
-(5, 'ds.PNG', '2020-03-14 16:38:27'),
-(6, 'Capture.PNG', '2020-03-16 05:35:51');
+(9, 'Naresh Roka', 'ace', 'nrshroka@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', 'super_admin', NULL, NULL, 1, '2019-08-06 17:47:25', 1, 1, '2020-11-17 13:14:21', 1),
+(12, 'Avishek Karki', 'kanxo', 'karkiavi12345@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', 'normal_user', NULL, NULL, 1, '2019-08-07 04:33:51', 1, 1, '2020-11-17 13:58:17', 1),
+(23, 'Naresh', 'Nrsh', 'ezionaresh@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', 'super_admin', NULL, NULL, 1, '2020-11-17 05:18:11', 1, 1, '2020-11-17 11:04:45', 1);
 
 --
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `kpa_language`
---
-ALTER TABLE `kpa_language`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `kpa_notice`
@@ -202,9 +184,9 @@ ALTER TABLE `kpa_notice`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `kpa_prjdetails`
+-- Indexes for table `kpa_programming_language`
 --
-ALTER TABLE `kpa_prjdetails`
+ALTER TABLE `kpa_programming_language`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -230,32 +212,20 @@ ALTER TABLE `kpa_user`
   ADD KEY `postby_id` (`postby_id`);
 
 --
--- Indexes for table `uploads`
---
-ALTER TABLE `uploads`
-  ADD PRIMARY KEY (`id`);
-
---
 -- AUTO_INCREMENT for dumped tables
 --
-
---
--- AUTO_INCREMENT for table `kpa_language`
---
-ALTER TABLE `kpa_language`
-  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `kpa_notice`
 --
 ALTER TABLE `kpa_notice`
-  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `kpa_prjdetails`
+-- AUTO_INCREMENT for table `kpa_programming_language`
 --
-ALTER TABLE `kpa_prjdetails`
-  MODIFY `id` int(2) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `kpa_programming_language`
+  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `kpa_project_list`
@@ -273,13 +243,7 @@ ALTER TABLE `kpa_pwd_reset`
 -- AUTO_INCREMENT for table `kpa_user`
 --
 ALTER TABLE `kpa_user`
-  MODIFY `id` int(6) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
-
---
--- AUTO_INCREMENT for table `uploads`
---
-ALTER TABLE `uploads`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(6) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
