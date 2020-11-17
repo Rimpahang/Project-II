@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>KPA Website</title>
+	<title>KPA-Add Project</title>
+    <link rel="icon" type="image/icon"  href="images/1.png">
   <!-- <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
@@ -217,6 +218,14 @@ input.parsley-error:focus{
     margin-top: 230px;
     margin-left: 70px;
    }
+   .zoom1{
+      transition:transform .5s;
+    }
+    .zoom1:hover{
+      transform: scale(1.4); /* IE 9 */
+      transform: scale(1.4); /* Safari 3-8 */
+      transform: scale(1.4); 
+    }
    p{
     font-size: 17px;
     color: white;
@@ -246,7 +255,7 @@ input.parsley-error:focus{
     font-size: 19px
     margin-left: 35px;
    }
-   .form-control{
+   .form-control1{
     background: transparent;
     border-radius: 0px;
     border: 0px;
@@ -311,13 +320,14 @@ input.parsley-error:focus{
   			padding: 10px;
   		}
   	}
-  		.fac{
-  		color: #fff;
-  	}
-  	.fac:hover{
-  		color: yellow;
-  		text-decoration: none;
-  	}
+  	 .fas{
+      color: #D9533E;
+    }
+    .fas:hover{
+      color: #3ED9C1;
+      text-decoration: none;
+    }
+    
         #reg-cross:hover{
             cursor: pointer;
         }
@@ -341,50 +351,68 @@ input.parsley-error:focus{
 </style>
 </head>
 <body data-spy="scroll" data-target="#navbarResponsive">
-
-	<div class="jumbotron text-center" style="margin-bottom:0;font-family: cursive; color: blue;">
-		<h1>Khwopa Project Archive</h1>
-		<p>KPA</p> 
-	</div>
+ <!--  Project Title  -->
+    <div class="jumbotron text-center" style="margin-bottom:0;font-family:Times New Roman ; color: #7A3BA3;">
+    <h1>Khwopa Project Archive</h1>
+  </div>
+	
 	<!-- Navigation -->
 	<nav class="navbar navbar-expand-md bg-light navbar-light sticky-top mt-1">
     <!-- <button  type="button" data-toggle="collapse" data-target="#navbarResponsive">
       <span class="navbar-toggler-icon"></span> 
     </button> -->
     <div class="container-fluid">
-     <!--  <a class="navbar-brand" href="#"><img src="images/khwopa.png"> KPA Navbar</a> -->
-      <!-- <a class="navbar-brand" href="#" data-target="#model" data-toggle="modal">Login</a> --><!-- <img src="images/khwopa.png"> -->
-
-
+      <!-- <a class="navbar-brand" href="#" data-target="#model" data-toggle="modal">Login</a> --><!-- <img src="images/khwopa.png"> --> 
       <div id="login-signup-modal" class="modal fade" tabindex="-1" role="dialog">
    <div class="modal-dialog" role="document">
     
      <!-- login modal content -->
         <div class="modal-content" id="login-modal-content">
         
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title"><span class="glyphicon glyphicon-lock"></span> Login Now!</h4>
+          <div class="modal-header"><h4 class="modal-title"> Login Now!</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="margin-right: 10px; margin-top: -33px;"><span aria-hidden="true">&times;</span></button>
+            
           </div>
         
           <div class="modal-body">
-          <form method="post" id="Login-Form" role="form">
+          <form method="post" id="Login-Form" role="form" >
             <div class="form-group">
                 <div class="input-group">
-                <div class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></div>
-                <input name="email" id="email1" type="email" class="form-control input-lg" placeholder="Enter Email" required data-parsley-type="email" >
+                <div class="input-group-addon"><i class="fas fa-user-alt fa-3x"></i></div>
+                <input name="username"  class="form-control input-lg" style="margin-left: 5px;margin-top:5px; " placeholder="Enter Username" required data-parsley-type="" >
                 </div>                      
             </div>
             <div class="form-group">
                 <div class="input-group">
-                <div class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></div>
-                <input name="password" id="login-password" type="password" class="form-control input-lg" placeholder="Enter Password" required data-parsley-length="[6, 10]" data-parsley-trigger="keyup">
-                 </div>                      
+                <div class="input-group-addon"><i class="fas fa-lock fa-3x"></i></div>
+                <input name="password" id="login-password" type="password" class="form-control input-lg" style="margin-left: 10px;margin-top:5px;" placeholder="Enter Password" required data-parsley-length="[6, 10]" data-parsley-trigger="keyup">
+
+              <div class="input-group-append">
+                <div class="input-group-text" style="margin-top: 5px;"><i class="fa fa-eye" aria-hidden="true" id="eye" onclick="toggle1()"></i></div>
+              </div>
+                </div>                      
             </div>
+              <script>
+    var state= false;
+    function toggle1(){
+      if(state){
+        document.getElementById("login-password").setAttribute("type","password");
+        document.getElementById("eye").style.color='#7a797e';
+        state = false;
+
+      }
+      else{
+        document.getElementById("login-password").setAttribute("type","text");
+        document.getElementById("eye").style.color='#5887ef';
+        state = true;
+      }
+    }
+  </script>                      
+     
             <div class="checkbox">
-              <label><input type="checkbox" value="" checked>Remember me</label>
+              <h6 style="font-family: calibri; font-size: 15px; color: indigo;"><input type="checkbox" value="" checked style="margin-right: 10px;">Remember me</h6>
             </div>
-              <button type="submit" class="btn btn-success btn-block btn-lg">LOGIN</button>
+              <button type="submit" name="sub" class="btn btn-success btn-block btn-lg">LOGIN</button>
           </form>
         </div>
         
@@ -401,29 +429,51 @@ input.parsley-error:focus{
         <!-- signup modal content -->
         <div class="modal-content" id="signup-modal-content">
         
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title"><span class="glyphicon glyphicon-lock"></span> Signup Now!</h4>
-        </div>
+       <div class="modal-header">
+        <h4 class="modal-title"> Signup Here!</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="margin-right: 10px; margin-top: -33px;"><span aria-hidden="true">&times;</span></button>
+            
+          </div>
                 
         <div class="modal-body">
           <form method="post" id="Signin-Form" role="form">
             <div class="form-group">
                 <div class="input-group">
-                <div class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></div>
-                <input name="email" id="email2" type="email" class="form-control input-lg" placeholder="Enter Email" required data-parsley-type="email">
+                <div class="input-group-addon"><i class="fas fa-user-alt fa-3x"></i></div>
+                <input name="email" id="email2" style="margin-left: 5px;margin-top:5px;" type="email" class="form-control input-lg" placeholder="Enter Email" required data-parsley-type="email">
                 </div>                     
             </div>
             <div class="form-group">
                 <div class="input-group">
-                <div class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></div>
-                <input name="password" id="passwd" type="password" class="form-control input-lg" placeholder="Enter Password" required data-parsley-length="[6, 10]" data-parsley-trigger="keyup">
+                <div class="input-group-addon"><i class="fas fa-unlock fa-3x"></i></div>
+                <input name="password" id="passwd" style="margin-left: 10px;margin-top:5px;" type="password" class="form-control input-lg" placeholder="Enter Password" required data-parsley-length="[6, 10]" data-parsley-trigger="keyup">
+
+                 <div class="input-group-append">
+                <div class="input-group-text" style="margin-top: 5px;"><i class="fa fa-eye" aria-hidden="true" id="eye1" onclick="toggle()"></i></div>
+              </div>
                 </div>                      
             </div>
+              <script>
+    var state= false;
+    function toggle(){
+      if(state){
+        document.getElementById("passwd").setAttribute("type","password");
+        document.getElementById("eye1").style.color='#7a797e';
+        state = false;
+
+      }
+      else{
+        document.getElementById("passwd").setAttribute("type","text");
+        document.getElementById("eye1").style.color='#5887ef';
+        state = true;
+      }
+    }
+  </script>
+        
             <div class="form-group">
                 <div class="input-group">
-                <div class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></div>
-                <input name="password" id="confirm-passwd" type="password" class="form-control input-lg" placeholder="Retype Password" required data-parsley-equalto="#passwd" data-parsley-trigger="keyup">
+                <div class="input-group-addon"><i class="fas fa-lock fa-3x"></i></div>
+                <input name="password" style="margin-left: 5px;margin-top:5px;" id="confirm-passwd" type="password" class="form-control input-lg" placeholder="Retype Password" required data-parsley-equalto="#passwd" data-parsley-trigger="keyup">
                 </div>                      
             </div>
             <button type="submit" class="btn btn-success btn-block btn-lg">CREATE ACCOUNT!</button>
@@ -439,19 +489,20 @@ input.parsley-error:focus{
        <div class="modal-content" id="forgot-password-modal-content">
         
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title"><span class="glyphicon glyphicon-lock"></span> Recover Password!</h4>
-        </div>
-        
+          <h4 class="modal-title"> Recover Password!</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="margin-right: 10px; margin-top: -33px;"><span aria-hidden="true">&times;</span></button>
+            
+          </div>
+
         <div class="modal-body">
           <form method="post" id="Forgot-Password-Form" role="form">
             <div class="form-group">
                 <div class="input-group">
-                <div class="input-group-addon"><icon class="glyphicon glyphicon-envelope"></icon></div>
-                <input name="email" id="email3" type="email" class="form-control input-lg" placeholder="Enter Email" required data-parsley-type="email">
+                <div class="input-group-addon"><i class="fas fa-envelope-open-text fa-3x"></i></div>
+                <input name="email1" style="margin-left: 5px;margin-top:5px; " id="email3" type="email" class="form-control input-lg" placeholder="Enter Email" required data-parsley-type="email">
                 </div>                     
             </div>         
-            <button type="submit" class="btn btn-success btn-block btn-lg">
+            <button type="submit" name="sub1" class="btn btn-success btn-block btn-lg">
               <span class="glyphicon glyphicon-send"></span> SUBMIT
             </button>
           </form>
@@ -466,24 +517,29 @@ input.parsley-error:focus{
   
   </div>
 </div>
-  
-    <a href="" data-toggle="modal" data-target="#login-signup-modal" style="padding-right: 15px; padding-top: 15px;"><p class="text-info">Signup</p></a>
+<div class="zoom1">
+<a href="home.html">
+  <img src="images/logo.png" alt="KPA Logo" title="KPA Logo" 
+  style="height: 55px;width: 55px; margin-left: 76px">
+</a>
+</div>
+  <!--   <a href="" data-toggle="modal" data-target="#login-signup-modal" style="padding-right: 15px; padding-top: 15px;"><p class="text-info">Signup</p></a> -->
  
       <!-- Navbar toggler-->
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
         <span class="navbar-toggler-icon"></span> 
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive"> <!--  Search bar  -->
-         <ul class="list-group-horizontal navbar-nav">
+         <!-- <ul class="list-group-horizontal navbar-nav">
         <form class="form-inline" action="/action_page.php">
           <li><input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"style="margin-top: 4px;"></li>
           <li class="ml-2"><button class="btn btn-outline-success" type="submit" style="margin-top: 4px;">Search</button></li>
         </form>
-        </ul> 
+        </ul>  -->
          <!--  Navbar links  --> 
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item">
-						<a class="nav-link text-success" href="index.html">Home</a>
+						<a class="nav-link text-success" href="home.html">Home</a>
 					</li>
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle text-success" href="#" id="navbarDropdown"role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</a>
@@ -501,7 +557,7 @@ input.parsley-error:focus{
 						<a class="nav-link " href="addp.html">Add Project</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link text-success" href="#">Top Projects</a>
+						<a class="nav-link text-success" href="top-projects.html">Top Projects</a>
 					</li>   
 					<li class="nav-item">
 						<a class="nav-link text-success" href="#">Project Titles</a>
@@ -509,6 +565,9 @@ input.parsley-error:focus{
 					<li class="nav-item">
 						<a class="nav-link text-success" href="notice.html">Notice</a>
 					</li>
+            <li class="nav-item">
+                  <button class="btn btn-outline-warning" type="button">
+                <a  class="text-info"data-toggle="modal" data-target="#login-signup-modal"><b>Signup</b></a></button></li>
 				</ul>
 			</div> 
 		</div> 
@@ -583,14 +642,14 @@ input.parsley-error:focus{
       
       <label class="label col-md-2 control-label">Project Name</label>
       <div class="col-md-10">
-        <input type="text" class="form-control" name="user" id="user" placeholder="Project Name" autocomplete="off">
+        <input type="text" class="form-control1" name="user" id="user" placeholder="Project Name" autocomplete="off">
         <span id="projectname" class="text-danger font-weight-bold"></span>
         </div>
     </div>
      <div class="row">
       <label class="label col-md-2 control-label">Members</label>
       <div class="col-md-10">
-          <textarea class="form-control" placeholder="Members(Roll. no)" id="member"></textarea>
+          <textarea class="form-control1" placeholder="Members(Roll. no)" id="member"></textarea>
           <span id="members" class="text-danger font-weight-bold"></span>
       </div>
     </div>
@@ -598,7 +657,7 @@ input.parsley-error:focus{
       
       <label class="label col-md-2 control-label">Semester</label>
       <div class="col-md-10">
-        <select class= "form-control">
+        <select class= "form-control1">
           <option>First</option>
           <option>Third</option>
           <option>Fifth</option>
@@ -611,7 +670,7 @@ input.parsley-error:focus{
       
       <label class="label col-md-2 control-label">Category</label>
       <div class="col-md-10">
-        <select class= "form-control">
+        <select class= "form-control1">
           <option>System Management</option>
           <option>Robotics</option>
           <option>Game</option>
@@ -626,7 +685,7 @@ input.parsley-error:focus{
       
       <label class="label col-md-2 control-label"> E-mail</label>
       <div class="col-md-10">
-        <input type="email" class="form-control" name="email" id="email" placeholder="E-mail">
+        <input type="email" class="form-control1" name="email" id="email" placeholder="E-mail">
         <span id="emailid" class="text-danger font-weight-bold"></span>
         </div>
       </div>
@@ -634,7 +693,7 @@ input.parsley-error:focus{
     <div class="row">
       <label class="label col-md-2 control-label"> Password</label>
       <div class="col-md-10">
-        <input type="password" class="form-control" name="password" placeholder="Password" id="pass">
+        <input type="password" class="form-control1" name="password" placeholder="Password" id="pass">
          <span id="passid" class="text-danger font-weight-bold"></span>
         <input type="checkbox"><small>Remember me!</small>
       </div>
@@ -643,7 +702,7 @@ input.parsley-error:focus{
     <div class="row">
       <label class="label col-md-2 control-label"> Confirm Password</label>
       <div class="col-md-10">
-        <input type="password" class="form-control" name="password" placeholder=" Confirm Password" id="conpass">
+        <input type="password" class="form-control1" name="password" placeholder=" Confirm Password" id="conpass">
          <span id="confmpass" class="text-danger font-weight-bold"></span>
         
       </div>
@@ -652,7 +711,7 @@ input.parsley-error:focus{
       
       <label class="label col-md-2 control-label"> Mob. No.</label>
       <div class="col-md-10">
-        <input type="number" class="form-control" name="mobile" id="mobileNumber">
+        <input type="number" class="form-control1" name="mobile" id="mobileNumber">
         <span id="mobileno" class="text-danger font-weight-bold"></span>
         </div>
       </div>
@@ -661,7 +720,7 @@ input.parsley-error:focus{
   
       <label class="label col-md-2 control-label">Message</label>
       <div class="col-md-10">
-       <textarea class="form-control"></textarea>
+       <textarea class="form-control1"></textarea>
         </div>
       </div>
     
@@ -679,38 +738,38 @@ input.parsley-error:focus{
 </div>
 <br><br>
 <!--- Footer-->
-<footer class="container-fluid text-center">
-	<div class="row">
-		<div class="col-sm-3">
-			<h3>Meet the Team</h3>
-			<h5>Our address and contact info here</h45>
-		</div>
-		<div class="col-sm-3">
-			<h3>Contact Us</h3>
-			
-			<br>
-			<h4>Our address and contact info here</h4>
-		</div>
-		<div class="col-sm-3">
-			<h3>Connect</h3>
-			<a href="#" class="fab fa-facebook-square" title="facebook" style="font-size: 30px"></a>
-			<a href="#" class="fab fa-twitter-square" title="twitter" style="font-size: 30px"></a>
-			<a href="#" class="fab fa-google" title="google" style="font-size: 30px"></a>
-			<a href="#" class="fab fa-youtube-square" title="youtube" style="font-size: 30px; background: grey; "></a>
-		</div>
-		<div class="col-sm-3">
-			<img src="images/kpa.jpg" class="icon" alt="KPA"><br><br>
-			<div class="fac"><a href="#" class="fac fas fa-home" title="Home" style="font-size: 17px;margin-right: 10px;"></a>||
-			<a href="#" class="fac fas fa-id-card-alt" title="Contact" style="font-size: 17px;margin-left: 10px;margin-right: 10px;"></a>||
-			<a href="#" class="fac fas fa-comment-dots" title="Feedback" style="font-size: 17px;margin-left: 10px;margin-right: 10px;"></a>||
-				<a href="#" class="fac fas fa-question" title="FAQs" style="font-size: 17px;margin-left: 10px;"></a>
-		</div>
-	</div>
+<footer class="container-fluid text-center" style="background-color:  #CBC7D0">
+  <div class="row text-success">
+    <div class="col-sm-3">
+      <h3 style="color: #08090A;">Meet the Team</h3>
+      <h5>Group Members & info</h45>
+    </div>
+    <div class="col-sm-3">
+      <h3 style="color: #08090A;">Contact Us</h3>
+      <h5>Our address and contact info </h5>
+    </div>
+    <div class="col-sm-3">
+      <h3  style="color: #08090A;">Connect</h3>
+      <a href="#" class="fab fa-facebook-square" title="facebook" style="font-size: 30px;"></a>
+      <a href="#" class="fab fa-twitter-square" title="twitter" style="font-size: 30px;"></a>
+      <a href="#" class="fab fa-google" title="google" style="font-size: 30px"></a>
+      <a href="#" class="fab fa-youtube-square" title="youtube" style="font-size: 30px;"></a>
+    </div>
+    <!---KPA info at footer--->
+    <div class="col-sm-3">
+      <img src="images/kpa.jpg" class="icon" alt="KPA"><br><br>
+      <a href="home.html" class="fas fa-home" title="Home" style="font-size: 17px;margin-right: 10px;"></a>||
+      <a href="#" class="fas fa-id-card-alt" title="Contact" style="font-size: 17px;margin-left: 10px;margin-right: 10px;"></a>||
+      <a href="#" class="fas fa-comment-dots" title="Feedback" style="font-size: 17px;margin-left: 10px;margin-right: 10px;"></a>||
+        <a href="#" class="fas fa-question" title="FAQs" style="font-size: 17px;margin-left: 10px;"></a>
+    </div>
+  </div>
 
 </footer>
-	<div class="col-xs-12" style="background: brown; height: 22px;">
-		<h5 style="text-align: center; color: white; font-size: 15px;"><i class="fa fa-copyright" style="font-size:16px;margin-top: 3px;">  2020 KPA</i></h5>
-	</div>
+  <div class="col-xs-12" style="background: brown; height: 22px;">
+    <h5 style="text-align: center; color: white; font-size: 15px;"><i class="fa fa-copyright" style="font-size:16px;margin-top: 3px;">  2020 KPA</i></h5>
+  </div>
+
   <script type="text/javascript">
     function validation(){
       var user= document.getElementById('user').value;

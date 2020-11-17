@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>KPA Website</title>
+	<title>KPA-Projects</title>
+    <link rel="icon" type="image/icon"  href="images/1.png">
 
 	 <meta name="viewport" content="width=device-width, initial-scale=1">
  <link rel="stylesheet" type="text/css" href="file:///F:/Project/fontawesome-free-5.15.1-web/css/all.css"> 
@@ -52,6 +53,14 @@ $('#Forgot-Password-Form').parsley();
  		text-transform: uppercase;
  		margin-bottom: 20px;
  	}*/
+    .zoom1{
+      transition:transform .5s;
+    }
+    .zoom1:hover{
+      transform: scale(1.4); /* IE 9 */
+      transform: scale(1.4); /* Safari 3-8 */
+      transform: scale(1.4); 
+    }
  	/*****service offered ******/
  	p{
  		font-size: 0.9rem;
@@ -125,13 +134,13 @@ $('#Forgot-Password-Form').parsley();
   			padding: 10px;
   		}
   	}
-  		.fac{
-  		color: #fff;
-  	}
-  	.fac:hover{
-  		color: yellow;
-  		text-decoration: none;
-  	}
+     .fas{
+      color: #D9533E;
+    }
+    .fas:hover{
+      color: #3ED9C1;
+      text-decoration: none;
+    }
         #reg-cross:hover{
             cursor: pointer;
         }
@@ -165,49 +174,145 @@ input.parsley-error:focus{
   color: #a94442;
   display: none;
 }
+/*Four columns features*/
+
+
+/*.col-md-3.feature{
+  background-color: #F3E8D6;
+}*/
+.container1{
+  width: 100%;
+  margin-top: 1%;
+  font-family: sans-serif;
+  letter-spacing: 1px;
+}
+/*.container1 h2
+{
+  background: #76CF5A ;
+  color: #fff;
+  width: 200px;
+  font-size: 24px;
+  padding: 5px;
+  height: 40px;
+}
+.container1 h2::after
+{
+  content: '';
+  border-top: 40px solid #76CF5A ;
+  border-right: 40px solid transparent;
+  position: relative;
+  left: 93.2px;
+  top: 35px;
+}*/
+.equal-height-columns{
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+}
+.columnicon{
+  color: indigo;
+}
+/*.equal-column-content{
+  height:100%;
+}*/
+/*.col-md-3{
+  border: 1px solid #eee;
+}*/
+@media(max-width: 575px){
+
+
+}
+  .line:hover {
+      color: #2481f2;
+    }
+  hr.hr1{
+      border: 1px light green;
+    }
+
+/*project glimpses*/
+.gallery{
+  margin: 10px 50px;
+}
+.gallery img{
+  width: 230px;
+  padding: 5px;
+  filter: grayscale(100%);
+  transition: 1s;
+}
+.gallery img:hover{
+  filter: grayscale(0);
+  transform: scale(1.1);
+}
+#reg-cross:hover{
+            cursor: pointer;
+        }
+        *{ margin:0; padding: 0; box-sizing:border-box; }
 </style>
 </head>
 <body data-spy="scroll" data-target="#navbarResponsive">
-<div class="jumbotron text-center" style="margin-bottom:0;font-family: cursive; color: blue;">
-		<h1>Khwopa Project Archive</h1>
-		<p>KPA</p> 
-	</div>
-	<!-- Navigation -->
-	<nav class="navbar navbar-expand-md bg-light navbar-light sticky-top mt-1">
-		<!-- <button  type="button" data-toggle="collapse" data-target="#navbarResponsive">
-			<span class="navbar-toggler-icon"></span> 
-		</button> -->
-		<div class="container-fluid">
-			<!-- <a class="navbar-brand" href="#"><img src="images/khwopa.png"> KPA Navbar</a> -->
+    <!--  Project Title  -->
+    <div class="jumbotron text-center" style="margin-bottom:0;font-family:Times New Roman ; color: #7A3BA3;">
+    <h1>Khwopa Project Archive</h1>
+  </div>
+  <!-- Navigation bar-->
+  <nav class="navbar navbar-expand-md bg-light navbar-light sticky-top mt-1">
+<!-- <button  type="button" data-toggle="collapse" data-target="#navbarResponsive">
+      <span class="navbar-toggler-icon"></span> 
+    </button> -->
+    <div class="container-fluid">
+      <!-- <a class="navbar-brand" href="#" data-target="#model" data-toggle="modal">Login</a> --><!-- <img src="images/khwopa.png"> --> 
       <div id="login-signup-modal" class="modal fade" tabindex="-1" role="dialog">
    <div class="modal-dialog" role="document">
     
      <!-- login modal content -->
         <div class="modal-content" id="login-modal-content">
         
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title"><span class="glyphicon glyphicon-lock"></span> Login Now!</h4>
+          <div class="modal-header"><h4 class="modal-title"> Login Now!</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="margin-right: 10px; margin-top: -33px;"><span aria-hidden="true">&times;</span></button>
+            
           </div>
         
           <div class="modal-body">
-          <form method="post" id="Login-Form" role="form">
+          <form method="post" id="Login-Form" role="form" >
             <div class="form-group">
                 <div class="input-group">
-                <div class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></div>
-                <input name="email" id="email1" type="email" class="form-control input-lg" placeholder="Enter Email" required data-parsley-type="email" >
+                <div class="input-group-addon"><i class="fas fa-user-alt fa-3x"></i></div>
+                <input name="username"  class="form-control input-lg" style="margin-left: 5px;margin-top:5px; " placeholder="Enter Username" required data-parsley-type="" >
                 </div>                      
             </div>
             <div class="form-group">
                 <div class="input-group">
-                <div class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></div>
-                <input name="password" id="login-password" type="password" class="form-control input-lg" placeholder="Enter Password" required data-parsley-length="[6, 10]" data-parsley-trigger="keyup">
-                 </div>                      
+                <div class="input-group-addon"><i class="fas fa-lock fa-3x"></i></div>
+                <input name="password" id="login-password" type="password" class="form-control input-lg" style="margin-left: 10px;margin-top:5px;" placeholder="Enter Password" required data-parsley-length="[6, 10]" data-parsley-trigger="keyup">
+
+              <div class="input-group-append">
+                <div class="input-group-text" style="margin-top: 5px;"><i class="fa fa-eye" aria-hidden="true" id="eye" onclick="toggle1()"></i></div>
+              </div>
+                </div>                      
             </div>
+              <script>
+    var state= false;
+    function toggle1(){
+      if(state){
+        document.getElementById("login-password").setAttribute("type","password");
+        document.getElementById("eye").style.color='#7a797e';
+        state = false;
+
+      }
+      else{
+        document.getElementById("login-password").setAttribute("type","text");
+        document.getElementById("eye").style.color='#5887ef';
+        state = true;
+      }
+    }
+  </script>                      
+     
             <div class="checkbox">
-              <label><input type="checkbox" value="" checked>Remember me</label>
+              <h6 style="font-family: calibri; font-size: 15px; color: indigo;"><input type="checkbox" value="" checked style="margin-right: 10px;">Remember me</h6>
             </div>
-              <button type="submit" class="btn btn-success btn-block btn-lg">LOGIN</button>
+              <button type="submit" name="sub" class="btn btn-success btn-block btn-lg">LOGIN</button>
           </form>
         </div>
         
@@ -224,29 +329,51 @@ input.parsley-error:focus{
         <!-- signup modal content -->
         <div class="modal-content" id="signup-modal-content">
         
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title"><span class="glyphicon glyphicon-lock"></span> Signup Now!</h4>
-        </div>
+       <div class="modal-header">
+        <h4 class="modal-title"> Signup Here!</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="margin-right: 10px; margin-top: -33px;"><span aria-hidden="true">&times;</span></button>
+            
+          </div>
                 
         <div class="modal-body">
           <form method="post" id="Signin-Form" role="form">
             <div class="form-group">
                 <div class="input-group">
-                <div class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></div>
-                <input name="email" id="email2" type="email" class="form-control input-lg" placeholder="Enter Email" required data-parsley-type="email">
+                <div class="input-group-addon"><i class="fas fa-user-alt fa-3x"></i></div>
+                <input name="email" id="email2" style="margin-left: 5px;margin-top:5px;" type="email" class="form-control input-lg" placeholder="Enter Email" required data-parsley-type="email">
                 </div>                     
             </div>
             <div class="form-group">
                 <div class="input-group">
-                <div class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></div>
-                <input name="password" id="passwd" type="password" class="form-control input-lg" placeholder="Enter Password" required data-parsley-length="[6, 10]" data-parsley-trigger="keyup">
+                <div class="input-group-addon"><i class="fas fa-unlock fa-3x"></i></div>
+                <input name="password" id="passwd" style="margin-left: 10px;margin-top:5px;" type="password" class="form-control input-lg" placeholder="Enter Password" required data-parsley-length="[6, 10]" data-parsley-trigger="keyup">
+
+                 <div class="input-group-append">
+                <div class="input-group-text" style="margin-top: 5px;"><i class="fa fa-eye" aria-hidden="true" id="eye1" onclick="toggle()"></i></div>
+              </div>
                 </div>                      
             </div>
+              <script>
+    var state= false;
+    function toggle(){
+      if(state){
+        document.getElementById("passwd").setAttribute("type","password");
+        document.getElementById("eye1").style.color='#7a797e';
+        state = false;
+
+      }
+      else{
+        document.getElementById("passwd").setAttribute("type","text");
+        document.getElementById("eye1").style.color='#5887ef';
+        state = true;
+      }
+    }
+  </script>
+        
             <div class="form-group">
                 <div class="input-group">
-                <div class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></div>
-                <input name="password" id="confirm-passwd" type="password" class="form-control input-lg" placeholder="Retype Password" required data-parsley-equalto="#passwd" data-parsley-trigger="keyup">
+                <div class="input-group-addon"><i class="fas fa-lock fa-3x"></i></div>
+                <input name="password" style="margin-left: 5px;margin-top:5px;" id="confirm-passwd" type="password" class="form-control input-lg" placeholder="Retype Password" required data-parsley-equalto="#passwd" data-parsley-trigger="keyup">
                 </div>                      
             </div>
             <button type="submit" class="btn btn-success btn-block btn-lg">CREATE ACCOUNT!</button>
@@ -262,19 +389,20 @@ input.parsley-error:focus{
        <div class="modal-content" id="forgot-password-modal-content">
         
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title"><span class="glyphicon glyphicon-lock"></span> Recover Password!</h4>
-        </div>
-        
+          <h4 class="modal-title"> Recover Password!</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="margin-right: 10px; margin-top: -33px;"><span aria-hidden="true">&times;</span></button>
+            
+          </div>
+
         <div class="modal-body">
           <form method="post" id="Forgot-Password-Form" role="form">
             <div class="form-group">
                 <div class="input-group">
-                <div class="input-group-addon"><icon class="glyphicon glyphicon-envelope"></icon></div>
-                <input name="email" id="email3" type="email" class="form-control input-lg" placeholder="Enter Email" required data-parsley-type="email">
+                <div class="input-group-addon"><i class="fas fa-envelope-open-text fa-3x"></i></div>
+                <input name="email1" style="margin-left: 5px;margin-top:5px; " id="email3" type="email" class="form-control input-lg" placeholder="Enter Email" required data-parsley-type="email">
                 </div>                     
             </div>         
-            <button type="submit" class="btn btn-success btn-block btn-lg">
+            <button type="submit" name="sub1" class="btn btn-success btn-block btn-lg">
               <span class="glyphicon glyphicon-send"></span> SUBMIT
             </button>
           </form>
@@ -289,24 +417,28 @@ input.parsley-error:focus{
   
   </div>
 </div>
-  
-  <a href="" data-toggle="modal" data-target="#login-signup-modal" style="padding-right: 15px; padding-top: 15px;"><p class="text-info">Signup</p></a>
+<div class="zoom1">
+<a href="home.html">
+  <img src="images/logo.png" alt="KPA Logo" title="KPA Logo" 
+  style="height: 55px;width: 55px; margin-left: 76px">
+</a>
+</div>
 
 			<!-- Navbar toggler-->
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
 				<span class="navbar-toggler-icon"></span> 
 			</button>
 			<div class="collapse navbar-collapse" id="navbarResponsive"> <!--  Search bar  -->
-				 <ul class="list-group-horizontal navbar-nav">
+				 <!-- <ul class="list-group-horizontal navbar-nav">
 				<form class="form-inline" action="/action_page.php">
 					<li><input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"style="margin-top: 4px;"></li>
 					<li class="ml-2"><button class="btn btn-outline-success" type="submit" style="margin-top: 4px;">Search</button></li>
 				</form>
-				</ul> 
+				</ul>  -->
 				 <!--  Navbar links  --> 
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item">
-						<a class="nav-link text-success" href="index.html">Home</a>
+						<a class="nav-link text-success" href="home.html">Home</a>
 					</li>
 					<li class="nav-item dropdown active">
 						<a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown"role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</a>
@@ -324,7 +456,7 @@ input.parsley-error:focus{
 						<a class="nav-link text-success" href="addp.html">Add Project</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link text-success" href="#">Top Projects</a>
+						<a class="nav-link text-success" href="top-projects.html">Top Projects</a>
 					</li>   
 					<li class="nav-item">
 						<a class="nav-link text-success" href="#">Project Titles</a>
@@ -332,6 +464,9 @@ input.parsley-error:focus{
 					<li class="nav-item">
 						<a class="nav-link text-success" href="notice.html">Notice</a>
 					</li>
+          <li class="nav-item">
+                  <button class="btn btn-outline-warning" type="button">
+                <a  class="text-info"data-toggle="modal" data-target="#login-signup-modal"><b>Signup</b></a></button></li>
 				</ul>
 			</div> 
 		</div> 
@@ -438,42 +573,198 @@ Library management systems also involve maintaining the database for entering ne
 	</div>
 </div>
 	</section>
-	<div class="col-sm-2">
+	<!-- <div class="col-sm-2">
+
 		<a href="KPA.pdf" download><button type="button"  style="float: right; background-color: rgb(0,180,214); border-radius: 20px; border: solid 1px white;height: 40px; color: white;">Download PDF</button></a>
-	</div><br><br><br>
+	</div> -->
+
+<div class="container"> 
+<hr class="hr1">
+</div>
+<div class="container">
+<br>
+  
+  <h2 style="text-align: center; color:#E69913;margin-top: -23px;"><center>Features of LMS</center></h2>
+
+   <br>
+<div class="row text-center equal-height-columns">
+  <div class="col-md-3 feature">
+    <div class="equal-column-content"><br>
+    <i class="fas fa-qrcode fa-4x columnicon"></i><br><br>
+    <h4 style="color: #1A96E7;">Barcode scanner</h4>
+    <div class="text-muted"><p class="text-justify" style="margin: 20px; color: #7C9973; "><b>Barcode feature is introduced in this library management system. This will help to save time and keep the track for the books s records in computer. User can scan the books and retrieve the information related to it. Identifying different materials will be easy using barcode scanner.</b>
+</p></div>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <div class="equal-column-content"><br>
+     <i class="fas fa-book fa-4x columnicon"></i><br><br>
+    <h4 style="color: #1A96E7;">More Books</h4>
+    <div class="text-muted"><p class="text-justify" style="margin: 20px; color: #7C9973;"><b>More number of books are introduced in this system. Students from different faculty can choose various course books from different publications and writers. Besides course books, students are provided with numerous novels, journals, magazines, notes, newpapers, articles and many more.</b></p>
+    </div></div>
+  </div>
+  <div class="col-md-3">
+    <div class="equal-column-content"><br>
+     <i class="fas fa-search-dollar fa-4x columnicon"></i><br><br>
+       
+    <h4 style="color: #1A96E7;">Fines & Late Fees</h4>
+    <div class="text-muted"><p class="text-justify" style="margin: 20px; color: #7C9973;"><b>Students are notified with a message about the late fees and fines with their registered email id or mobile number. Students can pay their fines from online payment method like e-sewa. A prior message will be send to students before their book submission date.</b></p>
+    </div></div>
+  </div>
+
+  <div class="col-md-3">
+    <div class="equal-column-content"><br>
+     <i class="fas fa-globe fa-4x columnicon"></i><br><br>
+      
+    <h4 style="color: #1A96E7;">Order Online</h4>
+    <div class="text-muted"><p class="text-justify" style="margin: 20px; color: #7C9973;"><b>Students or readers can order book online so that library staff can arrange their ordered materials as early as possible. This will reduce the time required for searching the books. </b></p>
+    </div></div>
+  </div>
+</div>
+</div>
+<!--tools used-->
+<br>
+<div class="container"> 
+<hr class="hr1">
+</div>
+<div class="line">
+<h2 class="text-center">Tools & Platform </h2>
+</div>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="card text-center">
+        <div class="card-header bg-success text-white">
+          <div class="row">
+            <div class="col">
+              <i class="fas fa-window-restore fa-2x"></i></div>
+               <h5 style="margin-right: 80px;">Software Used</h5>
+            </div>
+            
+             
+            </div>
+          </div>
+      
+        <div class="card-footer">
+          <h6>
+            <ul class="list-group">
+  <li class="list-group-item">Turbo C</li>
+  <li class="list-group-item">Sublime Text</li>
+  <li class="list-group-item">Xampp</li>
+  <li class="list-group-item">VS Code</li>
+  <li class="list-group-item">Others</li>
+</ul>
+</h6>
+          </div>
+        </div>
+      
+
+      <div class="col-sm-4">
+      <div class="card text-center">
+        <div class="card-header bg-success text-white">
+          <div class="row">
+             <div class="col">
+              <i class="fa fa-laptop-code fa-2x"></i></div>
+               <h5 style="margin-right: 80px;">Language used</h5>
+            </div>
+            
+             
+            </div>
+          </div>
+      
+        <div class="card-footer">
+          <h6>
+            <ul class="list-group">
+  <li class="list-group-item">Html, CSS, JS</li>
+  <li class="list-group-item">Php</li>
+  <li class="list-group-item">C, C++</li>
+  <li class="list-group-item">MYSql</li>
+  <li class="list-group-item">Others</li>
+</ul>
+</h6>
+          </div>
+        </div>
+      
+
+      <div class="col-sm-4">
+      <div class="card text-center">
+        <div class="card-header bg-success text-white">
+          <div class="row">
+            <div class="col">
+              <i class="far fa-folder-open fa-2x"></i></div>
+               <h5 style="margin-right: 80px;">Other References</h5>
+            </div>
+            
+             
+            </div>
+          </div>
+      
+        <div class="card-footer">
+          <h6>
+            <ul class="list-group">
+  <li class="list-group-item">Internet Source</li>
+  <li class="list-group-item">Books</li>
+  <li class="list-group-item">Old Projects</li>
+  <li class="list-group-item">Others</li>
+  <li class="list-group-item">Others</li>
+</ul>
+</h6>
+          </div>
+        </div>
+      
+      </div>
+    </div>
+</div>
+<br>
+<!--Project Glimpses--->
+<div class="container">
+  <hr>
+  <h1 style="font-family: sans-serif;text-align: center;color: forestgreen;">Some Glimpses of LMS</h1><br>
+  <div class="gallery">
+    <a href="images/lms1.1.png"><img src="images/lms1.png"></a>
+    <a href="images/lms2.1.png"><img src="images/lms2.png"></a>
+    <a href="images/lms3.1.jpg"><img src="images/lms3.jpg"></a>
+    <a href="images/lms1.1.png"><img src="images/lms4.png"></a>
+    <a href="images/lms2.1.png"><img src="images/lms2.png"></a>
+    <a href="images/lms3.1.jpg"><img src="images/lms3.jpg"></a>
+</div>
+</div>
+
+  <br><br><br>
 <!--- Footer-->
-<footer class="container-fluid text-center">
-	<div class="row">
-		<div class="col-sm-3">
-			<h3>Meet the Team</h3>
-			<h5>Our address and contact info here</h45>
-		</div>
-		<div class="col-sm-3">
-			<h3>Contact Us</h3>
-			
-			<br>
-			<h4>Our address and contact info here</h4>
-		</div>
-		<div class="col-sm-3">
-			<h3>Connect</h3>
-			<a href="#" class="fab fa-facebook-square" title="facebook" style="font-size: 30px"></a>
-			<a href="#" class="fab fa-twitter-square" title="twitter" style="font-size: 30px"></a>
-			<a href="#" class="fab fa-google" title="google" style="font-size: 30px"></a>
-			<a href="#" class="fab fa-youtube-square" title="youtube" style="font-size: 30px; background: grey; "></a>
-		</div>
-		<div class="col-sm-3">
-			<img src="images/kpa.jpg" class="icon" alt="KPA"><br><br>
-			<div class="fac"><a href="#" class="fac fas fa-home" title="Home" style="font-size: 17px;margin-right: 10px;"></a>||
-			<a href="#" class="fac fas fa-id-card-alt" title="Contact" style="font-size: 17px;margin-left: 10px;margin-right: 10px;"></a>||
-			<a href="#" class="fac fas fa-comment-dots" title="Feedback" style="font-size: 17px;margin-left: 10px;margin-right: 10px;"></a>||
-				<a href="#" class="fac fas fa-question" title="FAQs" style="font-size: 17px;margin-left: 10px;"></a>
-		</div>
-	</div>
+<footer class="container-fluid text-center" style="background-color:  #CBC7D0">
+  <div class="row text-success">
+    <div class="col-sm-3">
+      <h3 style="color: #08090A;">Meet the Team</h3>
+      <h5>Group Members & info</h45>
+    </div>
+    <div class="col-sm-3">
+      <h3 style="color: #08090A;">Contact Us</h3>
+      <h5>Our address and contact info </h5>
+    </div>
+    <div class="col-sm-3">
+      <h3  style="color: #08090A;">Connect</h3>
+      <a href="#" class="fab fa-facebook-square" title="facebook" style="font-size: 30px;"></a>
+      <a href="#" class="fab fa-twitter-square" title="twitter" style="font-size: 30px;"></a>
+      <a href="#" class="fab fa-google" title="google" style="font-size: 30px"></a>
+      <a href="#" class="fab fa-youtube-square" title="youtube" style="font-size: 30px;"></a>
+    </div>
+    <!---KPA info at footer--->
+    <div class="col-sm-3">
+      <img src="images/kpa.jpg" class="icon" alt="KPA"><br><br>
+      <a href="home.html" class="fas fa-home" title="Home" style="font-size: 17px;margin-right: 10px;"></a>||
+      <a href="#" class="fas fa-id-card-alt" title="Contact" style="font-size: 17px;margin-left: 10px;margin-right: 10px;"></a>||
+      <a href="#" class="fas fa-comment-dots" title="Feedback" style="font-size: 17px;margin-left: 10px;margin-right: 10px;"></a>||
+        <a href="#" class="fas fa-question" title="FAQs" style="font-size: 17px;margin-left: 10px;"></a>
+    </div>
+  </div>
 
 </footer>
-	<div class="col-xs-12" style="background: brown; height: 22px;">
-		<h5 style="text-align: center; color: white; font-size: 15px;"><i class="fa fa-copyright" style="font-size:16px;margin-top: 3px;">  2020 KPA</i></h5>
-	</div>
+  <div class="col-xs-12" style="background: brown; height: 22px;">
+    <h5 style="text-align: center; color: white; font-size: 15px;"><i class="fa fa-copyright" style="font-size:16px;margin-top: 3px;">  2020 KPA</i></h5>
+  </div>
+
 </body>
 </html>
 <script>
