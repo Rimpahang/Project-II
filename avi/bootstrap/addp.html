@@ -210,7 +210,7 @@ input.parsley-error:focus{
     background-size: cover;
     background-attachment: fixed;
     font-family: new time roman;
-    height: 990px;
+    height: 1050px;
    }
    .h1{
     font-size: 40px;
@@ -331,6 +331,28 @@ input.parsley-error:focus{
         #reg-cross:hover{
             cursor: pointer;
         }
+
+     /* <!---Upload button--->*/  
+     #custom-button {
+  padding: 1px;
+  color: white;
+  background-color: #009578;
+  border: 1px solid #000;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 30px;
+}
+
+#custom-button:hover {
+  background-color: #00b28f;
+}
+
+#custom-text {
+  margin-left: 10px;
+  font-family: sans-serif;
+  color: #aaa;
+}
+ 
   /*  .fab
     {text-align: center;
       padding: 10px;
@@ -694,8 +716,8 @@ input.parsley-error:focus{
       <label class="label col-md-2 control-label"> Password</label>
       <div class="col-md-10">
         <input type="password" class="form-control1" name="password" placeholder="Password" id="pass">
-         <span id="passid" class="text-danger font-weight-bold"></span>
-        <input type="checkbox"><small>Remember me!</small>
+         <span id="passid" class="text-danger font-weight-bold"></span><br>
+        <input type="checkbox"><small> Remember me!</small>
       </div>
     </div>  
 
@@ -723,7 +745,61 @@ input.parsley-error:focus{
        <textarea class="form-control1"></textarea>
         </div>
       </div>
-    
+      <br>
+
+      <div class="row">
+        
+       <input type="file" id="real-file" hidden="hidden" />
+<button type="button" id="custom-button">CHOOSE A FILE</button>
+<span id="custom-text">No file chosen, yet.</span>
+  
+      </div>
+<script type="text/javascript">
+      const realFileBtn = document.getElementById("real-file");
+const customBtn = document.getElementById("custom-button");
+const customTxt = document.getElementById("custom-text");
+
+customBtn.addEventListener("click", function() {
+  realFileBtn.click();
+});
+
+realFileBtn.addEventListener("change", function() {
+  if (realFileBtn.value) {
+    customTxt.innerHTML = realFileBtn.value.match(
+      /[\/\\]([\w\d\s\.\-\(\)]+)$/
+    )[1];
+  } else {
+    customTxt.innerHTML = "No file chosen, yet.";
+  }
+});
+</script>
+<br>
+    <!-- <div class="row">
+    <input type="file" id="file" onchange="return fileValidation()"/>
+      
+      </div>
+
+<script type="text/javascript">
+  function fileValidation(){
+    var fileInput = document.getElementById('file');
+    var filePath = fileInput.value;
+    var allowedExtensions = /(\.jpg|\.docx|\.jpeg|\.png|\.gif)$/i;
+    if(!allowedExtensions.exec(filePath)){
+        alert('Please upload file having extensions .jpeg/.jpg/.png/.gif only.');
+        fileInput.value = '';
+        return false;
+    }else{
+        //Image preview
+        if (fileInput.files && fileInput.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                document.getElementById('imagePreview').innerHTML = '<img src="'+e.target.result+'"/>';
+            };
+            reader.readAsDataURL(fileInput.files[0]);
+        }
+    }
+}
+</script> -->
     
     
       <input type="submit" name="submit" value="Submit"  class="btn btn-info">
@@ -769,6 +845,7 @@ input.parsley-error:focus{
   <div class="col-xs-12" style="background: brown; height: 22px;">
     <h5 style="text-align: center; color: white; font-size: 15px;"><i class="fa fa-copyright" style="font-size:16px;margin-top: 3px;">  2020 KPA</i></h5>
   </div>
+
 
   <script type="text/javascript">
     function validation(){
@@ -840,6 +917,7 @@ if((password.length <=4) || (password.length > 12)){
         document.getElementById('mobileno').innerHTML = "10 Digits Only";
         return false;
       }
+      
 
 }
 
