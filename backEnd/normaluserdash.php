@@ -1,40 +1,3 @@
-<?php
-require_once('includes/DBconnect.php');
-
-//total users
-$get_user_count_sql = "SELECT COUNT(*) AS counted FROM `kpa_user` WHERE `status` = 1";
-$user_count_data = mysqli_query($conn, $get_user_count_sql);
-if(mysqli_num_rows($user_count_data) > 0) {
-    $user_counting = mysqli_fetch_assoc($user_count_data);
-
-    $user_count = $user_counting['counted'];
-}
-
-
-//total notices
-$get_notice_count_sql = "SELECT COUNT(*) AS counted FROM `kpa_notice`";
-$notice_count_data = mysqli_query($conn, $get_notice_count_sql);
-if(mysqli_num_rows($notice_count_data) > 0) {
-    $notice_counting = mysqli_fetch_assoc($notice_count_data);
-
-    $notice_count = $notice_counting['counted'];
-}
-
-
-//total programming language used
-$get_all_programming_language_name_sql = "SELECT DISTINCT `language_name` FROM `kpa_programming_language`";
-$all_programming_language_name = mysqli_query($conn, $get_all_programming_language_name_sql);
-if (mysqli_num_rows($all_programming_language_name) > 0) {
-    $all_programming_name_array = array();
-    while ($programming_language_name_data = mysqli_fetch_assoc($all_programming_language_name)) {
-        $all_programming_name_array[] = $programming_language_name_data['language_name'];
-    }
-    $language_count = count($all_programming_name_array);
-}
-
-?>
-
-
 <?php include_once('includes/header.php');?>
 <body class="">
   <div class="wrapper ">
@@ -65,7 +28,7 @@ if (mysqli_num_rows($all_programming_language_name) > 0) {
           <li class="">
             <a href="content.php">
               <i class="nc-icon nc-single-copy-04"></i>
-              <p>Projects</p>
+              <p>My project requests</p>
             </a>
           </li>
           <li>
@@ -132,7 +95,7 @@ if (mysqli_num_rows($all_programming_language_name) > 0) {
                 </div>
             </li> -->
               <li class="nav-item">
-                <a class="nav-link btn-rotate" href="logout.php">
+                <a class="nav-link btn-rotate" href="#pablo">
                     <a href="logout.php"><i class="fa fa-sign-out" alt='logout'></i></a>
                   <p>
                       <span class="d-lg-none d-md-block">Logout</span>
