@@ -210,7 +210,7 @@ input.parsley-error:focus{
     background-size: cover;
     background-attachment: fixed;
     font-family: new time roman;
-    height: 990px;
+    height: 1050px;
    }
    .h1{
     font-size: 40px;
@@ -331,6 +331,28 @@ input.parsley-error:focus{
         #reg-cross:hover{
             cursor: pointer;
         }
+
+     /* <!---Upload button--->*/  
+     #custom-button {
+  padding: 1px;
+  color: white;
+  background-color: #009578;
+  border: 1px solid #000;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 30px;
+}
+
+#custom-button:hover {
+  background-color: #00b28f;
+}
+
+#custom-text {
+  margin-left: 10px;
+  font-family: sans-serif;
+  color: #aaa;
+}
+ 
   /*  .fab
     {text-align: center;
       padding: 10px;
@@ -592,6 +614,7 @@ input.parsley-error:focus{
   </main>
   <div class="container"> 
 <hr class="hr1">
+<h2 style="text-align: center; color: #3357A0;"><b>Why You Should Add Your Project ?</b></h2><br>
 </div>
 <!--- Service--->
 <div class="container col-md-12">
@@ -599,22 +622,22 @@ input.parsley-error:focus{
   <div class="service">
   <div class="box">
     <h2>01</h2>
-    <h3>Service One</h3>
-    <p>Add your project here to get uploaded in the website!!!</p>
+    <h3>To Share</h3>
+    <p>After you add your project here, it will be shared with many other college students and teachers. You are not just sharing your project but also your vision!!!</p>
   </div>
    <div class="box">
     <h2>02</h2>
-    <h3>Service Two</h3>
-    <p>Chat with the users and share the ideas!!!</p>
+    <h3>To Get Review & Suggestion</h3>
+    <p>Your project will be reviewed and rated by different users and college faculties and you will also get some suggestions regarding your project!!! </p>
   </div>
    <div class="box">
     <h2>03</h2>
-    <h3>Service Three</h3>
-    <p>Download the documents of different projects!!!</p>
+    <h3>To Keep Your Project Safe</h3>
+    <p>Your Project will be safe with us and it will be in the Khec archive collection of projects for many years!!!</p>
   </div>
 </div>
 </div>
-</div><br><br>
+</div><br><br><br>
 <!----Add Project Form---->
 <div class="container">
   <div class="container2" id="container2">
@@ -694,8 +717,8 @@ input.parsley-error:focus{
       <label class="label col-md-2 control-label"> Password</label>
       <div class="col-md-10">
         <input type="password" class="form-control1" name="password" placeholder="Password" id="pass">
-         <span id="passid" class="text-danger font-weight-bold"></span>
-        <input type="checkbox"><small>Remember me!</small>
+         <span id="passid" class="text-danger font-weight-bold"></span><br>
+        <input type="checkbox"><small> Remember me!</small>
       </div>
     </div>  
 
@@ -723,7 +746,72 @@ input.parsley-error:focus{
        <textarea class="form-control1"></textarea>
         </div>
       </div>
-    
+      <br>
+
+      <div class="row">
+        
+       <input type="file" id="real-file" hidden="hidden" multiple="multiple" onchange="return fileValidation()" />
+<button type="button" id="custom-button">CHOOSE A FILE</button>
+<span id="custom-text">No file chosen, yet.</span>
+  
+      </div>
+<script type="text/javascript">
+
+      const realFileBtn = document.getElementById("real-file");
+const customBtn = document.getElementById("custom-button");
+const customTxt = document.getElementById("custom-text");
+function fileValidation(){
+var fileInput = document.getElementById('real-file');
+    var filePath = fileInput.value;
+ var allowedExtensions = /(\.jpg|\.docx|\.jpeg|\.png)$/i;
+ if(!allowedExtensions.exec(filePath)){
+        alert('Please upload file having extensions .jpeg/.jpg/.png only.');
+        fileInput.value = '';
+        return false;
+    }
+  }
+
+customBtn.addEventListener("click", function() {
+  realFileBtn.click();
+});
+
+realFileBtn.addEventListener("change", function() {
+  if (realFileBtn.value) {
+    customTxt.innerHTML = realFileBtn.value.match(
+      /[\/\\]([\w\d\s\.\-\(\)]+)$/
+    )[1];
+  } else {
+    customTxt.innerHTML = "No file chosen, yet.";
+  }
+});
+</script>
+<br>
+    <!-- <div class="row">
+    <input type="file" id="file" onchange="return fileValidation()"/>
+      
+      </div>
+
+<script type="text/javascript">
+  function fileValidation(){
+    var fileInput = document.getElementById('file');
+    var filePath = fileInput.value;
+    var allowedExtensions = /(\.jpg|\.docx|\.jpeg|\.png|\.gif)$/i;
+    if(!allowedExtensions.exec(filePath)){
+        alert('Please upload file having extensions .jpeg/.jpg/.png/.gif only.');
+        fileInput.value = '';
+        return false;
+    }else{
+        //Image preview
+        if (fileInput.files && fileInput.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                document.getElementById('imagePreview').innerHTML = '<img src="'+e.target.result+'"/>';
+            };
+            reader.readAsDataURL(fileInput.files[0]);
+        }
+    }
+}
+</script> -->
     
     
       <input type="submit" name="submit" value="Submit"  class="btn btn-info">
@@ -770,6 +858,7 @@ input.parsley-error:focus{
     <h5 style="text-align: center; color: white; font-size: 15px;"><i class="fa fa-copyright" style="font-size:16px;margin-top: 3px;">  2020 KPA</i></h5>
   </div>
 
+
   <script type="text/javascript">
     function validation(){
       var user= document.getElementById('user').value;
@@ -778,6 +867,8 @@ input.parsley-error:focus{
       var password= document.getElementById('pass').value;
       var confirmpass= document.getElementById('conpass').value;
       var mobileNumber= document.getElementById('mobileNumber').value;
+      var real-file= document.getElementById('real-file').value;
+
 
       if(user == ""){
         document.getElementById('projectname').innerHTML = "Field Required";
@@ -788,6 +879,7 @@ input.parsley-error:focus{
            return false;
 
     }
+
       if(!isNaN(user)){
         document.getElementById('projectname').innerHTML = "Only characters are allowed";
         return false;
@@ -840,6 +932,7 @@ if((password.length <=4) || (password.length > 12)){
         document.getElementById('mobileno').innerHTML = "10 Digits Only";
         return false;
       }
+        
 
 }
 
