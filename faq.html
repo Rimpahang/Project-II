@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Khwopa Project Archive</title>
+    <link rel="icon" type="image/icon"  href="images/1.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+   <link rel="stylesheet" type="text/css" href="file:///F:/Project/fontawesome-free-5.15.1-web/css/all.css"> 
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <script src="js/jquery.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="ckeditor5-build-classic/ckeditor.js"></script>
+  <script src="https://cdn.ckeditor.com/ckeditor5/16.0.0/classic/ckeditor.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.9.2/parsley.min.js"></script>
+<script type="text/javascript">
+
+$('#Signin-Form').parsley();
+$('#Login-Form').parsley();
+$('#Forgot-Password-Form').parsley();
+window.Parsley.addValidator('maxFileSize', {
+  validateString: function(_value, maxSize, parsleyInstance) {
+   
+    var files = parsleyInstance.$element[0].files;
+    return files.length != 1  || files[0].size <= maxSize * 1024;
+  },
+  requirementType: 'integer',
+  messages: {
+    en: 'This file should not be larger than %s Kb'
+  }
+});
+
+</script>
+  <style>
+  .fakeimg {
+      height: 200px;
+      background: #aaa;
+    }
+    .jumbotron{
+      height: 3%;
+      padding-top: 20px;
+      padding-bottom: 5px;
+    }
+    .navbar{
+      /*height: 60px;*/
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: .9rem;
+      letter-spacing: .1rem;
+      /*background: rgba(0, 0, 0, .1)!important;*/
+    }
+    .dropdown:hover>.dropdown-menu{
+      display: block;
+      background: #e3e3e3;
+    }
+    .container1{
+      margin: 4% ;
+    }
+    #icon
+    {
+      max-width: 200px;
+      margin: 5% auto;
+    }
+    .zoom{
+      transition:transform .2s;
+    }
+    .zoom:hover{
+      transform: scale(1.1); /* IE 9 */
+      transform: scale(1.1); /* Safari 3-8 */
+      transform: scale(1.1); 
+    }
+    .zoom1{
+      transition:transform .5s;
+    }
+    .zoom1:hover{
+      transform: scale(1.4); /* IE 9 */
+      transform: scale(1.4); /* Safari 3-8 */
+      transform: scale(1.4); 
+    }
+/*FAQ*/
+
+.container1{
+  width: 50%;
+  margin: 0 auto;
+}
+.container1 h2{
+  color: #98EF60;
+  position: relative;
+  
+}
+
+.accordion{
+  width: 100%;
+  padding: 0 5px;
+  border: 2px solid #6db5ff;
+  cursor: pointer;
+  border-radius: 50px;
+  display: flex;
+  margin: 10px 0;
+  align-items: center;
+}
+
+.accordion h5{
+  font-size: 20px;
+  margin-left: 10px;
+  margin-top: 3px;
+  padding: 3px 0 3px 0;
+  font-weight: normal;
+  color: #1f5c9a;
+  transition: all .3s ease-in; 
+  font-family: calibri;
+}
+
+
+.active{
+  background-color: #6db5ff;
+  color: #fff;
+}
+.active h5{
+ color: #fff;
+}
+.panel{
+  padding: 0 15px;
+  border-left: 1px solid #6db5ff;
+  margin-left: 25px;
+  font-size: 14px;
+  text-align: justify;
+  overflow: hidden;
+  max-height: 0;
+  transition: all .3s ease-in;
+}
+.icons .fas{
+  color: #98EF60;
+}
+   
+
+   footer{
+      width: 100%;
+      background-color: rgba(120,120,120);
+      padding: 1%;
+      color: #fff;
+    }
+    .fab{
+      padding: 5px;
+      font-size: 25px;
+      color: #fff;
+    }
+    .fab:hover{
+      color: rgb(60, 60, 200);
+      text-decoration: none;
+    }
+    @media(max-width: 900px){
+      .fab{
+        font-size: 20px;
+        padding: 10px;
+      }
+    }
+      .fas{
+      color: #D9533E;
+    }
+    .fas:hover{
+      color: #3ED9C1;
+      text-decoration: none;
+    }
+    
+        #reg-cross:hover{
+            cursor: pointer;
+        }
+        *{ margin:0; padding: 0; box-sizing:border-box; }
+       /*---Signup---*/
+    .modal-header, .modal-body, .modal-footer{
+  padding: 25px;
+}
+.modal-backdrop{
+          z-index:-1;
+        }
+.modal-footer{
+  text-align: center;
+}
+#signup-modal-content, #forgot-password-modal-content{
+  display: none;
+}
+ 
+/** validation */
+  
+input.parsley-error{    
+  border-color:#843534;
+  box-shadow: none;
+}
+input.parsley-error:focus{    
+  border-color:#843534;
+  box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 6px #ce8483
+}
+.parsley-errors-list.filled {
+  opacity: 1;
+  color: #a94442;
+  display: none;
+} 
+
+</style>
+</head>
+
+<body data-spy="scroll" data-target="#navbarResponsive">
+    <!--  Project Title  -->
+    <div class="jumbotron text-center" style="margin-bottom:0;font-family:Times New Roman ; color: #7A3BA3;">
+    <h1>Khwopa Project Archive</h1>
+  </div>
+  <!-- Navigation bar-->
+  <nav class="navbar navbar-expand-md bg-light navbar-light sticky-top mt-1">
+<!-- <button  type="button" data-toggle="collapse" data-target="#navbarResponsive">
+      <span class="navbar-toggler-icon"></span> 
+    </button> -->
+    <div class="container-fluid">
+      <!-- <a class="navbar-brand" href="#" data-target="#model" data-toggle="modal">Login</a> --><!-- <img src="images/khwopa.png"> --> 
+      <div id="login-signup-modal" class="modal fade" tabindex="-1" role="dialog">
+   <div class="modal-dialog" role="document">
+    
+       <!-- login modal content -->
+        <div class="modal-content" id="login-modal-content">
+        
+          <div class="modal-header"><h4 class="modal-title"> Login Now!</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="margin-right: 10px; margin-top: -33px;"><span aria-hidden="true">&times;</span></button>
+            
+          </div>
+        
+          <div class="modal-body">
+          <form method="post" id="Login-Form" role="form" >
+            <div class="form-group">
+                <div class="input-group">
+                <div class="input-group-addon"><i class="fas fa-user-alt fa-3x"></i></div>
+                <input name="username"  class="form-control input-lg" style="margin-left: 5px;margin-top:5px; " placeholder="Enter Username"  data-parsley-type="" required="" data-parsley-length="[3, 20]">
+                </div>                      
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                <div class="input-group-addon"><i class="fas fa-lock fa-3x"></i></div>
+                <input name="password" id="login-password" type="password" class="form-control input-lg" style="margin-left: 10px;margin-top:5px;" placeholder="Enter Password"  data-parsley-length="[6, 10]" data-parsley-trigger="keyup" required="" >
+
+              <div class="input-group-append">
+                <div class="input-group-text" style="margin-top: 5px;"><i class="fa fa-eye" aria-hidden="true" id="eye" onclick="toggle1()"></i></div>
+              </div>
+                </div>                      
+            </div>
+              <script>
+    var state= false;
+    function toggle1(){
+      if(state){
+        document.getElementById("login-password").setAttribute("type","password");
+        document.getElementById("eye").style.color='#7a797e';
+        state = false;
+
+      }
+      else{
+        document.getElementById("login-password").setAttribute("type","text");
+        document.getElementById("eye").style.color='#5887ef';
+        state = true;
+      }
+    }
+  </script>                      
+     
+            <div class="checkbox">
+              <h6 style="font-family: calibri; font-size: 15px; color: indigo;"><input type="checkbox" value="" checked style="margin-right: 10px;">Remember me</h6>
+            </div>
+              <button type="submit" name="sub" class="btn btn-success btn-block btn-lg">LOGIN</button>
+          </form>
+        </div>
+        
+        <div class="modal-footer">
+          <p>
+          <a id="FPModal" href="javascript:void(0)" data-target="#forgot-password-modal-content">Forgot Password?</a> | 
+          <a id="signupModal" href="javascript:void(0)" data-toggle="modal" >Register Here!</a>
+          </p>
+        </div>
+        
+       </div>
+        <!-- login modal content -->
+        
+        <!-- signup modal content -->
+        <div class="modal-content" id="signup-modal-content">
+        
+       <div class="modal-header">
+        <h4 class="modal-title"> Signup Here!</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="margin-right: 10px; margin-top: -33px;"><span aria-hidden="true">&times;</span></button>
+            
+          </div>
+                
+        <div class="modal-body">
+          <form method="post" id="Signin-Form" role="form">
+            <div class="form-group">
+                <div class="input-group">
+                <div class="input-group-addon"><i class="fas fa-envelope fa-3x"></i></div>
+                <input name="email" id="email2" style="margin-left: 5px;margin-top:5px;" type="email" class="form-control input-lg" placeholder="Enter Email" data-parsley-type="email" required="">
+                </div>                     
+            </div>
+               <div class="form-group">
+                <div class="input-group">
+                <div class="input-group-addon"><i class="fas fa-user-alt fa-3x"></i></div>
+                <input name="text" id="username" style="margin-left: 5px;margin-top:5px;" type="text" class="form-control input-lg" placeholder="Enter Username" required="" data-parsley-length="[3, 20]" data-parsley-trigger="keyup" data-parsley-required-message="this field is required">
+                </div>                     
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                <div class="input-group-addon"><i class="fas fa-unlock fa-3x"></i></div>
+                <input name="password" id="passwd" style="margin-left: 10px;margin-top:5px;" type="password" class="form-control input-lg" placeholder="Enter Password" required data-parsley-length="[6, 10]" data-parsley-trigger="keyup">
+
+                 <div class="input-group-append">
+                <div class="input-group-text" style="margin-top: 5px;"><i class="fa fa-eye" aria-hidden="true" id="eye1" onclick="toggle()"></i></div>
+              </div>
+                </div>                      
+            </div>
+              <script>
+    var state= false;
+    function toggle(){
+      if(state){
+        document.getElementById("passwd").setAttribute("type","password");
+        document.getElementById("eye1").style.color='#7a797e';
+        state = false;
+
+      }
+      else{
+        document.getElementById("passwd").setAttribute("type","text");
+        document.getElementById("eye1").style.color='#5887ef';
+        state = true;
+      }
+    }
+  </script>
+        
+            <div class="form-group">
+                <div class="input-group">
+                <div class="input-group-addon"><i class="fas fa-lock fa-3x"></i></div>
+                <input name="password" style="margin-left: 5px;margin-top:5px;" id="confirm-passwd" type="password" class="form-control input-lg" placeholder="Retype Password" required data-parsley-equalto="#passwd" data-parsley-trigger="keyup">
+                </div>  <!-- data-parsley-pattern="^[a-zA-Z]+$"   -->                  
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                <div class="input-group-addon"></div>
+                <p style="font-family: sans-serif; font-size: 11px;margin-top: 15px;">Please provide a photo of Khec ID card (Size < 42Kb):</p>
+  <input type="file" name="f" required="" data-parsley-max-file-size="42" data-parsley-trigger="keyup">
+                </div>                 
+            </div>
+
+
+            <button type="submit" class="btn btn-success btn-block btn-lg">CREATE ACCOUNT!</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <p>Already a Member ? <a id="loginModal" href="javascript:void(0)">Login Here!</a></p>
+        </div>
+       </div>
+       <!-- signup modal content -->
+
+
+       <!-- forgot password content -->
+       <div class="modal-content" id="forgot-password-modal-content">
+        
+        <div class="modal-header">
+          <h4 class="modal-title"> Recover Password!</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="margin-right: 10px; margin-top: -33px;"><span aria-hidden="true">&times;</span></button>
+            
+          </div>
+
+        <div class="modal-body">
+          <form method="post" id="Forgot-Password-Form" role="form">
+            <div class="form-group">
+                <div class="input-group">
+                <div class="input-group-addon"><i class="fas fa-envelope-open-text fa-3x"></i></div>
+                <input name="email1" style="margin-left: 5px;margin-top:5px; " id="email3" type="email" class="form-control input-lg" placeholder="Enter Email" required data-parsley-type="email">
+                </div>                     
+            </div>         
+            <button type="submit" name="sub1" class="btn btn-success btn-block btn-lg">
+              <span class="glyphicon glyphicon-send"></span> SUBMIT
+            </button>
+          </form>
+        </div>
+        
+        <div class="modal-footer">
+          <p>Remember Password ? <a id="loginModal1" href="javascript:void(0)">Login Here!</a></p>
+        </div>
+        
+       </div>        
+       <!-- forgot password content -->
+  
+  </div>
+</div>
+<div class="zoom1">
+<a href="home.html">
+  <img src="images/logo.png" alt="KPA Logo" title="KPA Logo" 
+  style="height: 55px;width: 55px; margin-left: 76px">
+</a>
+</div>
+         <!-- Navbar toggler-->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          
+               
+            <!--  Navbar links  -->
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link text-success" href="home.html">Home</a>
+                </li>
+                
+                <li class="nav-item dropdown">
+                    <a class="nav-link text-success dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="categories.html">Management System</a>
+                        <a class="dropdown-item" href="categories.html">Commerce</a>
+                        <a class="dropdown-item" href="categories.html">Robotics</a>
+                        <a class="dropdown-item" href="categories.html">Games</a>
+                        <a class="dropdown-item" href="categories.html">ML and AI</a>
+                        <a class="dropdown-item" href="categories.html">Others</a>
+                     </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-success" href="addp.html">Add Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-success" href="top-projects.html">Top Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-success" href="#">Project Titles</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-success" href="notice.html">Notice</a>
+                </li>
+                <li class="nav-item">
+                  <button class="btn btn-outline-warning" type="button">
+                <a  class="text-info" data-toggle="modal" data-target="#login-signup-modal"><b>Sign-in</b></a></button></li>
+            </ul>
+        </div>
+  </nav>  
+                  <br>
+                  <br>
+ <div class="container-fluid">                 
+<div class="container1">
+  <h2>Frequently Asked Questions (FAQ) !!!</h2>
+  <br>
+  <div class="accordion">
+    <div class="icons">
+      <i class="fas fa-caret-down fa-2x"></i>
+    </div>
+     
+    <h5>What is KPA?</h5>
+    
+  </div>
+  <div class="panel">
+    <p>KPA stands for "Khwopa Project Archive". Here, you can discover various completed and ongoing projects done by students of different faculties. In short, KPA is the online platform for that archives the projects of Khec.</p>
+    
+  </div>
+    <div class="accordion">
+    <div class="icons">
+       <i class="fas fa-caret-down fa-2x"></i>
+    </div>
+    <h5>What is the main purpose of KPA ?</h5>
+    
+  </div>
+  <div class="panel">
+    <p>To collect projects in one place, to provide platform for students to share their projects, to provide wide varieties of projects in one place and many more !!!</p>
+    
+  </div>
+    <div class="accordion">
+    <div class="icons">
+       <i class="fas fa-caret-down fa-2x"></i>
+    </div>
+    <h5>Who can upload project in KPA?</h5>
+    
+  </div>
+  <div class="panel">
+    <p>Students of "Khwopa Engineering College" from the faculty of Computer and Electronics department can upload their college projects. </p>
+    
+  </div>
+    <div class="accordion">
+    <div class="icons">
+       <i class="fas fa-caret-down fa-2x"></i>
+    </div>
+    <h5>Is KPA itself a project done by students?</h5>
+    
+  </div>
+  <div class="panel">
+    <p>Yes! KPA is the project done by computer faculty students of 74 batch as their final project for fifth semester. </p>
+    
+  </div>
+</div>
+</div>
+
+<script type="text/javascript">
+  var acc = document.getElementsByClassName('accordion');
+  var i;
+  var len = acc.length;
+  for(i = 0; i < len; i++){
+    acc[i].addEventListener('click', function(){
+      this.classList.toggle('active');
+      var panel = this.nextElementSibling;
+      if (panel.style.maxHeight){
+        panel.style.maxHeight = null;
+      }
+      else{
+        panel.style.maxHeight = panel.scrollHeight + 'px'
+      }
+    })
+  }
+</script>
+
+
+
+
+<br>
+<br>
+<!--- Footer-->
+<footer class="container-fluid text-center" style="background-color:  #CBC7D0">
+  <div class="row text-success">
+    <div class="col-sm-3">
+      <h3 style="color: #08090A;">Meet the Team</h3>
+      <h5>Group Members & info</h45>
+    </div>
+    <div class="col-sm-3">
+      <h3 style="color: #08090A;">Contact Us</h3>
+      <h5>Our address and contact info </h5>
+    </div>
+    <div class="col-sm-3">
+      <h3  style="color: #08090A;">Connect</h3>
+      <a href="#" class="fab fa-facebook" title="facebook" style="font-size: 30px;"></a>
+      <a href="#" class="fab fa-twitter" title="twitter" style="font-size: 30px;"></a>
+      <a href="#" class="fab fa-google" title="google" style="font-size: 30px"></a>
+      <a href="#" class="fab fa-youtube" title="youtube" style="font-size: 30px;"></a>
+    </div>
+    <!---KPA info at footer--->
+    <div class="col-sm-3">
+      <img src="images/logo.png" class="icon" title="KPA Logo" 
+  style="height: 55px;margin-bottom: -20px;" alt="KPA"><br><br>
+      <a href="home.html" class="fas fa-home" title="Home" style="font-size: 17px;margin-right: 10px;"></a>||
+      <a href="contact-us.html" class="fas fa-id-card-alt" title="Contact" style="font-size: 17px;margin-left: 10px;margin-right: 10px;"></a>||
+      <a href="#" class="fas fa-comment-dots" title="Feedback" style="font-size: 17px;margin-left: 10px;margin-right: 10px;"></a>||
+        <a href="#" class="fas fa-question text-success" title="FAQs" style="font-size: 17px;margin-left: 10px;"></a>
+    </div>
+  </div>
+
+</footer>
+  <div class="col-xs-12" style="background: brown; height: 22px;">
+    <h5 style="text-align: center; color: white; font-size: 15px;"><i class="fa fa-copyright" style="font-size:16px;margin-top: 3px;">  2020 KPA</i></h5>
+  </div>
+
+</body>
+</html>
+
+<!--Query for ckeditor-->
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#editor' ) )
+        .catch( error => {
+            console.error( error );
+        } );</script>
+<script>
+    //jquery for registration request fadeout
+    $(document).ready(function () {
+        $("#reg-cross").click(function () {
+        $(".reg").fadeOut();
+        });
+    });
+  </script>
+  <script>
+    //parsely validation
+    
+$(document).ready(function(){
+
+
+   $('#signupModal').click(function(){
+     $('#login-modal-content').fadeOut('fast', function(){
+        $('#signup-modal-content').fadeIn('fast');
+     });
+    });
+
+    $('#loginModal').click(function(){
+     $('#signup-modal-content').fadeOut('fast', function(){
+        $('#login-modal-content').fadeIn('fast');
+     });
+    });
+
+    $('#FPModal').click(function(){
+     $('#login-modal-content').fadeOut('fast', function(){
+        $('#forgot-password-modal-content').fadeIn('fast');
+        });
+    });
+
+    $('#loginModal1').click(function(){
+     $('#forgot-password-modal-content').fadeOut('fast', function(){
+        $('#login-modal-content').fadeIn('fast');
+     });
+    });
+
+    $('#Login-Form').parsley();
+    $('#Signin-Form').parsley();
+    $('#Forgot-Password-Form').parsley();
+});
+
+</script>
+
+<script>
+// live search using JSON and JQuery AJAX
+
+$(document).ready(function(){
+    $.ajaxSetup({ cache: false })
+    $('#navBarSearch').keyup(function(){
+        $('#sResult').html('');
+        var sText = $('#navBarSearch').val();
+        if (sText != ''){
+            var expression = new RegExp(sText, "i");
+            $.getJSON('search_json.json', function(data) {
+                $.each(data, function(key, value){
+                    if (value.project_title.search(expression) != -1 || value.semester.search(expression) != -1) {
+                        $('#sResult').append('<li class="list-group-item link-class" height="50" width="50">' + value.project_title + ' | <span class="text-muted">' + value.semester + '</span></li>');
+                    }
+                });
+            });
+        }
+    });
+});
+  
+</script>
+<script>
+     function validate(){
+  var name = document.getElementById("name").value;
+  var subject = document.getElementById("subject").value;
+  var phone = document.getElementById("phone").value;
+  var email = document.getElementById("email").value;
+  var message = document.getElementById("message").value;
+  var error_message = document.getElementById("error_message");
+  
+  error_message.style.padding = "10px";
+  
+  var text;
+  if(name.length < 5){
+    text = "Please Enter valid Name";
+    error_message.innerHTML = text;
+    return false;
+  }
+  if(subject.length < 10){
+    text = "Please Enter Correct Subject";
+    error_message.innerHTML = text;
+    return false;
+  }
+  if(isNaN(phone) || phone.length != 10){
+    text = "Please Enter valid Phone Number";
+    error_message.innerHTML = text;
+    return false;
+  }
+  if(email.indexOf("@") == -1 || email.length < 6){
+    text = "Please Enter valid Email";
+    error_message.innerHTML = text;
+    return false;
+  }
+  if(message.length <= 140){
+    text = "Please Enter More Than 140 Characters";
+    error_message.innerHTML = text;
+    return false;
+  }
+  alert("Form Submitted Successfully!");
+  return true;
+}   
+    </script>
