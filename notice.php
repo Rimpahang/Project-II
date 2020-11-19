@@ -378,7 +378,7 @@ if (mysqli_num_rows($result) > 0){
         <div class="col-md-9" style="border: 1px solid gray; border-right: 1px solid gray;">
             <div style="background-color: #a1bae5;" class="row">
                 <div class="col-md-5" align="right" style="margin-bottom: 10px;
-					">
+                    ">
                     <h4 style="color: darkblue; padding-top: 3px; font-size: 20px; text-align: center; margin-top: 8px;">
                         <b>Notices & Events</b>
                     </h4></div>
@@ -401,41 +401,41 @@ if (mysqli_num_rows($result) > 0){
 </div>
 
 
-			<br><br><br>			
-	<!--- Footer-->
+            <br><br><br>            
+    <!--- Footer-->
 <footer class="container-fluid text-center">
-	<div class="row">
-		<div class="col-sm-3">
-			<h3>Meet the Team</h3>
-			<h5>Our address and contact info here</h5>
-		</div>
-		<div class="col-sm-3">
-			<h3>Contact Us</h3>
-			
-			<br>
-			<h4>Our address and contact info here</h4>
-		</div>
-		<div class="col-sm-3">
-			<h3>Connect</h3>
-			<a href="#" class="fab fa-facebook-square" title="facebook" style="font-size: 30px"></a>
-			<a href="#" class="fab fa-twitter-square" title="twitter" style="font-size: 30px"></a>
-			<a href="#" class="fab fa-google" title="google" style="font-size: 30px"></a>
-			<a href="#" class="fab fa-youtube-square" title="youtube" style="font-size: 30px; background: grey; "></a>
-		</div>
-		<!---KPA info at footer--->
-		<div class="col-sm-3">
-			<img src="images/kpa.jpg" class="icon" alt="KPA"><br><br>
-			<a href="#" class="fas fa-home" title="Home" style="font-size: 17px;margin-right: 10px;"></a>||
-			<a href="#" class="fas fa-id-card-alt" title="Contact" style="font-size: 17px;margin-left: 10px;margin-right: 10px;"></a>||
-			<a href="#" class="fas fa-comment-dots" title="Feedback" style="font-size: 17px;margin-left: 10px;margin-right: 10px;"></a>||
-				<a href="#" class="fas fa-question" title="FAQs" style="font-size: 17px;margin-left: 10px;"></a>
-		</div>
-	</div>
+    <div class="row">
+        <div class="col-sm-3">
+            <h3>Meet the Team</h3>
+            <h5>Our address and contact info here</h5>
+        </div>
+        <div class="col-sm-3">
+            <h3>Contact Us</h3>
+            
+            <br>
+            <h4>Our address and contact info here</h4>
+        </div>
+        <div class="col-sm-3">
+            <h3>Connect</h3>
+            <a href="#" class="fab fa-facebook-square" title="facebook" style="font-size: 30px"></a>
+            <a href="#" class="fab fa-twitter-square" title="twitter" style="font-size: 30px"></a>
+            <a href="#" class="fab fa-google" title="google" style="font-size: 30px"></a>
+            <a href="#" class="fab fa-youtube-square" title="youtube" style="font-size: 30px; background: grey; "></a>
+        </div>
+        <!---KPA info at footer--->
+        <div class="col-sm-3">
+            <img src="images/kpa.jpg" class="icon" alt="KPA"><br><br>
+            <a href="#" class="fas fa-home" title="Home" style="font-size: 17px;margin-right: 10px;"></a>||
+            <a href="#" class="fas fa-id-card-alt" title="Contact" style="font-size: 17px;margin-left: 10px;margin-right: 10px;"></a>||
+            <a href="#" class="fas fa-comment-dots" title="Feedback" style="font-size: 17px;margin-left: 10px;margin-right: 10px;"></a>||
+                <a href="#" class="fas fa-question" title="FAQs" style="font-size: 17px;margin-left: 10px;"></a>
+        </div>
+    </div>
 
 </footer>
-	<div class="col-xs-12" style="background: brown; height: 22px;">
-		<h5 style="text-align: center; color: white; font-size: 15px;"><i class="fa fa-copyright" style="font-size:16px;margin-top: 3px;">  2020 KPA</i></h5>
-	</div>
+    <div class="col-xs-12" style="background: brown; height: 22px;">
+        <h5 style="text-align: center; color: white; font-size: 15px;"><i class="fa fa-copyright" style="font-size:16px;margin-top: 3px;">  2020 KPA</i></h5>
+    </div>
 
 </body>
 </html>

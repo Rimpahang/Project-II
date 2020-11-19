@@ -1,4 +1,4 @@
-<?php include('includes/header.php') ?>
+<?php include('includes/header-addp.php') ?>
 <body data-spy="scroll" data-target="#navbarResponsive">
 
  
@@ -23,6 +23,7 @@
   </main>
   <div class="container"> 
 <hr class="hr1">
+<h2 style="text-align: center; color: #3357A0;"><b>Why You Should Add Your Project ?</b></h2><br>
 </div>
 <!--- Service--->
 <div class="container col-md-12">
@@ -30,24 +31,27 @@
   <div class="service">
   <div class="box">
     <h2>01</h2>
-    <h3>Service One</h3>
-    <p>Add your project here to get uploaded in the website!!!</p>
+    <h3>To Share</h3>
+    <p>After you add your project here, it will be shared with many other college students and teachers. You are not just sharing your project but also your vision!!!</p>
   </div>
    <div class="box">
     <h2>02</h2>
-    <h3>Service Two</h3>
-    <p>Chat with the users and share the ideas!!!</p>
+    <h3>To Get Review & Suggestion</h3>
+    <p>Your project will be reviewed and rated by different users and college faculties and you will also get some suggestions regarding your project!!! </p>
   </div>
    <div class="box">
     <h2>03</h2>
-    <h3>Service Three</h3>
-    <p>Download the documents of different projects!!!</p>
+    <h3>To Keep Your Project Safe</h3>
+    <p>Your Project will be safe with us and it will be in the Khec archive collection of projects for many years!!!</p>
   </div>
 </div>
 </div>
-</div><br><br>
+</div><br><br><br>
+
 <!----Add Project Form---->
 <div class="container">
+  <hr class="hr1">
+  <br>
   <div class="container2" id="container2">
   <div class="row">
     
