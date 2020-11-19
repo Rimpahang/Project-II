@@ -13,6 +13,7 @@
 				</div>
 		</section>
 </div>	
+
 <div class="container"> 
 <hr class="hr1">
 </div>
@@ -20,132 +21,44 @@
 <div class="line">
 <h2 class="text-center">Khec Projects on Management Systems</h2>
 </div>
+<div>
+
 <!----project collections----->
 <div class="ms">
+
 <div class="container">
-	<div class="row justify-content-center">
-		<div class="col-md-3">
+	<div class="row">
+    <?php
+
+include("backEnd/includes/DBConnect.php");
+
+$sql = "SELECT * FROM `kpa_project_list`";
+$result = mysqli_query($conn, $sql);
+        while($row = mysqli_fetch_assoc($result)) {
+?>
+    <div class="col-md-3">
+
+
 		<div class="card shadow" style="width: 15rem;">
-			<div class="inner">
-  <img src="images/logo.png" class="card-img-top" alt="project logo" style="height: 100px; width: 100%;">
+			<div class="inner"> 
+  <img src="<?php echo($row["proj_thumb"]) ;?>" class="card-img-top" alt="project logo" style="height: 100px; width: 100%;">
 </div>
   <div class="card-body text-center">
-    <h5 class="card-title">Library Management System</h5>
-    <p class="card-text">This project manages the system of library.</p>
+    <h5 class="card-title"><?= $row["project_title"];?></h5>
+    <p class="card-text"><?= $row["proj_descrip"];?></p>
   </div>
   <ul class="list-group list-group-flush">
-    <li class="list-group-item">III sem., B.E. Comp.</li>
+    <li class="list-group-item"><?= $row["semester"];?>,<?= $row["faculty"];?></li>
   </ul>
   <div class="card-body">
     <a href="lms.html" class="card-link">See More...</a>
   </div>
 </div>
-</div>
-
-<div class="col-md-3">
-		<div class="card shadow" style="width: 15rem;">
-			<div class="inner">
-  <img src="images/khwopa.png" class="card-img-top" alt="project logo" style="height: 100px; width: 100%;">
-</div>
-  <div class="card-body text-center">
-    <h5 class="card-title">Hospital Management System</h5>
-    <p class="card-text">This project manages the system of library.</p>
-  </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">III sem., B.E. Comp.</li>
-  </ul>
-  <div class="card-body">
-    <a href="#" class="card-link">See More...</a>
-  </div>
-</div>
-</div>
-
-<div class="col-md-3">
-		<div class="card shadow" style="width: 15rem;">
-			<div class="inner">
-  <img src="images/robot.jpg" class="card-img-top" alt="project logo" style="height: 100px; width: 100%;">
-</div>
-  <div class="card-body text-center">
-    <h5 class="card-title">Department Store Management System</h5>
-    <p class="card-text">This project manages the system of library.</p>
-  </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">III sem., B.E. Comp.</li>
-  </ul>
-  <div class="card-body">
-    <a href="#" class="card-link">See More...</a>
-  </div>
-</div>
-</div>
-
-<div class="col-md-3">
-		<div class="card shadow" style="width: 15rem;">
-			<div class="inner">
-  <img src="images/lms1.png" class="card-img-top" alt="project logo" style="height: 100px; width: 100%;">
-</div>
-  <div class="card-body text-center">
-    <h5 class="card-title">Library Management System</h5>
-    <p class="card-text">This project manages the system of library.</p>
-  </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">III sem., B.E. Comp.</li>
-  </ul>
-  <div class="card-body">
-    <a href="#" class="card-link">See More...</a>
-  </div>
-</div>
-</div>
-
-
-
+</div><?php }?>
 </div>
 </div>
 <br><br>
-<div class="container">
-	<div class="row justify-content-center">
-		<div class="col-md-6">
-		<div class="card shadow" style="width: 15rem;">
-			<div class="inner">
-  <img src="images/lms.png" class="card-img-top" alt="project logo" style="height: 100px; width: 100%;">
-</div>
-  <div class="card-body text-center">
-    <h5 class="card-title">Library Management System</h5>
-    <p class="card-text">This project manages the system of library.</p>
-  </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">III sem., B.E. Comp.</li>
-  </ul>
-  <div class="card-body">
-    <a href="#" class="card-link">See More...</a>
-  </div>
-</div>
-</div>
 
-<div class="col-md-6">
-		<div class="card shadow" style="width: 15rem;">
-			<div class="inner">
-  <img src="images/hms.png" class="card-img-top" alt="project logo" style="height: 100px; width: 100%;">
-</div>
-  <div class="card-body text-center">
-    <h5 class="card-title">Hospital Management System</h5>
-    <p class="card-text">This project manages the system of library.</p>
-  </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">III sem., B.E. Comp.</li>
-  </ul>
-  <div class="card-body">
-    <a href="#" class="card-link">See More...</a>
-  </div>
-</div>
-</div>
-
-
-
-
-</div>
-</div>
-</div>
-<br>
 <div class="container"> 
 <hr class="hr1">
 </div><br>
