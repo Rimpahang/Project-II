@@ -246,12 +246,7 @@ mysqli_close($conn);
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
                 <!--  Search bar  -->
-            <ul class="list-group-horizontal navbar-nav">
-                <form class="form-inline" role="search" action="/search_result.php">
-                    <li><input class="form-control mr-sm-2" type="search" placeholder="Search" id="navBarSearch" aria-label="Search" style="margin-top: 4px;"></li>
-                    <li class="ml-2"><button class="btn btn-outline-success " type="submit" style="margin-top: 4px;">Search</button></li>
-                </form>
-            </ul>
+            class="collapse navbar-collapse" id="navbarResponsive"
             
 
             <!--  Navbar links  -->

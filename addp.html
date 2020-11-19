@@ -24,17 +24,6 @@
 $('#Login-Form').parsley();
 $('#Signin-Form').parsley();
 $('#Forgot-Password-Form').parsley();
-window.Parsley.addValidator('maxFileSize', {
-  validateString: function(_value, maxSize, parsleyInstance) {
-   
-    var files = parsleyInstance.$element[0].files;
-    return files.length != 1  || files[0].size <= maxSize * 1024;
-  },
-  requirementType: 'integer',
-  messages: {
-    en: 'This file should not be larger than %s Kb'
-  }
-});
 </script>
 
 
@@ -399,7 +388,7 @@ input.parsley-error:focus{
       <div id="login-signup-modal" class="modal fade" tabindex="-1" role="dialog">
    <div class="modal-dialog" role="document">
     
-       <!-- login modal content -->
+     <!-- login modal content -->
         <div class="modal-content" id="login-modal-content">
         
           <div class="modal-header"><h4 class="modal-title"> Login Now!</h4>
@@ -412,13 +401,13 @@ input.parsley-error:focus{
             <div class="form-group">
                 <div class="input-group">
                 <div class="input-group-addon"><i class="fas fa-user-alt fa-3x"></i></div>
-                <input name="username"  class="form-control input-lg" style="margin-left: 5px;margin-top:5px; " placeholder="Enter Username"  data-parsley-type="" required="" data-parsley-length="[3, 20]">
+                <input name="username"  class="form-control input-lg" style="margin-left: 5px;margin-top:5px; " placeholder="Enter Username" required data-parsley-type="" >
                 </div>                      
             </div>
             <div class="form-group">
                 <div class="input-group">
                 <div class="input-group-addon"><i class="fas fa-lock fa-3x"></i></div>
-                <input name="password" id="login-password" type="password" class="form-control input-lg" style="margin-left: 10px;margin-top:5px;" placeholder="Enter Password"  data-parsley-length="[6, 10]" data-parsley-trigger="keyup" required="" >
+                <input name="password" id="login-password" type="password" class="form-control input-lg" style="margin-left: 10px;margin-top:5px;" placeholder="Enter Password" required data-parsley-length="[6, 10]" data-parsley-trigger="keyup">
 
               <div class="input-group-append">
                 <div class="input-group-text" style="margin-top: 5px;"><i class="fa fa-eye" aria-hidden="true" id="eye" onclick="toggle1()"></i></div>
@@ -451,8 +440,8 @@ input.parsley-error:focus{
         
         <div class="modal-footer">
           <p>
-          <a id="FPModal" href="javascript:void(0)" data-target="#forgot-password-modal-content">Forgot Password?</a> <p style="color: black;">|</p> 
-          <a id="signupModal" href="javascript:void(0)" data-toggle="modal">Register Here!</a>
+          <a id="FPModal" href="javascript:void(0)" data-target="#forgot-password-modal-content">Forgot Password?</a> | 
+          <a id="signupModal" href="javascript:void(0)" data-toggle="modal" data-target="#signup-modal-content">Register Here!</a>
           </p>
         </div>
         
@@ -472,14 +461,8 @@ input.parsley-error:focus{
           <form method="post" id="Signin-Form" role="form">
             <div class="form-group">
                 <div class="input-group">
-                <div class="input-group-addon"><i class="fas fa-envelope fa-3x"></i></div>
-                <input name="email" id="email2" style="margin-left: 5px;margin-top:5px;" type="email" class="form-control input-lg" placeholder="Enter Email" data-parsley-type="email" required="">
-                </div>                     
-            </div>
-               <div class="form-group">
-                <div class="input-group">
                 <div class="input-group-addon"><i class="fas fa-user-alt fa-3x"></i></div>
-                <input name="text" id="username" style="margin-left: 5px;margin-top:5px;" type="text" class="form-control input-lg" placeholder="Enter Username" required="" data-parsley-length="[3, 20]" data-parsley-trigger="keyup" data-parsley-required-message="this field is required">
+                <input name="email" id="email2" style="margin-left: 5px;margin-top:5px;" type="email" class="form-control input-lg" placeholder="Enter Email" required data-parsley-type="email">
                 </div>                     
             </div>
             <div class="form-group">
@@ -513,27 +496,17 @@ input.parsley-error:focus{
                 <div class="input-group">
                 <div class="input-group-addon"><i class="fas fa-lock fa-3x"></i></div>
                 <input name="password" style="margin-left: 5px;margin-top:5px;" id="confirm-passwd" type="password" class="form-control input-lg" placeholder="Retype Password" required data-parsley-equalto="#passwd" data-parsley-trigger="keyup">
-                </div>  <!-- data-parsley-pattern="^[a-zA-Z]+$"   -->                  
+                </div>                      
             </div>
-            <div class="form-group">
-                <div class="input-group">
-                <div class="input-group-addon"></div>
-                <p style="font-family: sans-serif; font-size: 11px;margin-top: 15px; color: black; margin-left: -10px;">Please provide a photo of Khec ID card (Size < 42Kb):</p>
-  <input type="file" name="f" required="" data-parsley-max-file-size="42" data-parsley-trigger="keyup">
-                </div>                 
-            </div>
-
-
             <button type="submit" class="btn btn-success btn-block btn-lg">CREATE ACCOUNT!</button>
           </form>
         </div>
         <div class="modal-footer">
-          <p style="color: black;">Already a Member ? <a id="loginModal" href="javascript:void(0)">Login Here!</a></p>
+          <p>Already a Member ? <a id="loginModal" href="javascript:void(0)">Login Here!</a></p>
         </div>
        </div>
        <!-- signup modal content -->
-
-
+        
        <!-- forgot password content -->
        <div class="modal-content" id="forgot-password-modal-content">
         
@@ -558,7 +531,7 @@ input.parsley-error:focus{
         </div>
         
         <div class="modal-footer">
-          <p style="color: black;">Remember Password ? <a id="loginModal1" href="javascript:void(0)">Login Here!</a></p>
+          <p>Remember Password ? <a id="loginModal1" href="javascript:void(0)">Login Here!</a></p>
         </div>
         
        </div>        
@@ -616,7 +589,7 @@ input.parsley-error:focus{
 					</li>
             <li class="nav-item">
                   <button class="btn btn-outline-warning" type="button">
-                <a  class="text-info"data-toggle="modal" data-target="#login-signup-modal"><b>Sign-in</b></a></button></li>
+                <a  class="text-info"data-toggle="modal" data-target="#login-signup-modal"><b>Signup</b></a></button></li>
 				</ul>
 			</div> 
 		</div> 
@@ -641,7 +614,6 @@ input.parsley-error:focus{
   </main>
   <div class="container"> 
 <hr class="hr1">
-<h2 style="text-align: center; color: #3357A0;"><b>Why You Should Add Your Project ?</b></h2><br>
 </div>
 <!--- Service--->
 <div class="container col-md-12">
@@ -649,22 +621,22 @@ input.parsley-error:focus{
   <div class="service">
   <div class="box">
     <h2>01</h2>
-    <h3>To Share</h3>
-    <p>After you add your project here, it will be shared with many other college students and teachers. You are not just sharing your project but also your vision!!!</p>
+    <h3>Service One</h3>
+    <p>Add your project here to get uploaded in the website!!!</p>
   </div>
    <div class="box">
     <h2>02</h2>
-    <h3>To Get Review & Suggestion</h3>
-    <p>Your project will be reviewed and rated by different users and college faculties and you will also get some suggestions regarding your project!!! </p>
+    <h3>Service Two</h3>
+    <p>Chat with the users and share the ideas!!!</p>
   </div>
    <div class="box">
     <h2>03</h2>
-    <h3>To Keep Your Project Safe</h3>
-    <p>Your Project will be safe with us and it will be in the Khec archive collection of projects for many years!!!</p>
+    <h3>Service Three</h3>
+    <p>Download the documents of different projects!!!</p>
   </div>
 </div>
 </div>
-</div><br><br><br>
+</div><br><br>
 <!----Add Project Form---->
 <div class="container">
   <div class="container2" id="container2">
@@ -777,26 +749,15 @@ input.parsley-error:focus{
 
       <div class="row">
         
-       <input type="file" id="real-file" hidden="hidden" multiple="multiple" onchange="return fileValidation()" />
+       <input type="file" id="real-file" hidden="hidden" />
 <button type="button" id="custom-button">CHOOSE A FILE</button>
 <span id="custom-text">No file chosen, yet.</span>
   
       </div>
 <script type="text/javascript">
-
       const realFileBtn = document.getElementById("real-file");
 const customBtn = document.getElementById("custom-button");
 const customTxt = document.getElementById("custom-text");
-function fileValidation(){
-var fileInput = document.getElementById('real-file');
-    var filePath = fileInput.value;
- var allowedExtensions = /(\.jpg|\.docx|\.jpeg|\.png)$/i;
- if(!allowedExtensions.exec(filePath)){
-        alert('Please upload file having extensions .jpeg/.jpg/.png only.');
-        fileInput.value = '';
-        return false;
-    }
-  }
 
 customBtn.addEventListener("click", function() {
   realFileBtn.click();
@@ -865,19 +826,18 @@ realFileBtn.addEventListener("change", function() {
     </div>
     <div class="col-sm-3">
       <h3  style="color: #08090A;">Connect</h3>
-      <a href="#" class="fab fa-facebook" title="facebook" style="font-size: 30px;"></a>
-      <a href="#" class="fab fa-twitter" title="twitter" style="font-size: 30px;"></a>
+      <a href="#" class="fab fa-facebook-square" title="facebook" style="font-size: 30px;"></a>
+      <a href="#" class="fab fa-twitter-square" title="twitter" style="font-size: 30px;"></a>
       <a href="#" class="fab fa-google" title="google" style="font-size: 30px"></a>
-      <a href="#" class="fab fa-youtube" title="youtube" style="font-size: 30px;"></a>
+      <a href="#" class="fab fa-youtube-square" title="youtube" style="font-size: 30px;"></a>
     </div>
     <!---KPA info at footer--->
     <div class="col-sm-3">
-       <img src="images/logo.png" class="icon" title="KPA Logo" 
-  style="height: 55px;margin-bottom: -20px;" alt="KPA"><br><br>
+      <img src="images/kpa.jpg" class="icon" alt="KPA"><br><br>
       <a href="home.html" class="fas fa-home" title="Home" style="font-size: 17px;margin-right: 10px;"></a>||
-      <a href="contact-us.html" class="fas fa-id-card-alt" title="Contact" style="font-size: 17px;margin-left: 10px;margin-right: 10px;"></a>||
+      <a href="#" class="fas fa-id-card-alt" title="Contact" style="font-size: 17px;margin-left: 10px;margin-right: 10px;"></a>||
       <a href="#" class="fas fa-comment-dots" title="Feedback" style="font-size: 17px;margin-left: 10px;margin-right: 10px;"></a>||
-        <a href="faq.html" class="fas fa-question" title="FAQs" style="font-size: 17px;margin-left: 10px;"></a>
+        <a href="#" class="fas fa-question" title="FAQs" style="font-size: 17px;margin-left: 10px;"></a>
     </div>
   </div>
 
@@ -895,8 +855,6 @@ realFileBtn.addEventListener("change", function() {
       var password= document.getElementById('pass').value;
       var confirmpass= document.getElementById('conpass').value;
       var mobileNumber= document.getElementById('mobileNumber').value;
-      var real-file= document.getElementById('real-file').value;
-
 
       if(user == ""){
         document.getElementById('projectname').innerHTML = "Field Required";
@@ -907,7 +865,6 @@ realFileBtn.addEventListener("change", function() {
            return false;
 
     }
-
       if(!isNaN(user)){
         document.getElementById('projectname').innerHTML = "Only characters are allowed";
         return false;
@@ -960,7 +917,7 @@ if((password.length <=4) || (password.length > 12)){
         document.getElementById('mobileno').innerHTML = "10 Digits Only";
         return false;
       }
-        
+      
 
 }
 

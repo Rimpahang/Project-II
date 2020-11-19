@@ -1,5 +1,16 @@
 <?php
 error_reporting(0);
+if(isset($_COOKIE["member_login"]))
+{ 
+  $_SESSION['username'] = $_COOKIE["member_login"];
+  echo "<script>window.location='backEnd/dashboard.php';</script>";
+  exit;
+}
+if(isset($_SESSION['username']))
+{
+  echo "<script>window.location='backEnd/dashboard.php';</script>"; 
+  exit;
+}
 if (isset($_POST['sub'])) {
 	$user = $_POST['uname'];
 	$pass = md5($_POST['pwd']);
@@ -10,7 +21,7 @@ $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) > 0) {
 	echo "Login succesfully!";
-	header('location: index.php');
+	header('location: backEnd/dashboard.php');
 }
 else
 	echo "Username or passowrd incorrect!";

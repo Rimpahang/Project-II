@@ -1,4 +1,4 @@
-<?php 
+<?php
 if (isset($_POST['sub'])) {
 	$name = $_POST['name'];
 	$uname = $_POST['uname'];

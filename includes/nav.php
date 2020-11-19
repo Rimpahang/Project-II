@@ -214,8 +214,21 @@
             <div class="btn-group">
   <button class="btn btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">     <?php   echo  strtoupper($_SESSION['username']);} ?>  </button> 
     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" href="#">Profile</a>
-    <a class="dropdown-item" href="#">Requests</a>
+      <?php 
+include("backEnd/DBconnect.php");
+      $activeuser = $_SESSION['username'];
+    $sql_1 = "SELECT * FROM `kpa_user` WHERE `username`='$activeuser'";
+    $result_1 = mysqli_query($conn,$sql_1);
+    $row_1 = mysqli_fetch_assoc($result_1);
+    if ($row_1['is_verified']==1)
+    {
+      if ($row_1['user_type']=="admin" || $row_1['user_type']=="super_admin")
+        { ?>  <a class="dropdown-item" href="backEnd/dashboard.php">Dashboard</a><?php }
+      elseif ($row_1['user_type']=="normal_user" || $row_1['user_type']=="guest") 
+        { ?> 
+          <a class="dropdown-item" href="#">Profile</a>
+          <a class="dropdown-item" href="#">Requests</a>
+    <?php }} ?>
     <a class="dropdown-item" href="backEnd/logout.php">Logout</a>
   </div>
 </div>  

@@ -53,7 +53,7 @@ if (isset($_POST['sub'])) {
             <input type="text" name="key" class="form-control" placeholder="Enter password reset key" required="required">
         </div>
         <div id="passmatch"></div>
-        <input type="submit" name="sub" class="btn btn-primary" value="Sign Up">
+        <input type="submit" name="sub" class="btn btn-primary" value="OK">
     </form>
 </div>
 </body>

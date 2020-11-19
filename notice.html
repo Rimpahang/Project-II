@@ -19,17 +19,6 @@
 $('#Login-Form').parsley();
 $('#Signin-Form').parsley();
 $('#Forgot-Password-Form').parsley();
-window.Parsley.addValidator('maxFileSize', {
-  validateString: function(_value, maxSize, parsleyInstance) {
-   
-    var files = parsleyInstance.$element[0].files;
-    return files.length != 1  || files[0].size <= maxSize * 1024;
-  },
-  requirementType: 'integer',
-  messages: {
-    en: 'This file should not be larger than %s Kb'
-  }
-});
 </script>
   <style>
   		.fakeimg {
@@ -174,12 +163,12 @@ button{
 		<!-- <button  type="button" data-toggle="collapse" data-target="#navbarResponsive">
 			<span class="navbar-toggler-icon"></span> 
 		</button> -->
-		<div class="container-fluid">
+		 <div class="container-fluid">
       <!-- <a class="navbar-brand" href="#" data-target="#model" data-toggle="modal">Login</a> --><!-- <img src="images/khwopa.png"> --> 
       <div id="login-signup-modal" class="modal fade" tabindex="-1" role="dialog">
    <div class="modal-dialog" role="document">
     
-       <!-- login modal content -->
+     <!-- login modal content -->
         <div class="modal-content" id="login-modal-content">
         
           <div class="modal-header"><h4 class="modal-title"> Login Now!</h4>
@@ -192,13 +181,13 @@ button{
             <div class="form-group">
                 <div class="input-group">
                 <div class="input-group-addon"><i class="fas fa-user-alt fa-3x"></i></div>
-                <input name="username"  class="form-control input-lg" style="margin-left: 5px;margin-top:5px; " placeholder="Enter Username"  data-parsley-type="" required="" data-parsley-length="[3, 20]">
+                <input name="username"  class="form-control input-lg" style="margin-left: 5px;margin-top:5px; " placeholder="Enter Username" required data-parsley-type="" >
                 </div>                      
             </div>
             <div class="form-group">
                 <div class="input-group">
                 <div class="input-group-addon"><i class="fas fa-lock fa-3x"></i></div>
-                <input name="password" id="login-password" type="password" class="form-control input-lg" style="margin-left: 10px;margin-top:5px;" placeholder="Enter Password"  data-parsley-length="[6, 10]" data-parsley-trigger="keyup" required="" >
+                <input name="password" id="login-password" type="password" class="form-control input-lg" style="margin-left: 10px;margin-top:5px;" placeholder="Enter Password" required data-parsley-length="[6, 10]" data-parsley-trigger="keyup">
 
               <div class="input-group-append">
                 <div class="input-group-text" style="margin-top: 5px;"><i class="fa fa-eye" aria-hidden="true" id="eye" onclick="toggle1()"></i></div>
@@ -232,7 +221,7 @@ button{
         <div class="modal-footer">
           <p>
           <a id="FPModal" href="javascript:void(0)" data-target="#forgot-password-modal-content">Forgot Password?</a> | 
-          <a id="signupModal" href="javascript:void(0)" data-toggle="modal" >Register Here!</a>
+          <a id="signupModal" href="javascript:void(0)" data-toggle="modal" data-target="#signup-modal-content">Register Here!</a>
           </p>
         </div>
         
@@ -252,14 +241,8 @@ button{
           <form method="post" id="Signin-Form" role="form">
             <div class="form-group">
                 <div class="input-group">
-                <div class="input-group-addon"><i class="fas fa-envelope fa-3x"></i></div>
-                <input name="email" id="email2" style="margin-left: 5px;margin-top:5px;" type="email" class="form-control input-lg" placeholder="Enter Email" data-parsley-type="email" required="">
-                </div>                     
-            </div>
-               <div class="form-group">
-                <div class="input-group">
                 <div class="input-group-addon"><i class="fas fa-user-alt fa-3x"></i></div>
-                <input name="text" id="username" style="margin-left: 5px;margin-top:5px;" type="text" class="form-control input-lg" placeholder="Enter Username" required="" data-parsley-length="[3, 20]" data-parsley-trigger="keyup" data-parsley-required-message="this field is required">
+                <input name="email" id="email2" style="margin-left: 5px;margin-top:5px;" type="email" class="form-control input-lg" placeholder="Enter Email" required data-parsley-type="email">
                 </div>                     
             </div>
             <div class="form-group">
@@ -293,17 +276,8 @@ button{
                 <div class="input-group">
                 <div class="input-group-addon"><i class="fas fa-lock fa-3x"></i></div>
                 <input name="password" style="margin-left: 5px;margin-top:5px;" id="confirm-passwd" type="password" class="form-control input-lg" placeholder="Retype Password" required data-parsley-equalto="#passwd" data-parsley-trigger="keyup">
-                </div>  <!-- data-parsley-pattern="^[a-zA-Z]+$"   -->                  
+                </div>                      
             </div>
-            <div class="form-group">
-                <div class="input-group">
-                <div class="input-group-addon"></div>
-                <p style="font-family: sans-serif; font-size: 11px;margin-top: 15px;">Please provide a photo of Khec ID card (Size < 42Kb):</p>
-  <input type="file" name="f" required="" data-parsley-max-file-size="42" data-parsley-trigger="keyup">
-                </div>                 
-            </div>
-
-
             <button type="submit" class="btn btn-success btn-block btn-lg">CREATE ACCOUNT!</button>
           </form>
         </div>
@@ -312,8 +286,7 @@ button{
         </div>
        </div>
        <!-- signup modal content -->
-
-
+        
        <!-- forgot password content -->
        <div class="modal-content" id="forgot-password-modal-content">
         
@@ -352,6 +325,7 @@ button{
   style="height: 55px;width: 55px; margin-left: 76px">
 </a>
 </div>
+
 
 
 
@@ -398,7 +372,7 @@ button{
 					</li>
            <li class="nav-item">
                   <button class="btn btn-outline-warning" type="button">
-                <a  class="text-info"data-toggle="modal" data-target="#login-signup-modal"><b>Sign-in</b></a></button></li>
+                <a  class="text-info"data-toggle="modal" data-target="#login-signup-modal"><b>Signup</b></a></button></li>
 				</ul>
 			</div> 
 		</div> 
@@ -516,19 +490,18 @@ button{
     </div>
     <div class="col-sm-3">
       <h3  style="color: #08090A;">Connect</h3>
-      <a href="#" class="fab fa-facebook" title="facebook" style="font-size: 30px;"></a>
-      <a href="#" class="fab fa-twitter" title="twitter" style="font-size: 30px;"></a>
+      <a href="#" class="fab fa-facebook-square" title="facebook" style="font-size: 30px;"></a>
+      <a href="#" class="fab fa-twitter-square" title="twitter" style="font-size: 30px;"></a>
       <a href="#" class="fab fa-google" title="google" style="font-size: 30px"></a>
-      <a href="#" class="fab fa-youtube" title="youtube" style="font-size: 30px;"></a>
+      <a href="#" class="fab fa-youtube-square" title="youtube" style="font-size: 30px;"></a>
     </div>
     <!---KPA info at footer--->
     <div class="col-sm-3">
-      <img src="images/logo.png" class="icon" title="KPA Logo" 
-  style="height: 55px;margin-bottom: -20px;" alt="KPA"><br><br>
+      <img src="images/kpa.jpg" class="icon" alt="KPA"><br><br>
       <a href="home.html" class="fas fa-home" title="Home" style="font-size: 17px;margin-right: 10px;"></a>||
-      <a href="contact-us.html" class="fas fa-id-card-alt" title="Contact" style="font-size: 17px;margin-left: 10px;margin-right: 10px;"></a>||
+      <a href="#" class="fas fa-id-card-alt" title="Contact" style="font-size: 17px;margin-left: 10px;margin-right: 10px;"></a>||
       <a href="#" class="fas fa-comment-dots" title="Feedback" style="font-size: 17px;margin-left: 10px;margin-right: 10px;"></a>||
-        <a href="faq.html" class="fas fa-question" title="FAQs" style="font-size: 17px;margin-left: 10px;"></a>
+        <a href="#" class="fas fa-question" title="FAQs" style="font-size: 17px;margin-left: 10px;"></a>
     </div>
   </div>
 

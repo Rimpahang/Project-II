@@ -9,7 +9,14 @@ if(mysqli_num_rows($user_count_data) > 0) {
 
     $user_count = $user_counting['counted'];
 }
+//total users
+$get_project_count_sql = "SELECT COUNT(*) AS counted FROM `kpa_project_list` WHERE `status` = 1";
+$project_count_data = mysqli_query($conn, $get_project_count_sql);
+if(mysqli_num_rows($project_count_data) > 0) {
+    $project_counting = mysqli_fetch_assoc($project_count_data);
 
+    $project_count = $project_counting['counted'];
+}
 
 //total notices
 $get_notice_count_sql = "SELECT COUNT(*) AS counted FROM `kpa_notice`";
@@ -185,7 +192,7 @@ if (mysqli_num_rows($all_programming_language_name) > 0) {
                   <div class="col-7 col-md-8">
                     <div class="numbers">
                       <p class="card-category">Total Projects</p>
-                      <p class="card-title">7
+                      <p class="card-title"><?= $project_count?>
                         <p>
                     </div>
                   </div>

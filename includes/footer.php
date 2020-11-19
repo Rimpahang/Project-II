@@ -3,7 +3,9 @@
   <div class="row">
     <div class="col-sm-3">
       <h3>Meet the Team</h3>
-      <h5>Our address and contact info here</h45>
+      <h5>Our address and contact info here</h5>
+        <p>Total visits:</p> <script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=585a2c83dd33771a7b1c2d5b874f75a945a4891e'></script>
+<script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/766612/t/5"></script>
     </div>
     <div class="col-sm-3">
       <h3>Contact Us</h3>

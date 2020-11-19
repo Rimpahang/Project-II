@@ -1,7 +1,15 @@
 <?php include_once('includes/header.php');
+$project_id = @$_GET['id'];
+if (!isset($project_id)) {
+  header('Location: addproject.php');
+}
+require_once("DBConnect.php");
+$sql = "SELECT * FROM `kpa_project_list` WHERE `id`='$project_id' Limit 0, 10";
+$result = mysqli_query($conn, $sql);
+$prev_data = mysqli_fetch_assoc($result);
 
-if (isset($_POST['add_project'])) {
-  
+if (isset($_POST['edit_project'])) {
+  $project_id = $_GET['id'];
   $n =$_POST['title'];
   $u = $_POST['description'];
   $e = $_POST['abstract'];
@@ -10,18 +18,16 @@ if (isset($_POST['add_project'])) {
   $s= $_POST['sem'];
   $f= $_POST['faculty'];
 
-  $sql = "INSERT INTO `kpa_project_list` (`project_title`, `proj_descrip`, `proj_thumb`, `category`, `year`, `semester`, `faculty`) VALUES ('$n', '$u', '$e', '$p', '$y', '$s', '$f');";
-include('DBConnect.php');
+  $sql = "UPDATE `kpa_project_list` SET `project_title`='$n',`proj_descrip`='$u', `proj_thumb`='$e', `category`='$p',`year`='$y', `semester`='$s', `faculty`='$f' WHERE `kpa_project_list`.`id`='$project_id';";
 if (mysqli_query($conn, $sql)) {
-     echo "<script>alert('Project Added Successfully!');</script>";
+    echo "<script>alert('Data edited successfully!');</script>";
             echo "<script>window.location='addproject.php';</script>";
 } else {
-    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+    echo "Error updating record: " . mysqli_error($conn);
 }
 mysqli_close($conn);
 }
 ?>
-
 <body class="">
   <div class="wrapper ">
     <div class="sidebar" data-color="yellow" data-active-color="success">
@@ -31,8 +37,9 @@ mysqli_close($conn);
             <img src="img/default-avatar.png">
           </div>
         </a>
-        <a href="dashboard.php" class="simple-text logo-normal">
-<?=($_SESSION['username']);?>        </a>
+       <a href="user.php" class="simple-text logo-normal">
+          Naresh 
+        </a>
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
@@ -132,64 +139,29 @@ mysqli_close($conn);
       </nav>
       <!-- End Navbar -->
       <div class="content">
-        <p id="breadcrumb"><a href="dashboard.php" style="padding-left: 10px;">Home</a> &raquo; <a href="addproject.php">Project List</a> &raquo; Add project</p>
+        <p id="breadcrumb"><a href="dashboard.php" style="padding-left: 10px;">Home</a> &raquo; <a href="addproject.php">Project List</a> &raquo; Edit project info</p>
         <div class="row">
           <div class="col">
             <div class="card card-stats">
               <div class="card body">
-<h1>Add Projects</h1>
-<script type="text/javascript">
-  function formValidate(){
-    if( document.forma.name.value == "" ) {
-              alert( "Please provide user's name!" );
-              document.forma.name.focus() ;
-              return false;
-           }
-           if( document.forma.username.value == "" ) {
-              alert( "Please provide user's username!" );
-              document.forma.username.focus() ;
-              return false;
-           }
-           if( document.forma.email.value == "" ) {
-              alert( "Please provide your Email!" );
-              document.forma.email.focus() ;
-              return false;
-           }
-           if( document.forma.email.value == "" ) {
-              alert( "Please provide your Email!" );
-              document.forma.email.focus() ;
-              return false;
-           var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-          if(document.forma.email.value.match(mailformat))
-          {
-         document.forma.email.focus();
-        return true;      
-        }
-        else{
-          alert("You have entered an invalid email address!");
-           document.forma.email.focus();
-       return false;
-     }
-           
-  }
-</script>
-<form action="" method="POST" name="forma" onsubmit="return(formValidate());" >
+<h5>Edit User Info.</h5>
+<form action="" method="POST" name="user">
 <table class="table table-striped">
   <tr>
     <td>Project Title:</td>
-    <td><input type="text" name="title" placeholder="Enter title" ></td>
+    <td><input type="text" name="title" placeholder="Enter title" value="<?= $prev_data['project_title'];?>"></td>
   </tr>
   <tr>
     <td>Project Description:</td>
-    <td><textarea type="text" name="description" placeholder="Enter description" ></textarea> </td>
+    <td><textarea type="text" name="description" placeholder="Enter description" ><?= $prev_data['proj_descrip'];?></textarea>  </td>
   </tr>
   <tr>
     <td>Project abstract:</td>
-    <td><input type="file" name="abstract" id="abstract"></td>
+    <td><input type="file" name="abstract" id="abstract">Previous img:<img src="../images/<?= $prev_data['proj_thumb'];?>" style="height: 50px;width: 60px"></td>
   </tr>
   <tr>
     <td>Category:</td>
-    <td><select name="category" id="category">
+    <td><select name="category" id="category"value="<?= $prev_data['category'];?>">
   <option value="Management System">Management System</option>
   <option value="Commerce">Commerce</option>
   <option value="Robotics">Robotics</option>
@@ -202,7 +174,7 @@ mysqli_close($conn);
   </tr>
   <tr>
     <td>Year:</td>
-    <td><select name="year" id="year">
+    <td><select name="year" id="year" value="<?= $prev_data['year'];?>">
   <option value="1">1</option>
    <option value="2">2</option>
   <option value="3">3</option>
@@ -210,7 +182,7 @@ mysqli_close($conn);
  </select></td>
   </tr><tr>
     <td>Semester:</td>
-    <td><select name="sem" id="semester">
+    <td><select name="sem" id="semester" value="<?= $prev_data['semester'];?>">
   <option value="First">First</option>
 <option value="Second">Second</option>
  <option value="Third">Third</option>
@@ -223,85 +195,22 @@ mysqli_close($conn);
   </select></td>
   </tr><tr>
     <td>Faculty:</td>
-    <td><select name="faculty" id="faculty">
+    <td><select name="faculty" id="faculty" value="<?= $prev_data['faculty'];?>">
   <option value="B.E. Computer">B.E. Computer</option>
   <option value="B.E. Electronics">B.E. Electronics</option>
   </select></td>
   </tr>
   <tr>
     <td>&nbsp;</td>
-    <td><input type="submit" name='add_project' class="btn btn-light">
+    <td><input type="submit" name="edit_project" value="UPDATE"></td>
   </tr>
+
 </table>
 </form>
               </div>
             </div>
           </div>
           
-        </div>   
-        <div class="row">
-          <div class="col"><p>The users registered are listed below:</p>
-            <div class="card card-stats">
-              <div class="card body">
-                <?php
-
-require_once("DBConnect.php");
-
-$sql = "SELECT * FROM `kpa_project_list` ORDER BY `id` ASC";
-$result = mysqli_query($conn, $sql);
-?>
-                <table class="table table-striped">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Project Title</th>
-      <th scope="col">Project Description</th>
-      <th scope="col">Thumbnail</th>
-      <th scope="col">Category</th>
-      <th scope="col">Year</th>
-      <th scope="col">Semester</th>
-      <th scope="col">Faculty</th>
-      <th scope="col">Actions</th>
-           
-      </tr>
-  </thead>
-  <?php
-if (mysqli_num_rows($result) > 0) {
-   
-    $i=0;
-    while($row = mysqli_fetch_assoc($result)) {
-?>
-  <tbody>
-   <tr>
-        <td><?= ++$i;?></td>
-        <td><?= $row["project_title"];?></td>
-        <td><?= $row["proj_descrip"];?></td>
-        <td><img src="../images/<?= $row["proj_thumb"];?>"style="height: 100px;width: 100px"> </td>
-        <td><?= $row["category"];?></td>
-        <td><?= $row["year"];?></td>
-        <td><?= $row["semester"];?></td>
-        <td><?= $row["faculty"];?></td>
-        <td><a href="edit_project.php?id=<?= $row['id'];?>">Edit</a> &nbsp;&nbsp;<a onclick="return confirm('Are you sure you want to delete this entry?')" href="delete_project.php?id=<?= $row['id'];?>">Delete</a></td>
-    </tr>
-  </tbody>
-  <?php
-    }   
-} else {
-    ?>
-    <tr>
-        <td colspan="3">No Record(s) found.</td>
-    </tr>
-    <?php
-}
-?>
-<?php 
-mysqli_close($conn);
-?>
-</table>
-              </div>
-            </div>
-          </div>
-
-        </div>     
+        </div>      
       </div>
       <?php include_once('includes/footer.php');?>

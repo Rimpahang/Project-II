@@ -14,6 +14,7 @@ if (isset($_POST['sub'])) {
 
     if(mysqli_query($conn, $pwd_reset_sql)) {
         echo "New Password changed succesfully!";
+        header(../home.php)
     }
     else
         echo "Error:" . mysqli_error($conn);
@@ -43,7 +44,7 @@ if (isset($_POST['sub'])) {
             <input type="password" name="re-pwd" class="form-control" id="newpwd" placeholder="Re-Enter Password" required="required">
         </div>
         <div id="passmatch"></div>
-        <input type="submit" name="sub" class="btn btn-primary" value="Sign Up">
+        <input type="submit" name="sub" class="btn btn-primary" value="Submit">
     </form>
 </div>
 </body>

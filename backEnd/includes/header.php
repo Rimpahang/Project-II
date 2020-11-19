@@ -1,3 +1,13 @@
+<?php
+if(empty($_SESSION)) // if the session not yet started
+   session_start();
+
+if(!isset($_SESSION['username'])) { 
+  echo "<script>window.location='../home.php';</script>";
+  exit;
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 

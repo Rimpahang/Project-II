@@ -13,28 +13,10 @@
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-          <li class="active">
-            <a href="dashboard.php">
-              <i class="nc-icon nc-bank"></i>
-              <p>Dashboard</p>
-            </a>
-          </li>
-          <li>
-            <a href="users.php">
-                    <i class="fa fa-users"></i>                  
-              <p>Users</p>
-            </a>
-          </li>
           <li class="">
             <a href="content.php">
               <i class="nc-icon nc-single-copy-04"></i>
               <p>My project requests</p>
-            </a>
-          </li>
-          <li>
-            <a href="notifications.php">
-              <i class="nc-icon nc-bell-55"></i>
-              <p>Notifications</p>
             </a>
           </li>
           <li>
@@ -43,12 +25,7 @@
               <p>User Profile</p>
             </a>
           </li>
-          <li class="">
-            <a href="upload.php">
-              <i class="nc-icon nc-caps-small"></i>
-              <p>Upload Files</p>
-            </a>
-          </li>
+        
         </ul>
       </div>
     </div>
@@ -109,163 +86,67 @@
       <!-- End Navbar -->
      
       <div class="content">
-        <div class="row">
-          <div class="col-lg-3 col-md-6 col-sm-6">
-            <div class="card card-stats">
-              <div class="card-body ">
-                <div class="row">
-                  <div class="col-5 col-md-4">
-                    <div class="icon-big text-center icon-warning">
-                      <img src="img/userico.png">
+      <div class="col-md-8">
+            <div class="card card-user">
+              <div class="card-header">
+                <h5 class="card-title">Edit Profile</h5>
+              </div>
+              <div class="card-body">
+                <form>
+                  <div class="row">
+                    <div class="col-md-6 pr-1">
+                      <div class="form-group">
+                        <label>Username</label>
+                        <input type="text" class="form-control" placeholder="Username" value="<?php echo $user_detail['username']; ?>">
+                      </div>
+                    </div>
+                    <div class="col-md-4 pl-1">
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Email address</label>
+                        <input type="email" class="form-control" placeholder="<?php echo $user_detail['email']; ?>">
+                      </div>
                     </div>
                   </div>
-                  <div class="col-7 col-md-8">
-                    <div class="numbers">
-                      <p class="card-category">Total Users</p>
-                      <p class="card-title"><?php echo $user_count; ?>
-                        <p>
+                  <div class="row">
+                    <div class="col-md-6 pr-1">
+                      <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" class="form-control" placeholder="Full name" value="<?php echo $user_detail['name']; ?>">
+                      </div>
+                    </div>                    
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label>Address</label>
+                        <input type="text" class="form-control" placeholder="Home Address" value="<?php echo $user_detail['address']; ?>">
+                      </div>
                     </div>
                   </div>
-                </div>
-              </div>
-              <div class="card-footer ">
-                <hr>
-                <div class="stats">
-                  <a href="users.php" style="text-decoration: none;"><i class="fa fa-plus"></i> Add Users</a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 col-sm-6">
-            <div class="card card-stats">
-              <div class="card-body ">
-                <div class="row">
-                  <div class="col-5 col-md-4">
-                    <div class="icon-big text-center icon-warning">
-                      <img src="img/proj.png">
+                  <div class="row">
+                    <div class="col-md-4 pr-1">
+                      <div class="form-group">
+                        <label>Semester</label>
+                        <input type="text" class="form-control" placeholder="Semester" value="5th">
+                      </div>
+                      <div class="form-group">
+                        <label>Department</label>
+                        <input type="text" class="form-control" placeholder="Department" value="Computer">
+                      </div>
                     </div>
                   </div>
-                  <div class="col-7 col-md-8">
-                    <div class="numbers">
-                      <p class="card-category">Total Projects</p>
-                      <p class="card-title">7
-                        <p>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label>About Me</label>
+                        <textarea class="form-control textarea">Cats my world!</textarea>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </div>
-              <div class="card-footer ">
-                <hr>
-                <div class="stats">
-                  <i class="fa fa-calendar-o"></i> Last day
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 col-sm-6">
-            <div class="card card-stats">
-              <div class="card-body ">
-                <div class="row">
-                  <div class="col-5 col-md-4">
-                    <div class="icon-big text-center icon-warning">
-                      <img src="img/count.png">
+                  <div class="row">
+                    <div class="update ml-auto mr-auto">
+                      <button type="submit" class="btn btn-primary btn-round">Update Profile</button>
                     </div>
-                  </div>
-                  <div class="col-7 col-md-8">
-                    <div class="numbers">
-                      <p class="card-category">Visit Counter</p>
-                      <p class="card-title">23
-                        <p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="card-footer ">
-                <hr>
-                <div class="stats">
-                  <i class="fa fa-clock-o"></i> In the last hour
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 col-sm-6">
-            <div class="card card-stats">
-              <div class="card-body ">
-                <div class="row">
-                  <div class="col-5 col-md-4">
-                    <div class="icon-big text-center icon-warning">
-                      <img src="img/req.png">
-                    </div>
-                  </div>
-                  <div class="col-7 col-md-8">
-                    <div class="numbers">
-                      <p class="card-category">Requests</p>
-                      <p class="card-title">52
-                        <p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="card-footer ">
-                <hr>
-                <div class="stats">
-                  <i class="fa fa-eye"></i> View all req.
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 col-sm-6">
-            <div class="card card-stats">
-              <div class="card-body ">
-                <div class="row">
-                  <div class="col-5 col-md-4">
-                    <div class="icon-big text-center icon-warning">
-                      <img src="img/notice.png">
-                    </div>
-                  </div>
-                  <div class="col-7 col-md-8">
-                    <div class="numbers">
-                      <p class="card-category">Notices</p>
-                      <p class="card-title"><?php echo $notice_count; ?>
-                        <p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="card-footer ">
-                <hr>
-                <div class="stats">
-                 <a href="send_notice.php" style="text-decoration: none;"><i class="fa fa-plus"></i> Publish Notice</a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 col-sm-6">
-            <div class="card card-stats">
-              <div class="card-body ">
-                <div class="row">
-                  <div class="col-5 col-md-4">
-                    <div class="icon-big text-center icon-warning">
-                      <img src="img/pstat.png">
-                    </div>
-                  </div>
-                  <div class="col-7 col-md-8">
-                    <div class="numbers">
-                      <p class="card-category"><span style="font-size: 10px">Prog. Language Stats.</span></p>
-                      <p class="card-title"><?php echo $language_count; ?>
-                        <p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="card-footer ">
-                <hr>
-                <div class="stats">
-                    <a href="programming_language_chart.php" style="text-decoration: none;"><i class="fa fa-plus"></i> View Graph</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+                  </div></form>
       </div>
       <?php include_once('includes/footer.php');?>

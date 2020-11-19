@@ -7,18 +7,13 @@
 	<script src="bootstrap/js/jquery.min.js"></script>
 	<script src="bootstrap/js/bootstrap.min.js"></script>
   <script src="ckeditor5-build-classic/ckeditor.js"></script>
-<meta charset="utf-8" />
-  <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
-  <link rel="icon" type="image/png" href="../assets/img/favicon.png">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  
-  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
-  <!--     Fonts and icons     -->
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
-  <!-- CSS Files -->
-  <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="../assets/css/paper-dashboard.css?v=2.0.0" rel="stylesheet" />
+  <script src="https://cdn.ckeditor.com/ckeditor5/16.0.0/classic/ckeditor.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.9.2/parsley.min.js"></script>
+<script type="text/javascript">
+$('#Login-Form').parsley();
+$('#Signin-Form').parsley();
+$('#Forgot-Password-Form').parsley();
+</script>
 	<style>
 	.fakeimg {
   		height: 200px;
@@ -93,5 +88,36 @@
         #reg-cross:hover{
             cursor: pointer;
         }
+        *{ margin:0; padding: 0; box-sizing:border-box; }
+       /*---Signup---*/
+    .modal-header, .modal-body, .modal-footer{
+  padding: 25px;
+}
+.modal-backdrop{
+          z-index:-1;
+        }
+.modal-footer{
+  text-align: center;
+}
+#signup-modal-content, #forgot-password-modal-content{
+  display: none;
+}
+ 
+/** validation */
+  
+input.parsley-error{    
+  border-color:#843534;
+  box-shadow: none;
+}
+input.parsley-error:focus{    
+  border-color:#843534;
+  box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 6px #ce8483
+}
+.parsley-errors-list.filled {
+  opacity: 1;
+  color: #a94442;
+  display: none;
+} 
+
 </style>
 </head>
