@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 17, 2020 at 03:24 PM
+-- Generation Time: Nov 19, 2020 at 08:52 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.11
 
@@ -44,12 +44,7 @@ CREATE TABLE `kpa_notice` (
 INSERT INTO `kpa_notice` (`id`, `notice_topic`, `notice_text`, `notifier_user_id`, `notifier_email`, `published_date`, `status`) VALUES
 (1, 'defense', 'defense will to tomorrow', 0, '', '2020-02-18 09:25:00', 1),
 (2, 'defense', 'defense will to tomorrow', 0, '', '2020-02-18 09:25:01', 1),
-(3, 'email notification', 'this is the testing phase of email notification', 0, '', '2020-02-18 08:33:59', 1),
-(4, 'Hello', 'Is it still working?', 0, '', '2020-11-14 05:06:46', 1),
-(5, 'Hello', 'Is it working?>\r\n', 0, '', '2020-11-14 05:26:36', 1),
-(6, 'Hello', 'Is it working?>\r\n', 0, '', '2020-11-14 05:32:34', 1),
-(7, 'sa', 'helo', 0, '', '2020-11-14 05:32:47', 1),
-(8, 'ammy', 'tammey', 0, '', '2020-11-14 05:50:17', 1);
+(3, 'email notification', 'this is the testing phase of email notification', 0, '', '2020-02-18 08:33:59', 1);
 
 -- --------------------------------------------------------
 
@@ -97,23 +92,30 @@ INSERT INTO `kpa_programming_language` (`id`, `language_name`, `project_code`, `
 CREATE TABLE `kpa_project_list` (
   `id` int(6) NOT NULL,
   `project_title` varchar(200) NOT NULL,
+  `proj_descrip` text NOT NULL,
+  `proj_thumb` varchar(50) NOT NULL,
   `year` varchar(4) NOT NULL,
   `semester` enum('First','Second','Third','Fourth','Fifth','Sixth','Seventh','Eighth') NOT NULL,
-  `project_code` int(6) NOT NULL,
+  `faculty` enum('B.E. Computer','B.E. Electronics','','') NOT NULL,
+  `project_id` int(6) NOT NULL,
   `is_verified` tinyint(1) NOT NULL DEFAULT 1,
   `verified_by_id` int(6) NOT NULL,
-  `status` tinyint(1) NOT NULL DEFAULT 1,
-  `supervisor_id` int(6) NOT NULL
+  `status` tinyint(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `kpa_project_list`
 --
 
-INSERT INTO `kpa_project_list` (`id`, `project_title`, `year`, `semester`, `project_code`, `is_verified`, `verified_by_id`, `status`, `supervisor_id`) VALUES
-(1, 'Khwopa Project Archive', '2076', 'Fifth', 74, 1, 133345, 1, 111111),
-(2, 'Active Worker', '2076', 'Seventh', 77, 1, 333333, 1, 344455),
-(3, 'The Maze', '2075', 'Third', 54, 1, 323322, 1, 444456);
+INSERT INTO `kpa_project_list` (`id`, `project_title`, `proj_descrip`, `proj_thumb`, `year`, `semester`, `faculty`, `project_id`, `is_verified`, `verified_by_id`, `status`) VALUES
+(1, 'Library Management System', 'This project manages the system of library.', 'images/lms1.1.png', '2076', 'Fifth', 'B.E. Computer', 74, 1, 133345, 1),
+(2, 'Hospital Management System', 'This project manages the system of hospital.', 'images/robot.jpg', '2076', 'Seventh', 'B.E. Computer', 77, 1, 333333, 1),
+(7, 'Library Management System', 'This project manages the system of library.', 'images/lms1.1.png', '2076', 'Fifth', 'B.E. Computer', 74, 1, 133345, 1),
+(8, 'Hospital Management System', 'This project manages the system of hospital.', 'images/robot.jpg', '2076', 'Seventh', 'B.E. Computer', 77, 1, 333333, 1),
+(9, 'Library Management System', 'This project manages the system of library.', 'images/lms1.1.png', '2076', 'Fifth', 'B.E. Computer', 74, 1, 133345, 1),
+(10, 'Hospital Management System', 'This project manages the system of hospital.', 'images/robot.jpg', '2076', 'Seventh', 'B.E. Computer', 77, 1, 333333, 1),
+(11, 'Library Management System', 'This project manages the system of library.', 'images/lms1.1.png', '2076', 'Fifth', 'B.E. Computer', 74, 1, 133345, 1),
+(12, 'Hospital Management System', 'This project manages the system of hospital.', 'images/robot.jpg', '2076', 'Seventh', 'B.E. Computer', 77, 1, 333333, 1);
 
 -- --------------------------------------------------------
 
@@ -231,7 +233,7 @@ ALTER TABLE `kpa_programming_language`
 -- AUTO_INCREMENT for table `kpa_project_list`
 --
 ALTER TABLE `kpa_project_list`
-  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `kpa_pwd_reset`
