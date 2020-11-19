@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Khwopa Project Archive</title>
+    <link rel="icon" type="image/icon"  href="images/1.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+   <link rel="stylesheet" type="text/css" href="file:///F:/Project/fontawesome-free-5.15.1-web/css/all.css"> 
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <script src="js/jquery.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="ckeditor5-build-classic/ckeditor.js"></script>
+  <script src="https://cdn.ckeditor.com/ckeditor5/16.0.0/classic/ckeditor.js"></script>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.9.2/parsley.min.js"></script>
+<script type="text/javascript">
+
+$('#Signin-Form').parsley();
+$('#Login-Form').parsley();
+$('#Forgot-Password-Form').parsley();
+window.Parsley.addValidator('maxFileSize', {
+  validateString: function(_value, maxSize, parsleyInstance) {
+   
+    var files = parsleyInstance.$element[0].files;
+    return files.length != 1  || files[0].size <= maxSize * 1024;
+  },
+  requirementType: 'integer',
+  messages: {
+    en: 'This file should not be larger than %s Kb'
+  }
+});
+
+</script>
+  <style>
+  .fakeimg {
+      height: 200px;
+      background: #aaa;
+    }
+    .jumbotron{
+      height: 3%;
+      padding-top: 20px;
+      padding-bottom: 5px;
+    }
+    .navbar{
+      /*height: 60px;*/
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: .9rem;
+      letter-spacing: .1rem;
+      /*background: rgba(0, 0, 0, .1)!important;*/
+    }
+    .dropdown:hover>.dropdown-menu{
+      display: block;
+      background: #e3e3e3;
+    }
+    
+    #icon
+    {
+      max-width: 200px;
+      margin: 5% auto;
+    }
+    .zoom{
+      transition:transform .2s;
+    }
+    .zoom:hover{
+      transform: scale(1.1); /* IE 9 */
+      transform: scale(1.1); /* Safari 3-8 */
+      transform: scale(1.1); 
+    }
+    .zoom1{
+      transition:transform .5s;
+    }
+    .zoom1:hover{
+      transform: scale(1.4); /* IE 9 */
+      transform: scale(1.4); /* Safari 3-8 */
+      transform: scale(1.4); 
+    }
+    hr.hr1{
+      border: 1px light green;
+    }
+
+    footer{
+      width: 100%;
+      background-color: rgba(120,120,120);
+      padding: 1%;
+      color: #fff;
+    }
+    .fab{
+      padding: 5px;
+      font-size: 25px;
+      color: #fff;
+    }
+    .fab:hover{
+      color: rgb(60, 60, 200);
+      text-decoration: none;
+    }
+    @media(max-width: 900px){
+      .fab{
+        font-size: 20px;
+        padding: 10px;
+      }
+    }
+      .fas{
+      color: #D9533E;
+    }
+    .fas:hover{
+      color: #3ED9C1;
+      text-decoration: none;
+    }
+    
+        #reg-cross:hover{
+            cursor: pointer;
+        }
+        *{ margin:0; padding: 0; box-sizing:border-box; }
+       /*---Signup---*/
+    .modal-header, .modal-body, .modal-footer{
+  padding: 25px;
+}
+.modal-backdrop{
+          z-index:-1;
+        }
+.modal-footer{
+  text-align: center;
+}
+#signup-modal-content, #forgot-password-modal-content{
+  display: none;
+}
+ 
+/** validation */
+  
+input.parsley-error{    
+  border-color:#843534;
+  box-shadow: none;
+}
+input.parsley-error:focus{    
+  border-color:#843534;
+  box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 6px #ce8483
+}
+.parsley-errors-list.filled {
+  opacity: 1;
+  color: #a94442;
+  display: none;
+} 
+
+/*body {
+    color: #566787;
+    background: #d3c6c6;
+    font-family: Arial, Helvetica, sans-serif;
+}*/
+/*Project titles*/
+.table-wrapper {
+    
+    background: #fff;
+    padding: 20px 30px 5px;
+    margin: 30px auto;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.7);
+}
+.table-wrapper .btn-group {
+    float: right;
+}
+.table-title .btn {
+    min-width: 50px;
+    border-radius: 1px;
+    border: none;
+    padding: 6px 12px;
+    font-size: 95%;
+    outline: none !important;
+    height: 30px;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.7);
+}
+.table-title {
+    border-bottom: 1px solid #e9e9e9;
+    padding-bottom: 15px;
+    background: rgb(0, 50, 74);
+    margin: -20px -31px 10px;
+    padding: 15px 30px;
+    color: #fff;
+}
+.table-title h2 {
+    margin: 2px 0 0;
+    font-size: 24px;
+}
+table.table tr th, table.table tr td {
+    border-color: #e9e9e9;
+    padding: 12px 15px;
+    vertical-align: middle;
+}
+table.table tr th:first-child {
+    width: 40px;
+}
+table.table tr th:last-child {
+    width: 100px;
+}
+table.table-striped tbody tr:nth-last-of-type(odd) {
+    background-color: #fcfcfc;
+}
+table.table-striped.table-hover tbody tr:hover {
+    background: #f5f5f5;
+}
+table.table td a {
+    color: #2196f3;
+}
+table.table td .btn.manage {
+    padding: 2px 10px;
+    background: #37BC98;
+    color: #fff;
+    border-radius: 1px;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.7);
+}
+table.table td .btn.manage:hover {
+    background: #2e9c81;
+}
+.far{
+  color: orange;
+}
+ .far:hover{
+      color: #3ED9C1;
+    }
+
+</style>
+</head>
+
+<body data-spy="scroll" data-target="#navbarResponsive">
+    <!--  Project Title  -->
+    <div class="jumbotron text-center" style="margin-bottom:0;font-family:Times New Roman ; color: #7A3BA3;">
+    <h1>Khwopa Project Archive</h1>
+  </div>
+  <!-- Navigation bar-->
+  <nav class="navbar navbar-expand-md bg-light navbar-light sticky-top mt-1">
+<!-- <button  type="button" data-toggle="collapse" data-target="#navbarResponsive">
+      <span class="navbar-toggler-icon"></span> 
+    </button> -->
+    <div class="container-fluid">
+      <!-- <a class="navbar-brand" href="#" data-target="#model" data-toggle="modal">Login</a> --><!-- <img src="images/khwopa.png"> --> 
+      <div id="login-signup-modal" class="modal fade" tabindex="-1" role="dialog">
+   <div class="modal-dialog" role="document">
+    
+       <!-- login modal content -->
+        <div class="modal-content" id="login-modal-content">
+        
+          <div class="modal-header"><h4 class="modal-title"> Login Now!</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="margin-right: 10px; margin-top: -33px;"><span aria-hidden="true">&times;</span></button>
+            
+          </div>
+        
+          <div class="modal-body">
+          <form method="post" id="Login-Form" role="form" >
+            <div class="form-group">
+                <div class="input-group">
+                <div class="input-group-addon"><i class="fas fa-user-alt fa-3x"></i></div>
+                <input name="username"  class="form-control input-lg" style="margin-left: 5px;margin-top:5px; " placeholder="Enter Username"  data-parsley-type="" required="" data-parsley-length="[3, 20]">
+                </div>                      
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                <div class="input-group-addon"><i class="fas fa-lock fa-3x"></i></div>
+                <input name="password" id="login-password" type="password" class="form-control input-lg" style="margin-left: 10px;margin-top:5px;" placeholder="Enter Password"  data-parsley-length="[6, 10]" data-parsley-trigger="keyup" required="" >
+
+              <div class="input-group-append">
+                <div class="input-group-text" style="margin-top: 5px;"><i class="fa fa-eye" aria-hidden="true" id="eye" onclick="toggle1()"></i></div>
+              </div>
+                </div>                      
+            </div>
+              <script>
+    var state= false;
+    function toggle1(){
+      if(state){
+        document.getElementById("login-password").setAttribute("type","password");
+        document.getElementById("eye").style.color='#7a797e';
+        state = false;
+
+      }
+      else{
+        document.getElementById("login-password").setAttribute("type","text");
+        document.getElementById("eye").style.color='#5887ef';
+        state = true;
+      }
+    }
+  </script>                      
+     
+            <div class="checkbox">
+              <h6 style="font-family: calibri; font-size: 15px; color: indigo;"><input type="checkbox" value="" checked style="margin-right: 10px;">Remember me</h6>
+            </div>
+              <button type="submit" name="sub" class="btn btn-success btn-block btn-lg">LOGIN</button>
+          </form>
+        </div>
+        
+        <div class="modal-footer">
+          <p>
+          <a id="FPModal" href="javascript:void(0)" data-target="#forgot-password-modal-content">Forgot Password?</a> | 
+          <a id="signupModal" href="javascript:void(0)" data-toggle="modal" >Register Here!</a>
+          </p>
+        </div>
+        
+       </div>
+        <!-- login modal content -->
+        
+        <!-- signup modal content -->
+        <div class="modal-content" id="signup-modal-content">
+        
+       <div class="modal-header">
+        <h4 class="modal-title"> Signup Here!</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="margin-right: 10px; margin-top: -33px;"><span aria-hidden="true">&times;</span></button>
+            
+          </div>
+                
+        <div class="modal-body">
+          <form method="post" id="Signin-Form" role="form">
+            <div class="form-group">
+                <div class="input-group">
+                <div class="input-group-addon"><i class="fas fa-envelope fa-3x"></i></div>
+                <input name="email" id="email2" style="margin-left: 5px;margin-top:5px;" type="email" class="form-control input-lg" placeholder="Enter Email" data-parsley-type="email" required="">
+                </div>                     
+            </div>
+               <div class="form-group">
+                <div class="input-group">
+                <div class="input-group-addon"><i class="fas fa-user-alt fa-3x"></i></div>
+                <input name="text" id="username" style="margin-left: 5px;margin-top:5px;" type="text" class="form-control input-lg" placeholder="Enter Username" required="" data-parsley-length="[3, 20]" data-parsley-trigger="keyup" data-parsley-required-message="this field is required">
+                </div>                     
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                <div class="input-group-addon"><i class="fas fa-unlock fa-3x"></i></div>
+                <input name="password" id="passwd" style="margin-left: 10px;margin-top:5px;" type="password" class="form-control input-lg" placeholder="Enter Password" required data-parsley-length="[6, 10]" data-parsley-trigger="keyup">
+
+                 <div class="input-group-append">
+                <div class="input-group-text" style="margin-top: 5px;"><i class="fa fa-eye" aria-hidden="true" id="eye1" onclick="toggle()"></i></div>
+              </div>
+                </div>                      
+            </div>
+              <script>
+    var state= false;
+    function toggle(){
+      if(state){
+        document.getElementById("passwd").setAttribute("type","password");
+        document.getElementById("eye1").style.color='#7a797e';
+        state = false;
+
+      }
+      else{
+        document.getElementById("passwd").setAttribute("type","text");
+        document.getElementById("eye1").style.color='#5887ef';
+        state = true;
+      }
+    }
+  </script>
+        
+            <div class="form-group">
+                <div class="input-group">
+                <div class="input-group-addon"><i class="fas fa-lock fa-3x"></i></div>
+                <input name="password" style="margin-left: 5px;margin-top:5px;" id="confirm-passwd" type="password" class="form-control input-lg" placeholder="Retype Password" required data-parsley-equalto="#passwd" data-parsley-trigger="keyup">
+                </div>  <!-- data-parsley-pattern="^[a-zA-Z]+$"   -->                  
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                <div class="input-group-addon"></div>
+                <p style="font-family: sans-serif; font-size: 11px;margin-top: 15px;">Please provide a photo of Khec ID card (Size < 42Kb):</p>
+  <input type="file" name="f" required="" data-parsley-max-file-size="42" data-parsley-trigger="keyup">
+                </div>                 
+            </div>
+
+
+            <button type="submit" class="btn btn-success btn-block btn-lg">CREATE ACCOUNT!</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <p>Already a Member ? <a id="loginModal" href="javascript:void(0)">Login Here!</a></p>
+        </div>
+       </div>
+       <!-- signup modal content -->
+
+
+       <!-- forgot password content -->
+       <div class="modal-content" id="forgot-password-modal-content">
+        
+        <div class="modal-header">
+          <h4 class="modal-title"> Recover Password!</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="margin-right: 10px; margin-top: -33px;"><span aria-hidden="true">&times;</span></button>
+            
+          </div>
+
+        <div class="modal-body">
+          <form method="post" id="Forgot-Password-Form" role="form">
+            <div class="form-group">
+                <div class="input-group">
+                <div class="input-group-addon"><i class="fas fa-envelope-open-text fa-3x"></i></div>
+                <input name="email1" style="margin-left: 5px;margin-top:5px; " id="email3" type="email" class="form-control input-lg" placeholder="Enter Email" required data-parsley-type="email">
+                </div>                     
+            </div>         
+            <button type="submit" name="sub1" class="btn btn-success btn-block btn-lg">
+              <span class="glyphicon glyphicon-send"></span> SUBMIT
+            </button>
+          </form>
+        </div>
+        
+        <div class="modal-footer">
+          <p>Remember Password ? <a id="loginModal1" href="javascript:void(0)">Login Here!</a></p>
+        </div>
+        
+       </div>        
+       <!-- forgot password content -->
+  
+  </div>
+</div>
+<div class="zoom1">
+<a href="home.html">
+  <img src="images/logo.png" alt="KPA Logo" title="KPA Logo" 
+  style="height: 55px;width: 55px; margin-left: 76px">
+</a>
+</div>
+         <!-- Navbar toggler-->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          
+               
+            <!--  Navbar links  -->
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link " href="#">Home</a>
+                </li>
+                
+                <li class="nav-item dropdown">
+                    <a class="nav-link text-success dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="categories.html">Management System</a>
+                        <a class="dropdown-item" href="categories.html">Commerce</a>
+                        <a class="dropdown-item" href="categories.html">Robotics</a>
+                        <a class="dropdown-item" href="categories.html">Games</a>
+                        <a class="dropdown-item" href="categories.html">ML and AI</a>
+                        <a class="dropdown-item" href="categories.html">Others</a>
+                     </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-success" href="addp.html">Add Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-success" href="top-projects.html">Top Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-success" href="#">Project Titles</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-success" href="notice.html">Notice</a>
+                </li>
+                <li class="nav-item">
+                  <button class="btn btn-outline-warning" type="button">
+                <a  class="text-info" data-toggle="modal" data-target="#login-signup-modal"><b>Sign-in</b></a></button></li>
+            </ul>
+        </div>
+  </nav>  
+        
+<div class="container">
+         <div class="table-wrapper">
+        <div class="table-title">
+            <div class="row">
+                <div class="col-sm-6"><h2><b>Khec Computer Department </b></h2></div>
+                <div class="col-sm-6">
+                    <div class="btn-group" data-toggle="buttons">
+                        <label class="btn btn-info active">
+                            <input type="radio" name="status" value="all" checked="checked"><b> All</b>
+                        </label>
+                        <label class="btn btn-success">
+                            <input type="radio" name="status" value="3sem"> <b>Third Sem</b>
+                        </label>
+                        <label class="btn btn-warning">
+                            <input type="radio" name="status" value="5sem" ><b  style="color: white;"> Fifth Sem</b>
+                        </label>
+                        <label class="btn btn-danger">
+                            <input type="radio" name="status" value="7sem"> <b>Seventh Sem</b>
+                        </label>       
+                    </div>
+                </div>
+            </div>
+        </div>
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>S.N.</th>
+                    <th>Project Name</th>
+                    <th>Submitted&nbsp;On</th>
+                    <th>Semester/Batch</th>
+                    <th>Category</th>
+                    <th>Rating</th>
+                    <th>Report</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-status="3sem">
+                    <td>1</td>
+                    <td><a href="lms.html">Library Management System</a></td>
+                    <td>04/10/2020</td>
+                    <td><span class="label label-success">III/2074</span></td>
+                    <td>Management System</td>
+                    <td><i class="far fa-star"></i>
+                      <i class="far fa-star"></i>
+                      <i class="far fa-star-half"></i></td>
+                    <td><a href="kpa.docx" download title="Download Report" class="btn btn-sm manage">Download</a></td>
+                </tr>
+                <tr data-status="5sem">
+                    <td>2</td>
+                    <td><a href="lms.html">Line Following Robot</a></td>
+                    <td>05/08/2019</td>
+                    <td><span class="label label-warning">V/2073</span></td>
+                    <td>Robotics</td>
+                    <td><i class="far fa-star"></i>
+                      <i class="far fa-star"></i>
+                      <i class="far fa-star-half"></i></td>
+                    <td><a href="kpa.docx" download title="Download Report" class="btn btn-sm manage">Download</a></td>
+                </tr>
+                <tr data-status="3sem">
+                    <td>3</td>
+                    <td><a href="lms.html">Khwopa Project Archive</a></td>
+                    <td>11/05/2020</td>
+                    <td><span class="label label-success">III/2075</span></td>
+                    <td>Management System</td>
+                    <td><i class="far fa-star"></i>
+                      <i class="far fa-star"></i>
+                      <i class="far fa-star"></i>
+                    </td>
+                    <td><a href="#" class="btn btn-sm manage">Download</a></td>
+                </tr>
+                <tr data-status="7sem">
+                    <td>4</td>
+                    <td><a href="lms.html">Maze Runner</a></td>
+                    <td>06/09/2019</td>
+                    <td><span class="label label-danger">VII/2075</span></td>
+                    <td>Game</td>
+                    <td><i class="far fa-star"></i>
+                      <i class="far fa-star"></i>
+                      <i class="far fa-star"></i>
+                      <i class="far fa-star"></i></td>
+                    <td><a href="#" class="btn btn-sm manage">Download</a></td>
+                </tr>
+                <tr data-status="5sem">
+                    <td>5</td>
+                    <td><a href="lms.html">Department Management System</a></td>
+                    <td>12/08/2020</td>
+                    <td><span class="label label-warning">V/2073</span></td>
+                    <td>Commerce</td>
+                    <td><i class="far fa-star"></i>
+                      <i class="far fa-star"></i>
+                      <i class="far fa-star-half"></i></td>
+                    <td><a href="#" class="btn btn-sm manage">Download</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div> 
+    <script>
+    $(document).ready(function()
+{
+    $(".btn-group .btn").click(function()
+    {
+        var inputValue  =   $(this).find("input").val();
+        if(inputValue   != 'all')
+        {
+            var target  =   $('table tr[data-status="' + inputValue + '"]');
+            $("table tbody tr").not(target).hide();
+            target.fadeIn();
+        }
+        else
+        {
+            $("table tbody tr").fadeIn();
+        } 
+    });
+    // Changeing the class of status label to support bootstrap 4
+    var bs  =  $.fn.tooltip.Constructor.VERSION;
+    var support =   bs.split(".");
+    if(str[0]   ==  4)
+    {
+        $(".label").each(function()
+        {
+            var classStr    =   $(this).attr("class");
+            var newClassStr =   classStr.replace(/label/g, "badge");
+            $(this).removeAttr("class").addClass(newClassStr);
+        });
+    }
+});  
+
+</script>
+  </div>
+
+    
+
+<br>
+<br>
+<!--- Footer-->
+<footer class="container-fluid text-center" style="background-color:  #CBC7D0;margin-top: 200px;">
+  <div class="row text-success">
+    <div class="col-sm-3">
+      <h3 style="color: #08090A;">Meet the Team</h3>
+      <h5>Group Members & info</h45>
+    </div>
+    <div class="col-sm-3">
+      <h3 style="color: #08090A;">Contact Us</h3>
+      <h5>Our address and contact info </h5>
+    </div>
+    <div class="col-sm-3">
+      <h3  style="color: #08090A;">Connect</h3>
+      <a href="#" class="fab fa-facebook" title="facebook" style="font-size: 30px;"></a>
+      <a href="#" class="fab fa-twitter" title="twitter" style="font-size: 30px;"></a>
+      <a href="#" class="fab fa-google" title="google" style="font-size: 30px"></a>
+      <a href="#" class="fab fa-youtube" title="youtube" style="font-size: 30px;"></a>
+    </div>
+    <!---KPA info at footer--->
+    <div class="col-sm-3">
+       <img src="images/logo.png" class="icon" title="KPA Logo" 
+  style="height: 55px;margin-bottom: -20px;" alt="KPA"><br><br>
+      <a href="#" class="fas fa-home text-success" title="Home" style="font-size: 17px;margin-right: 10px;"></a>||
+      <a href="contact-us.html" class="fas fa-id-card-alt" title="Contact" style="font-size: 17px;margin-left: 10px;margin-right: 10px;"></a>||
+      <a href="#" class="fas fa-comment-dots" title="Feedback" style="font-size: 17px;margin-left: 10px;margin-right: 10px;"></a>||
+        <a href="faq.html" class="fas fa-question" title="FAQs" style="font-size: 17px;margin-left: 10px;"></a>
+    </div>
+  </div>
+
+</footer>
+  <div class="col-xs-12" style="background: brown; height: 22px;">
+    <h5 style="text-align: center; color: white; font-size: 15px;"><i class="fa fa-copyright" style="font-size:16px;margin-top: 3px;">  2020 KPA</i></h5>
+  </div>
+
+</body>
+</html>
+
+<!--Query for ckeditor-->
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#editor' ) )
+        .catch( error => {
+            console.error( error );
+        } );</script>
+<script>
+    //jquery for registration request fadeout
+    $(document).ready(function () {
+        $("#reg-cross").click(function () {
+        $(".reg").fadeOut();
+        });
+    });
+  </script>
+  <script>
+    //parsely validation
+    
+$(document).ready(function(){
+
+
+   $('#signupModal').click(function(){
+     $('#login-modal-content').fadeOut('fast', function(){
+        $('#signup-modal-content').fadeIn('fast');
+     });
+    });
+
+    $('#loginModal').click(function(){
+     $('#signup-modal-content').fadeOut('fast', function(){
+        $('#login-modal-content').fadeIn('fast');
+     });
+    });
+
+    $('#FPModal').click(function(){
+     $('#login-modal-content').fadeOut('fast', function(){
+        $('#forgot-password-modal-content').fadeIn('fast');
+        });
+    });
+
+    $('#loginModal1').click(function(){
+     $('#forgot-password-modal-content').fadeOut('fast', function(){
+        $('#login-modal-content').fadeIn('fast');
+     });
+    });
+
+    $('#Login-Form').parsley();
+    $('#Signin-Form').parsley();
+    $('#Forgot-Password-Form').parsley();
+});
+
+</script>
+
+<script>
+// live search using JSON and JQuery AJAX
+
+$(document).ready(function(){
+    $.ajaxSetup({ cache: false })
+    $('#navBarSearch').keyup(function(){
+        $('#sResult').html('');
+        var sText = $('#navBarSearch').val();
+        if (sText != ''){
+            var expression = new RegExp(sText, "i");
+            $.getJSON('search_json.json', function(data) {
+                $.each(data, function(key, value){
+                    if (value.project_title.search(expression) != -1 || value.semester.search(expression) != -1) {
+                        $('#sResult').append('<li class="list-group-item link-class" height="50" width="50">' + value.project_title + ' | <span class="text-muted">' + value.semester + '</span></li>');
+                    }
+                });
+            });
+        }
+    });
+});
+  
+</script>

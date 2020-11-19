@@ -1,35 +1,36 @@
 <!--- Footer-->
-<footer class="container-fluid text-center" style="background-color:  #04091e">
-  <div class="row">
+<footer class="container-fluid text-center" style="background-color:  #CBC7D0">
+  <div class="row text-success">
     <div class="col-sm-3">
-      <h3>Meet the Team</h3>
-      <h5>Our address and contact info here</h45>
+      <h3 style="color: #08090A;">Meet the Team</h3>
+      <h6>Naresh Roka, Avishek Karki</h6>
+        <h6>Dhruba Rai, Aarju Chaulagain</h6>
     </div>
     <div class="col-sm-3">
-      <h3>Contact Us</h3>
-      
-      <br>
-      <h4>Our address and contact info here</h4>
+      <h3 style="color: #08090A;">Contact Us</h3>
+      <h6>Email: kpa-khec@edu.no</h6>
+      <h6>Phone: 9823*******</h6>
     </div>
     <div class="col-sm-3">
-      <h3>Connect</h3>
-      <a href="#" class="fab fa-facebook-square" title="facebook" style="font-size: 30px"></a>
-      <a href="#" class="fab fa-twitter-square" title="twitter" style="font-size: 30px"></a>
+      <h3  style="color: #08090A;">Connect</h3>
+      <a href="#" class="fab fa-facebook" title="facebook" style="font-size: 30px;"></a>
+      <a href="#" class="fab fa-twitter" title="twitter" style="font-size: 30px;"></a>
       <a href="#" class="fab fa-google" title="google" style="font-size: 30px"></a>
-      <!-- <a href="#" class="fab fa-youtube-square" title="youtube" style="font-size: 30px; background: grey; "></a> -->
+      <a href="#" class="fab fa-youtube" title="youtube" style="font-size: 30px;"></a>
     </div>
     <!---KPA info at footer--->
     <div class="col-sm-3">
-      <img src="images/kpa.jpg" class="icon" alt="KPA"><br><br>
-      <a href="#" class="fas fa-home" title="Home" style="font-size: 17px;margin-right: 10px;"></a>||
-      <a href="#" class="fas fa-id-card-alt" title="Contact" style="font-size: 17px;margin-left: 10px;margin-right: 10px;"></a>||
+       <img src="images/logo.png" class="icon" title="KPA Logo" 
+  style="height: 55px;margin-bottom: -20px;" alt="KPA"><br><br>
+      <a href="home.php" class="fas fa-home" title="Home" style="font-size: 17px;margin-right: 10px;"></a>||
+      <a href="contact-us.php" class="fas fa-id-card-alt" title="Contact" style="font-size: 17px;margin-left: 10px;margin-right: 10px;"></a>||
       <a href="#" class="fas fa-comment-dots" title="Feedback" style="font-size: 17px;margin-left: 10px;margin-right: 10px;"></a>||
-        <a href="#" class="fas fa-question" title="FAQs" style="font-size: 17px;margin-left: 10px;"></a>
+        <a href="faq.php" class="fas fa-question" title="FAQs" style="font-size: 17px;margin-left: 10px;"></a>
     </div>
   </div>
 
 </footer>
-  <div class="col-xs-12" style="background: #04091e; height: 22px;">
+  <div class="col-xs-12" style="background: brown; height: 22px;">
     <h5 style="text-align: center; color: white; font-size: 15px;"><i class="fa fa-copyright" style="font-size:16px;margin-top: 3px;">  2020 KPA</i></h5>
   </div>
   
