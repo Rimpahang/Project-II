@@ -1,7 +1,3 @@
- <!--  Project Title  -->
-    <div class="jumbotron text-center" style="margin-bottom:0;font-family:Times New Roman ; color: #7A3BA3;">
-    <h1>Khwopa Project Archive</h1>
-  </div>
 <nav class="navbar navbar-expand-md bg-light navbar-light sticky-top mt-1">
 <!-- <button  type="button" data-toggle="collapse" data-target="#navbarResponsive">
       <span class="navbar-toggler-icon"></span> 
@@ -63,7 +59,7 @@
         <div class="modal-footer">
           <p>
           <a id="FPModal" href="javascript:void(0)" data-target="#forgot-password-modal-content">Forgot Password?</a> | 
-          <a id="signupModal" href="javascript:void(0)" data-toggle="modal" >Register Here!</a>
+          <a id="signupModal" href="javascript:void(0)" data-toggle="modal" data-target="#signup-modal-content">Register Here!</a>
           </p>
         </div>
         
@@ -176,43 +172,38 @@
   
   </div>
 </div>
-<div class="zoom1">
-<a href="home.html">
-  <img src="images/logo.png" alt="KPA Logo" title="KPA Logo" 
-  style="height: 55px;width: 55px; margin-left: 76px">
-</a>
-</div>
+
          <!-- Navbar toggler-->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
-               
+               <img src="images/logo/logo.png" style="height: 80px;width: 80px; margin-left: 80px">
             <!--  Navbar links  -->
-          <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link text-success" href="home.php">Home</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle text-success" href="#" id="navbarDropdown"role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="categories.php">System Management </a>
-          <a class="dropdown-item" href="categories.php">Commerce</a>
-          <a class="dropdown-item" href="categories.php">Robotics</a>
-          <a class="dropdown-item" href="categories.php">Games</a>
-          <a class="dropdown-item" href="categories.php">ML and AI</a>
-          <a class="dropdown-item" href="categories.php">Others</a>
-        </div>
-            
-          </li>
-                <li class="nav-item">
-                    <a class="nav-link text-success" href="addp.php">Add Projects</a>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link " href="#">Home</a>
+                </li>
+                
+                <li class="nav-item dropdown">
+                    <a class="nav-link text-success dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="categories.html">Management System</a>
+                        <a class="dropdown-item" href="categories.html">Commerce</a>
+                        <a class="dropdown-item" href="categories.html">Robotics</a>
+                        <a class="dropdown-item" href="categories.html">Games</a>
+                        <a class="dropdown-item" href="categories.html">ML and AI</a>
+                        <a class="dropdown-item" href="categories.html">Others</a>
+                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-success" href="top-projects.php">Top Projects</a>
+                    <a class="nav-link text-success" href="addp.html">Add Projects</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-success" href="project-lists.php">Project Lists</a>
+                    <a class="nav-link text-success" href="#">Top Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-success" href="#">Project Titles</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-success" href="notice.html">Notice</a>
@@ -244,8 +235,7 @@ include("backEnd/DBconnect.php");
 <?php if(!isset($_SESSION['username']))
       {     ?>
 <ul class="navbar-nav ml-auto"> <li class="nav-item">
-                  <button class="btn btn-outline-warning" type="button">
-                <a  class="text-info" data-toggle="modal" data-target="#login-signup-modal"><b>Sign-in</b></a></button></li></ul><?php }?>
+                <a  class="nav-link text-success" href="" data-toggle="modal" data-target="#login-signup-modal">Login</a></li></ul><?php }?>
 
         </div>
   </nav>  
