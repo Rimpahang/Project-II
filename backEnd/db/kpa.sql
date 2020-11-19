@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.2
+-- version 5.0.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 16, 2020 at 09:36 PM
--- Server version: 10.4.10-MariaDB
--- PHP Version: 7.1.33
+-- Generation Time: Nov 19, 2020 at 04:58 PM
+-- Server version: 10.4.14-MariaDB
+-- PHP Version: 7.4.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -21,19 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `kpa`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `kpa_chat_message`
---
-
-CREATE TABLE `kpa_chat_message` (
-  `id` int(11) NOT NULL,
-  `email` varchar(100) NOT NULL,
-  `sent_date` timestamp NOT NULL DEFAULT current_timestamp(),
-  `message` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -95,34 +81,7 @@ INSERT INTO `kpa_programming_language` (`id`, `language_name`, `project_code`, `
 (15, 'Javascript', 767676, '2074'),
 (16, 'JavaScript', 89898, '2074'),
 (17, 'Javascript', 767676, '2074'),
-(18, 'JavaScript', 89898, '2074'),
-(19, 'HTML', 656565, '2071'),
-(20, 'HTML', 656565, '2071');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `kpa_project_details`
---
-
-CREATE TABLE `kpa_project_details` (
-  `id` int(2) NOT NULL,
-  `project_title` varchar(100) NOT NULL,
-  `project_abstract` varchar(200) NOT NULL,
-  `project_description` text NOT NULL,
-  `uploaded_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `verified_at` int(5) NOT NULL,
-  `verified_by` int(5) NOT NULL,
-  `status` tinyint(1) NOT NULL DEFAULT 1
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `kpa_project_details`
---
-
-INSERT INTO `kpa_project_details` (`id`, `project_title`, `project_abstract`, `project_description`, `uploaded_at`, `verified_at`, `verified_by`, `status`) VALUES
-(26, 'KPA', 'spots_reflections_soft_light_47191_2560x1600.jpg', 'kpa', '2020-03-16 16:27:18', 0, 0, 1),
-(27, 'new', '80309323-programming-code-abstract-technology-background-of-software-developer-and-computer-script.jpg', 'old', '2020-03-16 16:27:34', 0, 0, 1);
+(18, 'JavaScript', 89898, '2074');
 
 -- --------------------------------------------------------
 
@@ -133,23 +92,33 @@ INSERT INTO `kpa_project_details` (`id`, `project_title`, `project_abstract`, `p
 CREATE TABLE `kpa_project_list` (
   `id` int(6) NOT NULL,
   `project_title` varchar(200) NOT NULL,
-  `year` varchar(4) NOT NULL,
+  `proj_descrip` text NOT NULL,
+  `proj_thumb` varchar(50) NOT NULL,
+  `category` enum('Management System','Commerce','Robotics','Games','ML and AI','Others') NOT NULL,
+  `year` enum('1','2','3','4') NOT NULL,
   `semester` enum('First','Second','Third','Fourth','Fifth','Sixth','Seventh','Eighth') NOT NULL,
-  `project_code` int(6) NOT NULL,
+  `faculty` enum('B.E. Computer','B.E. Electronics','','') NOT NULL,
+  `project_id` int(6) NOT NULL,
   `is_verified` tinyint(1) NOT NULL DEFAULT 1,
   `verified_by_id` int(6) NOT NULL,
-  `status` tinyint(1) NOT NULL DEFAULT 1,
-  `supervisor_id` int(6) NOT NULL
+  `status` tinyint(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `kpa_project_list`
 --
 
-INSERT INTO `kpa_project_list` (`id`, `project_title`, `year`, `semester`, `project_code`, `is_verified`, `verified_by_id`, `status`, `supervisor_id`) VALUES
-(1, 'Khwopa Project Archive', '2076', 'Fifth', 74, 1, 133345, 1, 111111),
-(2, 'Active Worker', '2076', 'Seventh', 77, 1, 333333, 1, 344455),
-(3, 'The Maze', '2075', 'Third', 54, 1, 323322, 1, 444456);
+INSERT INTO `kpa_project_list` (`id`, `project_title`, `proj_descrip`, `proj_thumb`, `category`, `year`, `semester`, `faculty`, `project_id`, `is_verified`, `verified_by_id`, `status`) VALUES
+(1, 'Library Management System', 'This project manages the system of library.', 'lms1.1.png', 'Management System', '2', 'Third', 'B.E. Computer', 74, 1, 133345, 1),
+(2, 'Hospital Management System', 'This project manages the system of hospital.', 'robot.jpg', 'Management System', '4', 'Seventh', 'B.E. Computer', 77, 1, 333333, 1),
+(7, 'Library Management System', 'This project manages the system of library.', 'lms1.1.png', 'Management System', '3', 'Fifth', 'B.E. Computer', 74, 1, 133345, 1),
+(8, 'Hospital Management System', 'This project manages the system of hospital.', 'robot.jpg', 'Management System', '4', 'Seventh', 'B.E. Computer', 77, 1, 333333, 1),
+(9, 'Library Management System', 'This project manages the system of library.', 'lms1.1.png', 'Management System', '3', 'Fifth', 'B.E. Computer', 74, 1, 133345, 1),
+(10, 'Hospital Management System', 'This project manages the system of hospital.', 'robot.jpg', 'Management System', '4', 'Seventh', 'B.E. Computer', 77, 1, 333333, 1),
+(11, 'Library Management System', 'This project manages the system of library.', 'lms1.1.png', 'Management System', '3', 'Fifth', 'B.E. Computer', 74, 1, 133345, 1),
+(12, 'Hospital Management System', 'This project manages the system of hospital.', 'lms1.1.png', 'Management System', '4', 'First', 'B.E. Computer', 77, 1, 333333, 1),
+(13, 'test', 'test', 'logo.png', 'Management System', '1', 'First', 'B.E. Computer', 0, 1, 0, 1),
+(32, 'wqewqe', 'dsddda', 'fb.jpg', 'Management System', '1', 'First', 'B.E. Computer', 1, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -174,30 +143,8 @@ INSERT INTO `kpa_pwd_reset` (`id`, `email`, `reset_key`, `sent_date`, `sent_time
 (26, 'rimpahang@gmail.com', 304009, '2020-02-14 17:24:55', '1581701095', 0),
 (30, 'rimpahang@gmail.com', 868306, '2020-02-16 09:41:22', '1581846082', 0),
 (31, 'rimpahang@gmail.com', 705670, '2020-02-16 09:42:04', '1581846124', 0),
-(32, 'nrshroka@gmail.com', 337614, '2020-03-16 21:00:20', '1584392420', 1),
-(33, 'nrshroka@gmail.com', 967941, '2020-03-16 21:02:06', '1584392526', 1),
-(34, 'nrshroka@gmail.com', 600222, '2020-03-16 21:02:40', '1584392560', 1),
-(35, 'nrshroka@gmail.com', 851227, '2020-03-16 21:03:27', '1584392607', 0);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `kpa_uploads`
---
-
-CREATE TABLE `kpa_uploads` (
-  `id` int(3) NOT NULL,
-  `title` varchar(15) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `kpa_uploads`
---
-
-INSERT INTO `kpa_uploads` (`id`, `title`, `created_at`) VALUES
-(5, 'ds.PNG', '2020-03-14 16:38:27'),
-(6, 'Capture.PNG', '2020-03-16 05:35:51');
+(32, 'nrshroka@gmail.com', 324730, '2020-11-19 10:55:54', '1605783354', 1),
+(33, 'nrshroka@gmail.com', 398283, '2020-11-19 10:57:04', '1605783424', 0);
 
 -- --------------------------------------------------------
 
@@ -209,10 +156,13 @@ CREATE TABLE `kpa_user` (
   `id` int(6) UNSIGNED NOT NULL,
   `name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `username` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `address` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(80) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(32) COLLATE utf8mb4_unicode_ci NOT NULL,
   `user_type` enum('normal_user','admin','super_admin','guest') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'normal_user',
+  `address` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `semester` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `department` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `aboutme` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `secret_key` varchar(32) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `remarks` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `postby_id` int(6) DEFAULT 1,
@@ -227,21 +177,17 @@ CREATE TABLE `kpa_user` (
 -- Dumping data for table `kpa_user`
 --
 
-INSERT INTO `kpa_user` (`id`, `name`, `username`, `address`, `email`, `password`, `user_type`, `secret_key`, `remarks`, `postby_id`, `created_at`, `is_verified`, `verifiedby_id`, `updated_at`, `status`) VALUES
-(7, 'Dhruba Rai', 'rimpahang', 'Libali, Bhaktapur', 'rimpahang@gmail.com', '4a4be40c96ac6314e91d93f38043a634', 'super_admin', NULL, NULL, 1, '2019-08-02 04:25:41', 1, 1, '2020-03-17 02:38:22', 1),
-(8, 'sabin shrestha', 'sabin', 'Libali, Bhaktapur', 'alchinibas123@gmail.com', '5d41402abc4b2a76b9719d911017c592', 'admin', NULL, NULL, 1, '2019-08-06 17:32:50', 1, 1, '2020-03-16 21:40:32', 1),
-(9, 'Naresh Roka', 'ace', 'Naikap, Kathmandu', 'nrshroka@gmail.com', '5e91a433e94deefc9843b40d330d52e7', 'normal_user', NULL, NULL, 1, '2019-08-06 17:47:25', 0, 1, '2020-03-17 02:50:03', 1),
-(12, 'Avishek Karki', 'kanxo', 'New Baneshwor, Kathmandu', 'karkiavi12345@gmail.com', 'cfb70d4d263b5ae0d229ea5d4aaa7445', 'normal_user', NULL, NULL, 1, '2019-08-07 04:33:51', 0, 1, '2020-03-16 21:41:06', 1);
+INSERT INTO `kpa_user` (`id`, `name`, `username`, `email`, `password`, `user_type`, `address`, `semester`, `department`, `aboutme`, `secret_key`, `remarks`, `postby_id`, `created_at`, `is_verified`, `verifiedby_id`, `updated_at`, `status`) VALUES
+(7, 'Dhruba Rai', 'rimpahang', 'rimpahang@gmail.com', '8d909b810b4a43cdb83c6c12a129660f', 'super_admin', '', '', '', '', NULL, NULL, 1, '2019-08-02 04:25:41', 1, 1, '2020-02-16 15:51:47', 1),
+(8, 'sabin shrestha', 'sabin', 'alchinibas123@gmail.com', '5d41402abc4b2a76b9719d911017c592', 'admin', '', '', '', '', NULL, NULL, 1, '2019-08-06 17:32:50', 1, 1, '2020-02-18 14:19:56', 1),
+(9, 'Naresh Roka', 'ace', 'nrshroka@gmail.com', 'ec6a6536ca304edf844d1d248a4f08dc', 'super_admin', '', '', '', '', NULL, NULL, 1, '2019-08-06 17:47:25', 1, 1, '2020-11-19 16:43:18', 1),
+(12, 'Avishek Karki', 'kanxo', 'karkiavi12345@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', 'normal_user', '', '', '', '', NULL, NULL, 1, '2019-08-07 04:33:51', 1, 1, '2020-11-17 13:58:17', 1),
+(23, 'Naresh', 'Nrsh', 'ezionaresh@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', 'super_admin', 'Naikap', '6th', 'Computer', 'Ok its done\r\n', NULL, NULL, 1, '2020-11-17 05:18:11', 1, 1, '2020-11-19 18:17:41', 1),
+(25, 'test', 'test', 'test@gmail.com', '202cb962ac59075b964b07152d234b70', 'normal_user', '', '', '', '', NULL, NULL, 1, '2020-11-19 10:42:44', 0, 1, NULL, 1);
 
 --
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `kpa_chat_message`
---
-ALTER TABLE `kpa_chat_message`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `kpa_notice`
@@ -256,12 +202,6 @@ ALTER TABLE `kpa_programming_language`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `kpa_project_details`
---
-ALTER TABLE `kpa_project_details`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `kpa_project_list`
 --
 ALTER TABLE `kpa_project_list`
@@ -271,12 +211,6 @@ ALTER TABLE `kpa_project_list`
 -- Indexes for table `kpa_pwd_reset`
 --
 ALTER TABLE `kpa_pwd_reset`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `kpa_uploads`
---
-ALTER TABLE `kpa_uploads`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -294,52 +228,34 @@ ALTER TABLE `kpa_user`
 --
 
 --
--- AUTO_INCREMENT for table `kpa_chat_message`
---
-ALTER TABLE `kpa_chat_message`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `kpa_notice`
 --
 ALTER TABLE `kpa_notice`
-  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `kpa_programming_language`
 --
 ALTER TABLE `kpa_programming_language`
-  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
-
---
--- AUTO_INCREMENT for table `kpa_project_details`
---
-ALTER TABLE `kpa_project_details`
-  MODIFY `id` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `kpa_project_list`
 --
 ALTER TABLE `kpa_project_list`
-  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `kpa_pwd_reset`
 --
 ALTER TABLE `kpa_pwd_reset`
-  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
-
---
--- AUTO_INCREMENT for table `kpa_uploads`
---
-ALTER TABLE `kpa_uploads`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `kpa_user`
 --
 ALTER TABLE `kpa_user`
-  MODIFY `id` int(6) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(6) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
