@@ -11,7 +11,7 @@
             <p class="para">Want to become member? Click the button and be our friend rather than guest.</p>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 col-xl-2 d-inline-block">
-                        <a ><button type="button" class="btn btn-outline-success btn-light" data-target="#signup-modal-content" >Register</button></a>
+                        <a href="" data-toggle="modal" data-target="#login-signup-modal"><button type="button" class="btn btn-outline-success btn-light">Register</button></a>
                     </div>
                     <div class="fa fa-times position-absolute" id="reg-cross" style="color: black; right: 20px; top: 3px;">
                     </div>
