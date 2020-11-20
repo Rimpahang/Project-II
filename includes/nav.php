@@ -17,6 +17,7 @@
           </div>
                   <div class="modal-body">
           <form method="post" id="Login-Form" role="form" >
+            
             <div class="form-group">
                 <div class="input-group">
                 <div class="input-group-addon"><i class="fas fa-user-alt fa-3x"></i></div>
@@ -59,7 +60,7 @@
         <div class="modal-footer">
           <p>
           <a id="FPModal" href="javascript:void(0)" data-target="#forgot-password-modal-content">Forgot Password?</a> | 
-          <a id="signupModal" href="javascript:void(0)" data-toggle="modal" data-target="#signup-modal-content">Register Here!</a>
+          <a id="signupModal" href="javascript:void(0)" data-toggle="modal" >Register Here!</a>
           </p>
         </div>
         
@@ -73,25 +74,31 @@
             <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="margin-right: 10px; margin-top: -33px;"><span aria-hidden="true">&times;</span></button>
             
           </div>
-                
+
         <div class="modal-body">
-          <form method="post" id="Signin-Form" role="form">
+          <form method="POST" id="Signin-Form" role="form">
             <div class="form-group">
                 <div class="input-group">
                 <div class="input-group-addon"><i class="fas fa-envelope fa-3x"></i></div>
-                <input name="email" id="email2" style="margin-left: 5px;margin-top:5px;" type="email" class="form-control input-lg" placeholder="Enter Email" data-parsley-type="email" required="">
+                <input name="emailn"  id="email2" style="margin-left: 5px;margin-top:5px;" type="email" class="form-control input-lg" placeholder="Enter Email" data-parsley-type="email" required="">
                 </div>                     
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                <div class="input-group-addon"><i class="fas fa-user-alt fa-3x"></i></div>
+                <input name="namen"  class="form-control input-lg" style="margin-left: 5px;margin-top:5px; " placeholder="Enter Name"  data-parsley-type="" required="" data-parsley-length="[3, 20]">
+                </div>                      
             </div>
                <div class="form-group">
                 <div class="input-group">
                 <div class="input-group-addon"><i class="fas fa-user-alt fa-3x"></i></div>
-                <input name="text" id="username" style="margin-left: 5px;margin-top:5px;" type="text" class="form-control input-lg" placeholder="Enter Username" required="" data-parsley-length="[3, 20]" data-parsley-trigger="keyup" data-parsley-required-message="this field is required">
+                <input name="usernamen" id="username" style="margin-left: 5px;margin-top:5px;" type="text" class="form-control input-lg" placeholder="Enter Username" required="" data-parsley-length="[3, 20]" data-parsley-trigger="keyup" data-parsley-required-message="this field is required">
                 </div>                     
             </div>
             <div class="form-group">
                 <div class="input-group">
                 <div class="input-group-addon"><i class="fas fa-unlock fa-3x"></i></div>
-                <input name="password" id="passwd" style="margin-left: 10px;margin-top:5px;" type="password" class="form-control input-lg" placeholder="Enter Password" required data-parsley-length="[6, 10]" data-parsley-trigger="keyup">
+                <input name="passwordn" id="passwd" style="margin-left: 10px;margin-top:5px;" type="password" class="form-control input-lg" placeholder="Enter Password" required data-parsley-length="[6, 10]" data-parsley-trigger="keyup">
 
                  <div class="input-group-append">
                 <div class="input-group-text" style="margin-top: 5px;"><i class="fa fa-eye" aria-hidden="true" id="eye1" onclick="toggle()"></i></div>
@@ -118,19 +125,19 @@
             <div class="form-group">
                 <div class="input-group">
                 <div class="input-group-addon"><i class="fas fa-lock fa-3x"></i></div>
-                <input name="password" style="margin-left: 5px;margin-top:5px;" id="confirm-passwd" type="password" class="form-control input-lg" placeholder="Retype Password" required data-parsley-equalto="#passwd" data-parsley-trigger="keyup">
+                <input name="password-ren" style="margin-left: 5px;margin-top:5px;" id="confirm-passwd" type="password" class="form-control input-lg" placeholder="Retype Password" required data-parsley-equalto="#passwd" data-parsley-trigger="keyup">
                 </div>  <!-- data-parsley-pattern="^[a-zA-Z]+$"   -->                  
             </div>
-            <div class="form-group">
+           <!--  <div class="form-group">
                 <div class="input-group">
                 <div class="input-group-addon"></div>
                 <p style="font-family: sans-serif; font-size: 11px;margin-top: 15px;">Please provide a photo of Khec ID card (Size < 42Kb):</p>
   <input type="file" name="f" required="" data-parsley-max-file-size="42" data-parsley-trigger="keyup">
                 </div>                 
             </div>
+ -->
 
-
-            <button type="submit" class="btn btn-success btn-block btn-lg">CREATE ACCOUNT!</button>
+            <button type="submit" name='add_user' class="btn btn-success btn-block btn-lg">CREATE ACCOUNT!</button>
           </form>
         </div>
         <div class="modal-footer">
@@ -181,32 +188,33 @@
                <img src="images/logo/logo.png" style="height: 80px;width: 80px; margin-left: 80px">
             <!--  Navbar links  -->
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <a class="nav-link " href="#">Home</a>
+                <li class="nav-item ">
+                    <a class="nav-link text-success" href="home.php">Home</a>
                 </li>
                 
                 <li class="nav-item dropdown">
                     <a class="nav-link text-success dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="categories.html">Management System</a>
-                        <a class="dropdown-item" href="categories.html">Commerce</a>
-                        <a class="dropdown-item" href="categories.html">Robotics</a>
-                        <a class="dropdown-item" href="categories.html">Games</a>
-                        <a class="dropdown-item" href="categories.html">ML and AI</a>
-                        <a class="dropdown-item" href="categories.html">Others</a>
+                        <a class="dropdown-item" href="categories.php">Management System</a>
+                        <a class="dropdown-item" href="categories.php">Commerce</a>
+                        <a class="dropdown-item" href="categories.php">Robotics</a>
+                        <a class="dropdown-item" href="categories.php">Games</a>
+                        <a class="dropdown-item" href="categories.php">ML and AI</a>
+                        <a class="dropdown-item" href="categories.php">Others</a>
                      </div>
                 </li>
+
                 <li class="nav-item">
-                    <a class="nav-link text-success" href="addp.html">Add Projects</a>
+                    <a class="nav-link text-success" href="addp-avi.php">Add Projects</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-success" href="#">Top Projects</a>
+                    <a class="nav-link text-success" href="project-collection.php"> Projects Collections</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-success" href="#">Project Titles</a>
+                    <a class="nav-link text-success" href="project-lists.php">Project Titles</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-success" href="notice.html">Notice</a>
+                    <a class="nav-link text-success" href="notice.php">Notice</a>
                 </li> </ul>
               
             <?php if(isset($_SESSION['username']))

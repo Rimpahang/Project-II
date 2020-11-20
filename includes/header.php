@@ -149,6 +149,30 @@ else{
 }
 mysqli_close($conn);
 ?>
+<?php error_reporting(0);
+if (isset($_POST['add_user'])) {
+  
+  $n =$_POST['namen'];
+  $u = $_POST['usernamen'];
+  $e = $_POST['emailn'];
+  $p = $_POST['passwordn'];
+  $re_p = $_POST['password-ren'];
+   if ($p != $re_p) {
+    echo '<script type="text/javascript">alert("Password & Confirm Password don\'t match.");</script>';
+  }
+
+  $sql = "INSERT INTO `kpa_user` (`name`,`username`, `email`,`password`)
+VALUES ('$n','$u', '$e', md5('$p'))";
+include('backEnd/includes/DBConnect.php');
+if (mysqli_query($conn, $sql)) {
+     echo "<script>alert('Sign Up Successful!');</script>";
+            echo "<script>window.location='home.php';</script>";exit;
+} else {
+    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+}
+mysqli_close($conn);
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
