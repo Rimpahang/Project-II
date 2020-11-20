@@ -1,28 +1,27 @@
 <?php include_once('includes/header.php');
-$user_id = @$_GET['id'];
-if (!isset($user_id)) {
-  header('Location: users.php');
-}
-require_once("DBConnect.php");
-$sql = "SELECT * FROM `kpa_user` WHERE `id`='$user_id' Limit 0, 10";
-$result = mysqli_query($conn, $sql);
-$prev_data = mysqli_fetch_assoc($result);
 
-if (isset($_POST['edit_user'])) {
-  $user_id = $_GET['id'];
-  $n=$_POST['name'];
-  $u = $_POST['username'];
-  $e = $_POST['email'];
-  $sql = "UPDATE `kpa_user` SET `name`='$n',`username`='$u', `email`='$e' WHERE `id`='$user_id';";
+if (isset($_POST['add_project'])) {
+  
+  $n =$_POST['title'];
+  $u = $_POST['description'];
+  $e = $_POST['abstract'];
+  $p = $_POST['category'];
+  $y= $_POST['year'];
+  $s= $_POST['sem'];
+  $f= $_POST['faculty'];
+
+  $sql = "INSERT INTO `kpa_project_list` (`project_title`, `proj_descrip`, `proj_thumb`, `category`, `year`, `semester`, `faculty`) VALUES ('$n', '$u', '$e', '$p', '$y', '$s', '$f');";
+include('DBConnect.php');
 if (mysqli_query($conn, $sql)) {
-    echo "<script>alert('Data edited successfully!');</script>";
-            echo "<script>window.location='users.php';</script>";
+     echo "<script>alert('Project Added Successfully!');</script>";
+            echo "<script>window.location='addproject.php';</script>";
 } else {
-    echo "Error updating record: " . mysqli_error($conn);
+    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 }
 mysqli_close($conn);
 }
 ?>
+
 <body class="">
   <div class="wrapper ">
     <div class="sidebar" data-color="yellow" data-active-color="success">
@@ -32,9 +31,8 @@ mysqli_close($conn);
             <img src="img/default-avatar.png">
           </div>
         </a>
-       <a href="user.php" class="simple-text logo-normal">
-          <?=($_SESSION['username']);?>  
-        </a>
+        <a href="dashboard.php" class="simple-text logo-normal">
+<?=($_SESSION['username']);?>        </a>
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
@@ -42,15 +40,16 @@ mysqli_close($conn);
             <a href="dashboard.php">
               <i class="nc-icon nc-bank"></i>
               <p>Dashboard</p>
+
             </a>
           </li>
-          <li class="active">
+          <li class="">
             <a href="users.php">
                     <i class="fa fa-users"></i>                  
               <p>Users</p>
             </a>
           </li>
-          <li class="">
+          <li class="active">
             <a href="addproject.php">
               <i class="nc-icon nc-single-copy-04"></i>
               <p>Projects</p>
@@ -96,7 +95,17 @@ mysqli_close($conn);
                 <span class="navbar-toggler-bar bar3"></span>
               </button>
             </div>
-            <a class="navbar-brand" href="#pablo">Dashboard</a>
+            <a class="navbar-brand" href="dashboard.php">Dashboard</a>
+
+<?php
+
+require_once("DBConnect.php");
+
+$sql = "SELECT * FROM `kpa_project_list` WHERE `is_verified`='0' ORDER BY `id` ASC";
+$result = mysqli_query($conn, $sql);
+if (mysqli_num_rows($result) > 0) {?>
+
+            <button class="btn btn-light" href="validateproject.php" style="text-align: right; margin-left: 400px;" >View unvalidated projects</button><?php } ?>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -140,37 +149,70 @@ mysqli_close($conn);
       </nav>
       <!-- End Navbar -->
       <div class="content">
+        <p id="breadcrumb"><a href="dashboard.php" style="padding-left: 10px;">Home</a> &raquo; <a href="addproject.php">Project List</a> &raquo; Validate projects</p>
+          
         <div class="row">
-          <div class="col">
+          <div class="col"><p>The submitted project which are to be validated are listed below:</p>
             <div class="card card-stats">
               <div class="card body">
-<h5>Edit User Info.</h5>
-<form action="" method="POST" name="user">
-<table class="table table-striped">
- <tr>
-    <td>Name:</td>
-    <td><input type="text" name="name" placeholder="Enter Full Name" required="required" value="<?= $prev_data['name'];?>"></td>
-  </tr>
- 
- <tr>
-    <td>Username:</td>
-    <td><input type="text" name="username" placeholder="Enter Username" required="required" value="<?= $prev_data['username'];?>"></td>
-  </tr>
-  <tr>
-    <td>Email:</td>
-    <td><input type="email" name="email" required="required" value="<?= $prev_data['email'];?>"></td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td><input type="submit" name="edit_user" value="UPDATE"></td>
-  </tr>
+                <?php
+require_once("DBConnect.php");
 
+$sql = "SELECT * FROM `kpa_project_list` WHERE `is_verified`='0' ORDER BY `id` ASC";
+$result = mysqli_query($conn, $sql);
+?>
+                <table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Project Title</th>
+      <th scope="col">Project Description</th>
+      <th scope="col">Thumbnail</th>
+      <th scope="col">Category</th>
+      <th scope="col">Year</th>
+      <th scope="col">Semester</th>
+      <th scope="col">Faculty</th>
+      <th scope="col">Actions</th>
+           
+      </tr>
+  </thead>
+  <?php
+if (mysqli_num_rows($result) > 0) {
+   
+    $i=0;
+    while($row = mysqli_fetch_assoc($result)) {
+?>
+  <tbody>
+   <tr>
+        <td><?= ++$i;?></td>
+        <td><?= $row["project_title"];?></td>
+        <td><?= $row["proj_descrip"];?></td>
+        <td><img src="../images/<?= $row["proj_thumb"];?>"style="height: 100px;width: 100px"> </td>
+        <td><?= $row["category"];?></td>
+        <td><?= $row["year"];?></td>
+        <td><?= $row["semester"];?></td>
+        <td><?= $row["faculty"];?></td>
+        <td><a href="validatep.php?id=<?= $row['id'];?>">Validate</a> &nbsp;&nbsp;<a onclick="return confirm('Are you sure you want to delete this entry?')" href="delete_project.php?id=<?= $row['id'];?>">Delete</a></td>
+    </tr>
+  </tbody>
+  <?php
+    }   
+} else {
+    ?>
+    <tr>
+        <td colspan="3">No Record(s) found.</td>
+    </tr>
+    <?php
+}
+?>
+<?php 
+mysqli_close($conn);
+?>
 </table>
-</form>
               </div>
             </div>
           </div>
-          
-        </div>      
+
+        </div>     
       </div>
       <?php include_once('includes/footer.php');?>

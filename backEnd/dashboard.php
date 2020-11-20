@@ -70,17 +70,17 @@ if (mysqli_num_rows($all_programming_language_name) > 0) {
             </a>
           </li>
           <li class="">
-            <a href="content.php">
+            <a href="addproject.php">
               <i class="nc-icon nc-single-copy-04"></i>
               <p>Projects</p>
             </a>
           </li>
-          <li>
+          <!-- <li>
             <a href="notifications.php">
               <i class="nc-icon nc-bell-55"></i>
               <p>Notifications</p>
             </a>
-          </li>
+          </li> -->
           <li>
             <a href="user.php">
               <i class="nc-icon nc-single-02"></i>
@@ -91,6 +91,12 @@ if (mysqli_num_rows($all_programming_language_name) > 0) {
             <a href="upload.php">
               <i class="nc-icon nc-caps-small"></i>
               <p>Upload Files</p>
+            </a>
+          </li>
+          <li class="">
+            <a href="../home.php">
+              <i class="nc-icon nc-caps-small"></i>
+              <p>Back to Homepage</p>
             </a>
           </li>
         </ul>

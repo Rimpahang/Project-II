@@ -39,8 +39,7 @@ mysqli_close($conn);
           </div>
         </a>
        <a href="#" class="simple-text logo-normal">
-          Naresh 
-        </a>
+<?=($_SESSION['username']);?>         </a>
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
@@ -57,17 +56,17 @@ mysqli_close($conn);
             </a>
           </li>
           <li class="">
-            <a href="content.php">
+            <a href="addproject.php">
               <i class="nc-icon nc-single-copy-04"></i>
               <p>Projects</p>
             </a>
           </li>
-          <li>
+          <!-- <li>
             <a href="notifications.php">
               <i class="nc-icon nc-bell-55"></i>
               <p>Notifications</p>
             </a>
-          </li>
+          </li> -->
           <li class="active">
             <a href="user.php">
               <i class="nc-icon nc-single-02"></i>
@@ -79,6 +78,12 @@ mysqli_close($conn);
             <a href="upload.php">
               <i class="nc-icon nc-caps-small"></i>
               <p>Upload Files</p>
+            </a>
+          </li>
+          <li class="">
+            <a href="../home.php">
+              <i class="nc-icon nc-caps-small"></i>
+              <p>Back to Homepage</p>
             </a>
           </li>
         </ul>
@@ -127,7 +132,7 @@ mysqli_close($conn);
                 </div>
             </li> -->
               <li class="nav-item">
-                <a class="nav-link btn-rotate" href="#pablo">
+                <a class="nav-link btn-rotate" href="logout.php">
                   <i class="fa fa-sign-out" alt='logout'></i>
                   <p>
                     <span class="d-lg-none d-md-block">Logout</span>

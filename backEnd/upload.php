@@ -9,7 +9,7 @@
           </div>
         </a>
        <a href="#" class="simple-text logo-normal">
-          Naresh 
+          <?=($_SESSION['username']);?>  
         </a>
       </div>
       <div class="sidebar-wrapper">
@@ -27,17 +27,17 @@
             </a>
           </li>
           <li class="">
-            <a href="content.php">
+            <a href="addproject.php">
               <i class="nc-icon nc-single-copy-04"></i>
               <p>Projects</p>
             </a>
           </li>
-          <li>
+          <!-- <li>
             <a href="notifications.php">
               <i class="nc-icon nc-bell-55"></i>
               <p>Notifications</p>
             </a>
-          </li>
+          </li> -->
           <li>
             <a href="user.php">
               <i class="nc-icon nc-single-02"></i>
@@ -48,6 +48,12 @@
             <a href="upload.php">
               <i class="nc-icon nc-caps-small"></i>
               <p>Upload Files</p>
+            </a>
+          </li>
+          <li class="">
+            <a href="../home.php">
+              <i class="nc-icon nc-caps-small"></i>
+              <p>Back to Homepage</p>
             </a>
           </li>
         </ul>
@@ -96,7 +102,7 @@
                 </div>
             </li> -->
               <li class="nav-item">
-                <a class="nav-link btn-rotate" href="#pablo">
+                <a class="nav-link btn-rotate" href="logout.php">
                   <i class="fa fa-sign-out" alt='logout'></i>
                   <p>
                     <span class="d-lg-none d-md-block">Logout</span>
@@ -110,14 +116,14 @@
       <!-- End Navbar -->
 <?php
 error_reporting(0);
-   if(isset($_FILES['file'])){
+   if(isset($_FILES['image'])){
        // echo "<pre>";print_r($_FILES['image']);exit;
       $errors= array();
-      $file_name = $_FILES['file']['name'];
-      $file_size =$_FILES['file']['size'];
-      $file_tmp =$_FILES['file']['tmp_name'];
-      $file_type=$_FILES['file']['type'];
-      $file_ext=strtolower(end(explode('.',$_FILES['file']['name'])));
+      $file_name = $_FILES['image']['name'];
+      $file_size =$_FILES['image']['size'];
+      $file_tmp =$_FILES['image']['tmp_name'];
+      $file_type=$_FILES['image']['type'];
+      $file_ext=strtolower(end(explode('.',$_FILES['image']['name'])));
       
       $extensions= array("docx","doc","ppt","pptx","pdf","jpeg","jpg","png");
       
@@ -130,9 +136,9 @@ error_reporting(0);
       }
       
       if(empty($errors)==true){
-         move_uploaded_file($file_tmp,"projects/".$file_name);
+         move_uploaded_file($file_tmp,"uploads/".$file_name);
 
-         $sql = "INSERT INTO `kpa_project_details` (`project_abstract`) VALUES ('$file_name')";
+         $sql = "INSERT INTO `uploads` (`title`) VALUES ('$file_name');";
          require_once("DBConnect.php");
 
         if (mysqli_query($conn, $sql)) {
@@ -150,33 +156,46 @@ error_reporting(0);
 ?>
 
 <?php
+// echo "Nepal";exit();
 require_once("DBConnect.php");
-$sql = "SELECT * FROM `kpa_project_details` WHERE 1 Limit 0, 10";
-$result = mysqli_query($conn, $sql);?>
 
+$sql = "SELECT * FROM `uploads` WHERE 1 Limit 0, 10";
+$result = mysqli_query($conn, $sql);
+// $data = mysqli_num_rows($result);
+// echo "<pre>"; print_r($result); exit();
+?>
+
+<?php include 'includes/header.php';?>
+        
         <div class="content">
 <form action="" method="POST" enctype="multipart/form-data">
- <input type="file" name="file" required="required" />
+ <input type="file" name="image" required="required" />
  <input type="submit" value="UPLOAD" />
-</form><br><br>
-<h5>Files</h5>
-<table class="table table-striped" border="1" cellspacing="0" cellpadding="20" width="100%">
+</form>
+<h1>Files</h1>
+<table border="1" cellspacing="0" cellpadding="20" width="100%">
     <tr>
         <th>S.N.</th>
         <th>Thumbnail</th>
-        <th>Title</th>
+        <th>File Name</th>
         <th>Created At</th>
         <th>Action</th>
     </tr>
 <?php
 if (mysqli_num_rows($result) > 0) {
-     $i=0;
-    while($row = mysqli_fetch_assoc($result)) {?>
+    // output data of each row
+    //$user_list = mysqli_fetch_assoc($result);
+    // echo "<pre>"; print_r($user_list);exit;
+    $i=0;
+    while($row = mysqli_fetch_assoc($result)) {
+        // echo "id: " . $row["id"]. " - Name: " . $row["name"]. " " . $row["email"]. "<br>";
+
+?>
     <tr>
         <td style="text-align: center;"><?= ++$i;?></td>
-        <td style="text-align: center;"><img style="width: 80px; border: 1px solid #eee;" src="projects/<?= $row["project_abstract"];?>" alt="Thumbnail"></td>
-        <td><?= $row["project_title"];?></td>
-        <td><?= $row["uploaded_at"];?></td>
+        <td style="text-align: center;"><img style="width: 80px; border: 1px solid #eee;" src="uploads/<?= $row["title"];?>" alt="Thumbnail"></td>
+        <td><?= $row["title"];?></td>
+        <td><?= $row["created_at"];?></td>
         <td style="text-align: center;"><a style="color: #F00; text-decoration: none;" onclick="return confirm('Are you sure you want to delete this file?')" href="delete_file.php?id=<?= $row['id'];?>">&#10008;</a></td>
     </tr>
 <?php
@@ -184,7 +203,7 @@ if (mysqli_num_rows($result) > 0) {
 } else {
     ?>
     <tr>
-        <td colspan="5">No Record(s) found.</td>
+        <td colspan="3">No Record(s) found.</td>
     </tr>
     <?php
 }
@@ -195,5 +214,4 @@ mysqli_close($conn);
 </table>
             
         </div>
-</div></div>
-      <?php include_once('includes/footer.php');?>
+    <?php include 'includes/footer.php';?>
