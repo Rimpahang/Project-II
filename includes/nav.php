@@ -226,8 +226,8 @@ include("backEnd/DBconnect.php");
         { ?>  <a class="dropdown-item" href="backEnd/dashboard.php">Dashboard</a><?php }
       elseif ($row_1['user_type']=="normal_user" || $row_1['user_type']=="guest") 
         { ?> 
-          <a class="dropdown-item" href="#">Profile</a>
-          <a class="dropdown-item" href="#">Requests</a>
+          <a class="dropdown-item" href="backEnd/normaluserdash.php">Profile</a>
+          
     <?php }} ?>
     <a class="dropdown-item" href="backEnd/logout.php">Logout</a>
   </div>
