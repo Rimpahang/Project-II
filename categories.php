@@ -32,7 +32,7 @@
 
 include("backEnd/includes/DBConnect.php");
 
-$sql = "SELECT * FROM `kpa_project_list`";
+$sql = "SELECT * FROM `kpa_project_list` WHERE `is_verified`='1'";
 $result = mysqli_query($conn, $sql);
         while($row = mysqli_fetch_assoc($result)) {
 ?>
@@ -41,7 +41,7 @@ $result = mysqli_query($conn, $sql);
 
 		<div class="card shadow" style="width: 15rem;">
 			<div class="inner"> 
-  <img src="images/logo.png<?php echo($row["proj_thumb"]) ;?>" class="card-img-top" alt="project logo" style="height: 100px; width: 100%;">
+  <img src="images/<?php echo($row["proj_thumb"]) ;?>" class="card-img-top" alt="project logo" style="height: 100px; width: 100%;">
 </div>
   <div class="card-body text-center">
     <h5 class="card-title"><?= $row["project_title"];?></h5>

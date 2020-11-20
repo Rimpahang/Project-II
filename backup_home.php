@@ -11,7 +11,7 @@
             <p class="para">Want to become member? Click the button and be our friend rather than guest.</p>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 col-xl-2 d-inline-block">
-                        <a href="" data-toggle="modal" data-target="#login-signup-modal"><button type="button" class="btn btn-outline-success btn-light">Register</button></a>
+                        <a ><button type="button" class="btn btn-outline-success btn-light" data-target="#signup-modal-content" >Register</button></a>
                     </div>
                     <div class="fa fa-times position-absolute" id="reg-cross" style="color: black; right: 20px; top: 3px;">
                     </div>
@@ -22,8 +22,7 @@
               </div>
             <div class="col-4" style="color: white" >
               <h1 style="margin-top: 5px;color: black">Welcome to Khwopa Project Archive</h1>
-              <p style="font-size: 16px; text-align: justify;margin-right: 10px; margin-top: 25px;">Are you starting to do a project for the first time? Do you need help on how to start? You have come to right place. Khwopa Project Archive is where you can find many project done by students of Khwopa Engineering College. It is an archive of all kinds of project you can view and get ideas from and get your own project started. This website is the platform to showcase project samples for you to get ideas from and develop your own project.<p>
-                <a href="categories.php"> <button type="button" class="btn btn-info" >Lets get started!</button></a></p></p>
+              <p style="font-size: 16px; text-align: justify;margin-right: 10px; margin-top: 25px;">Are you starting to do a project for the first time? Do you need help on how to start? You have come to right place. Khwopa Project Archive is where you can find many project done by students of Khwopa Engineering College. It is an archive of all kinds of project you can view and get ideas from and get your own project started. This website is the platform to showcase project samples for you to get ideas from and develop your own project.<p><button type="button" class="btn btn-info" >Lets get started!</button></p></p>
             </div>
   </div>
         <!---Welcome Section--->
@@ -65,15 +64,15 @@
           <div class="row padding">
             <div class="col-xs-4 col-sm-4 col-md-4">
               <h3 class="text-info">To start a project</h3>
-              <p> The first step to start a project is to choose a topic of your interest. So, start by exploring some of the potential project titles.<br><a class="btn btn-primary btn-md" href="project-collection.php" role="button">EXPLORE »</a></p>
+              <p> The first step to start a project is to choose a topic of your interest. So, start by exploring some of the potential project titles.<br><a class="btn btn-primary btn-md" href="#" role="button">EXPLORE »</a></p>
             </div>
             <div class="col-xs-4 col-sm-4 col-md-4">
               <h3 class="text-info">Explore available projects</h3>
-              <p> After looking at some project titles, lets view some projects of your likings.<br><br><a class="btn btn-primary btn-md" href="categories.php" role="button">EXPLORE »</a></p>
+              <p> After looking at some project titles, lets view some projects of your likings.<br><br><a class="btn btn-primary btn-md" href="#" role="button">EXPLORE »</a></p>
             </div>
             <div class="col-xs-4 col-sm-4 col-md-4">
               <h3 class="text-info">Guidelines</h3>
-              <p> The following link provides the files containg college provided guidelines and proposal format. <br> <br><a class="btn btn-primary btn-md" href="backEnd/uploads/Project-Proposal-Format.docx" role="button">DOWNLOAD</a></p>
+              <p> The following link provides the files containg college provided guidelines. <br> <br><a class="btn btn-primary btn-md" href="#" role="button">DOWNLOAD</a></p>
             </div>
             
           </div>

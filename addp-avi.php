@@ -1,3 +1,27 @@
+
+<?php include_once('includes/header.php');
+
+if (isset($_POST['addproject'])) {
+  
+  $n =$_POST['title'];
+  $u = $_POST['description'];
+  $e = $_POST['abstract'];
+  $p = $_POST['category'];
+  $y= $_POST['year'];
+  $s= $_POST['sem'];
+  $f= $_POST['faculty'];
+
+  $sql = "INSERT INTO `kpa_project_list` (`project_title`, `proj_descrip`, `proj_thumb`, `category`, `year`, `semester`, `faculty`,`is_verified`) VALUES ('$n', '$u', '$e', '$p', '$y', '$s', '$f','0');";
+include('backEnd/includes/DBConnect.php');
+if (mysqli_query($conn, $sql)) {
+     echo "<script>alert('Project Added Successfully!');</script>";
+            echo "<script>window.location='addp-avi.php';</script>";
+} else {
+    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+}
+mysqli_close($conn);
+}
+?>
 <?php include('includes/header-addp.php') ?>
 <body data-spy="scroll" data-target="#navbarResponsive">
 
@@ -70,14 +94,14 @@
       <span class="glyphicon glyphicon-pencil"></span>
     </div>
     <hr>
-    <form action="#" id="form1" onsubmit="return validation()">
+    <form action="#" method="POST" id="form1" onsubmit="return validation()">
       
     <!--column for textbox and label-->
     <div class="row" id="row1">
       
       <label class="label col-md-2 control-label">Project Name</label>
       <div class="col-md-10">
-        <input type="text" class="form-control1" name="title" id="projectname" placeholder="Project Name" autocomplete="off">
+        <input type="text" name="title" class="form-control1" name="title" id="projectname" placeholder="Project Name" autocomplete="off">
         <span id="projectname" class="text-danger font-weight-bold"></span>
         </div>
     </div>
@@ -85,16 +109,32 @@
   
       <label class="label col-md-2 control-label">Description</label>
       <div class="col-md-10">
-       <textarea class="form-control1" type="text" name="description" placeholder="Enter description" id="description"></textarea>
+       <textarea name="description" class="form-control1" type="text" name="description" placeholder="Enter description" id="description"></textarea>
         </div>
       </div>
       <div class="row">
   
       <label class="label col-md-2 control-label">Abstract</label>
       <div class="col-md-10">
-       <textarea class="form-control1" type="file" name="abstract" placeholder="Enter Abstract" id="abstract"></textarea>
+       <input type="file" name="abstract" id="abstract">
         </div>
       </div>
+      <div class="row">
+      
+      <label class="label col-md-2 control-label">Category</label>
+      <div class="col-md-10">
+        <select class= "form-control1" name="category" id="category">
+  <option value="Management System">Management System</option>
+  <option value="Commerce">Commerce</option>
+  <option value="Robotics">Robotics</option>
+  <option value="Games">Games</option>
+
+  <option value="ML and AI">ML and AI</option>
+
+  <option value="Others">Others</option>
+  </select>
+        </div>  
+    </div>
      
       <div class="row">
       
@@ -125,122 +165,17 @@
       
       <label class="label col-md-2 control-label">Faculty</label>
       <div class="col-md-10">
-        <select class= "form-control1" id="year" name="year">
+        <select class= "form-control1" id="year" name="faculty">
           <option>B.E. Computer</option>
           <option>B.E. Elex & Comm.</option>
           
         </select>
         </div>  
     </div>
-      <div class="row">
       
-      <label class="label col-md-2 control-label">Category</label>
-      <div class="col-md-10">
-        <select class= "form-control1" id="category" name="category">
-          <option>System Management</option>
-          <option>Robotics</option>
-          <option>Game</option>
-          <option>Commerce</option>
-          <option>Ml & AI</option>
-
-        </select>
-        </div>
-      </div>
-
-    <!-- <div class="row">
-      
-      <label class="label col-md-2 control-label"> E-mail</label>
-      <div class="col-md-10">
-        <input type="email" class="form-control1" name="email" id="email" placeholder="E-mail">
-        <span id="emailid" class="text-danger font-weight-bold"></span>
-        </div>
-      </div>
-
-    <div class="row">
-      <label class="label col-md-2 control-label"> Password</label>
-      <div class="col-md-10">
-        <input type="password" class="form-control1" name="password" placeholder="Password" id="pass">
-         <span id="passid" class="text-danger font-weight-bold"></span><br>
-        <input type="checkbox"><small> Remember me!</small>
-      </div>
-    </div>  
-
-    <div class="row">
-      <label class="label col-md-2 control-label"> Confirm Password</label>
-      <div class="col-md-10">
-        <input type="password" class="form-control1" name="password" placeholder=" Confirm Password" id="conpass">
-         <span id="confmpass" class="text-danger font-weight-bold"></span>
-        
-      </div>
-    </div> 
-       <div class="row">
-      
-      <label class="label col-md-2 control-label"> Mob. No.</label>
-      <div class="col-md-10">
-        <input type="number" class="form-control1" name="mobile" id="mobileNumber">
-        <span id="mobileno" class="text-danger font-weight-bold"></span>
-        </div>
-      </div>
+   
     
-
-      <br>
-
-      <div class="row">
-        
-       <input type="file" id="real-file" hidden="hidden" />
-<button type="button" id="custom-button">CHOOSE A FILE</button>
-<span id="custom-text">No file chosen, yet.</span>
-  
-      </div>
-<script type="text/javascript">
-      const realFileBtn = document.getElementById("real-file");
-const customBtn = document.getElementById("custom-button");
-const customTxt = document.getElementById("custom-text");
-
-customBtn.addEventListener("click", function() {
-  realFileBtn.click();
-});
-
-realFileBtn.addEventListener("change", function() {
-  if (realFileBtn.value) {
-    customTxt.innerHTML = realFileBtn.value.match(
-      /[\/\\]([\w\d\s\.\-\(\)]+)$/
-    )[1];
-  } else {
-    customTxt.innerHTML = "No file chosen, yet.";
-  }
-});
-</script>
-<br> -->
-    <!-- <div class="row">
-    <input type="file" id="file" onchange="return fileValidation()"/>
-      
-      </div>
-
-<script type="text/javascript">
-  function fileValidation(){
-    var fileInput = document.getElementById('file');
-    var filePath = fileInput.value;
-    var allowedExtensions = /(\.jpg|\.docx|\.jpeg|\.png|\.gif)$/i;
-    if(!allowedExtensions.exec(filePath)){
-        alert('Please upload file having extensions .jpeg/.jpg/.png/.gif only.');
-        fileInput.value = '';
-        return false;
-    }else{
-        //Image preview
-        if (fileInput.files && fileInput.files[0]) {
-            var reader = new FileReader();
-            reader.onload = function(e) {
-                document.getElementById('imagePreview').innerHTML = '<img src="'+e.target.result+'"/>';
-            };
-            reader.readAsDataURL(fileInput.files[0]);
-        }
-    }
-}
-</script> -->
-    
-    
-      <input type="submit" name="add_project" value="Submit"  class="btn btn-info">
+      <input type="submit" name="addproject" value="Submit"  class="btn btn-info">
   
     <input type="button" id="resetform" name="cancel" value="Clear" class="btn btn-warning" onclick="myfun()">
     </div>

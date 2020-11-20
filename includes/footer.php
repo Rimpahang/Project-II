@@ -1,13 +1,13 @@
 <!--- Footer-->
-<footer class="container-fluid text-center" style="background-color:  #CBC7D0">
+<footer class="container-fluid text-center" style="background-color:  #888888">
   <div class="row text-success">
     <div class="col-sm-3">
-      <h3 style="color: #08090A;">Meet the Team</h3>
+      <h3 style="color: black;">Meet the Team</h3>
       <h6>Naresh Roka, Avishek Karki</h6>
         <h6>Dhruba Rai, Aarju Chaulagain</h6>
     </div>
     <div class="col-sm-3">
-      <h3 style="color: #08090A;">Contact Us</h3>
+      <h3 style="color: black;">Contact Us</h3>
       <h6>Email: kpa-khec@edu.no</h6>
       <h6>Phone: 9823*******</h6>
     </div>
